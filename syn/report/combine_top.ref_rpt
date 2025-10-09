@@ -1,0 +1,34 @@
+ 
+****************************************
+Report : reference
+Design : combine_top
+Version: O-2018.06-SP1
+Date   : Wed Jun 18 01:03:30 2025
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+fifo_add_DEPTH120_RDW_A52_RDW_B20_RDW_C8_RDW_D3_0
+                              163916.295465
+                                                 1  163916.295465 h, n
+fifo_add_DEPTH120_RDW_A52_RDW_B20_RDW_C8_RDW_D3_1
+                              163916.169466
+                                                 1  163916.169466 h, n
+fifo_add_DEPTH120_RDW_A52_RDW_B20_RDW_C8_RDW_D3_2
+                              163919.949465
+                                                 1  163919.949465 h, n
+mux                           92112.928750       1  92112.928750  h, n
+-----------------------------------------------------------------------------
+Total 4 references                                  583865.343146
+1

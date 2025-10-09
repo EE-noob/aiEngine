@@ -1,0 +1,370 @@
+Warning: Design 'intlv_top' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+Report : reference
+Design : intlv_top
+Version: T-2022.03-SP2
+Date   : Fri May 30 18:57:41 2025
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AN2D0HVT           tcbn65lphvtwcz_ccs
+                                  2.160000      51    110.160004  
+AN2D1HVT           tcbn65lphvtwcz_ccs
+                                  2.160000      13     28.080001  
+AN2D2HVT           tcbn65lphvtwcz_ccs
+                                  2.520000       2      5.040000  
+AN2D4HVT           tcbn65lphvtwcz_ccs
+                                  4.320000       3     12.960001  
+AN2XD1HVT          tcbn65lphvtwcz_ccs
+                                  2.160000      13     28.080001  
+AN4D0HVT           tcbn65lphvtwcz_ccs
+                                  2.880000       3      8.640000  
+AO21D0HVT          tcbn65lphvtwcz_ccs
+                                  2.520000      20     50.400000  
+AO22D0HVT          tcbn65lphvtwcz_ccs
+                                  2.880000     338    973.440039  
+AO22D1HVT          tcbn65lphvtwcz_ccs
+                                  3.240000      44    142.560000  
+AO22D4HVT          tcbn65lphvtwcz_ccs
+                                  6.480000       2     12.960000  
+AO211D0HVT         tcbn65lphvtwcz_ccs
+                                  2.880000       2      5.760000  
+AO221D0HVT         tcbn65lphvtwcz_ccs
+                                  3.600000     114    410.399989  
+AO221D1HVT         tcbn65lphvtwcz_ccs
+                                  3.960000       1      3.960000  
+AO222D0HVT         tcbn65lphvtwcz_ccs
+                                  4.320000      38    164.160007  
+AO222D1HVT         tcbn65lphvtwcz_ccs
+                                  4.320000       9     38.880002  
+AOI21D0HVT         tcbn65lphvtwcz_ccs
+                                  2.160000      99    213.840008  
+AOI21D1HVT         tcbn65lphvtwcz_ccs
+                                  2.160000       1      2.160000  
+AOI22D0HVT         tcbn65lphvtwcz_ccs
+                                  2.520000     678   1708.559987  
+AOI22D1HVT         tcbn65lphvtwcz_ccs
+                                  2.520000       1      2.520000  
+AOI31D1HVT         tcbn65lphvtwcz_ccs
+                                  2.520000       4     10.080000  
+AOI32D0HVT         tcbn65lphvtwcz_ccs
+                                  2.880000       1      2.880000  
+AOI32D1HVT         tcbn65lphvtwcz_ccs
+                                  2.880000       1      2.880000  
+AOI211D0HVT        tcbn65lphvtwcz_ccs
+                                  2.520000      17     42.840000  
+AOI211D2HVT        tcbn65lphvtwcz_ccs
+                                  4.320000       1      4.320000  
+AOI211XD0HVT       tcbn65lphvtwcz_ccs
+                                  2.520000       4     10.080000  
+AOI211XD1HVT       tcbn65lphvtwcz_ccs
+                                  4.320000       2      8.640000  
+AOI221D0HVT        tcbn65lphvtwcz_ccs
+                                  2.880000       6     17.280001  
+AOI221D1HVT        tcbn65lphvtwcz_ccs
+                                  3.240000       1      3.240000  
+BUFFD1HVT          tcbn65lphvtwcz_ccs
+                                  1.440000      12     17.280001  
+BUFFD2HVT          tcbn65lphvtwcz_ccs
+                                  2.160000       4      8.640000  
+BUFFD4HVT          tcbn65lphvtwcz_ccs
+                                  3.240000       5     16.200000  
+BUFFD6HVT          tcbn65lphvtwcz_ccs
+                                  4.320000       2      8.640000  
+BUFFD12HVT         tcbn65lphvtwcz_ccs
+                                  7.920000       3     23.760000  
+CKAN2D0HVT         tcbn65lphvtwcz_ccs
+                                  2.160000     144    311.040012  
+CKAN2D1HVT         tcbn65lphvtwcz_ccs
+                                  2.160000      41     88.560004  
+CKBD0HVT           tcbn65lphvtwcz_ccs
+                                  1.440000       1      1.440000  
+CKBD1HVT           tcbn65lphvtwcz_ccs
+                                  1.440000       6      8.640000  
+CKBD3HVT           tcbn65lphvtwcz_ccs
+                                  2.520000       1      2.520000  
+CKBD4HVT           tcbn65lphvtwcz_ccs
+                                  3.240000       7     22.680000  
+CKMUX2D0HVT        tcbn65lphvtwcz_ccs
+                                  3.600000      19     68.399998  
+CKMUX2D1HVT        tcbn65lphvtwcz_ccs
+                                  3.600000     370   1331.999965  
+CKND0HVT           tcbn65lphvtwcz_ccs
+                                  1.080000     340    367.200015  
+CKND1HVT           tcbn65lphvtwcz_ccs
+                                  1.080000      24     25.920001  
+CKND2D0HVT         tcbn65lphvtwcz_ccs
+                                  1.440000     104    149.760006  
+CKND2D1HVT         tcbn65lphvtwcz_ccs
+                                  1.440000      32     46.080002  
+CKND2D2HVT         tcbn65lphvtwcz_ccs
+                                  2.520000      20     50.400000  
+CKND2D3HVT         tcbn65lphvtwcz_ccs
+                                  3.240000       2      6.480000  
+CKND2D4HVT         tcbn65lphvtwcz_ccs
+                                  4.320000       1      4.320000  
+CKND2HVT           tcbn65lphvtwcz_ccs
+                                  1.440000      14     20.160001  
+CKND3HVT           tcbn65lphvtwcz_ccs
+                                  2.160000       2      4.320000  
+CKND8HVT           tcbn65lphvtwcz_ccs
+                                  4.320000       1      4.320000  
+CKXOR2D0HVT        tcbn65lphvtwcz_ccs
+                                  3.600000       9     32.399999  
+DFCND1HVT          tcbn65lphvtwcz_ccs
+                                  8.640000       9     77.760003  n
+DFCND2HVT          tcbn65lphvtwcz_ccs
+                                 10.080000       2     20.160000  n
+DFCND4HVT          tcbn65lphvtwcz_ccs
+                                 11.880000       4     47.520000  n
+DFCNQD1HVT         tcbn65lphvtwcz_ccs
+                                  7.920000     783   6201.360060  n
+DFCNQD2HVT         tcbn65lphvtwcz_ccs
+                                  9.000000      17    153.000000  n
+DFCNQD4HVT         tcbn65lphvtwcz_ccs
+                                 10.080000      18    181.439999  n
+DFQD1HVT           tcbn65lphvtwcz_ccs
+                                  6.840000     200   1368.000031  n
+DFQD2HVT           tcbn65lphvtwcz_ccs
+                                  7.200000       1      7.200000  n
+DFQD4HVT           tcbn65lphvtwcz_ccs
+                                  8.280000       6     49.679998  n
+DFSNQD1HVT         tcbn65lphvtwcz_ccs
+                                  8.280000       6     49.679998  n
+EDFCND1HVT         tcbn65lphvtwcz_ccs
+                                 11.160000       3     33.480000  n
+EDFCNQD1HVT        tcbn65lphvtwcz_ccs
+                                 10.800000       3     32.400001  n
+EDFD1HVT           tcbn65lphvtwcz_ccs
+                                  9.720000       1      9.720000  n
+EDFD2HVT           tcbn65lphvtwcz_ccs
+                                 10.440000       8     83.519997  n
+FCICOND1HVT        tcbn65lphvtwcz_ccs
+                                  3.240000       1      3.240000  
+HA1D0HVT           tcbn65lphvtwcz_ccs
+                                  5.760000      21    120.960005  r
+IAO22D0HVT         tcbn65lphvtwcz_ccs
+                                  3.240000       1      3.240000  
+IIND4D2HVT         tcbn65lphvtwcz_ccs
+                                  6.120000       3     18.360000  
+IND2D0HVT          tcbn65lphvtwcz_ccs
+                                  2.160000      19     41.040002  
+IND2D1HVT          tcbn65lphvtwcz_ccs
+                                  2.160000      13     28.080001  
+IND2D2HVT          tcbn65lphvtwcz_ccs
+                                  2.880000       1      2.880000  
+IND3D0HVT          tcbn65lphvtwcz_ccs
+                                  2.520000       2      5.040000  
+IND3D1HVT          tcbn65lphvtwcz_ccs
+                                  2.520000       1      2.520000  
+IND4D0HVT          tcbn65lphvtwcz_ccs
+                                  2.880000       3      8.640000  
+IND4D1HVT          tcbn65lphvtwcz_ccs
+                                  2.880000       3      8.640000  
+INR2D0HVT          tcbn65lphvtwcz_ccs
+                                  2.160000      10     21.600001  
+INR2D1HVT          tcbn65lphvtwcz_ccs
+                                  2.160000       2      4.320000  
+INR2XD0HVT         tcbn65lphvtwcz_ccs
+                                  2.160000       7     15.120001  
+INR2XD2HVT         tcbn65lphvtwcz_ccs
+                                  4.680000       2      9.360000  
+INVD0HVT           tcbn65lphvtwcz_ccs
+                                  1.080000      18     19.440001  
+INVD1HVT           tcbn65lphvtwcz_ccs
+                                  1.080000      27     29.160001  
+INVD2HVT           tcbn65lphvtwcz_ccs
+                                  1.440000       4      5.760000  
+INVD4HVT           tcbn65lphvtwcz_ccs
+                                  2.520000       2      5.040000  
+INVD6HVT           tcbn65lphvtwcz_ccs
+                                  3.240000       2      6.480000  
+IOA21D1HVT         tcbn65lphvtwcz_ccs
+                                  2.520000       8     20.160000  
+IOA21D2HVT         tcbn65lphvtwcz_ccs
+                                  3.240000       7     22.680000  
+MAOI22D0HVT        tcbn65lphvtwcz_ccs
+                                  2.880000       1      2.880000  
+MAOI22D1HVT        tcbn65lphvtwcz_ccs
+                                  2.880000       1      2.880000  
+MAOI222D0HVT       tcbn65lphvtwcz_ccs
+                                  2.880000       8     23.040001  
+MAOI222D1HVT       tcbn65lphvtwcz_ccs
+                                  2.880000       2      5.760000  
+MOAI22D0HVT        tcbn65lphvtwcz_ccs
+                                  2.880000      27     77.760003  
+MUX2D0HVT          tcbn65lphvtwcz_ccs
+                                  3.240000     487   1577.880005  
+MUX2D1HVT          tcbn65lphvtwcz_ccs
+                                  3.600000      62    223.199994  
+MUX2ND0HVT         tcbn65lphvtwcz_ccs
+                                  2.880000      93    267.840011  
+ND2D0HVT           tcbn65lphvtwcz_ccs
+                                  1.440000      13     18.720001  
+ND2D1HVT           tcbn65lphvtwcz_ccs
+                                  1.440000      20     28.800001  
+ND2D2HVT           tcbn65lphvtwcz_ccs
+                                  2.520000      24     60.480000  
+ND2D3HVT           tcbn65lphvtwcz_ccs
+                                  3.240000       6     19.440000  
+ND2D4HVT           tcbn65lphvtwcz_ccs
+                                  4.320000      12     51.840002  
+ND3D0HVT           tcbn65lphvtwcz_ccs
+                                  2.160000     108    233.280009  
+ND3D1HVT           tcbn65lphvtwcz_ccs
+                                  2.160000       8     17.280001  
+ND3D2HVT           tcbn65lphvtwcz_ccs
+                                  3.240000       2      6.480000  
+ND4D0HVT           tcbn65lphvtwcz_ccs
+                                  2.520000      17     42.840000  
+ND4D1HVT           tcbn65lphvtwcz_ccs
+                                  2.520000       1      2.520000  
+ND4D2HVT           tcbn65lphvtwcz_ccs
+                                  4.680000       1      4.680000  
+NR2D0HVT           tcbn65lphvtwcz_ccs
+                                  1.440000     183    263.520010  
+NR2D1HVT           tcbn65lphvtwcz_ccs
+                                  1.440000      10     14.400001  
+NR2D2HVT           tcbn65lphvtwcz_ccs
+                                  2.520000       4     10.080000  
+NR2D8HVT           tcbn65lphvtwcz_ccs
+                                  7.920000       4     31.680000  
+NR2XD0HVT          tcbn65lphvtwcz_ccs
+                                  1.440000      30     43.200002  
+NR2XD1HVT          tcbn65lphvtwcz_ccs
+                                  2.520000       8     20.160000  
+NR2XD4HVT          tcbn65lphvtwcz_ccs
+                                  7.920000       1      7.920000  
+NR3D0HVT           tcbn65lphvtwcz_ccs
+                                  2.160000      19     41.040002  
+NR4D0HVT           tcbn65lphvtwcz_ccs
+                                  2.520000      69    173.879999  
+NR4D1HVT           tcbn65lphvtwcz_ccs
+                                  3.600000       1      3.600000  
+NR4D2HVT           tcbn65lphvtwcz_ccs
+                                  7.200000       1      7.200000  
+NR4D8HVT           tcbn65lphvtwcz_ccs
+                                  7.560000       1      7.560000  
+OA21D0HVT          tcbn65lphvtwcz_ccs
+                                  2.520000       9     22.680000  
+OA31D0HVT          tcbn65lphvtwcz_ccs
+                                  2.880000       2      5.760000  
+OA31D1HVT          tcbn65lphvtwcz_ccs
+                                  2.880000       3      8.640000  
+OA211D0HVT         tcbn65lphvtwcz_ccs
+                                  2.880000       3      8.640000  
+OAI21D0HVT         tcbn65lphvtwcz_ccs
+                                  2.160000      30     64.800003  
+OAI21D1HVT         tcbn65lphvtwcz_ccs
+                                  2.160000       1      2.160000  
+OAI22D0HVT         tcbn65lphvtwcz_ccs
+                                  2.520000       1      2.520000  
+OAI31D0HVT         tcbn65lphvtwcz_ccs
+                                  2.520000      21     52.920000  
+OAI31D1HVT         tcbn65lphvtwcz_ccs
+                                  2.520000       1      2.520000  
+OAI32D0HVT         tcbn65lphvtwcz_ccs
+                                  2.880000       6     17.280001  
+OAI211D0HVT        tcbn65lphvtwcz_ccs
+                                  2.520000     104    262.079998  
+OAI211D1HVT        tcbn65lphvtwcz_ccs
+                                  2.520000       2      5.040000  
+OAI222D0HVT        tcbn65lphvtwcz_ccs
+                                  3.240000      93    301.320001  
+OR2D0HVT           tcbn65lphvtwcz_ccs
+                                  2.160000     862   1861.920074  
+OR2D1HVT           tcbn65lphvtwcz_ccs
+                                  2.160000     195    421.200017  
+OR2D2HVT           tcbn65lphvtwcz_ccs
+                                  2.520000       3      7.560000  
+OR2XD1HVT          tcbn65lphvtwcz_ccs
+                                  2.160000      12     25.920001  
+OR3D0HVT           tcbn65lphvtwcz_ccs
+                                  2.520000       5     12.600000  
+OR3D1HVT           tcbn65lphvtwcz_ccs
+                                  2.520000       1      2.520000  
+OR4D0HVT           tcbn65lphvtwcz_ccs
+                                  2.880000      14     40.320002  
+OR4D1HVT           tcbn65lphvtwcz_ccs
+                                  2.880000       1      2.880000  
+OR4XD1HVT          tcbn65lphvtwcz_ccs
+                                  2.880000       3      8.640000  
+TIELHVT            tcbn65lphvtwcz_ccs
+                                  1.080000       1      1.080000  
+calcP                             0.000000       3      0.000000  b
+filo_N138_N211_N33_RDW_A10_RDW_B4_0
+                               3236.760052       1   3236.760052  h, n
+filo_N138_N211_N33_RDW_A10_RDW_B4_1
+                               3223.440051       1   3223.440051  h, n
+filo_N138_N211_N33_RDW_A10_RDW_B4_2
+                               3218.040050       1   3218.040050  h, n
+filo_N138_N211_N33_RDW_A10_RDW_B4_3
+                               3212.640051       1   3212.640051  h, n
+filo_N138_N211_N33_RDW_A10_RDW_B4_4
+                               3204.000051       1   3204.000051  h, n
+filo_N138_N211_N33_RDW_A10_RDW_B4_5
+                               3228.840052       1   3228.840052  h, n
+intlv_top_DP_OP_111_134_4981_0
+                                 81.360002       1     81.360002  h
+intlv_top_DP_OP_301_140_4469_0
+                                 81.360002       1     81.360002  h
+intlv_top_DP_OP_493_137_6005_0
+                                 81.360002       1     81.360002  h
+intlv_top_DP_OP_808_200_6832_0
+                                145.440000       1    145.440000  h
+intlv_top_DP_OP_809_218_7766_0
+                                544.680001       1    544.680001  h
+intlv_top_DP_OP_822_212_8198_0
+                                145.440000       1    145.440000  h
+intlv_top_DP_OP_823_230_5844_0
+                                510.120000       1    510.120000  h
+intlv_top_DP_OP_836_206_6423_0
+                                149.040000       1    149.040000  h
+intlv_top_DP_OP_837_224_3263_0
+                                553.680001       1    553.680001  h
+intlv_top_DP_OP_844_125_6541_0
+                                541.440000       1    541.440000  h
+intlv_top_DP_OP_845_126_8254_0
+                                217.800003       1    217.800003  h
+intlv_top_DP_OP_846_127_75_0    782.639996       1    782.639996  h
+intlv_top_DP_OP_847_128_6541_0
+                                587.880001       1    587.880001  h
+intlv_top_DP_OP_848_129_8254_0
+                                248.400005       1    248.400005  h
+intlv_top_DP_OP_849_130_75_0    782.639996       1    782.639996  h
+intlv_top_DP_OP_850_131_6541_0
+                                544.680001       1    544.680001  h
+intlv_top_DP_OP_851_132_8254_0
+                                226.080004       1    226.080004  h
+intlv_top_DP_OP_852_133_75_0    782.639996       1    782.639996  h
+intlv_top_DW01_sub_6            198.000002       1    198.000002  h
+intlv_top_DW01_sub_7            154.080003       1    154.080003  h
+intlv_top_DW01_sub_8            209.160002       1    209.160002  h
+intlv_top_DW01_sub_9            154.080003       1    154.080003  h
+intlv_top_DW01_sub_10           213.120002       1    213.120002  h
+intlv_top_DW01_sub_11           154.080003       1    154.080003  h
+triangleSR_N138_N211_N33_readModeNum3_0
+                              120234.240811
+                                                 1  120234.240811 h, n
+triangleSR_N138_N211_N33_readModeNum3_1
+                              120297.240813
+                                                 1  120297.240813 h, n
+triangleSR_N138_N211_N33_readModeNum3_2
+                              120241.440810
+                                                 1  120241.440810 h, n
+-----------------------------------------------------------------------------
+Total 176 references                                409981.323044
+1

@@ -1,0 +1,6 @@
+@elabcom rc file Version 1.0
+[oh]
+invokeDir = /home/ICer/ic_prjs/HW_ICS/veri/module_test/div_test/sim
+hostCommand = -lib simv.daidir/work -saveLevel -elab simv.daidir/kdb -simflow -simdir simv.daidir/kdb_libs -top "uvm_custom_install_recording uvm_custom_install_verdi_recording tb_serial_divider" -Lf work +disable_message+C00380+C00381 +disable_message+C00388+C00389 -SN\
+PS_ELABCOM -saveElab
+simType = VCS

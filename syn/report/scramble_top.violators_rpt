@@ -1,0 +1,1041 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : scramble_top
+Version: O-2018.06-SP1
+Date   : Wed Jun 11 20:37:45 2025
+****************************************
+
+
+   min_delay/hold ('clk' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   ics_num_reg_0_/E             0.37           0.24 f        -0.13  (VIOLATED)
+   ics_num_reg_1_/E             0.37           0.24 f        -0.13  (VIOLATED)
+   ics_num_reg_2_/E             0.37           0.24 f        -0.13  (VIOLATED)
+   ics_num_reg_3_/E             0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_0__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_0__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_0__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_0__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_0__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_0__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_0__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_0__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_0__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_0__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_1__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_1__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_1__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_1__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_1__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_1__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_1__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_1__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_1__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_1__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_2__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_2__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_2__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_2__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_2__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_2__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_2__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_2__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_2__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_2__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_3__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_3__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_3__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_3__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_3__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_3__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_3__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_3__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_3__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_3__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_4__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_4__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_4__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_4__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_4__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_4__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_4__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_4__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_4__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_4__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_5__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_5__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_5__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_5__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_5__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_5__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_5__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_5__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_5__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_5__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_6__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_6__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_6__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_6__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_6__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_6__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_6__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_6__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_6__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_6__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_7__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_7__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_7__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_7__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_7__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_7__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_7__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_7__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_7__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_7__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_8__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_8__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_8__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_8__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_8__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_8__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_8__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_8__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_8__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_8__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_9__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_9__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_9__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_9__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_9__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_9__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_9__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_9__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_9__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_9__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_10__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_10__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_10__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_10__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_10__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_10__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_10__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_10__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_10__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_10__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_11__0_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_11__1_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_11__2_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_11__3_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_11__4_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_11__5_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_11__6_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_11__7_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_11__8_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   combine_data_buf_reg_11__9_/E
+                                0.36           0.24 f        -0.13  (VIOLATED)
+   ics_num_reg_0_/D             0.36           0.24 f        -0.12  (VIOLATED)
+   ics_num_reg_1_/D             0.36           0.24 f        -0.12  (VIOLATED)
+   ics_num_reg_2_/D             0.36           0.24 f        -0.12  (VIOLATED)
+   ics_num_reg_3_/D             0.36           0.24 f        -0.12  (VIOLATED)
+   ics_eof_reg/D                0.38           0.25 f        -0.12  (VIOLATED)
+   ics_sof_reg/D                0.38           0.25 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_0__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_0__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_0__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_0__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_0__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_0__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_0__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_0__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_0__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_0__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_1__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_1__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_1__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_1__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_1__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_1__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_1__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_1__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_1__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_1__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_2__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_2__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_2__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_2__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_2__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_2__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_2__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_2__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_2__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_2__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_3__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_3__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_3__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_3__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_3__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_3__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_3__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_3__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_3__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_3__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_4__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_4__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_4__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_4__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_4__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_4__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_4__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_4__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_4__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_4__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_5__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_5__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_5__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_5__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_5__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_5__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_5__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_5__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_5__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_5__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_6__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_6__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_6__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_6__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_6__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_6__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_6__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_6__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_6__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_6__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_7__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_7__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_7__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_7__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_7__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_7__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_7__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_7__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_7__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_7__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_8__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_8__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_8__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_8__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_8__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_8__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_8__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_8__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_8__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_8__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_9__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_9__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_9__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_9__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_9__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_9__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_9__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_9__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_9__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_9__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_10__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_10__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_10__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_10__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_10__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_10__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_10__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_10__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_10__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_10__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_11__0_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_11__1_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_11__2_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_11__3_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_11__4_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_11__5_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_11__6_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_11__7_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_11__8_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   combine_data_buf_reg_11__9_/D
+                                0.36           0.24 f        -0.12  (VIOLATED)
+   u_scramble/x2_reg_10_/D      0.37           0.27 f        -0.10  (VIOLATED)
+   u_scramble/x2_reg_114_/D     0.37           0.27 f        -0.10  (VIOLATED)
+   u_scramble/x2_reg_106_/D     0.37           0.27 f        -0.10  (VIOLATED)
+   u_scramble/x2_reg_3_/D       0.37           0.27 f        -0.10  (VIOLATED)
+   u_scramble/x2_reg_49_/D      0.37           0.27 f        -0.10  (VIOLATED)
+   u_scramble/x2_reg_7_/D       0.37           0.27 f        -0.10  (VIOLATED)
+   u_scramble/x2_reg_110_/D     0.37           0.27 f        -0.10  (VIOLATED)
+   u_scramble/x2_reg_101_/D     0.37           0.27 f        -0.10  (VIOLATED)
+   u_scramble/x2_reg_22_/D      0.37           0.27 f        -0.10  (VIOLATED)
+   u_scramble/x2_reg_84_/D      0.37           0.27 f        -0.10  (VIOLATED)
+   u_scramble/x2_reg_85_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_56_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_102_/D     0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_65_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_57_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_80_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_78_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_1_/D       0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_23_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_14_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_18_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_47_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_15_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_54_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_9_/D       0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_13_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_45_/D      0.37           0.28 f        -0.09  (VIOLATED)
+   u_scramble/x2_reg_5_/D       0.37           0.28 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_17_/D      0.37           0.29 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_29_/D      0.37           0.29 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_39_/D      0.37           0.29 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_59_/D      0.37           0.29 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_69_/D      0.37           0.29 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_64_/D      0.37           0.29 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_53_/D      0.37           0.29 f        -0.08  (VIOLATED)
+   u_scramble/scramble_data_reg_0__6_/D
+                                0.38           0.30 f        -0.08  (VIOLATED)
+   u_scramble/scramble_data_reg_0__7_/D
+                                0.38           0.30 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_67_/D      0.37           0.29 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_88_/D      0.37           0.30 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_24_/D      0.35           0.28 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_70_/D      0.37           0.30 f        -0.08  (VIOLATED)
+   u_scramble/x2_reg_113_/D     0.37           0.30 f        -0.08  (VIOLATED)
+   u_scramble/x1_cnt_reg_0_/D
+                                0.37           0.30 f        -0.07  (VIOLATED)
+   u_scramble/x2_cnt_reg_0_/D
+                                0.37           0.30 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_51_/D      0.37           0.30 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_91_/D      0.37           0.30 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_96_/D      0.37           0.30 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_61_/D      0.37           0.30 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_25_/D      0.35           0.28 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_27_/D      0.35           0.28 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_98_/D      0.37           0.30 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_43_/D      0.35           0.28 r        -0.07  (VIOLATED)
+   u_scramble/x2_reg_105_/D     0.37           0.31 f        -0.07  (VIOLATED)
+   u_scramble/scramble_data_reg_0__4_/D
+                                0.37           0.31 f        -0.07  (VIOLATED)
+   u_scramble/scramble_data_reg_0__5_/D
+                                0.37           0.31 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_37_/D      0.35           0.28 r        -0.07  (VIOLATED)
+   u_scramble/x2_reg_72_/D      0.35           0.28 r        -0.07  (VIOLATED)
+   u_scramble/x2_reg_83_/D      0.37           0.31 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_68_/D      0.37           0.31 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_34_/D      0.37           0.31 f        -0.07  (VIOLATED)
+   u_scramble/x2_reg_81_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_79_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_74_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_66_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_115_/D     0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_77_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_112_/D     0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_62_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_75_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_104_/D     0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_32_/D      0.33           0.27 r        -0.06  (VIOLATED)
+   u_scramble/x2_reg_73_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_55_/D      0.35           0.29 r        -0.06  (VIOLATED)
+   u_scramble/x2_reg_71_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_0_/D       0.35           0.29 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_26_/D      0.35           0.29 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_76_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_109_/D     0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_117_/D     0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_97_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_100_/D     0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_103_/D     0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_63_/D      0.37           0.31 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_82_/D      0.37           0.32 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_93_/D      0.35           0.29 r        -0.06  (VIOLATED)
+   u_scramble/x2_reg_118_/D     0.37           0.32 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_60_/D      0.37           0.32 f        -0.06  (VIOLATED)
+   u_scramble/x2_reg_20_/D      0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_21_/D      0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_92_/D      0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_11_/D      0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_19_/D      0.35           0.29 r        -0.05  (VIOLATED)
+   u_scramble/x2_reg_50_/D      0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_108_/D     0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_cnt_reg_3_/D
+                                0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_4_/D       0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_28_/D      0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_48_/D      0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_111_/D     0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_86_/D      0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_107_/D     0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/scramble_data_reg_3__0_/D
+                                0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/scramble_data_reg_4__0_/D
+                                0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_99_/D      0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_119_/D     0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_2_/D       0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x1_cnt_reg_2_/D
+                                0.37           0.33 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_52_/D      0.37           0.32 f        -0.05  (VIOLATED)
+   u_scramble/x2_cnt_reg_2_/D
+                                0.37           0.33 f        -0.05  (VIOLATED)
+   u_scramble/x1_reg_45_/D      0.37           0.33 f        -0.05  (VIOLATED)
+   u_scramble/x2_reg_33_/D      0.35           0.30 r        -0.05  (VIOLATED)
+   u_scramble/x2_reg_12_/D      0.37           0.33 f        -0.05  (VIOLATED)
+   u_scramble/scramble_data_reg_0__2_/D
+                                0.38           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_0__3_/D
+                                0.38           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_1__9_/D
+                                0.38           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_9__9_/D
+                                0.38           0.33 f        -0.04  (VIOLATED)
+   u_scramble/x2_reg_40_/D      0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/x2_reg_41_/D      0.35           0.30 r        -0.04  (VIOLATED)
+   u_scramble/x2_reg_94_/D      0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/x1_cnt_reg_1_/D
+                                0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/x1_cnt_reg_3_/D
+                                0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_3__1_/D
+                                0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_7__9_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_7__8_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_5__9_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_5__8_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_4__9_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_6__8_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_3__9_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_3__8_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_0__8_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_1__8_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_0__9_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_11__8_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_6__9_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_8__8_/D
+                                0.38           0.34 f        -0.04  (VIOLATED)
+   u_scramble/x2_reg_116_/D     0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_2__8_/D
+                                0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_2__9_/D
+                                0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_4__8_/D
+                                0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_8__9_/D
+                                0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_9__8_/D
+                                0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_10__8_/D
+                                0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_10__9_/D
+                                0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_11__9_/D
+                                0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/x2_reg_36_/D      0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/x2_reg_6_/D       0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/x2_reg_16_/D      0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/x1_reg_22_/D      0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/x2_reg_8_/D       0.37           0.33 f        -0.04  (VIOLATED)
+   u_scramble/x2_reg_30_/D      0.35           0.31 f        -0.04  (VIOLATED)
+   u_scramble/x1_reg_37_/D      0.37           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_4__1_/D
+                                0.37           0.34 f        -0.04  (VIOLATED)
+   u_scramble/x1_reg_8_/D       0.35           0.32 f        -0.04  (VIOLATED)
+   u_scramble/x1_reg_9_/D       0.35           0.32 f        -0.04  (VIOLATED)
+   u_scramble/x1_reg_3_/D       0.35           0.32 f        -0.04  (VIOLATED)
+   u_scramble/x1_reg_7_/D       0.35           0.32 f        -0.04  (VIOLATED)
+   u_scramble/x1_reg_13_/D      0.35           0.32 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_7__4_/D
+                                0.37           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_2__4_/D
+                                0.37           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_1__4_/D
+                                0.37           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_2__5_/D
+                                0.37           0.34 f        -0.04  (VIOLATED)
+   u_scramble/scramble_data_reg_5__5_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/x1_reg_43_/D      0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_9__7_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_9__6_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_2__7_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_7__7_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_2__6_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_7__6_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_4__6_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_5__6_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_4__7_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_5__7_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_6__6_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_10__7_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_10__6_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_11__7_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_11__6_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_8__7_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_8__6_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_3__7_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/start_on_reg/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_1__6_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_1__7_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_6__7_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/x2_cnt_reg_1_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_12_/D
+                                0.38           0.34 f        -0.03  (VIOLATED)
+   u_scramble/x2_reg_38_/D      0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_13_/D
+                                0.38           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_2__0_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_7__5_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_4__5_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_8__5_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_4__4_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_1__5_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_8__4_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_9__4_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_10__4_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_9__5_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_5__4_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_10__5_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_6__4_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_6__5_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_3__4_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_11__4_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_3__5_/D
+                                0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_9_/D
+                                0.38           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_3_/D
+                                0.38           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_15_/D
+                                0.38           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_4_/D
+                                0.38           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_16_/D
+                                0.38           0.35 f        -0.03  (VIOLATED)
+   u_scramble/x2_reg_87_/D      0.35           0.32 r        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_18_/D
+                                0.35           0.32 f        -0.03  (VIOLATED)
+   u_scramble/x1_reg_39_/D      0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_2_/D
+                                0.38           0.35 f        -0.03  (VIOLATED)
+   u_scramble/x2_reg_89_/D      0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_3__6_/D
+                                0.37           0.35 f        -0.03  (VIOLATED)
+   u_scramble/x1_reg_12_/D      0.37           0.34 f        -0.03  (VIOLATED)
+   u_scramble/x1_reg_87_/D      0.37           0.35 f        -0.03  (VIOLATED)
+   u_scramble/x1_reg_93_/D      0.37           0.35 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_5_/D
+                                0.36           0.33 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_17_/D
+                                0.36           0.33 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_6_/D
+                                0.36           0.33 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_11_/D
+                                0.36           0.33 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_10_/D
+                                0.36           0.33 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_14_/D
+                                0.36           0.33 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_1_/D
+                                0.38           0.35 f        -0.03  (VIOLATED)
+   u_scramble/x1_reg_77_/D      0.37           0.35 f        -0.03  (VIOLATED)
+   u_scramble/x1_reg_83_/D      0.37           0.35 f        -0.03  (VIOLATED)
+   u_scramble/x1_reg_88_/D      0.37           0.35 f        -0.03  (VIOLATED)
+   u_scramble/x1_reg_58_/D      0.37           0.35 f        -0.03  (VIOLATED)
+   u_scramble/scramble_data_reg_11__5_/D
+                                0.37           0.35 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_7_/D
+                                0.36           0.33 f        -0.03  (VIOLATED)
+   u_scramble/scramble_cnt_reg_0_/D
+                                0.38           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x2_reg_44_/D      0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_0__0_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x2_reg_58_/D      0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_7__0_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_cnt_reg_8_/D
+                                0.36           0.33 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_5_/D       0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_7__3_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_6__3_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_9__2_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_4__2_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_2__2_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_6__2_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_3__2_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_8__2_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_14_/D      0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_11__2_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_1__2_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_1__3_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_8__3_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_10__3_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_5__2_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_5__3_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_9__3_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_7__2_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_11__3_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_2__3_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_3__3_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_4__3_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_6__0_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_15_/D      0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x2_reg_90_/D      0.35           0.33 r        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_10__2_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_6__1_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x2_reg_35_/D      0.35           0.33 r        -0.02  (VIOLATED)
+   u_scramble/x1_reg_4_/D       0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_9__0_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_35_/D      0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_67_/D      0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_118_/D     0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_98_/D      0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_100_/D     0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_97_/D      0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_7__1_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_2__1_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_11__1_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_89_/D      0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_103_/D     0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_111_/D     0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_108_/D     0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_0__1_/D
+                                0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_0_/D       0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_11_/D      0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_10_/D      0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_6_/D       0.37           0.35 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_94_/D      0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_101_/D     0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_10__0_/D
+                                0.35           0.33 r        -0.02  (VIOLATED)
+   u_scramble/x1_reg_99_/D      0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_107_/D     0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_9__1_/D
+                                0.35           0.33 r        -0.02  (VIOLATED)
+   u_scramble/scramble_data_reg_10__1_/D
+                                0.35           0.33 r        -0.02  (VIOLATED)
+   u_scramble/x1_reg_113_/D     0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_34_/D      0.37           0.36 f        -0.02  (VIOLATED)
+   u_scramble/x1_reg_19_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_16_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_104_/D     0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_106_/D     0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_28_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_105_/D     0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x2_reg_95_/D      0.35           0.33 r        -0.01  (VIOLATED)
+   u_scramble/x1_reg_95_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/scramble_data_reg_1__0_/D
+                                0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_24_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_81_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_112_/D     0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_119_/D     0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_110_/D     0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_68_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_44_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_82_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_18_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_21_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/scramble_data_reg_1__1_/D
+                                0.35           0.34 r        -0.01  (VIOLATED)
+   u_scramble/scramble_data_reg_5__1_/D
+                                0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_20_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_26_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_33_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x2_reg_42_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x2_reg_46_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_32_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/scramble_data_reg_8__1_/D
+                                0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/scramble_data_reg_5__0_/D
+                                0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_2_/D       0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_72_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_41_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_27_/D      0.37           0.37 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_38_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_31_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_86_/D      0.37           0.37 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_40_/D      0.35           0.34 r        -0.01  (VIOLATED)
+   u_scramble/x1_reg_47_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_57_/D      0.37           0.37 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_42_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_76_/D      0.37           0.36 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_75_/D      0.37           0.37 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_85_/D      0.37           0.37 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_66_/D      0.37           0.37 f        -0.01  (VIOLATED)
+   u_scramble/x1_reg_55_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_52_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_96_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_46_/D      0.35           0.34 r         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_91_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_109_/D     0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_84_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_78_/D      0.35           0.34 r         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_29_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_51_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_116_/D     0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_90_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_49_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/scramble_data_reg_11__0_/D
+                                0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_79_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_73_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_102_/D     0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_70_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_60_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_115_/D     0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_48_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_54_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_53_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/scramble_data_reg_8__0_/D
+                                0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_80_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_74_/D      0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+   u_scramble/x1_reg_117_/D     0.37           0.37 f         0.00  (VIOLATED: increase significant digits)
+
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   scramble_top                 0.00        3345.05       -3345.05  (VIOLATED)
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   scramble_top                 0.00        1735.73       -1735.73  (VIOLATED)
+
+
+1

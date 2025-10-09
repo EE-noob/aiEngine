@@ -1,0 +1,671 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : ics_top
+Version: O-2018.06-SP1
+Date   : Wed Jun 18 14:05:49 2025
+****************************************
+
+
+Library(s) Used:
+
+    tcbn28hpcplusbwp40p140hvttt1v25c_ccs (File: /mnt/hgfs/vmshare/Tech_Lib/tsmc28digital/TSMCHOME/digital/Front_End/timing_power_noise/CCS/tcbn28hpcplusbwp40p140hvt_180a/tcbn28hpcplusbwp40p140hvttt1v25c_ccs.db)
+
+
+Operating Conditions: tt1v25c   Library: tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+Wire Load Model Mode: segmented
+
+Design        Wire Load Model            Library
+------------------------------------------------
+ics_top                ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+combine_top_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+scramble_top           ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+calcP_2                ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+triangleSR_N138_N211_N33_readModeNum3_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_5
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_4
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_3
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+mux                    ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+scramble               ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_top                ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM0           ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM1           ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM2           ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM3           ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM4           ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM5           ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM6           ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM7           ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM8           ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM9           ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM10          ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM11          ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_71      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+calcP_0                ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+calcP_1                ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+triangleSR_N138_N211_N33_readModeNum3_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+triangleSR_N138_N211_N33_readModeNum3_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_0       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_1       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_2       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_3       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_4       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_5       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_6       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_7       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_8       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_9       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_10      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_11      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_12      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_13      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_14      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_15      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_16      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_17      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_18      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_19      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_20      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_21      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_22      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_23      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_24      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_25      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_26      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_27      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_28      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_29      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_30      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_31      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_32      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_33      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_34      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_35      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_36      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_37      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_38      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_39      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_40      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_41      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_42      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_43      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_44      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_45      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_46      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_47      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_48      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_49      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_50      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_51      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_52      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_53      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_54      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_55      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_56      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_57      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_58      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_59      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_60      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_61      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_62      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_63      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_64      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_65      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_66      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_67      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_68      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_69      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_70      ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+scramble_DW01_inc_0    ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+mux_DP_OP_1550_172_4690_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+mux_DP_OP_1549_171_4600_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+mux_DP_OP_1548_170_138_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+mux_DW01_inc_0         ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM11_DP_OP_1012_125_5001_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM11_DP_OP_1011_124_9446_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM11_DP_OP_1010_123_7118_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM11_DP_OP_1009_122_7118_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_0_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_1_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_2_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_3_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_4_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_5_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM10_DP_OP_1012_129_222_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM10_DP_OP_1011_128_4617_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM10_DP_OP_1010_127_6485_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM10_DP_OP_1009_126_6485_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_6_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_7_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_8_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_9_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_10_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_11_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM9_DP_OP_1012_133_5332_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM9_DP_OP_1011_132_780_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM9_DP_OP_1010_131_5392_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM9_DP_OP_1009_130_5392_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_12_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_13_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_14_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_15_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_16_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_17_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM8_DP_OP_1012_137_1236_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM8_DP_OP_1011_136_6779_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM8_DP_OP_1010_135_1584_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM8_DP_OP_1009_134_1584_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_18_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_19_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_20_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_21_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_22_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_23_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM7_DP_OP_1012_141_9291_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM7_DP_OP_1011_140_4024_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM7_DP_OP_1010_139_8812_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM7_DP_OP_1009_138_8812_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_24_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_25_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_26_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_27_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_28_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_29_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM6_DP_OP_1012_145_6561_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM6_DP_OP_1011_144_4460_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM6_DP_OP_1010_143_7094_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM6_DP_OP_1009_142_7094_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_30_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_31_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_32_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_33_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_34_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_35_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM5_DP_OP_1012_149_8882_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM5_DP_OP_1011_148_1705_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM5_DP_OP_1010_147_4355_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM5_DP_OP_1009_146_4355_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_36_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_37_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_38_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_39_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_40_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_41_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM4_DP_OP_1012_153_4786_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM4_DP_OP_1011_152_7832_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM4_DP_OP_1010_151_4743_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM4_DP_OP_1009_150_4743_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_42_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_43_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_44_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_45_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_46_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_47_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM3_DP_OP_1012_157_7107_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM3_DP_OP_1011_156_5077_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM3_DP_OP_1010_155_1988_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM3_DP_OP_1009_154_1988_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_48_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_49_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_50_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_51_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_52_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_53_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM2_DP_OP_1012_161_5878_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM2_DP_OP_1011_160_1429_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM2_DP_OP_1010_159_302_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM2_DP_OP_1009_158_302_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_54_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_55_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_56_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_57_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_58_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_59_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM1_DP_OP_1012_165_8199_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM1_DP_OP_1011_164_2886_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM1_DP_OP_1010_163_7514_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM1_DP_OP_1009_162_7514_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_60_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_61_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_62_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_63_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_64_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_65_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM0_DP_OP_1012_169_4103_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM0_DP_OP_1011_168_8885_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM0_DP_OP_1010_167_3610_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM0_DP_OP_1009_166_3610_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_66_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_67_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_68_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_69_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_70_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+serial_divider_71_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_0_DP_OP_12864_173_4887_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_1_DP_OP_12864_173_4887_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_2_DP_OP_12864_174_430_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1132_204_7509_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1131_203_8600_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1130_202_6717_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1129_201_1274_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1128_200_7509_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1127_199_8600_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1126_198_6717_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1125_197_1274_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1124_196_7509_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1123_195_8600_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1122_194_6717_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1121_193_1274_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DW01_inc_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DW01_sub_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DW01_inc_3
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DW01_inc_5
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DW01_sub_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_0_DP_OP_76_177_471_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_0_DP_OP_75_176_471_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_1_DP_OP_76_180_6205_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_1_DP_OP_75_179_6205_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_2_DP_OP_76_183_1972_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_2_DP_OP_75_182_1972_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_3_DP_OP_76_186_7706_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_3_DP_OP_75_185_7706_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_4_DP_OP_76_189_3473_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_4_DP_OP_75_188_3473_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_5_DP_OP_76_192_9207_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_5_DP_OP_75_191_9207_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_380_205_7782_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_614_208_8038_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_146_217_7526_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_385_223_8550_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_619_228_8806_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_151_233_8294_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_0_DP_OP_79_238_2589_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_1_DP_OP_79_248_5321_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_2_DP_OP_79_258_8323_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_3_DP_OP_79_268_9554_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_4_DP_OP_79_278_8053_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_5_DP_OP_79_288_7783_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1109_298_964_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1121_305_1732_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3_DP_OP_1097_312_913_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_2_DP_OP_12881_319_6229_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_1_DP_OP_12881_326_4369_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM0_DP_OP_131_333_9122_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM0_DP_OP_999_336_4623_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM0_DP_OP_975_338_1944_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM0_DP_OP_1025_340_6_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM1_DP_OP_131_342_355_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM1_DP_OP_999_345_9331_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM1_DP_OP_975_347_712_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM1_DP_OP_1025_349_5815_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM2_DP_OP_131_351_9090_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM2_DP_OP_999_354_8705_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM2_DP_OP_975_356_1976_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM2_DP_OP_1025_358_4088_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM3_DP_OP_131_360_9010_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM3_DP_OP_999_363_8467_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM3_DP_OP_975_365_2024_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM3_DP_OP_1025_367_3850_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM4_DP_OP_131_369_9058_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM4_DP_OP_999_372_2820_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM4_DP_OP_975_374_2008_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM4_DP_OP_1025_376_8170_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM5_DP_OP_131_378_8978_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM5_DP_OP_999_381_2582_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM5_DP_OP_975_383_2056_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM5_DP_OP_1025_385_7932_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM6_DP_OP_131_387_9026_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM6_DP_OP_999_390_6902_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM6_DP_OP_975_392_2040_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM6_DP_OP_1025_394_2285_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM7_DP_OP_131_396_8946_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM7_DP_OP_999_399_6664_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM7_DP_OP_975_401_3112_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM7_DP_OP_1025_403_2047_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM8_DP_OP_131_405_8994_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM8_DP_OP_999_408_8229_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM8_DP_OP_975_410_2072_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM8_DP_OP_1025_412_3612_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM9_DP_OP_131_414_9170_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM9_DP_OP_999_417_779_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM9_DP_OP_975_419_1864_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM9_DP_OP_1025_421_6129_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM10_DP_OP_131_423_5766_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM10_DP_OP_999_426_7148_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM10_DP_OP_975_428_2661_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM10_DP_OP_1025_430_4893_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM11_DP_OP_131_432_5782_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM11_DP_OP_999_435_2828_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM11_DP_OP_975_437_2677_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM11_DP_OP_1025_439_573_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_0_DP_OP_12881_441_2850_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+mux_DP_OP_11_448_8648_0
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM0_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM0_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM1_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM1_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM2_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM2_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM3_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM3_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM4_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM4_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM5_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM5_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM6_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM6_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM7_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM7_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM8_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM8_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM9_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM9_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM10_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM10_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM11_DW01_sub_1
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+cal_LINENUM11_DW01_add_2
+                       ZeroWireload      tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+
+
+Global Operating Voltage = 1    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  =  83.6183 mW   (98%)
+  Net Switching Power  =   1.5246 mW    (2%)
+                         ---------
+Total Dynamic Power    =  85.1429 mW  (100%)
+
+Cell Leakage Power     = 375.3917 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register          82.1237            0.2839        4.6757e+04           82.4544  (  96.43%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      1.4869            1.2407        3.2863e+05            3.0563  (   3.57%)
+--------------------------------------------------------------------------------------------------
+Total             83.6106 mW         1.5246 mW     3.7539e+05 nW        85.5107 mW
+1

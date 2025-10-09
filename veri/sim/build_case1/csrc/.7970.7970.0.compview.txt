@@ -1,0 +1,5 @@
+{"vcs1":{"timestamp_begin":1758855235.289445804, "rt":8.03, "ut":0.03, "st":0.04}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1758855234.985719891}
+{"VCS_COMP_START_TIME": 1758855234.985719891}
+{"VCS_COMP_END_TIME": 1758855243.370937491}
+{"VCS_USER_OPTIONS": "-l com.log -timescale=1ns/1ps -sverilog -ntb_opts uvm-1.2 -debug_access+all -full64 -j8 -f /home/EDA/ic_projs/HW_ICS/veri/flist/tb1.f +define+ICS_CASE1"}

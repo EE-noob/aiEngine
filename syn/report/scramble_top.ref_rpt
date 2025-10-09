@@ -1,0 +1,74 @@
+ 
+****************************************
+Report : reference
+Design : scramble_top
+Version: O-2018.06-SP1
+Date   : Wed Jun 11 20:37:45 2025
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AN2D0BWP40P140HVT  tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.504000       2      1.008000  
+AN2D1BWP40P140HVT  tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.504000      60     30.240000  
+CKND0BWP40P140HVT  tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.252000      57     14.364000  
+DFCNQD1BWP40P140HVT
+                   tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  2.268000       2      4.536000  n
+EDFCND1BWP40P140HVT
+                   tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  3.024000       1      3.024000  n
+EDFCNQD1BWP40P140HVT
+                   tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  2.898000     120    347.760000  n
+EDFCNQD4BWP40P140HVT
+                   tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  3.402000       3     10.206000  n
+IND2D0BWP40P140HVT tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.504000       4      2.016000  
+INR2D0BWP40P140HVT tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.504000      56     28.224000  
+INR2D2BWP40P140HVT tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.756000       4      3.024000  
+INVD1BWP40P140HVT  tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.252000      57     14.364000  
+INVD2BWP40P140HVT  tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.378000       1      0.378000  
+NR2D0BWP40P140HVT  tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.378000      12      4.536000  
+NR2D3BWP40P140HVT  tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.882000       2      1.764000  
+NR2OPTIBD1BWP40P140HVT
+                   tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.378000       2      0.756000  
+NR2OPTPAD1BWP40P140HVT
+                   tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.504000       1      0.504000  
+NR3D0BWP40P140HVT  tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.504000       1      0.504000  
+OR2D0BWP40P140HVT  tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.504000      10      5.040000  
+OR2D1BWP40P140HVT  tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.504000       6      3.024000  
+TIELBWP40P140HVT   tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.252000       1      0.252000  
+XOR2UD0BWP40P140HVT
+                   tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+                                  0.882000     120    105.840003  
+scramble                       2763.683948       1   2763.683948  h, n
+-----------------------------------------------------------------------------
+Total 22 references                                  3345.047953
+1

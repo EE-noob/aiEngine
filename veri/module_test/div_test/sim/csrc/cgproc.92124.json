@@ -1,0 +1,116 @@
+{
+    "Modules": {
+        "uvm_custom_install_recording": {
+            "start_perf": [
+                3.2244429588317871,
+                0.00029,
+                0.0,
+                427024,
+                427024,
+                1750165348.1617761,
+                178306830734999
+            ],
+            "nMops": 11921,
+            "nQuads": 4035,
+            "child_modules": {},
+            "end_perf": [
+                3.2513749599456787,
+                0.023637999999999999,
+                0.0063029999999999996,
+                427044,
+                427044,
+                178306944213626,
+                21474836481,
+                0
+            ],
+            "Compiled": "Yes",
+            "svclass": [
+                "uvm_vcs_recorder",
+                0,
+                1422,
+                28,
+                28,
+                21474836856,
+                "uvm_vcs_tr_database",
+                0,
+                1084,
+                16,
+                16,
+                21474836724,
+                "uvm_vcs_tr_stream",
+                0,
+                1235,
+                14,
+                14,
+                21474836588,
+                "msglog_msgname",
+                0,
+                107,
+                2,
+                2,
+                21474837130,
+                "msglog",
+                0,
+                1626,
+                11,
+                11,
+                21474837166,
+                "vcs_smartlog_catcher",
+                0,
+                767,
+                4,
+                4,
+                21474837316,
+                "uvm_pkg_uvm_object_registry_245147496162194765_101",
+                0,
+                779,
+                11,
+                11,
+                12884907950,
+                "uvm_pkg_uvm_object_registry_37055773542958269253_107",
+                0,
+                574,
+                11,
+                11,
+                12884907950,
+                "uvm_pkg_uvm_object_registry_32487807434073842908_103",
+                0,
+                779,
+                11,
+                11,
+                12884907950
+            ],
+            "Compiled Times": 7,
+            "nRouts": 194
+        }
+    },
+    "stat": {
+        "peak_mem_kb": 427048,
+        "ru_self_end": {
+            "ru_utime_sec": 0.023637999999999999,
+            "ru_stime_sec": 0.0065849999999999997,
+            "ru_nivcsw": 0,
+            "ru_maxrss_kb": 108292,
+            "ru_majflt": 0,
+            "ru_minflt": 3877,
+            "ru_nvcsw": 3
+        },
+        "ru_childs_end": {
+            "ru_utime_sec": 0.0,
+            "ru_stime_sec": 0.0,
+            "ru_nivcsw": 0,
+            "ru_maxrss_kb": 0,
+            "ru_majflt": 0,
+            "ru_minflt": 0,
+            "ru_nvcsw": 0
+        },
+        "cpu_cycles_end": 178306945040354
+    },
+    "CompUnits": {},
+    "reusePaths": {
+        "nhiwz_d": {
+            "icPath": "csrc"
+        }
+    },
+    "ObjArchives": []
+}

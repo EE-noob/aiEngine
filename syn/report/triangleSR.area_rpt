@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : triangleSR
+Version: O-2018.06-SP1
+Date   : Fri May  2 14:40:38 2025
+****************************************
+
+Library(s) Used:
+
+    typical (File: /home/ic_libs/TSMC.90/aci/sc-x/synopsys/typical.db)
+
+Number of ports:                          195
+Number of nets:                         19907
+Number of cells:                        19843
+Number of combinational cells:          16100
+Number of sequential cells:              3742
+Number of macros/black boxes:               0
+Number of buf/inv:                        424
+Number of references:                      97
+
+Combinational area:              61979.905658
+Buf/Inv area:                     1016.064031
+Noncombinational area:           58029.955330
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                120009.860988
+Total area:                 undefined
+1

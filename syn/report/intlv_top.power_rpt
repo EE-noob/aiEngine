@@ -1,0 +1,158 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+Warning: Design has unannotated black box outputs. (PWR-428)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : intlv_top
+Version: T-2022.03-SP2
+Date   : Fri May 30 18:57:45 2025
+****************************************
+
+
+Library(s) Used:
+
+    tcbn65lphvtwcz_ccs (File: /mnt/hgfs/vmshare/Tech_Lib/TSMC65nm/TSMC_65nm_CMOS/STD_LIB/tcbn65lphvt_200b/AN61001_20100906/TSMCHOME/digital/Front_End/timing_power_noise/CCS/tcbn65lphvt_200a/tcbn65lphvtwcz_ccs.db)
+
+
+Operating Conditions: WCZCOM   Library: tcbn65lphvtwcz_ccs
+Wire Load Model Mode: segmented
+
+Design        Wire Load Model            Library
+------------------------------------------------
+intlv_top              ZeroWireload      tcbn65lphvtwcz_ccs
+triangleSR_N138_N211_N33_readModeNum3_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+triangleSR_N138_N211_N33_readModeNum3_1
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+triangleSR_N138_N211_N33_readModeNum3_2
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_1
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_2
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_3
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_4
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_5
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_852_133_75_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_851_132_8254_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_850_131_6541_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_849_130_75_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_848_129_8254_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_847_128_6541_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_846_127_75_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_845_126_8254_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_844_125_6541_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_1_DP_OP_59_124_9822_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_1_DP_OP_58_123_9822_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_2_DP_OP_59_124_9822_0_DP_OP_59_124_9822_1
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_2_DP_OP_58_123_9822_0_DP_OP_58_123_9822_1
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_3_DP_OP_59_124_9822_0_DP_OP_59_124_9822_2
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_3_DP_OP_58_123_9822_0_DP_OP_58_123_9822_2
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_4_DP_OP_59_124_9822_0_DP_OP_59_124_9822_3
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_4_DP_OP_58_123_9822_0_DP_OP_58_123_9822_3
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_5_DP_OP_59_124_9822_0_DP_OP_59_124_9822_4
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_5_DP_OP_58_123_9822_0_DP_OP_58_123_9822_4
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_0_DP_OP_59_124_9822_0_DP_OP_59_124_9822_5
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_0_DP_OP_58_123_9822_0_DP_OP_58_123_9822_5
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_111_134_4981_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_493_137_6005_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_301_140_4469_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_1_DP_OP_62_152_6547_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_2_DP_OP_62_160_9279_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_3_DP_OP_62_168_2314_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_4_DP_OP_62_176_3545_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_5_DP_OP_62_184_2044_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+filo_N138_N211_N33_RDW_A10_RDW_B4_0_DP_OP_62_192_1774_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_808_200_6832_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_836_206_6423_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_822_212_8198_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_809_218_7766_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_837_224_3263_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DP_OP_823_230_5844_0
+                       ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DW01_sub_6   ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DW01_sub_7   ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DW01_sub_8   ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DW01_sub_9   ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DW01_sub_10  ZeroWireload      tcbn65lphvtwcz_ccs
+intlv_top_DW01_sub_11  ZeroWireload      tcbn65lphvtwcz_ccs
+
+
+Global Operating Voltage = 1.08 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+Attributes
+----------
+i - Including register clock pin internal power
+
+
+  Cell Internal Power  =  43.2326 mW   (19%)
+  Net Switching Power  = 184.4010 mW   (81%)
+                         ---------
+Total Dynamic Power    = 227.6337 mW  (100%)
+
+Cell Leakage Power     =   1.2408 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network     43.0871          184.2014           16.2798          184.3890  (  81.00%)  i
+register       2.6394e-02        4.7001e-02          740.5551           42.9741  (  18.88%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      0.1218            0.1522          483.9237            0.2745  (   0.12%)
+--------------------------------------------------------------------------------------------------
+Total             43.2352 mW       184.4006 mW     1.2408e+03 nW       227.6376 mW
+1

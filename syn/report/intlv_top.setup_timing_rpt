@@ -1,0 +1,151 @@
+Warning: Design 'intlv_top' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : intlv_top
+Version: T-2022.03-SP2
+Date   : Fri May 30 18:57:41 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: WCZCOM   Library: tcbn65lphvtwcz_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: part2_bubble_P_reg_1_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: part2_col_left_cnt_reg_12_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  filo_N138_N211_N33_RDW_A10_RDW_B4_5
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  filo_N138_N211_N33_RDW_A10_RDW_B4_4
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  filo_N138_N211_N33_RDW_A10_RDW_B4_3
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  filo_N138_N211_N33_RDW_A10_RDW_B4_2
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  filo_N138_N211_N33_RDW_A10_RDW_B4_1
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  triangleSR_N138_N211_N33_readModeNum3_2
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  triangleSR_N138_N211_N33_readModeNum3_1
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  filo_N138_N211_N33_RDW_A10_RDW_B4_0
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  intlv_top          ZeroWireload          tcbn65lphvtwcz_ccs
+  triangleSR_N138_N211_N33_readModeNum3_0
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  intlv_top_DP_OP_850_131_6541_0
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  intlv_top_DP_OP_851_132_8254_0
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  intlv_top_DW01_sub_10
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+  intlv_top_DP_OP_837_224_3263_0
+                     ZeroWireload          tcbn65lphvtwcz_ccs
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.95       0.95
+  part2_bubble_P_reg_1_/CP (DFCNQD4HVT)                   0.00 #     0.95 r
+  part2_bubble_P_reg_1_/Q (DFCNQD4HVT)                    0.57       1.52 r
+  DP_OP_850_131_6541/I1[1] (intlv_top_DP_OP_850_131_6541_0)
+                                                          0.00       1.52 r
+  DP_OP_850_131_6541/U171/ZN (OAI22D4HVT)                 0.16       1.68 f
+  DP_OP_850_131_6541/U170/ZN (NR2D2HVT)                   0.13       1.81 r
+  DP_OP_850_131_6541/U190/CO (HA1D1HVT)                   0.19       2.00 r
+  DP_OP_850_131_6541/U264/S (FA1D1HVT)                    0.47       2.47 f
+  DP_OP_850_131_6541/U140/ZN (OAI21D1HVT)                 0.14       2.61 r
+  DP_OP_850_131_6541/U186/ZN (CKND2D2HVT)                 0.11       2.72 f
+  DP_OP_850_131_6541/U187/Z (CKXOR2D1HVT)                 0.27       2.99 f
+  DP_OP_850_131_6541/U199/Z (CKXOR2D1HVT)                 0.28       3.27 f
+  DP_OP_850_131_6541/U263/S (FA1D1HVT)                    0.49       3.76 f
+  DP_OP_850_131_6541/U238/Z (CKXOR2D1HVT)                 0.29       4.05 f
+  DP_OP_850_131_6541/U212/ZN (CKND2HVT)                   0.07       4.12 r
+  DP_OP_850_131_6541/U192/ZN (CKND2D2HVT)                 0.06       4.18 f
+  DP_OP_850_131_6541/U194/ZN (ND2D2HVT)                   0.06       4.24 r
+  DP_OP_850_131_6541/O1[6] (intlv_top_DP_OP_850_131_6541_0)
+                                                          0.00       4.24 r
+  DP_OP_851_132_8254/I3[6] (intlv_top_DP_OP_851_132_8254_0)
+                                                          0.00       4.24 r
+  DP_OP_851_132_8254/U82/S (FA1D1HVT)                     0.47       4.71 f
+  DP_OP_851_132_8254/U177/ZN (CKND2D2HVT)                 0.08       4.79 r
+  DP_OP_851_132_8254/U186/ZN (ND2D2HVT)                   0.07       4.86 f
+  DP_OP_851_132_8254/U183/ZN (ND2D2HVT)                   0.07       4.93 r
+  DP_OP_851_132_8254/U181/ZN (NR2D2HVT)                   0.05       4.99 f
+  DP_OP_851_132_8254/U178/ZN (NR2D2HVT)                   0.10       5.09 r
+  DP_OP_851_132_8254/U179/ZN (CKND2D4HVT)                 0.10       5.20 f
+  DP_OP_851_132_8254/U182/ZN (NR2D8HVT)                   0.13       5.32 r
+  DP_OP_851_132_8254/O3 (intlv_top_DP_OP_851_132_8254_0)
+                                                          0.00       5.32 r
+  U3695/ZN (NR2D8HVT)                                     0.08       5.40 f
+  U3694/ZN (ND2D4HVT)                                     0.06       5.47 r
+  U3855/ZN (ND2D4HVT)                                     0.08       5.55 f
+  sub_x_313/B[1] (intlv_top_DW01_sub_10)                  0.00       5.55 f
+  sub_x_313/U101/ZN (ND2D4HVT)                            0.09       5.64 r
+  sub_x_313/U81/ZN (CKND4HVT)                             0.06       5.70 f
+  sub_x_313/U97/ZN (NR2D4HVT)                             0.10       5.79 r
+  sub_x_313/U98/ZN (NR2XD4HVT)                            0.09       5.89 f
+  sub_x_313/U77/Z (CKXOR2D4HVT)                           0.33       6.21 f
+  sub_x_313/DIFF[2] (intlv_top_DW01_sub_10)               0.00       6.21 f
+  DP_OP_837_224_3263/I1[2] (intlv_top_DP_OP_837_224_3263_0)
+                                                          0.00       6.21 f
+  DP_OP_837_224_3263/U82/ZN (CKND2HVT)                    0.07       6.29 r
+  DP_OP_837_224_3263/U124/ZN (CKND2D2HVT)                 0.06       6.34 f
+  DP_OP_837_224_3263/U184/ZN (ND2D2HVT)                   0.06       6.40 r
+  DP_OP_837_224_3263/U81/ZN (CKND2D2HVT)                  0.07       6.47 f
+  DP_OP_837_224_3263/U189/ZN (ND2D2HVT)                   0.07       6.54 r
+  DP_OP_837_224_3263/U96/ZN (CKND2D2HVT)                  0.07       6.61 f
+  DP_OP_837_224_3263/U92/ZN (CKND2D2HVT)                  0.07       6.68 r
+  DP_OP_837_224_3263/U178/ZN (ND2D2HVT)                   0.08       6.76 f
+  DP_OP_837_224_3263/U165/ZN (ND2D2HVT)                   0.08       6.84 r
+  DP_OP_837_224_3263/U100/ZN (CKND2D4HVT)                 0.07       6.91 f
+  DP_OP_837_224_3263/U171/ZN (AOI21D4HVT)                 0.12       7.03 r
+  DP_OP_837_224_3263/U170/ZN (XNR2D1HVT)                  0.33       7.36 r
+  DP_OP_837_224_3263/U99/ZN (CKND2D2HVT)                  0.08       7.44 f
+  DP_OP_837_224_3263/U177/ZN (ND2D2HVT)                   0.07       7.51 r
+  DP_OP_837_224_3263/U91/ZN (INVD2HVT)                    0.06       7.56 f
+  DP_OP_837_224_3263/U265/ZN (ND2D2HVT)                   0.06       7.62 r
+  DP_OP_837_224_3263/U159/ZN (ND2D2HVT)                   0.08       7.70 f
+  DP_OP_837_224_3263/U152/ZN (ND2D2HVT)                   0.07       7.76 r
+  DP_OP_837_224_3263/U169/ZN (ND2D2HVT)                   0.07       7.83 f
+  DP_OP_837_224_3263/U150/ZN (ND2D2HVT)                   0.07       7.90 r
+  DP_OP_837_224_3263/U167/ZN (ND2D2HVT)                   0.07       7.96 f
+  DP_OP_837_224_3263/U151/ZN (ND2D2HVT)                   0.07       8.03 r
+  DP_OP_837_224_3263/U246/ZN (ND2D2HVT)                   0.08       8.10 f
+  DP_OP_837_224_3263/U157/ZN (CKND2D2HVT)                 0.07       8.17 r
+  DP_OP_837_224_3263/U168/ZN (ND2D2HVT)                   0.07       8.25 f
+  DP_OP_837_224_3263/U162/ZN (ND2D2HVT)                   0.07       8.32 r
+  DP_OP_837_224_3263/U164/Z (CKXOR2D1HVT)                 0.24       8.56 r
+  DP_OP_837_224_3263/O2[12] (intlv_top_DP_OP_837_224_3263_0)
+                                                          0.00       8.56 r
+  U3692/ZN (CKND2D2HVT)                                   0.07       8.63 f
+  U3698/ZN (ND2D2HVT)                                     0.06       8.69 r
+  U3857/ZN (CKND2D2HVT)                                   0.06       8.76 f
+  U3312/ZN (ND2D2HVT)                                     0.06       8.82 r
+  part2_col_left_cnt_reg_12_/D (DFCNQD1HVT)               0.00       8.82 r
+  data arrival time                                                  8.82
+
+  clock clk (rise edge)                                   4.75       4.75
+  clock network delay (ideal)                             0.95       5.70
+  clock uncertainty                                      -0.24       5.46
+  part2_col_left_cnt_reg_12_/CP (DFCNQD1HVT)              0.00       5.46 r
+  library setup time                                     -0.08       5.38
+  data required time                                                 5.38
+  --------------------------------------------------------------------------
+  data required time                                                 5.38
+  data arrival time                                                 -8.82
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -3.44
+
+
+1

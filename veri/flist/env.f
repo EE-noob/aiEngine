@@ -1,0 +1,16 @@
+../../tb/top_tb.sv
+../../uvc/sa/icb_sa_tr.sv
+../../uvc/sa/icb_sa_sequencer.sv
+../../uvc/sa/icb_sa_driver.sv
+../../uvc/sa/icb_sa_monitor.sv
+../../uvc/sa/icb_sa_agent.sv
+../../uvc/m/icb_m_tr.sv
+../../uvc/m/icb_m_sequencer.sv
+../../uvc/m/icb_m_driver.sv
+../../uvc/m/icb_m_monitor.sv
+../../uvc/m/icb_m_agent.sv
+../../env/icb_env.sv
+../../env/icb_rm.sv
+../../env/icb_scb.sv
+../../test/sequence/icb_case1_sequence.sv
+../../test/icb_smoke_test.sv

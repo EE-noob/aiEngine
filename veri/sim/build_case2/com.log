@@ -1,0 +1,609 @@
+Command: vcs -l com.log -timescale=1ns/1ps -sverilog -ntb_opts uvm-1.2 -debug_access+all \
+-cm line+cond+tgl+fsm -cm_dir ./cov_case -cm_hier coverage_hierarchy.cfg -full64 \
+-j8 -kdb -lca -f /home/EDA/ic_projs/HW_ICS/veri/flist/tb1.f +define+ICS_CASE2
+                         Chronologic VCS (TM)
+         Version T-2022.06_Full64 -- Fri Sep 26 10:24:26 2025
+
+                    Copyright (c) 1991 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS Release Notes
+
+Parsing design file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_pkg.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_version_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_global_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/snps_macros.svp'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_message_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_phase_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_object_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_printer_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_tlm_defines.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm_imps.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_tlm_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_sequence_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_callback_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_reg_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/macros/uvm_deprecated_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dpi/uvm_hdl.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dpi/uvm_svcmd_dpi.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dpi/uvm_regex.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_coreservice.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_version.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_object_globals.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_misc.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_object.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_pool.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_queue.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_factory.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_registry.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_spell_chkr.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_resource.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_resource_specializations.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_resource_db.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_config_db.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_printer.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_comparer.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_packer.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_links.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_tr_database.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_tr_stream.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_recorder.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_event_callback.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_event.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_barrier.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_callback.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_callback.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_report_message.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_report_catcher.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_report_server.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_report_handler.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_report_object.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_transaction.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_phase.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_domain.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_bottomup_phase.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_topdown_phase.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_task_phase.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_common_phases.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_runtime_phases.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_component.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_root.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_component.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_objection.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_heartbeat.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_globals.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_cmdline_processor.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_traversal.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_base.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dap/uvm_set_get_dap_base.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dap/uvm_simple_lock_dap.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dap/uvm_get_to_lock_dap.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dap/uvm_set_before_get_dap.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dap/uvm_dap.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm_ifs.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_sqr_ifs.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/base/uvm_port_base.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm_imps.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_imps.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_ports.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_exports.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_analysis_port.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm_fifo_base.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm_fifos.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm_req_rsp.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_sqr_connections.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_pair.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_policies.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_in_order_comparator.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_algorithmic_comparator.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_random_stimulus.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_subscriber.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_monitor.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_driver.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_push_driver.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_scoreboard.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_agent.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_env.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_test.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/comps/uvm_comps.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_sequence_item.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_sequencer_base.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_sequencer_analysis_fifo.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_sequencer_param_base.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_sequencer.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_push_sequencer.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_sequence_base.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_sequence.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_sequence_library.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_sequence_builtin.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/seq/uvm_seq.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2_defines.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2_time.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2_generic_payload.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2_ifs.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2_imps.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2_ports.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2_exports.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2_sockets_base.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2_sockets.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_item.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_adapter.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_predictor.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_sequence.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_cbs.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_backdoor.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_field.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_vreg_field.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_indirect.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_fifo.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_file.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_mem_mam.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_vreg.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_mem.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_map.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_block.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/sequences/uvm_reg_hw_reset_seq.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/sequences/uvm_reg_bit_bash_seq.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/sequences/uvm_mem_walk_seq.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/sequences/uvm_mem_access_seq.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/sequences/uvm_reg_access_seq.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/sequences/uvm_reg_mem_shared_access_seq.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/sequences/uvm_reg_mem_built_in_seq.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/snps_uvm_reg_bank.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/vcs_uvm_alt.sv'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing design file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/msglog.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_msglog_report_server.sv'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_vcs_recorder.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_vcs_tr_database.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_vcs_tr_stream.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_vcs_tr_database.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_vcs_recorder.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_vcs_record_interface.sv'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing design file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_pli_base.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_tr_database.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_tr_stream.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_tr_database.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_reg_map_recording.sv'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_message_catcher.svh'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_pli_base.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_message_catcher.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_factory.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/./dpi/uvm_verdi_dpi.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_reg_recording.sv'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/opt/synopsys/verdi_2022.06/T-2022.06/share/PLI/VCS/include/verdi_trans_recorder_dpi.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_verdi_pli.svh'.
+Back to file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing design file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'
+Parsing design file '../../../rtl/calcP.sv'
+Parsing design file '../../../rtl/filo.sv'
+Parsing design file '../../../rtl/ics_top.sv'
+Parsing design file '../../../rtl/intlv_top.sv'
+Parsing design file '../../../rtl/triangleSR.sv'
+Parsing design file '../../../rtl/cal.sv'
+Parsing design file '../../../rtl/cal_top.sv'
+Parsing design file '../../../rtl/fifo_add.sv'
+Parsing design file '../../../rtl/mux.sv'
+Parsing design file '../../../rtl/combine_top.sv'
+Parsing design file '../../../rtl/scramble_top.sv'
+Parsing design file '../../../rtl/scramble.sv'
+Parsing design file '../../../rtl/serial_divider.v'
+Parsing design file '../../define/define_selector.sv'
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/define/case2_define.vh'.
+Back to file '../../define/define_selector.sv'.
+Parsing design file '../../interface/ics_if.sv'
+Parsing design file '../../interface/filo_env_if.sv'
+Parsing design file '../../interface/combine_if.sv'
+Parsing design file '../../uvc/ics_mst/ics_mst_pkg.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '../../uvc/ics_mst/ics_mst_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mst/ics_mst_agent_cfg_base.sv'.
+Back to file '../../uvc/ics_mst/ics_mst_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mst/ics_mst_agent_cfg.sv'.
+Back to file '../../uvc/ics_mst/ics_mst_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mst/ics_mst_tr.sv'.
+Back to file '../../uvc/ics_mst/ics_mst_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mst/ics_mst_coverage.sv'.
+Back to file '../../uvc/ics_mst/ics_mst_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mst/ics_mst_sequencer.sv'.
+Back to file '../../uvc/ics_mst/ics_mst_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mst/ics_mst_monitor.sv'.
+Back to file '../../uvc/ics_mst/ics_mst_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mst/ics_mst_driver.sv'.
+Back to file '../../uvc/ics_mst/ics_mst_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mst/ics_mst_reg_adapter.sv'.
+Back to file '../../uvc/ics_mst/ics_mst_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mst/ics_mst_agent.sv'.
+Back to file '../../uvc/ics_mst/ics_mst_pkg.sv'.
+Parsing design file '../../uvc/i2c_mon/i2c_mon_pkg.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '../../uvc/i2c_mon/i2c_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/i2c_mon/i2c_mon_agent_cfg_base.sv'.
+Back to file '../../uvc/i2c_mon/i2c_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/i2c_mon/i2c_mon_agent_cfg.sv'.
+Back to file '../../uvc/i2c_mon/i2c_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/i2c_mon/i2c_mon_tr.sv'.
+Back to file '../../uvc/i2c_mon/i2c_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/i2c_mon/i2c_mon_coverage.sv'.
+Back to file '../../uvc/i2c_mon/i2c_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/i2c_mon/i2c_mon_sequencer.sv'.
+Back to file '../../uvc/i2c_mon/i2c_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/i2c_mon/i2c_mon_monitor.sv'.
+Back to file '../../uvc/i2c_mon/i2c_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/i2c_mon/i2c_mon_driver.sv'.
+Back to file '../../uvc/i2c_mon/i2c_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/i2c_mon/i2c_mon_reg_adapter.sv'.
+Back to file '../../uvc/i2c_mon/i2c_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/i2c_mon/i2c_mon_agent.sv'.
+Back to file '../../uvc/i2c_mon/i2c_mon_pkg.sv'.
+Parsing design file '../../uvc/ics_mon/ics_mon_pkg.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '../../uvc/ics_mon/ics_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mon/ics_mon_agent_cfg_base.sv'.
+Back to file '../../uvc/ics_mon/ics_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mon/ics_mon_agent_cfg.sv'.
+Back to file '../../uvc/ics_mon/ics_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mon/ics_mon_tr.sv'.
+Back to file '../../uvc/ics_mon/ics_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mon/ics_mon_coverage.sv'.
+Back to file '../../uvc/ics_mon/ics_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mon/ics_mon_sequencer.sv'.
+Back to file '../../uvc/ics_mon/ics_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mon/ics_mon_monitor.sv'.
+Back to file '../../uvc/ics_mon/ics_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mon/ics_mon_driver.sv'.
+Back to file '../../uvc/ics_mon/ics_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mon/ics_mon_reg_adapter.sv'.
+Back to file '../../uvc/ics_mon/ics_mon_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mon/ics_mon_agent.sv'.
+Back to file '../../uvc/ics_mon/ics_mon_pkg.sv'.
+Parsing design file '../../uvc/ics_mem_model/ics_mem_model_pkg.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '../../uvc/ics_mem_model/ics_mem_model_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_mem_model/ics_mem_model.sv'.
+Back to file '../../uvc/ics_mem_model/ics_mem_model_pkg.sv'.
+Parsing design file '../../uvc/filo_collector/filo_collector_pkg.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '../../uvc/filo_collector/filo_collector_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/filo_collector/filo_collector.sv'.
+Back to file '../../uvc/filo_collector/filo_collector_pkg.sv'.
+Parsing design file '../../uvc/ics_monitor/ics_monitor_pkg.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '../../uvc/ics_monitor/ics_monitor_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/ics_monitor/ics_monitor.sv'.
+Back to file '../../uvc/ics_monitor/ics_monitor_pkg.sv'.
+Parsing design file '../../uvc/combine_checker/combine_checker_pkg.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '../../uvc/combine_checker/combine_checker_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/uvc/combine_checker/combine_checker.sv'.
+Back to file '../../uvc/combine_checker/combine_checker_pkg.sv'.
+Parsing design file '../../env/ics_env_pkg.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '../../env/ics_env_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/env/ics_rm.sv'.
+Back to file '../../env/ics_env_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/env/ics_scb.sv'.
+Back to file '../../env/ics_env_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/env/ics_env.sv'.
+Back to file '../../env/ics_env_pkg.sv'.
+Parsing design file '../../test/ics_test_pkg.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/test/sequence/ics_base_sequence.sv'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/test/sequence/ics_smoke_sequence.sv'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/test/sequence/ics_case1_sequence.sv'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/test/sequence/ics_case2_sequence.sv'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/test/sequence/ics_case3_sequence.sv'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/test/sequence/ics_case4_sequence.sv'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/test/ics_base_test.sv'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/test/ics_case1_test.sv'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/test/ics_case2_test.sv'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/test/ics_case3_test.sv'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing included file '/home/EDA/ic_projs/HW_ICS/veri/test/ics_case4_test.sv'.
+Back to file '../../test/ics_test_pkg.sv'.
+Parsing design file '../../tb/top_tb.sv'
+Parsing included file '/opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '../../tb/top_tb.sv'.
+Parsing design file '../../sva/triangleSR_sva.sv'
+Parsing design file '../../sva/tri_wr32_consistency_chk.sv'
+Top Level Modules:
+       uvm_custom_install_recording
+       uvm_custom_install_verdi_recording
+       tb_top
+TimeScale is 1 ns / 1 ps
+
+Warning-[CM-HIER-FNF] File not found
+  The file 'coverage_hierarchy.cfg' (given by '-cm_hier' option) does not 
+  exist.
+  The option will be ignored. Please make sure that the file exists.
+
+
+Warning-[PCWM-W] Port connection width mismatch
+../../sva/tri_wr32_consistency_chk.sv, 76
+"tri_wr32_consistency_chk #("part0") chk_p0( .clk (clk),  .rst_n (rst_n),  .tri_wr32_en (part0_tri_wr32_en),  .E_left32bits_nums (part0_E_left_32bits_nums));"
+  The following 9-bit expression is connected to 14-bit port 
+  "E_left32bits_nums" of module "tri_wr32_consistency_chk", instance "chk_p0".
+  Expression: part0_E_left_32bits_nums
+  Instantiated module defined at: "../../sva/tri_wr32_consistency_chk.sv", 5
+  Use +lint=PCWM for more details.
+
+
+Warning-[PCWM-W] Port connection width mismatch
+../../sva/tri_wr32_consistency_chk.sv, 82
+"tri_wr32_consistency_chk #("part1") chk_p1( .clk (clk),  .rst_n (rst_n),  .tri_wr32_en (part1_tri_wr32_en),  .E_left32bits_nums (part1_E_left_32bits_nums));"
+  The following 9-bit expression is connected to 14-bit port 
+  "E_left32bits_nums" of module "tri_wr32_consistency_chk", instance "chk_p1".
+  Expression: part1_E_left_32bits_nums
+  Instantiated module defined at: "../../sva/tri_wr32_consistency_chk.sv", 5
+  Use +lint=PCWM for more details.
+
+
+Warning-[PCWM-W] Port connection width mismatch
+../../sva/tri_wr32_consistency_chk.sv, 88
+"tri_wr32_consistency_chk #("part2") chk_p2( .clk (clk),  .rst_n (rst_n),  .tri_wr32_en (part2_tri_wr32_en),  .E_left32bits_nums (part2_E_left_32bits_nums));"
+  The following 9-bit expression is connected to 14-bit port 
+  "E_left32bits_nums" of module "tri_wr32_consistency_chk", instance "chk_p2".
+  Expression: part2_E_left_32bits_nums
+  Instantiated module defined at: "../../sva/tri_wr32_consistency_chk.sv", 5
+  Use +lint=PCWM for more details.
+
+VCS Coverage Metrics Release T-2022.06_Full64 Copyright (c) 1991-2022 by Synopsys Inc.
+Starting vcs inline pass...
+
+Note-[VCS_PARAL] Parallel code-gen enabled
+  VCS is running with parallel code generation(-j)...
+
+33 modules and 0 UDP read.
+recompiling module cal
+recompiling package ics_mst_pkg
+recompiling module scramble_top
+recompiling package _vcs_DPI_package
+recompiling module scramble
+recompiling package ics_mon_pkg
+recompiling module triangleSR_sva
+recompiling module cal_top
+recompiling module mux
+recompiling module uvm_custom_install_recording
+recompiling module tb_top
+recompiling package combine_checker_pkg
+recompiling package filo_collector_pkg
+recompiling module fifo_add
+recompiling package i2c_mon_pkg
+recompiling module filo_env_if
+recompiling module tri_wr32_consistency_chk
+recompiling module calcP
+recompiling module ics_if
+recompiling package ics_env_pkg
+recompiling module combine_top
+recompiling module ics_top
+recompiling package uvm_pkg
+recompiling package ics_test_pkg
+recompiling module combine_if
+recompiling module triangleSR
+recompiling module uvm_custom_install_verdi_recording
+recompiling module filo
+recompiling module serial_divider
+recompiling package _vcs_msglog
+recompiling package vcs_paramclassrepository
+recompiling package ics_monitor_pkg
+recompiling package ics_mem_model_pkg
+All of 33 modules done
+make[1]: Entering directory `/home/EDA/ic_projs/HW_ICS/veri/sim/build_case2/csrc' \
+
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+g++ -w  -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -fPIC -O -I/opt/synopsys/vcs_2022.06/T-2022.06/include \
+-c /opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/dpi/uvm_dpi.cc
+g++ -w  -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -fPIC -O -I/opt/synopsys/vcs_2022.06/T-2022.06/include \
+-c /opt/synopsys/vcs_2022.06/T-2022.06/etc/uvm-1.2/verdi/dpi/uvm_verdi_dpi.cpp
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir \
+-Wl,-rpath=/opt/synopsys/vcs_2022.06/T-2022.06/linux64/lib -L/opt/synopsys/vcs_2022.06/T-2022.06/linux64/lib \
+-Wl,-rpath-link=./  /usr/lib64/libnuma.so.1 uvm_dpi.o uvm_verdi_dpi.o   objs/amcQw_d.o \
+_54963_archive_1.so _55373_archive_1.so _55374_archive_1.so _55375_archive_1.so _55377_archive_1.so \
+_55378_archive_1.so _55379_archive_1.so _55380_archive_1.so  SIM_l.o      rmapats_mop.o \
+rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o           -lvirsim -lerrorinf \
+-lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -lreader_common /opt/synopsys/vcs_2022.06/T-2022.06/linux64/lib/libBA.a \
+-luclinative /opt/synopsys/vcs_2022.06/T-2022.06/linux64/lib/vcs_tls.o   -Wl,-whole-archive \
+-lvcsucli    -Wl,-no-whole-archive       ./../simv.daidir/vc_hdrs.o  _vcs_pli_stub_.o \
+/opt/synopsys/vcs_2022.06/T-2022.06/linux64/lib/vcs_save_restore_new.o /opt/synopsys/verdi_2022.06/T-2022.06/share/PLI/VCS/LINUX64/pli.a \
+-ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+make[1]: Leaving directory `/home/EDA/ic_projs/HW_ICS/veri/sim/build_case2/csrc' \
+
+CPU time: 165.081 seconds to compile + .802 seconds to elab + 2.111 seconds to link
+Verdi KDB elaboration done and the database successfully generated: 0 error(s), 0 warning(s)

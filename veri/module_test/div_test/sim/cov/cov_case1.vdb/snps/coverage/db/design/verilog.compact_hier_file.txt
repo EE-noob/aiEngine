@@ -1,0 +1,4 @@
+\$unit::../rtl/serial_divider.v::../tb/tb_serial_divider.sv...@3816672411 230
+uvm_custom_install_recording230
+uvm_custom_install_verdi_recording230
+tb_serial_divider230

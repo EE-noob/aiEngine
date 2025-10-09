@@ -1,0 +1,150 @@
+# SIMULATOR = VCS for Synopsys's VCS
+
+SIMULATOR = VCS
+
+FILELIST= ../flist/tb1.f
+
+SEED ?= automatic
+
+VERB ?= UVM_LOW#UVM_MEDIUM
+
+help:
+	@echo =============================================================================================================
+	@echo "! USAGE   	--  make target                  								!"
+	@echo "! clean   	=>  clean the earlier log and intermediate files.  						!"
+	@echo "! comp    	=>  Create library and compile the code.           						!"
+	@echo "! run_test0	=>  clean, compile & run the simulation for axi2spi_base_test in batch mode.		        !" 
+	@echo "! run_test1	=>  clean, compile & run the simulation for axi2spi_tx_test in batch mode.		       	!" 
+	@echo "! run_test2	=>  clean, compile & run the simulation for axi2spi_rx_test in batch mode.		        !"
+	@echo "! run_test3	=>  clean, compile & run the simulation for axi2spi_tx_rx_test in batch mode.		        !" 
+	@echo "! run_test4	=>  clean, compile & run the simulation for axi2spi_clock_freq_test in batch mode.		!" 
+	@echo "! run_test5	=>  clean, compile & run the simulation for axi2spi_clock_polarity_test in batch mode.		!" 
+	@echo "! wave0 =>  To view the waveform of axi2spi_base_test		    						!" 
+	@echo "! wave1 =>  To view the waveform of axi2spi_tx_test		    						!" 
+	@echo "! wave2 =>  To view the waveform of axi2spi_rx_test		    						!" 
+	@echo "! wave3 =>  To view the waveform of axi2spi_tx_rx_test	 	  						!" 
+	@echo "! wave4 =>  To view the waveform of axi2spi_clock_freq_test    							!" 
+	@echo "! wave5 =>  To view the waveform of axi2spi_clock_polarity_test    				        	!" 
+	@echo "! regress    =>  clean, compile and run all testcases in batch mode.		    				!"
+	@echo "! report     =>  To merge coverage reports for all testcases and  convert to html format.			!"
+	@echo "! cov        =>  To open merged coverage report in html format.							!"
+	@echo ====================================================================================================================
+
+clean : clean_$(SIMULATOR)
+comp : comp_$(SIMULATOR)
+run_test0 : run_test0_$(SIMULATOR)
+run_test1 : run_test1_$(SIMULATOR)
+run_test2 : run_test2_$(SIMULATOR)
+run_test3 : run_test3_$(SIMULATOR)
+run_test4 : run_test4_$(SIMULATOR)
+run_test5 : run_test5_$(SIMULATOR)
+all_test0 : comp_$(SIMULATOR) run_test0_$(SIMULATOR)
+wave0 : view_wave0_$(SIMULATOR)
+wave1 : view_wave1_$(SIMULATOR)
+wave2 : view_wave2_$(SIMULATOR)
+wave3 : view_wave3_$(SIMULATOR)
+wave4 : view_wave4_$(SIMULATOR)
+wave5 : view_wave5_$(SIMULATOR)
+regress : regress_$(SIMULATOR)
+report : report_$(SIMULATOR)
+cov : cov_$(SIMULATOR)
+
+
+# ----------------------------- Start of Definitions for Synopsys's VCS Specific Targets -------------------------------#
+
+comp_VCS1:
+	vcs -l com.log -timescale=1ns/1ps -sverilog -ntb_opts uvm-1.2 -debug_access+all -cm line+cond+tgl+fsm -cm_dir ./cov_work1 -cm_hier coverage_hierarchy.cfg -full64 -kdb -lca -f $(FILELIST) +define+ICS_CASE1
+comp_VCS2:
+	vcs -l com.log -timescale=1ns/1ps -sverilog -ntb_opts uvm-1.2 -debug_access+all -cm line+cond+tgl+fsm -cm_dir ./cov_work2 -cm_hier coverage_hierarchy.cfg -full64 -kdb -lca -f $(FILELIST) +define+ICS_CASE2
+comp_VCS3:
+	vcs -l com.log -timescale=1ns/1ps -sverilog -ntb_opts uvm-1.2 -debug_access+all -cm line+cond+tgl+fsm -cm_dir ./cov_work3 -cm_hier coverage_hierarchy.cfg -full64 -kdb -lca -f $(FILELIST) +define+ICS_CASE3
+comp_VCS4:
+	vcs -l com.log -timescale=1ns/1ps -sverilog -ntb_opts uvm-1.2 -debug_access+all -cm line+cond+tgl+fsm -cm_dir ./cov_work4 -cm_hier coverage_hierarchy.cfg -full64 -kdb -lca -f $(FILELIST) +define+ICS_CASE4
+
+run_test0_VCS: comp_VCS1
+ifeq ($(SEED), automatic)
+	./simv -l sim.log0 +fsdbfile+wave0.fsdb -cm line+cond+tgl+fsm \
+	+ntb_random_seed_automatic +UVM_TESTNAME=ics_case1_test \
+	+UVM_VERBOSITY=$(VERB) +UVM_TREE
+else
+	./simv -l sim.log0 +fsdbfile+wave0.fsdb -cm line+cond+tgl+fsm \
+	+ntb_random_seed=$(SEED) +UVM_TESTNAME=ics_case1_test \
+	+UVM_VERBOSITY=$(VERB) +UVM_TREE
+endif
+	
+run_test1_VCS:	comp_VCS2
+ifeq ($(SEED), automatic)
+	./simv -l sim.log0 +fsdbfile+wave1.fsdb -cm line+cond+tgl+fsm \
+	+ntb_random_seed_automatic +UVM_TESTNAME=ics_case2_test \
+	+UVM_VERBOSITY=$(VERB) +UVM_TREE
+else
+	./simv -l sim.log0 +fsdbfile+wave1.fsdb -cm line+cond+tgl+fsm \
+	+ntb_random_seed=$(SEED) +UVM_TESTNAME=ics_case2_test \
+	+UVM_VERBOSITY=$(VERB) +UVM_TREE
+endif	
+
+run_test2_VCS:	comp_VCS3
+ifeq ($(SEED), automatic)
+	./simv -l sim.log0 +fsdbfile+wave2.fsdb -cm line+cond+tgl+fsm \
+	+ntb_random_seed_automatic +UVM_TESTNAME=ics_case3_test \
+	+UVM_VERBOSITY=$(VERB) +UVM_TREE
+else
+	./simv -l sim.log0 +fsdbfile+wave2.fsdb -cm line+cond+tgl+fsm \
+	+ntb_random_seed=$(SEED) +UVM_TESTNAME=ics_case3_test \
+	+UVM_VERBOSITY=$(VERB) +UVM_TREE
+endif
+
+run_test3_VCS:	comp_VCS4
+ifeq ($(SEED), automatic)
+	./simv -l sim.log0 +fsdbfile+wave3.fsdb -cm line+cond+tgl+fsm \
+	+ntb_random_seed_automatic +UVM_TESTNAME=ics_case4_test \
+	+UVM_VERBOSITY=$(VERB) +UVM_TREE
+else
+	./simv -l sim.log0 +fsdbfile+wave3.fsdb -cm line+cond+tgl+fsm \
+	+ntb_random_seed=$(SEED) +UVM_TESTNAME=ics_case4_test \
+	+UVM_VERBOSITY=$(VERB) +UVM_TREE
+endif
+
+run_test4_VCS:	comp_VCS
+ifeq ($(SEED), automatic)
+	./simv -l sim.log0 +fsdbfile+wave0.fsdb -cm_dir ./mem_cov0 \
+	+ntb_random_seed_automatic +UVM_TESTNAME=ics_base_test \
+	+UVM_VERBOSITY=$(VERB) +UVM_TREE
+else
+	./simv -l sim.log0 +fsdbfile+wave0.fsdb -cm_dir ./mem_cov0 \
+	+ntb_random_seed=$(SEED) +UVM_TESTNAME=ics_base_test \
+	+UVM_VERBOSITY=$(VERB) +UVM_TREE
+endif
+
+run_test5_VCS:	comp_VCS
+	./simv -l sim.log5 +fsdbfile+wave5.fsdb -cm_dir ./mem_cov5 +ntb_random_seed_automatic +UVM_TESTNAME=axi2spi_clock_polarity_test 
+
+view_wave0_VCS: 
+	verdi -ssf wave0.fsdb -rcFile ~/dark.rc &
+	
+view_wave1_VCS: 
+	verdi -ssf wave1.fsdb -rcFile ~/dark.rc &
+	
+view_wave2_VCS: 
+	verdi -ssf wave2.fsdb -rcFile ~/dark.rc &
+
+view_wave3_VCS: 
+	verdi -ssf wave3.fsdb -rcFile ~/dark.rc &
+
+view_wave4_VCS: 
+	verdi -ssf wave4.fsdb -rcFile ~/dark.rc &	
+	
+view_wave5_VCS: 
+	verdi -ssf wave5.fsdb -rcFile ~/dark.rc &	
+	
+report_VCS:
+	urg -full64 -dir *.vdb -dbname merged -parallel -report urgReport
+
+regress_VCS: clean_VCS comp_VCS run_test0_VCS run_test1_VCS run_test2_VCS run_test3_VCS run_test4_VCS run_test5_VCS
+
+cov_VCS:
+	dve -covdir cov_work2.vdb/ -full64 &
+
+clean_VCS:
+	rm -rf simv* csrc* *.tmp *.vpd *.vdb *.key *.log* *hdrs.h urgReport* *.fsdb novas* verdi* *.txt
+	clear

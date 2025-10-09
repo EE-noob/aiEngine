@@ -1,0 +1,71 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : triangleSR
+Version: O-2018.06-SP1
+Date   : Fri May  2 14:40:38 2025
+****************************************
+
+
+   min_delay/hold ('clk' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   tri_q_reg_8157_/D            0.37           0.28 f        -0.09  (VIOLATED)
+   tri_q_reg_8159_/D            0.37           0.28 f        -0.09  (VIOLATED)
+   tri_q_reg_8149_/D            0.37           0.31 f        -0.06  (VIOLATED)
+   tri_q_reg_8150_/D            0.37           0.31 f        -0.06  (VIOLATED)
+   tri_q_reg_8154_/D            0.37           0.31 f        -0.06  (VIOLATED)
+   tri_q_reg_8155_/D            0.37           0.31 f        -0.06  (VIOLATED)
+   col_valid_reg/D              0.37           0.31 f        -0.05  (VIOLATED)
+   tri_q_reg_171_/D             0.36           0.32 f        -0.05  (VIOLATED)
+   tri_q_reg_8128_/D            0.37           0.32 f        -0.05  (VIOLATED)
+   tri_q_reg_8138_/D            0.37           0.32 f        -0.05  (VIOLATED)
+   tri_q_reg_8139_/D            0.37           0.32 f        -0.05  (VIOLATED)
+   tri_q_reg_8143_/D            0.37           0.32 f        -0.05  (VIOLATED)
+   tri_q_reg_8144_/D            0.37           0.32 f        -0.05  (VIOLATED)
+   tri_q_reg_8148_/D            0.37           0.32 f        -0.05  (VIOLATED)
+   tri_q_reg_8158_/D            0.37           0.32 f        -0.04  (VIOLATED)
+   height_reg_7_/D              0.37           0.35 f        -0.01  (VIOLATED)
+   tri_q_reg_8151_/D            0.32           0.31 r        -0.01  (VIOLATED)
+   tri_q_reg_8152_/D            0.32           0.31 r        -0.01  (VIOLATED)
+   tri_q_reg_8153_/D            0.32           0.31 r        -0.01  (VIOLATED)
+   tri_q_reg_8156_/D            0.32           0.31 r        -0.01  (VIOLATED)
+   tri_q_reg_8140_/D            0.32           0.31 r        -0.01  (VIOLATED)
+   tri_q_reg_8145_/D            0.32           0.31 r        -0.01  (VIOLATED)
+   tri_q_reg_8129_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8130_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8136_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8137_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8135_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8131_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8132_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8133_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8134_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8141_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8146_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8142_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+   tri_q_reg_8147_/D            0.32           0.31 r         0.00  (VIOLATED: increase significant digits)
+
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   triangleSR                   0.00       120009.86      -120009.86
+                                                                    (VIOLATED)
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   triangleSR                   0.00       133036400.00   -133036400.00
+                                                                    (VIOLATED)
+
+
+1

@@ -1,0 +1,4 @@
+# 忽略 sim 文件夹下的所有内容
+sim/*
+# 但不要忽略 Makefile
+!sim/Makefile

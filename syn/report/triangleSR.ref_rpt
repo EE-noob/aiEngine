@@ -1,0 +1,122 @@
+ 
+****************************************
+Report : reference
+Design : triangleSR
+Version: O-2018.06-SP1
+Date   : Fri May  2 14:40:38 2025
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AND2X2             typical        3.528000       1      3.528000  
+AND2X6             typical        7.056000       1      7.056000  
+AND2X8             typical        9.878400       1      9.878400  
+AND2XL             typical        3.528000     777   2741.256090  
+AND3X1             typical        4.233600       2      8.467200  
+AND3XL             typical        4.233600      19     80.438403  
+AND4X1             typical        5.644800       5     28.224001  
+AO21XL             typical        4.939200       1      4.939200  
+AO22X1             typical        5.644800       1      5.644800  
+AO22X2             typical        5.644800       1      5.644800  
+AO22XL             typical        5.644800      35    197.568007  
+AOI2B1X1           typical        4.939200       1      4.939200  
+AOI2B1XL           typical        4.939200       1      4.939200  
+AOI2BB1XL          typical        4.233600      13     55.036802  
+AOI21BXL           typical        5.644800       3     16.934401  
+AOI21X1            typical        3.528000      10     35.280001  
+AOI21XL            typical        3.528000       2      7.056000  
+AOI22X1            typical        4.939200       1      4.939200  
+AOI22XL            typical        4.233600    5302  22446.547940  
+AOI31X1            typical        4.233600      15     63.504002  
+AOI31XL            typical        4.233600       3     12.700800  
+AOI32XL            typical        4.939200       9     44.452799  
+AOI211X1           typical        4.233600      11     46.569602  
+AOI211XL           typical        4.233600      10     42.336001  
+AOI222XL           typical        6.350400    1490   9462.095957  
+BUFX3              typical        3.528000       1      3.528000  
+CLKAND2X2          typical        3.528000      31    109.368004  
+CLKAND2X4          typical        4.939200       4     19.756800  
+CLKAND2X6          typical        5.644800       1      5.644800  
+CLKBUFX1           typical        2.822400      36    101.606403  
+CLKBUFX2           typical        2.822400       2      5.644800  
+CLKBUFX3           typical        3.528000      11     38.808001  
+CLKBUFX4           typical        3.528000       1      3.528000  
+CLKBUFX6           typical        4.939200       3     14.817600  
+CLKINVX1           typical        2.116800      47     99.489603  
+CLKINVX2           typical        2.116800      54    114.307204  
+CLKINVX3           typical        2.822400      14     39.513601  
+CLKINVX4           typical        2.822400      29     81.849603  
+CLKINVX6           typical        4.233600       2      8.467200  
+CLKINVX8           typical        4.939200       5     24.696000  
+CLKINVX12          typical        6.350400       2     12.700800  
+CLKNAND2X2         typical        2.822400      16     45.158401  
+CLKNAND2X8         typical        8.467200       1      8.467200  
+DFFRQX2            typical       15.523200    3488  54144.921722  n
+DFFRQX4            typical       16.228800       7    113.601599  n
+DFFRQXL            typical       15.523200     242   3756.614408  n
+DFFSQX2            typical       14.817600       1     14.817600  n
+INVX1              typical        2.116800       1      2.116800  
+INVX2              typical        2.116800       3      6.350400  
+INVX5              typical        3.528000       1      3.528000  
+INVX8              typical        4.939200       2      9.878400  
+INVXL              typical        2.116800     203    429.710414  
+NAND2BX1           typical        3.528000       1      3.528000  
+NAND2BX2           typical        3.528000       1      3.528000  
+NAND2BXL           typical        3.528000       9     31.752001  
+NAND2X1            typical        2.822400       2      5.644800  
+NAND2X8            typical        9.172800       1      9.172800  
+NAND2XL            typical        2.822400    4316  12181.478802  
+NAND3X6            typical       10.584000       1     10.584000  
+NAND3XL            typical        3.528000    2959  10439.352344  
+NAND4X1            typical        4.939200       5     24.696000  
+NOR2X1             typical        2.822400      13     36.691201  
+NOR2X4             typical        4.939200       2      9.878400  
+NOR2X8             typical        8.467200       1      8.467200  
+NOR2XL             typical        2.822400       8     22.579201  
+NOR3BX1            typical        4.233600     102    431.827214  
+NOR3BXL            typical        4.233600       8     33.868801  
+NOR3X1             typical        3.528000       8     28.224001  
+NOR3XL             typical        3.528000       4     14.112000  
+NOR4X1             typical        4.233600      15     63.504002  
+NOR4XL             typical        4.233600       8     33.868801  
+OA21XL             typical        4.939200      16     79.027199  
+OAI2B1X1           typical        4.939200      27    133.358398  
+OAI2B1XL           typical        4.939200      15     74.087999  
+OAI2B2X1           typical        5.644800       2     11.289600  
+OAI2B2XL           typical        5.644800       2     11.289600  
+OAI2BB1XL          typical        4.233600       2      8.467200  
+OAI2BB2X1          typical        5.644800      23    129.830404  
+OAI2BB2XL          typical        5.644800       5     28.224001  
+OAI21X1            typical        3.528000       3     10.584000  
+OAI21XL            typical        3.528000      33    116.424004  
+OAI22XL            typical        4.233600       2      8.467200  
+OAI31X1            typical        4.233600       9     38.102401  
+OAI31XL            typical        4.233600       2      8.467200  
+OAI32XL            typical        4.939200      13     64.209599  
+OAI211XL           typical        4.233600     235    994.896033  
+OAI222X1           typical        7.056000       1      7.056000  
+OAI222XL           typical        7.056000       1      7.056000  
+OR2X1              typical        3.528000       3     10.584000  
+OR2X2              typical        3.528000       5     17.640001  
+OR2X4              typical        6.350400       2     12.700800  
+OR2XL              typical        3.528000      10     35.280001  
+OR3X1              typical        4.233600       2      8.467200  
+OR3XL              typical        4.233600       1      4.233600  
+OR4X1              typical        5.644800       1      5.644800  
+OR4XL              typical        5.644800       1      5.644800  
+triangleSR_DP_OP_1735_122_7839_0
+                                227.203205       1    227.203205  h
+-----------------------------------------------------------------------------
+Total 97 references                                 120009.860988
+1

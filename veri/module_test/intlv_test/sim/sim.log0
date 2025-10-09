@@ -1,0 +1,365 @@
+Command: /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/sim/./simv -l sim.log0 +fsdbfile+wave1.fsdb -cm line+cond+tgl+fsm +ntb_random_seed_automatic +UVM_TESTNAME=ics_base_test +UVM_VERBOSITY=UVM_LOW +UVM_TREE
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jun 12 10:18 2025
+NOTE: automatic random seed used: 2767120173
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+[triangleSR_sva] 打开 dump 文件: triangleSR_dump_tb_top_u_ics_top_intlv_top_inst_triangleSR_inst0_tri_sva_inst.txt
+[triangleSR_sva] 打开 dump 文件: triangleSR_dump_tb_top_u_ics_top_intlv_top_inst_triangleSR_inst1_tri_sva_inst.txt
+[triangleSR_sva] 打开 dump 文件: triangleSR_dump_tb_top_u_ics_top_intlv_top_inst_triangleSR_inst2_tri_sva_inst.txt
+UVM_INFO @ 0: reporter [RNTST] Running test ics_base_test...
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'wave1.fsdb'
+*Verdi* : Begin traversing the scope (tb_top), layer (0).
+*Verdi* : End of traversing.
+*Verdi* : Begin traversing the MDAs under scope (tb_top), layer (0).
+*Verdi* : Enable +mda and +packedmda dumping.
+*Verdi* : End of traversing the MDAs.
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/test/ics_base_test.sv(22) @ 0: uvm_test_top [uvm_test_top] build_phase begin...
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/test/ics_base_test.sv(24) @ 0: uvm_test_top [uvm_test_top] build_phase end...
+
+Warning: Too many digits in hexadecimal number '0x000000000000000000000000b2b06302', truncating to target size 128 bits
+  at time 0 in file /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/ics_mem_model/ics_mem_model.sv line 36
+
+
+Warning: Too many digits in hexadecimal number '0x000000000000000000000000b67afa74', truncating to target size 128 bits
+  at time 0 in file /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/ics_mem_model/ics_mem_model.sv line 36
+
+
+Warning: Too many digits in hexadecimal number '0x000000000000000000000000aa3b3de7', truncating to target size 128 bits
+  at time 0 in file /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/ics_mem_model/ics_mem_model.sv line 36
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+--------------------------------------------------------------
+Name                       Type                    Size  Value
+--------------------------------------------------------------
+uvm_test_top               ics_base_test           -     @354 
+  env                      ics_env                 -     @377 
+    collector              filo_collector          -     @424 
+    i_agt                  ics_mst_agent           -     @388 
+      drv                  ics_mst_driver          -     @579 
+        rsp_port           uvm_analysis_port       -     @598 
+        seq_item_port      uvm_seq_item_pull_port  -     @588 
+      mon                  ics_mst_monitor         -     @608 
+        mon_port           uvm_analysis_port       -     @619 
+        out_port           uvm_analysis_port       -     @629 
+      sqr                  ics_mst_sequencer       -     @442 
+        rsp_export         uvm_analysis_export     -     @451 
+        seq_item_export    uvm_seq_item_pull_imp   -     @569 
+        arbitration_queue  array                   0     -    
+        lock_queue         array                   0     -    
+        num_last_reqs      integral                32    'd1  
+        num_last_rsps      integral                32    'd1  
+      cfg                  ics_mst_agent_cfg       -     @440 
+    mem                    ics_mem_model           -     @415 
+    rm                     ics_rm                  -     @406 
+    scb                    ics_scb                 -     @397 
+--------------------------------------------------------------
+
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(263) @ 0: uvm_test_top.env.collector [COMPARE] Loaded 3 lines from ../data/ics_intlv_out_data1.txt: part0=1, part1=1, part2=1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(267) @ 0: uvm_test_top.env.collector [GOLDEN_DUMP] ------ GOLDEN PART 0 ------
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(267) @ 0: uvm_test_top.env.collector [GOLDEN_DUMP] ------ GOLDEN PART 1 ------
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(267) @ 0: uvm_test_top.env.collector [GOLDEN_DUMP] ------ GOLDEN PART 2 ------
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(267) @ 0: uvm_test_top.env.collector [GOLDEN_DUMP] ------ GOLDEN PART 0 ------
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(267) @ 0: uvm_test_top.env.collector [GOLDEN_DUMP] ------ GOLDEN PART 1 ------
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(267) @ 0: uvm_test_top.env.collector [GOLDEN_DUMP] ------ GOLDEN PART 2 ------
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(267) @ 0: uvm_test_top.env.collector [GOLDEN_DUMP] ------ GOLDEN PART 0 ------
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(267) @ 0: uvm_test_top.env.collector [GOLDEN_DUMP] ------ GOLDEN PART 1 ------
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(267) @ 0: uvm_test_top.env.collector [GOLDEN_DUMP] ------ GOLDEN PART 2 ------
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(142) @ 0: uvm_test_top.env.collector [MONITOR_START] monitor_fifo started for part0 fifo0
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(142) @ 0: uvm_test_top.env.collector [MONITOR_START] monitor_fifo started for part0 fifo1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(142) @ 0: uvm_test_top.env.collector [MONITOR_START] monitor_fifo started for part1 fifo0
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(142) @ 0: uvm_test_top.env.collector [MONITOR_START] monitor_fifo started for part1 fifo1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(142) @ 0: uvm_test_top.env.collector [MONITOR_START] monitor_fifo started for part2 fifo0
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(142) @ 0: uvm_test_top.env.collector [MONITOR_START] monitor_fifo started for part2 fifo1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(92) @ 1630000: uvm_test_top.env.collector [COMPARE] 
+
+********** MATCH in part0 !!!! ********** 
+: dut_data is:000000000000000000000000000000000000000000000a4e934280c427820676
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(92) @ 1630000: uvm_test_top.env.collector [COMPARE] 
+
+********** MATCH in part1 !!!! ********** 
+: dut_data is:00000000000000000000000000000000000000000000a3f4d77f907fa4ae3dde
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(92) @ 1630000: uvm_test_top.env.collector [COMPARE] 
+
+********** MATCH in part2 !!!! ********** 
+: dut_data is:00000000000000000000000000000000000000000000a71efff91ae2d3f793c7
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(312) @ 1630000: uvm_test_top.env.collector [DEBUG] DUT bits size=80 for part0
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(364) @ 1630000: uvm_test_top.env.collector [DEBUG] Dropping last 0 bits for part0
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(376) @ 1630000: uvm_test_top.env.collector [BITLEN_MISMATCH] DUT bit count (80) != golden bit count (128) for part0
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 0 (9 bits):
+  exp: 001110110
+  act: 001110110
+  exp: 0x76
+  act: 0x76
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 1 (9 bits):
+  exp: 100000011
+  act: 100000011
+  exp: 0x103
+  act: 0x103
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 2 (9 bits):
+  exp: 111100000
+  act: 111100000
+  exp: 0x1e0
+  act: 0x1e0
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 3 (9 bits):
+  exp: 010000100
+  act: 010000100
+  exp: 0x84
+  act: 0x84
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 4 (8 bits):
+  exp: 00001100
+  act: 00001100
+  exp: 0xc
+  act: 0xc
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 5 (8 bits):
+  exp: 00101000
+  act: 00101000
+  exp: 0x28
+  act: 0x28
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 6 (7 bits):
+  exp: 0110100
+  act: 0110100
+  exp: 0x34
+  act: 0x34
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 7 (6 bits):
+  exp: 010010
+  act: 010010
+  exp: 0x12
+  act: 0x12
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 8 (5 bits):
+  exp: 00111
+  act: 00111
+  exp: 0x7
+  act: 0x7
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 9 (4 bits):
+  exp: 1001
+  act: 1001
+  exp: 0x9
+  act: 0x9
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 10 (3 bits):
+  exp: 010
+  act: 010
+  exp: 0x2
+  act: 0x2
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 11 (2 bits):
+  exp: 00
+  act: 00
+  exp: 0x0
+  act: 0x0
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part0 Group 12 (1 bits):
+  exp: 0
+  act: 0
+  exp: 0x0
+  act: 0x0
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(312) @ 1630000: uvm_test_top.env.collector [DEBUG] DUT bits size=80 for part1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(364) @ 1630000: uvm_test_top.env.collector [DEBUG] Dropping last 0 bits for part1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(376) @ 1630000: uvm_test_top.env.collector [BITLEN_MISMATCH] DUT bit count (80) != golden bit count (128) for part1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 0 (9 bits):
+  exp: 111011110
+  act: 111011110
+  exp: 0x1de
+  act: 0x1de
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 1 (9 bits):
+  exp: 100011110
+  act: 100011110
+  exp: 0x11e
+  act: 0x11e
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 2 (9 bits):
+  exp: 100101011
+  act: 100101011
+  exp: 0x12b
+  act: 0x12b
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 3 (9 bits):
+  exp: 111110100
+  act: 111110100
+  exp: 0x1f4
+  act: 0x1f4
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 4 (8 bits):
+  exp: 00000111
+  act: 00000111
+  exp: 0x7
+  act: 0x7
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 5 (8 bits):
+  exp: 11111001
+  act: 11111001
+  exp: 0xf9
+  act: 0xf9
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 6 (7 bits):
+  exp: 1110111
+  act: 1110111
+  exp: 0x77
+  act: 0x77
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 7 (6 bits):
+  exp: 011010
+  act: 011010
+  exp: 0x1a
+  act: 0x1a
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 8 (5 bits):
+  exp: 11010
+  act: 11010
+  exp: 0x1a
+  act: 0x1a
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 9 (4 bits):
+  exp: 1111
+  act: 1111
+  exp: 0xf
+  act: 0xf
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 10 (3 bits):
+  exp: 000
+  act: 000
+  exp: 0x0
+  act: 0x0
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 11 (2 bits):
+  exp: 01
+  act: 01
+  exp: 0x1
+  act: 0x1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part1 Group 12 (1 bits):
+  exp: 1
+  act: 1
+  exp: 0x1
+  act: 0x1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(312) @ 1630000: uvm_test_top.env.collector [DEBUG] DUT bits size=80 for part2
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(364) @ 1630000: uvm_test_top.env.collector [DEBUG] Dropping last 0 bits for part2
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(376) @ 1630000: uvm_test_top.env.collector [BITLEN_MISMATCH] DUT bit count (80) != golden bit count (128) for part2
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 0 (9 bits):
+  exp: 111000111
+  act: 111000111
+  exp: 0x1c7
+  act: 0x1c7
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 1 (9 bits):
+  exp: 111001001
+  act: 111001001
+  exp: 0x1c9
+  act: 0x1c9
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 2 (9 bits):
+  exp: 011111101
+  act: 011111101
+  exp: 0xfd
+  act: 0xfd
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 3 (9 bits):
+  exp: 001011010
+  act: 001011010
+  exp: 0x5a
+  act: 0x5a
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 4 (8 bits):
+  exp: 10101110
+  act: 10101110
+  exp: 0xae
+  act: 0xae
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 5 (8 bits):
+  exp: 10010001
+  act: 10010001
+  exp: 0x91
+  act: 0x91
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 6 (7 bits):
+  exp: 1111111
+  act: 1111111
+  exp: 0x7f
+  act: 0x7f
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 7 (6 bits):
+  exp: 011111
+  act: 011111
+  exp: 0x1f
+  act: 0x1f
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 8 (5 bits):
+  exp: 01111
+  act: 01111
+  exp: 0xf
+  act: 0xf
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 9 (4 bits):
+  exp: 1100
+  act: 1100
+  exp: 0xc
+  act: 0xc
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 10 (3 bits):
+  exp: 001
+  act: 001
+  exp: 0x1
+  act: 0x1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 11 (2 bits):
+  exp: 01
+  act: 01
+  exp: 0x1
+  act: 0x1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(437) @ 1630000: uvm_test_top.env.collector [BIT_GROUP_COMPARE] part2 Group 12 (1 bits):
+  exp: 1
+  act: 1
+  exp: 0x1
+  act: 0x1
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/filo_collector/filo_collector.sv(126) @ 1630000: uvm_test_top.env.collector [uvm_test_top.env.collector] Drop objection
+UVM_INFO /home/ICer/ic_prjs/HW_ICS/veri/module_test/intlv_test/uvc/ics_mem_model/ics_mem_model.sv(69) @ 1660000: uvm_test_top.env.mem [uvm_test_top.env.mem] Drop objection
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 51660000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 51660000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 51660000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   76
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[BITLEN_MISMATCH]     3
+[BIT_GROUP_COMPARE]    39
+[COMPARE]     4
+[DEBUG]     6
+[GOLDEN_DUMP]     9
+[MONITOR_START]     6
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[uvm_test_top]     2
+[uvm_test_top.env.collector]     1
+[uvm_test_top.env.mem]     1
+
+$finish called from file "/home/synopsys/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+[part0] final cnt：wr32_cnt=2  dec_cnt=2
+[part1] final cnt：wr32_cnt=2  dec_cnt=2
+[part2] final cnt：wr32_cnt=2  dec_cnt=2
+$finish at simulation time             51660000
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, tgl was monitored
+---------------------------------------------------------------------------
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 51660000 ps
+CPU Time:      1.040 seconds;       Data structure size:   1.7Mb
+Thu Jun 12 10:18:37 2025

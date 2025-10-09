@@ -1,0 +1,19 @@
+%%{init: {'theme':'base', 'themeVariables': { 'fontSize': '18px', 'fontFamily': 'Arial, Helvetica, sans-serif'}} }%%
+stateDiagram-v2
+    direction TB
+
+    [*] --> IDLE        : rst_n==0(异步复位)
+    IDLE --> PARAM_LOAD : ics_start==1
+    PARAM_LOAD --> CALC_P  : 参数锁存完毕
+    CALC_P --> WR32_FILL   : calcP.done==1 & E≥32
+    CALC_P --> WR1_FILL    : calcP.done==1 & 0<E<32
+    WR32_FILL --> WR1_FILL : wr32_cnt==E>>5
+    WR1_FILL --> WR_BUBBLE : wr1_cnt==E，有效数据写入完毕
+    WR_BUBBLE --> MOVE_S0  : bubble_cnt==bubble_num
+    MOVE_S0 --> MOVE_S0    : diag_shift：S_cur=S_cur - P_cur
+    MOVE_S0 --> RM_BUBBLE  : S_cur < P_cur，从起始点S开始输出数据
+    RM_BUBBLE --> READ_DATA: bubble_cnt==bubble_num
+    READ_DATA --> READ_DATA: left_num>0
+    READ_DATA --> DONE     : P_cur==0，所有数据输出完毕
+    DONE --> IDLE          : next_part==NONE
+    DONE --> PARAM_LOAD    : next_part!=NONE

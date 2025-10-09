@@ -1,0 +1,9 @@
+*design* DebussyLib (btIdent Verdi_O-2018.09-SP2)
+Command arguments:  -elab  /home/ICer/ic_prjs/HW_ICS/veri/module_test/div_test/sim/simv.daidir/kdb.elab++  +UVM_TESTNAME=ics_base_test 
+*design* DebussyLib (btIdent Verdi_O-2018.09-SP2)
+
+*Warning* failed to find class ics_base_test (+OVM_TESTNAME/UVM_TESTNAME=ics_base_test) 
+or class ics_base_test is not inherited from class ovm_test/uvm_test of package ovm_pkg/uvm_pkg
+
+
+Total	0 error(s),   1 warning(s)

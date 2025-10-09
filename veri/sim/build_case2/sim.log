@@ -1,0 +1,4 @@
+Command: /home/EDA/ic_projs/HW_ICS/veri/sim/build_case2/./simv -l sim.log +fsdbfile+wave2.fsdb -cm line+cond+tgl+fsm +ntb_random_seed_automatic +vcs+parallel+on +vcs+num_threads=8 +UVM_TESTNAME=ics_base_test +UVM_VERBOSITY=UVM_LOW +UVM_TREE
+Chronologic VCS simulator copyright 1991-2022
+Contains Synopsys proprietary information.
+Compiler version T-2022.06_Full64; Runtime version T-2022.06_Full64;  Sep 26 10:34 2025

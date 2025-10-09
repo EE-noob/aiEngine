@@ -1,0 +1,22 @@
+Instrument
+cond 3
+line 3
+fsm 65539
+tgl 8
+assign 0
+obc 0
+path 0
+branch 0
+Count 0
+Glitch -1
+cm_tglmda 0
+cm_tglstructarr 1
+cm_tglcount 0
+cm_tglunencryptedsignals 0
+cm_hier 1
+InstrSpecs 2
+TglUnpkdLimitVal -1
+IrisFlow -1
+cm_hier_file /home/EDA/ic_projs/HW_ICS/veri/sim/build_case1/coverage_hierarchy.cfg
+cm_assert_hier 0
+cm_common_hier 0

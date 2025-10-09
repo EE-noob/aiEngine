@@ -1,0 +1,311 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : ics_top
+Version: O-2018.06-SP1
+Date   : Wed Jun 18 14:03:50 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt1v25c   Library: tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/part0_offset_reg_0_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/part1_offset_reg_15_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  serial_divider_70  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_69  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_68  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_67  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_66  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_65  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_64  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_63  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_62  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_61  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_60  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_59  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_58  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_57  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_56  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_55  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_54  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_53  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_52  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_51  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_50  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_49  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_48  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_47  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_46  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_45  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_44  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_43  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_42  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_41  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_40  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_39  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_38  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_37  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_36  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_35  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_34  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_33  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_32  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_31  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_30  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_29  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_28  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_27  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_26  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_25  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_24  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_23  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_22  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_21  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_20  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_19  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_18  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_17  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_16  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_15  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_14  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_13  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_12  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_11  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_10  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_9   ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_8   ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_7   ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_6   ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_5   ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_4   ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_3   ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_2   ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_1   ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_0   ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_0
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  triangleSR_N138_N211_N33_readModeNum3_1
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  triangleSR_N138_N211_N33_readModeNum3_0
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  calcP_1            ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  calcP_0            ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  serial_divider_71  ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM11      ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM10      ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM9       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM8       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM7       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM6       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM5       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM4       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM3       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM2       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM1       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM0       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_top            ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  scramble           ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  mux                ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_1
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  fifo_add_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3_2
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_0
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_1
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_2
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_3
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_4
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  filo_N138_N211_N33_RDW_A52_RDW_B20_RDW_C8_RDW_D3_5
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  triangleSR_N138_N211_N33_readModeNum3_2
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  calcP_2            ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  scramble_top       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  combine_top_DEPTH240_RDW_A52_RDW_B20_RDW_C8_RDW_D3
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  ics_top            ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  intlv_top_N138_N211_N33_readModeNum3_RDW_A52_RDW_B20_RDW_C8_RDW_D3
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM3_DP_OP_999_363_8467_0
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  cal_LINENUM3_DP_OP_975_365_2024_0
+                     ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.42       0.42
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/part0_offset_reg_0_/CP (DFCNQD4BWP40P140HVT)
+                                                          0.00 #     0.42 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/part0_offset_reg_0_/Q (DFCNQD4BWP40P140HVT)
+                                                          0.06       0.48 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/I1[0] (cal_LINENUM3_DP_OP_999_363_8467_0)
+                                                          0.00       0.48 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U2130/ZN (INVD1P5BWP40P140HVT)
+                                                          0.01       0.50 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U1951/ZN (OAI211D1BWP40P140HVT)
+                                                          0.03       0.52 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U2136/ZN (IOA21D0BWP40P140HVT)
+                                                          0.02       0.54 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U1938/ZN (OAI22OPTPBD1BWP40P140HVT)
+                                                          0.02       0.56 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U1988/ZN (MAOI222D1BWP40P140HVT)
+                                                          0.03       0.59 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U2133/ZN (MAOI222D1BWP40P140HVT)
+                                                          0.04       0.62 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U2132/ZN (MAOI222D1BWP40P140HVT)
+                                                          0.03       0.65 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U2286/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       0.70 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U1987/ZN (MAOI222D1BWP40P140HVT)
+                                                          0.03       0.73 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U2135/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       0.77 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U2134/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       0.81 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U1985/ZN (AOI21D0BWP40P140HVT)
+                                                          0.02       0.83 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U1983/ZN (NR2D0BWP40P140HVT)
+                                                          0.02       0.85 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U1980/ZN (CKND0BWP40P140HVT)
+                                                          0.01       0.87 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U1979/ZN (OAI22D0BWP40P140HVT)
+                                                          0.02       0.89 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U2155/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       0.93 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U2154/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       0.97 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U1986/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       1.00 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U2156/ZN (IOA21D0BWP40P140HVT)
+                                                          0.02       1.02 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/U2131/ZN (OAI211D0BWP40P140HVT)
+                                                          0.03       1.05 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_999_363_8467/O13 (cal_LINENUM3_DP_OP_999_363_8467_0)
+                                                          0.00       1.05 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/U464/ZN (AOI21D0P7BWP40P140HVT)
+                                                          0.02       1.08 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/U520/ZN (IAO21D2BWP40P140HVT)
+                                                          0.04       1.11 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/U519/ZN (OAI21D8BWP40P140HVT)
+                                                          0.03       1.15 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/I3[0] (cal_LINENUM3_DP_OP_975_365_2024_0)
+                                                          0.00       1.15 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2242/CO (HA1D1BWP40P140HVT)
+                                                          0.03       1.18 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2241/CO (FA1D1BWP40P140HVT)
+                                                          0.04       1.21 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2312/CO (FA1D0BWP40P140HVT)
+                                                          0.05       1.26 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2239/S (FA1D1BWP40P140HVT)
+                                                          0.05       1.31 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2332/ZN (CKND0BWP40P140HVT)
+                                                          0.01       1.33 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2371/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.03       1.36 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2340/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.05       1.41 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2372/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       1.45 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2373/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       1.49 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2338/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       1.53 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2748/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       1.58 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2374/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       1.62 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2375/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       1.66 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2339/ZN (MAOI222D1BWP40P140HVT)
+                                                          0.04       1.70 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2744/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.04       1.74 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2376/ZN (MAOI222D1BWP40P140HVT)
+                                                          0.04       1.78 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2377/ZN (MAOI222D1BWP40P140HVT)
+                                                          0.03       1.81 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2337/ZN (MAOI222D1BWP40P140HVT)
+                                                          0.03       1.85 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2739/ZN (MAOI222D0BWP40P140HVT)
+                                                          0.05       1.89 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/O4 (cal_LINENUM3_DP_OP_975_365_2024_0)
+                                                          0.00       1.89 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/U41/ZN (INR2D4BWP40P140HVT)
+                                                          0.05       1.94 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/I5 (cal_LINENUM3_DP_OP_975_365_2024_0)
+                                                          0.00       1.94 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2478/Z (AO22D0BWP40P140HVT)
+                                                          0.06       2.00 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2553/CO (FA1OPTCD2BWP40P140HVT)
+                                                          0.06       2.06 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2532/CO (FA1OPTCD2BWP40P140HVT)
+                                                          0.03       2.09 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2537/CO (FA1OPTCD2BWP40P140HVT)
+                                                          0.03       2.12 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2536/CO (FA1OPTCD2BWP40P140HVT)
+                                                          0.03       2.14 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2533/CO (FA1OPTCD2BWP40P140HVT)
+                                                          0.03       2.17 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2540/CO (FA1OPTCD2BWP40P140HVT)
+                                                          0.03       2.20 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2539/CO (FA1OPTCD2BWP40P140HVT)
+                                                          0.03       2.22 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2542/CO (FA1OPTCD2BWP40P140HVT)
+                                                          0.03       2.25 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2541/CO (FA1OPTCD2BWP40P140HVT)
+                                                          0.03       2.27 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2547/CO (FA1OPTCD2BWP40P140HVT)
+                                                          0.03       2.30 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2335/ZN (OAI21OPTREPBD2BWP40P140HVT)
+                                                          0.01       2.32 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2333/ZN (ND2OPTPAD2BWP40P140HVT)
+                                                          0.01       2.33 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2347/ZN (AOI21D2BWP40P140HVT)
+                                                          0.02       2.34 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2342/ZN (OAI22OPTPBD2BWP40P140HVT)
+                                                          0.01       2.36 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/U2441/ZN (XNR2UD1BWP40P140HVT)
+                                                          0.02       2.38 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/DP_OP_975_365_2024/O3[15] (cal_LINENUM3_DP_OP_975_365_2024_0)
+                                                          0.00       2.38 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/U59/ZN (CKND2D2BWP40P140HVT)
+                                                          0.01       2.39 f
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/U53/ZN (ND2D1BWP40P140HVT)
+                                                          0.01       2.41 r
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/part1_offset_reg_15_/D (DFCNQD1BWP40P140HVT)
+                                                          0.00       2.41 r
+  data arrival time                                                  2.41
+
+  clock clk (rise edge)                                   2.11       2.11
+  clock network delay (ideal)                             0.42       2.53
+  clock uncertainty                                      -0.11       2.43
+  combine_top_inst/u_mux/u_cal_top/u_c_3__u_cal/part1_offset_reg_15_/CP (DFCNQD1BWP40P140HVT)
+                                                          0.00       2.43 r
+  library setup time                                     -0.02       2.41
+  data required time                                                 2.41
+  --------------------------------------------------------------------------
+  data required time                                                 2.41
+  data arrival time                                                 -2.41
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

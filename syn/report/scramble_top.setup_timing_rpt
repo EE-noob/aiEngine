@@ -1,0 +1,64 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : scramble_top
+Version: O-2018.06-SP1
+Date   : Wed Jun 11 20:37:45 2025
+****************************************
+
+Operating Conditions: tt1v25c   Library: tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: ics_num_reg_2_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: ics_data[1]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  scramble_top       ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+  scramble           ZeroWireload          tcbn28hpcplusbwp40p140hvttt1v25c_ccs
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.47       0.47
+  ics_num_reg_2_/CP (EDFCNQD4BWP40P140HVT)                0.00       0.47 r
+  ics_num_reg_2_/Q (EDFCNQD4BWP40P140HVT)                 0.14       0.61 f
+  I_7/ZN (INVD2BWP40P140HVT)                              0.03       0.64 r
+  C703/Z (OR2D0BWP40P140HVT)                              0.02       0.67 r
+  U187/ZN (NR2D0BWP40P140HVT)                             0.04       0.70 f
+  U157/ZN (NR2D0BWP40P140HVT)                             0.08       0.79 r
+  U156/ZN (IND2D0BWP40P140HVT)                            0.10       0.89 f
+  U139/ZN (NR2OPTPAD1BWP40P140HVT)                        0.05       0.94 r
+  U155/ZN (IND2D0BWP40P140HVT)                            0.09       1.03 f
+  U343/ZN (NR2D3BWP40P140HVT)                             0.04       1.08 r
+  U154/ZN (IND2D0BWP40P140HVT)                            0.07       1.15 f
+  U127/Z (OR2D0BWP40P140HVT)                              0.08       1.23 f
+  U152/ZN (NR3D0BWP40P140HVT)                             0.07       1.30 r
+  U151/ZN (IND2D0BWP40P140HVT)                            0.10       1.40 f
+  U137/ZN (NR2D3BWP40P140HVT)                             0.04       1.45 r
+  U160/ZN (INR2D0BWP40P140HVT)                            0.01       1.46 f
+  U158/ZN (CKND0BWP40P140HVT)                             0.01       1.48 r
+  U159/ZN (INVD1BWP40P140HVT)                             0.30       1.78 f
+  ics_data[1] (out)                                       0.00       1.78 f
+  data arrival time                                                  1.78
+
+  clock clk (rise edge)                                   2.38       2.38
+  clock network delay (ideal)                             0.47       2.85
+  clock uncertainty                                      -0.12       2.73
+  output external delay                                  -0.95       1.78
+  data required time                                                 1.78
+  --------------------------------------------------------------------------
+  data required time                                                 1.78
+  data arrival time                                                 -1.78
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

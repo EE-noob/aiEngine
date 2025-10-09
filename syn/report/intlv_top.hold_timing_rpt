@@ -1,0 +1,52 @@
+Warning: Design 'intlv_top' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 1
+Design : intlv_top
+Version: T-2022.03-SP2
+Date   : Fri May 30 18:57:41 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: WCZCOM   Library: tcbn65lphvtwcz_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: ics_part2_e_size[0]
+              (input port clocked by clk)
+  Endpoint: part2_E_reg_0_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  intlv_top          ZeroWireload          tcbn65lphvtwcz_ccs
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.47       0.47
+  input external delay                     0.00       0.47 f
+  ics_part2_e_size[0] (in)                 0.00       0.47 f
+  U2867/Z (MUX2D0HVT)                      0.23       0.70 f
+  part2_E_reg_0_/D (DFCNQD1HVT)            0.00       0.70 f
+  data arrival time                                   0.70
+
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.47       0.47
+  clock uncertainty                        0.24       0.71
+  part2_E_reg_0_/CP (DFCNQD1HVT)           0.00       0.71 r
+  library hold time                        0.10       0.81
+  data required time                                  0.81
+  -----------------------------------------------------------
+  data required time                                  0.81
+  data arrival time                                  -0.70
+  -----------------------------------------------------------
+  slack (VIOLATED)                                   -0.11
+
+
+1

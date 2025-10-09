@@ -1,0 +1,200 @@
+global coverage_group 0 ics_monitor_pkg::ics_monitor::ics_cov __coverage_ics_monitor.ics_cov unused_ics_monitor_ics_cov_loop_label ics_monitor_pkg 0 1 0 0 0  ( 0 
+)
+ 1 1
+ 61 /home/EDA/ic_projs/HW_ICS/veri/uvc/ics_monitor/ics_monitor.sv
+ 14 0 0 0 1 0 0 0 0  1
+0
+0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 54 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_17
+0
+0
+0
+64
+0
+ 0
+
+5
+0
+3
+0
+ 54 {vif.ics_part2_en, vif.ics_part1_en, vif.ics_part0_en} 17 0 0 0 0 0 51 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn 51 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 3 0 0 1 0 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 7 1 1 0 0 1 1 10 part0_only 18 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_0 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 10 part1_only 19 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_1 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 10 part2_only 20 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_2 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 7 part0_1 21 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_3 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 7 part0_2 22 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_4 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 7 part1_2 23 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_5 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 9 all_parts 24 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_6 0 0 0 0 0 0 0
+ 0
+
+ 20 vif.ics_part0_n_size 27 0 0 0 0 0 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_7 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_7 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 11 0 0 1 0 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 1 1 1 1 0 1 1 6 n_vals 28 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 6 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_8 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_9 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_a 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_b 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_c 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_d 0 0 0 0 0 0 0
+ 0
+
+ 20 vif.ics_part1_n_size 31 0 0 0 0 0 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_e 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_e 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 11 0 0 1 0 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 1 1 1 1 0 1 1 6 n_vals 32 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 6 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_8 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_9 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_a 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_b 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_c 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_d 0 0 0 0 0 0 0
+ 0
+
+ 20 vif.ics_part2_n_size 35 0 0 0 0 0 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_f 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_f 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 11 0 0 1 0 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 1 1 1 1 0 1 1 6 n_vals 36 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 6 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_8 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_9 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_a 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_b 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_c 0 0 0 0 0 0 0
+ 1 1 53 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_d 0 0 0 0 0 0 0
+ 0
+
+ 14 vif.ics_q_size 39 0 0 0 0 0 54 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_10 54 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_10 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 4 0 0 1 0 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 1 1 1 1 0 1 1 6 q_vals 40 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 6 1 1 54 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_11 0 0 0 0 0 0 0
+ 1 1 54 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_12 0 0 0 0 0 0 0
+ 1 1 54 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_13 0 0 0 0 0 0 0
+ 1 1 54 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_14 0 0 0 0 0 0 0
+ 1 1 54 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_15 0 0 0 0 0 0 0
+ 1 1 54 ics_monitor::ics_monitor_pkg_ics_monitor_ics_cov_fn_16 0 0 0 0 0 0 0
+ 0
+
+ 10 ics_cov_cc 0 44 0 0 -1 0 0 0 0 2 1 4 -1 0 0 0
+ 0
+ 0
+ 0
+ 0 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 12 ics_cov_cc_0 0 45 0 0 -1 0 0 0 0 2 2 4 -1 0 0 0
+ 0
+ 0
+ 0
+ 0 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 12 ics_cov_cc_1 0 46 0 0 -1 0 0 0 0 2 3 4 -1 0 0 0
+ 0
+ 0
+ 0
+ 0 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+end_coverage_group

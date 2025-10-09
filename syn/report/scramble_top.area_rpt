@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : scramble_top
+Version: O-2018.06-SP1
+Date   : Wed Jun 11 20:37:45 2025
+****************************************
+
+Library(s) Used:
+
+    tcbn28hpcplusbwp40p140hvttt1v25c_ccs (File: /mnt/hgfs/vmshare/Tech_Lib/tsmc28digital/TSMCHOME/digital/Front_End/timing_power_noise/CCS/tcbn28hpcplusbwp40p140hvt_180a/tcbn28hpcplusbwp40p140hvttt1v25c_ccs.db)
+
+Number of ports:                          491
+Number of nets:                          4644
+Number of cells:                         4265
+Number of combinational cells:           3749
+Number of sequential cells:               514
+Number of macros/black boxes:               0
+Number of buf/inv:                        736
+Number of references:                      22
+
+Combinational area:               2085.299994
+Buf/Inv area:                      185.724003
+Noncombinational area:            1259.747959
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  3345.047953
+Total area:                 undefined
+1

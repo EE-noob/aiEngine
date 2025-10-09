@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1758854798.460330043, "rt":67.76, "ut":26.30, "st":2.19}}
+{"vcselab":{"timestamp_begin":1758854866.263156206, "rt":49.34, "ut":0.26, "st":0.10}}
+{"link":{"timestamp_begin":1758854915.649557802, "rt":0.29, "ut":0.53, "st":0.45}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1758854798.178077707}
+{"VCS_COMP_START_TIME": 1758854798.178077707}
+{"VCS_COMP_END_TIME": 1758854916.038008436}
+{"VCS_USER_OPTIONS": "-l com.log -timescale=1ns/1ps -sverilog -ntb_opts uvm-1.2 -debug_access+all -full64 -j8 -f /home/EDA/ic_projs/HW_ICS/veri/flist/tb1.f +define+ICS_CASE1"}
+{"vcs1": {"peak_mem": 679884}}
+{"stitch_vcselab": {"peak_mem": 393736}}
