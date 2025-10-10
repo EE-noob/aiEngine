@@ -192,18 +192,18 @@ module tb_icb_unalign_bridge;
       sa_icb_rsp_ready <= 1'b1;
       
       if (sa_icb_rsp_valid && sa_icb_rsp_ready) begin
-        //$display("if0");
+        $display("if0");
         if (sa_cmd_queue.size() > 0) begin
           icb_transaction tr = sa_cmd_queue.pop_front();
-              //   $display("if1");
+                 $display("if1");
           if (tr.read) begin
             tr.rdata = new[tr.len + 1];
-                //  $display("if2");
+                  $display("if2");
             for (int i = 0; i <= tr.len; i++) begin
-              //wait(sa_icb_rsp_valid);
+              wait(sa_icb_rsp_valid);
               tr.rdata[i] = sa_icb_rsp_rdata;
               tr.err = sa_icb_rsp_err;
-                  //  $display("if3");
+                    $display("if3");
               // Verify read data
               expected = golden_mem.read_word(tr.addr + i*4);
               if (tr.rdata[i] !== expected) begin
@@ -243,16 +243,6 @@ module tb_icb_unalign_bridge;
       end
     end
   end
-  // logic m_icb_cmd_read_dff;//rsp晚一拍
-  // always @(posedge clk or negedge rst_n) begin//rsp
-  //   if(!rst_n)begin
-  //     m_icb_cmd_read_dff <= 1'b1;//
-  //   end
-  //   else begin
-  //     //if (m_icb_cmd_valid && m_icb_cmd_ready)
-  //       m_icb_cmd_read_dff <= m_icb_cmd_read;
-  //   end
-  // end
   always @(posedge clk or negedge rst_n) begin//rsp
     if(!rst_n)begin
       m_icb_cmd_ready <= 1'b1;//TODO:add random ready
@@ -673,19 +663,19 @@ module tb_icb_unalign_bridge;
     $display("\n========== OUTSTANDING TESTS ==========");
     //case20
     // Directed pattern tests
-    test_outstanding_directed("WWWRRR", 32'h0000_8000, '{0});  // All transactions with len=0
+    test_outstanding_directed("WWWRRR", 32'h0000_8000, 0);
     #1000;
     compare_mem("Outstanding 20 WWWRRR");
     //case21
-    test_outstanding_directed("WRWWRR", 32'h0000_8100, '{1});  // All transactions with len=1
+    test_outstanding_directed("WRWWRR", 32'h0000_8100, 1);
     #1000;
     compare_mem("Outstanding 21 WRWWRR");
     //case 22
-    test_outstanding_directed("WWWRWRWRW", 32'h0000_8200, '{5});  // All transactions with len=5
+    test_outstanding_directed("WWWRWRWRW", 32'h0000_8200, 5);
     #1000;
     compare_mem("Outstanding 22 WWWRWRWRW");
     //case 23
-    test_outstanding_directed("WWWWRRRR", 32'h0000_8302, '{2});  // All transactions with len=2
+    test_outstanding_directed("WWWWRRRR", 32'h0000_8302, 2);
     #1000;
     compare_mem("Outstanding 23 WWWWRRRR");
     
@@ -696,68 +686,29 @@ module tb_icb_unalign_bridge;
     // compare_mem("Outstanding MAX_16");
     
     // case 24 Maximum outstanding test
-    test_outstanding_directed("WWWWRRRRWWWWRRRR", 32'h0000_8403, '{3});  // All transactions with len=3
+    test_outstanding_directed("WWWWRRRRWWWWRRRR", 32'h0000_8403, 3);
     #1000;
     compare_mem("Outstanding Maximum outstanding WWWWRRRRWWWWRRRR");
 
   // case 25 Overflow outstanding test
-    test_outstanding_directed("WWWWRRRRWWWWRRRRWRWR", 32'h0000_8500, '{3});  // All transactions with len=3
+    test_outstanding_directed("WWWWRRRRWWWWRRRRWRWR", 32'h0000_8500, 3);
     #1000;
    // compare_mem("Outstanding Overflow WWWWRRRRWWWWRRRRWRWR");
  // case 26 Overflow outstanding test
         //case 26
-    test_outstanding_directed("WWWWRRRR", 32'h0000_8601, '{0});  // All transactions with len=0
+    test_outstanding_directed("WWWWRRRR", 32'h0000_8601, 0);
     #1000;
-    compare_mem("Outstanding 26 ");
+    compare_mem("Outstanding 26 WWWWRRRR");
    //test_outstanding_directed("WWWWRRRRWWWWRRRRWRWR", 32'h0000_8600, 1);
     #1000;
 
-        //case27
-    // Directed pattern tests
-    test_outstanding_directed("WWWRRR", 32'h1111_8000, '{0,1,2,0,1,2});  // All transactions with len=0
-    //test_outstanding_directed("WWWRRR", 32'h1111_8000, '{0,1,1,1,1,1});  // All transactions with len=0
-    #1000;
-    compare_mem("Outstanding 27 WWWRRR");
-    //case28
-    test_outstanding_directed("WRWWRR", 32'h1111_8100, '{5,4,3,2,1,0});  // All transactions with len=1
-    #1000;
-    compare_mem("Outstanding 28 WRWWRR");
-    //case 29
-    test_outstanding_directed("WWWRWRWRW", 32'h1111_8200, '{1,5,1,0,1,0,1,3,1});  // All transactions with len=5
-    #10000;
-    compare_mem("Outstanding 29 WWWRWRWRW");
-
-       //case 30
-    test_outstanding_directed("WWRWRWRW", 32'h1111_8200, '{1,5,1,0,1,0,1,3,1});  // All transactions with len=5
-    #1000;
-    compare_mem("Outstanding 30 WWWRWRWRW");
-
-       //case 31
-    test_outstanding_directed("wwwwwwww", 32'h1120_8200, '{4,3,1,0,1,0,1,3,1});  // All transactions with len=5
-    #1000;
-    compare_mem("Outstanding 31 WWWRWRWRW");
-
-      //case 32
-    test_outstanding_directed("RRRRrrrr", 32'h1120_8200, '{4,3,1,0,1,0,1,3,1});  // All transactions with len=5
-    #1000;
-    compare_mem("Outstanding 32 WWWRWRWRW");
-    
-      //case 33
-    //test_outstanding_directed("WWWWwwwwWWWWwwwwWWWWwwww", 32'h2220_0000, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3,0,1,1,3});  // All transactions with len=5
-    test_outstanding_directed("WWWWwwwwWWWWwwwwWWWWwwwwWWWW", 32'h0000_0001, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3, 0,1,1,3 ,2,3,4,5});  // All transactions with len=5
-    #1000;
-    compare_mem("Outstanding 33 WWWRWRWRW");
-      //case 34
-    test_outstanding_directed("RRRRrrrrRRRRrrrrRRRRrrrr", 32'h0000_0001, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3,0,1,1,3});  // All transactions with len=5
-    #1000;
-    compare_mem("Outstanding 34 WWWRWRWRW");
     // // Overflow test
     // test_outstanding_overflow();
     // #2000;
     // compare_mem("Outstanding OVERFLOW_17");
     
 
-  
+   // compare_mem("Outstanding RANDOM");
     
 
     // // ========== Random Test Cases ==========
@@ -766,7 +717,7 @@ module tb_icb_unalign_bridge;
     //   test_random_case();
     //   #300;
     // end
-  // compare_mem("Outstanding RANDOM");
+ 
 
 
     // compare_mem("All Cases DONE");
@@ -884,8 +835,7 @@ module tb_icb_unalign_bridge;
                 sa_icb_cmd_wmask = trans_queue[i].wmask[j];
               
                 wait(sa_icb_w_ready);
-                $display("[WDATA_SENT_outstanding%0d.%0d] data=0x%08h, mask=%04b", i, j, trans_queue[i].wdata[j], trans_queue[i].wmask[j]);
-
+                $display("[WDATA_SENT_%0d.%0d] data=0x%08h, mask=%04b", i, j, trans_queue[i].wdata[j], trans_queue[i].wmask[j]);
               end
             end
           end
@@ -901,7 +851,7 @@ module tb_icb_unalign_bridge;
   task automatic test_outstanding_directed(
     string pattern,           // e.g., "WWWRRR", "WRWWRR"
     bit [31:0] base_addr,
-    bit [2:0] burst_len_queue[$] = '{0}  // Queue of burst lengths for each transaction
+    bit [2:0] burst_len = 0
   );
     int num_trans = pattern.len();
     bit read_pattern[$];
@@ -912,37 +862,12 @@ module tb_icb_unalign_bridge;
     int read_count=0 ;
     int write_count=0;
     bit [31:0] addr;
-    bit [2:0] current_len;
-    
-    // If burst_len_queue has only one element, use it for all transactions
-    bit single_len_mode = (burst_len_queue.size() == 1);
-    string len_queue_str = "{";
-    
-    // Build burst_len_queue display string
-    for (int k = 0; k < burst_len_queue.size(); k++) begin
-      len_queue_str = {len_queue_str, $sformatf("%0d", burst_len_queue[k])};
-      if (k < burst_len_queue.size() - 1) 
-        len_queue_str = {len_queue_str, ", "};
-    end
-    len_queue_str = {len_queue_str, "}"};
-    
-    $display("\n[DIRECTED OUTSTANDING] Pattern: %s, Base: 0x%08h, Len Queue: %s (Size: %0d)", 
-             pattern, base_addr, len_queue_str, burst_len_queue.size());
+    $display("\n[DIRECTED OUTSTANDING] Pattern: %s, Base: 0x%08h, Len: %0d", 
+             pattern, base_addr, burst_len);
 
     // Parse pattern and generate transactions
     for (int i = 0; i < num_trans; i++) begin
       bit is_read = (pattern[i] == "R" || pattern[i] == "r");
-      
-      // Get burst length for this transaction
-      if (single_len_mode) begin
-        current_len = burst_len_queue[0];
-      end else if (i < burst_len_queue.size()) begin
-        current_len = burst_len_queue[i];
-      end else begin
-        current_len = 0;  // Default to 0 if not enough lengths provided
-        $display("[WARNING] Not enough burst lengths provided, using default 0 for transaction %0d", i);
-      end
-      
       //bit [31:0] addr = is_read?  (base_addr + (read_count++ * 32) ) : (base_addr + (write_count++ * 32) ) ; // Offset each transaction
       if(is_read)
         addr = base_addr + (read_count++ * 32) ;
@@ -951,14 +876,14 @@ module tb_icb_unalign_bridge;
       //bit [31:0] addr = is_read?  (base_addr + (read_count++ * 32) ) : (base_addr + (write_count++ * 32) ) ; // Offset each transaction
       
       read_pattern.push_back(is_read);
-      len_pattern.push_back(current_len);
+      len_pattern.push_back(burst_len);
       addr_pattern.push_back(addr);
       
       if (!is_read) begin
         bit [3:0] wmask_temp[$];
         bit [31:0] wdata_temp[$];
         
-        for (int j = 0; j <= current_len; j++) begin
+        for (int j = 0; j <= burst_len; j++) begin
           wmask_temp.push_back(4'b1111);
           wdata_temp.push_back(32'h10000000 + (i << 16) + (j << 8) + i);
         end

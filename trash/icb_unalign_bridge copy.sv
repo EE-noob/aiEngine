@@ -182,8 +182,8 @@ module icb_unalign_bridge #(
   // 判断是否跨越4字节边界 - 当地址非对齐时才可能跨界
   assign cur_cross_boundary = (cur_offset != 2'b00);
   assign burst_cycle_1start = cur_len_0start_comb + 1'b1 + cur_cross_boundary;
-  
-  // 响应通道需要使用寄存器锁定的值，而不是组合逻辑值
+ // assign rsp_burst_cycle_1start = cur_len_0start + 1'b1 + cur_cross_boundary;
+    // 响应通道需要使用寄存器锁定的值，而不是组合逻辑值
   logic rsp_cross_boundary;
   logic [ICB_LEN_W:0] rsp_burst_cycle_1start;
   assign rsp_cross_boundary = (cur_addr[1:0] != 2'b00);
@@ -326,8 +326,8 @@ module icb_unalign_bridge #(
   end
   
   // 响应通道独立的最后burst标志 - 不依赖cmd_state
-  //assign rd_last_burst = (rsp_burst_cnt == burst_cycle_1start-1) ;//&& (rsp_state != IDLE);
-  assign rd_last_burst = (rsp_burst_cnt == rsp_burst_cycle_1start-1) ;//&& (rsp_state != IDLE);
+  assign rd_last_burst = (rsp_burst_cnt == burst_cycle_1start-1) ;//&& (rsp_state != IDLE);
+  //assign rd_last_burst = (rsp_burst_cnt == rsp_burst_cycle_1start-1) ;//&& (rsp_state != IDLE);
   
   // 写请求和读请求的cmd_fire逻辑不同
   logic cmd_fire_write, cmd_fire_read, cmd_fire_write_last;
@@ -451,7 +451,7 @@ module icb_unalign_bridge #(
     
     if (cur_is_read_comb) begin
       if (rsp_state == IDLE) begin
-        if (rsp_cross_boundary) begin
+        if (cur_cross_boundary) begin
           // 跨界第一拍：仅取低位部分
           rdata_aligned = 'b0;
         end else begin
@@ -461,13 +461,13 @@ module icb_unalign_bridge #(
       end else if (rsp_state == BURST) begin
                       
                       // 对于连续burst，需要拼接上一拍缓存的数据和当前数据
-                      if (rdata_buf_valid && rsp_cross_boundary) begin
-                      //if (!rd_last_burst && rsp_cross_boundary) begin
+                      if (rdata_buf_valid && cur_cross_boundary) begin
+                      //if (!rd_last_burst && cur_cross_boundary) begin
                         // 拼接：当前数据的高位部分 + 上一拍缓存的低位部分
-                        rdata_aligned = (m_icb_rsp_rdata << ((DW - cur_addr[1:0]) << 3)) | rdata_buf;
+                        rdata_aligned = (m_icb_rsp_rdata << ((DW - cur_offset) << 3)) | rdata_buf;
                       end else begin
                         // 不跨界或第一个burst
-                        rdata_aligned = m_icb_rsp_rdata >> (cur_addr[1:0] << 3);
+                        rdata_aligned = m_icb_rsp_rdata >> cur_offsetX8;
                       end
       end
     end
@@ -533,7 +533,7 @@ module icb_unalign_bridge #(
   assign sa_rsp_valid_comb = m_icb_rsp_valid && (
     // 读响应：在rsp_state=IDLE或后续状态都可以传输
     (cur_is_read && (
-      (rsp_state == IDLE && !rsp_cross_boundary) ||                        // 第一次响应启动
+      (rsp_state == IDLE && !cur_cross_boundary) ||                        // 第一次响应启动
 
       (rsp_state == BURST)
     )) ||
