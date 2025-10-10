@@ -1,7 +1,7 @@
  // ============================================================
   // Result Display Task
   // ============================================================
-  task Finish(err_count,test_count);
+  task Finish(int err_count,int test_count);
   static string GREEN = "\033[1;32m";
   static string RED = "\033[1;31m";
   static string NC = "\033[0m";

@@ -327,13 +327,18 @@ module icb_unalign_bridge #(
   // 写操作常规拍：需要w_valid & w_ready & cmd_valid & cmd_ready
   assign cmd_fire_write = (!cur_is_read_comb) & sa_icb_w_valid & sa_icb_w_ready & m_icb_cmd_valid & m_icb_cmd_ready;
   // 写操作最后拍：只需要cmd_valid & cmd_ready（使用缓存数据，不需要新的w_valid）
-  assign cmd_fire_write_last = (!cur_is_read_comb) & wdata_buf_valid & is_last_burst & !sa_icb_w_valid & m_icb_cmd_valid & m_icb_cmd_ready;
+  assign cmd_fire_write_last = (!cur_is_read_comb) & wdata_buf_valid & is_last_burst  
+                                //&!sa_icb_w_valid 
+                                & m_icb_cmd_valid & m_icb_cmd_ready;
   // 读操作：需要cmd_valid & cmd_ready
   assign cmd_fire_read = cur_is_read_comb & m_icb_cmd_valid & m_icb_cmd_ready;
   assign cmd_fire = cmd_fire_write | cmd_fire_write_last | cmd_fire_read;
   // sa_icb_w_ready逻辑：写请求通道还有burst的余额，且下游已经准备好接收
   // 因为写通道没有FIFO缓冲，要保证下游已经传完这一拍准备继续传输
-  assign sa_icb_w_ready = (!cur_is_read_comb) & (cmd_state != IDLE) & m_icb_cmd_ready;
+  //assign sa_icb_w_ready = (!cur_is_read_comb) & (cmd_state != IDLE) & m_icb_cmd_ready;
+  assign sa_icb_w_ready = (!cur_is_read_comb) && (cmd_state != IDLE) &&
+                          (  (!is_last_burst || !cur_cross_boundary) ) && 
+                          m_icb_cmd_ready;
   
   // ========================================
   // cmd对齐处理（写数据与写请求）

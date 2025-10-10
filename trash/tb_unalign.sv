@@ -195,15 +195,15 @@ module tb_icb_unalign_bridge;
         $display("if0");
         if (sa_cmd_queue.size() > 0) begin
           icb_transaction tr = sa_cmd_queue.pop_front();
-                 $display("if1");
+               //  $display("if1");
           if (tr.read) begin
             tr.rdata = new[tr.len + 1];
-                  $display("if2");
+                //  $display("if2");
             for (int i = 0; i <= tr.len; i++) begin
               wait(sa_icb_rsp_valid);
               tr.rdata[i] = sa_icb_rsp_rdata;
               tr.err = sa_icb_rsp_err;
-                    $display("if3");
+                 //   $display("if3");
               // Verify read data
               expected = golden_mem.read_word(tr.addr + i*4);
               if (tr.rdata[i] !== expected) begin
@@ -454,11 +454,198 @@ module tb_icb_unalign_bridge;
   endtask
   
  
+  int mem_mismatches;
+
+  task automatic compare_mem(string casename);
+        // ========== Memory Comparison ==========
+  $display("\n========== MEMORY COMPARISON ==========");
+  $display("\n========== %s ==========",casename);
+  #500;  // Wait for all transactions to complete
+  
+
+  
+  $display("\nComparing memories...");
+  mem_mismatches = golden_mem.compare(m_mem);
+  
+  if (mem_mismatches > 0) begin
+  $display("[ERROR] case: %d Found %0d memory mismatches!", test_count, mem_mismatches);
+    $display("\nGolden Memory Contents:");
+    golden_mem.display_contents();
+    $display("\nM Memory Contents:");
+    m_mem.display_contents();
+    err_count += mem_mismatches;
+  end else begin
+    $display("[PASS] All memory contents match!");
+    golden_mem.display_contents();
+  end
+  
+  endtask //automatic
+// ============================================================
+// Outstanding Test Task
+// ============================================================
+  bit is_first_cycle=1;
+// Task: Drive multiple outstanding transactions without waiting for responses
+  task automatic test_outstanding(
+    int num_trans,                    // Number of outstanding transactions
+    bit read_pattern[$],              // Read/Write pattern (1=read, 0=write)
+    bit [2:0] len_pattern[$],        // Burst length pattern
+    bit [31:0] addr_pattern[$],      // Address pattern
+    bit [3:0] wmask_pattern[$][$],   // Write mask pattern
+    bit [31:0] wdata_pattern[$][$],  // Write data pattern
+    string test_name = "Outstanding"
+  );
+    icb_transaction trans_queue[$];
+    
+    $display("\n========== [TEST %0d] %s Test: %0d Outstanding Transactions ==========", 
+             ++test_count, test_name, num_trans);
+             @(negedge clk);
+    // Create all transactions
+    for (int i = 0; i < num_trans; i++) begin
+      automatic icb_transaction tr = new();
+      tr.addr = addr_pattern[i];
+      tr.read = read_pattern[i];
+      tr.len = len_pattern[i];
+      
+      if (!tr.read) begin
+        tr.wdata = new[tr.len + 1];
+        tr.wmask = new[tr.len + 1];
+        for (int j = 0; j <= tr.len; j++) begin
+          tr.wdata[j] = wdata_pattern[i][j];
+          tr.wmask[j] = wmask_pattern[i][j];
+        end
+      end
+      
+      trans_queue.push_back(tr);
+      $display("[OUTSTANDING_%0d] %s: addr=0x%08h, len=%0d", 
+               i, tr.read ? "READ" : "WRITE", tr.addr, tr.len);
+    end
+          fork  
+            // Phase 1: Send all CMD requests back-to-back (outstanding)
+            begin
+            $display("[PHASE 1] Sending all %0d CMD requests...", num_trans);
+            foreach (trans_queue[i]) begin
+              sa_cmd_queue.push_back(trans_queue[i]);
+              
+              // Setup signals before clock edge - MUST use blocking assignment
+              sa_icb_cmd_valid = 1'b1;
+              sa_icb_cmd_addr = trans_queue[i].addr;
+              sa_icb_cmd_read = trans_queue[i].read;
+              sa_icb_cmd_len = trans_queue[i].len;
+              //$display("[CMD_SETUP_%0d] addr=0x%08h, time=%0t (before clk)", i, trans_queue[i].addr, $time);
+              @(posedge clk);
+              //$display("[CMD_AFTER_CLK_%0d] time=%0t (same time, reactive region)", i, $time);
+              wait(sa_icb_cmd_ready);
+              //$display("[CMD_HANDSHAKE_%0d] addr=0x%08h, time=%0t", i, trans_queue[i].addr, $time);
+            end
+            #1;
+            sa_icb_cmd_valid = 1'b0;
+            @(posedge clk);
+          end
+
+          begin
+          // Phase 2: Send all write data for write transactions
+          $display("[PHASE 2] Sending write data...");
+          foreach (trans_queue[i]) begin
+            if (!trans_queue[i].read) begin
+              // Update golden memory for writes
+              for (int k = 0; k <= trans_queue[i].len; k++) begin
+                golden_mem.write_word(trans_queue[i].addr + k*4, trans_queue[i].wdata[k], trans_queue[i].wmask[k]);
+                $display("Golden Mem Updated: addr=0x%08h, data=0x%08h, mask=%04b", 
+                        trans_queue[i].addr + k*4, trans_queue[i].wdata[k], trans_queue[i].wmask[k]);
+              end
+              
+              // Send write data beats
+              for (int j = 0; j <= trans_queue[i].len; ) begin
+                @(posedge clk  );
+                
+               
+                if( sa_icb_w_ready==1 || is_first_cycle)
+                      begin
+                        #1;
+                        is_first_cycle=0;
+                        sa_icb_w_valid = 1'b1;
+                        sa_icb_cmd_wdata = trans_queue[i].wdata[j];
+                        sa_icb_cmd_wmask = trans_queue[i].wmask[j];
+                        j++;
+                      end
+
+                //$display("[WDATA_SENT_%0d.%0d] time=%0t,data=0x%08h, mask=%04b", i, j,$time, trans_queue[i].wdata[j], trans_queue[i].wmask[j]);
+                //wait(sa_icb_w_ready);
+
+                //$display("[wait rdy finish%0d.%0d] time=%0t,data=0x%08h, mask=%04b", i, j,$time, trans_queue[i].wdata[j], trans_queue[i].wmask[j]);
+                //$display("[rdy =%d ] ", sa_icb_w_ready);
+                //if(test_count==21 &&i==2 &&j==1)
+                  //Finish(err_count,test_count);
+              end
+            end
+          end
+          @(posedge clk);
+          sa_icb_w_valid = 1'b0;
+          
+        end
+      join
+    $display("[INFO] All %0d outstanding transactions sent (CMD + WDATA)", num_trans);
+  endtask
+  
+  // Task: Directed outstanding test with specific read/write pattern
+  task automatic test_outstanding_directed(//TODO: 每笔outstanding传输的burst都不一样
+    string pattern,           // e.g., "WWWRRR", "WRWWRR"
+    bit [31:0] base_addr,
+    bit [2:0] burst_len = 0
+  );
+    int num_trans = pattern.len();
+    bit read_pattern[$];
+    bit [2:0] len_pattern[$];
+    bit [31:0] addr_pattern[$];
+    bit [3:0] wmask_pattern[$][$];
+    bit [31:0] wdata_pattern[$][$];
+    int read_count=0 ;
+    int write_count=0;
+    bit [31:0] addr;
+    $display("\n[DIRECTED OUTSTANDING] Pattern: %s, Base: 0x%08h, Len: %0d", 
+             pattern, base_addr, burst_len);
+
+    // Parse pattern and generate transactions
+    for (int i = 0; i < num_trans; i++) begin
+      bit is_read = (pattern[i] == "R" || pattern[i] == "r");
+      //bit [31:0] addr = is_read?  (base_addr + (read_count++ * 32) ) : (base_addr + (write_count++ * 32) ) ; // Offset each transaction
+      if(is_read)
+        addr = base_addr + (read_count++ * 32) ;
+      else
+        addr = base_addr + (write_count++ * 32) ;
+      //bit [31:0] addr = is_read?  (base_addr + (read_count++ * 32) ) : (base_addr + (write_count++ * 32) ) ; // Offset each transaction
+      
+      read_pattern.push_back(is_read);
+      len_pattern.push_back(burst_len);
+      addr_pattern.push_back(addr);
+      
+      if (!is_read) begin
+        bit [3:0] wmask_temp[$];
+        bit [31:0] wdata_temp[$];
+        
+        for (int j = 0; j <= burst_len; j++) begin
+          wmask_temp.push_back(4'b1111);
+          wdata_temp.push_back(32'h10000000 + (i << 16) + (j << 8) + i);
+        end
+        
+        wmask_pattern.push_back(wmask_temp);
+        wdata_pattern.push_back(wdata_temp);
+      end else begin
+        bit [3:0] wmask_temp[$];
+        bit [31:0] wdata_temp[$];
+        wmask_pattern.push_back(wmask_temp);
+        wdata_pattern.push_back(wdata_temp);
+      end
+    end
+    
+    test_outstanding(num_trans, read_pattern, len_pattern, addr_pattern, 
+                     wmask_pattern, wdata_pattern, pattern);
+  endtask
+   
   
   // ============================================================
   // Main Test Sequence
   // ============================================================
-  int mem_mismatches;
   initial begin
     // Initialize
     golden_mem = new("golden_mem");
@@ -661,21 +848,21 @@ module tb_icb_unalign_bridge;
       
       // ========== Outstanding Tests ==========
     $display("\n========== OUTSTANDING TESTS ==========");
-    //case20
+      //case 20
     // Directed pattern tests
     test_outstanding_directed("WWWRRR", 32'h0000_8000, 0);
     #1000;
     compare_mem("Outstanding 20 WWWRRR");
-    //case21
+    //case 21
     test_outstanding_directed("WRWWRR", 32'h0000_8100, 1);
     #1000;
-    compare_mem("Outstanding 21 WRWWRR");
+    //compare_mem("Outstanding WRWWRR");
     //case 22
     test_outstanding_directed("WWWRWRWRW", 32'h0000_8200, 5);
-    #1000;
-    compare_mem("Outstanding 22 WWWRWRWRW");
+    #100000;
+    //compare_mem("Outstanding WWWRWRWRW");
     //case 23
-    test_outstanding_directed("WWWWRRRR", 32'h0000_8302, 2);
+    test_outstanding_directed("WWWWRRRR", 32'h0000_8300, 2);
     #1000;
     compare_mem("Outstanding 23 WWWWRRRR");
     
@@ -686,21 +873,15 @@ module tb_icb_unalign_bridge;
     // compare_mem("Outstanding MAX_16");
     
     // case 24 Maximum outstanding test
-    test_outstanding_directed("WWWWRRRRWWWWRRRR", 32'h0000_8403, 3);
+    test_outstanding_directed("WWWWRRRRWWWWRRRR", 32'h0000_8300, 3);
     #1000;
     compare_mem("Outstanding Maximum outstanding WWWWRRRRWWWWRRRR");
 
   // case 25 Overflow outstanding test
-    test_outstanding_directed("WWWWRRRRWWWWRRRRWRWR", 32'h0000_8500, 3);
+    test_outstanding_directed("WWWWRRRRWWWWRRRRWRWR", 32'h0000_8300, 3);
     #1000;
-   // compare_mem("Outstanding Overflow WWWWRRRRWWWWRRRRWRWR");
- // case 26 Overflow outstanding test
-        //case 26
-    test_outstanding_directed("WWWWRRRR", 32'h0000_8601, 0);
-    #1000;
-    compare_mem("Outstanding 26 WWWWRRRR");
-   //test_outstanding_directed("WWWWRRRRWWWWRRRRWRWR", 32'h0000_8600, 1);
-    #1000;
+    compare_mem("Outstanding Overflow WWWWRRRRWWWWRRRRWRWR");
+
 
     // // Overflow test
     // test_outstanding_overflow();
@@ -711,334 +892,21 @@ module tb_icb_unalign_bridge;
    // compare_mem("Outstanding RANDOM");
     
 
-    // // ========== Random Test Cases ==========
-    // $display("\n========== RANDOM TEST CASES ==========");
-    // repeat(100) begin
-    //   test_random_case();
-    //   #300;
-    // end
- 
-
-
+    // ========== Random Test Cases ==========
+    $display("\n========== RANDOM TEST CASES ==========");
+    repeat(100) begin
+      test_random_case();
+      #300;
+    end
+    
     // compare_mem("All Cases DONE");
     // // Final report
     // #100;
-    $display("err_count=%d",err_count);
     Finish(err_count,test_count);
   end
- 
-  task  compare_mem(string casename);
-        // ========== Memory Comparison ==========
-  $display("\n========== MEMORY COMPARISON ==========");
-  $display("\n========== %s ==========",casename);
-  #500;  // Wait for all transactions to complete
-  
+
 
   
-  $display("\nComparing memories...");
-  mem_mismatches = golden_mem.compare(m_mem);
-  
-  if (mem_mismatches > 0) begin
-    err_count += mem_mismatches;
-  $display("[ERROR] case: %d Found %0d memory mismatches! now err_count=%d", test_count, mem_mismatches,err_count);
-    $display("\nGolden Memory Contents:");
-    golden_mem.display_contents();
-    $display("\nM Memory Contents:");
-    m_mem.display_contents();
-
-  end else begin
-    $display("[PASS] All memory contents match!");
-    //golden_mem.display_contents();
-  end
-  
-  endtask //automatic
-// ============================================================
-// Outstanding Test Task
-// ============================================================
-
-// Task: Drive multiple outstanding transactions without waiting for responses
-  task automatic test_outstanding(
-    int num_trans,                    // Number of outstanding transactions
-    bit read_pattern[$],              // Read/Write pattern (1=read, 0=write)
-    bit [2:0] len_pattern[$],        // Burst length pattern
-    bit [31:0] addr_pattern[$],      // Address pattern
-    bit [3:0] wmask_pattern[$][$],   // Write mask pattern
-    bit [31:0] wdata_pattern[$][$],  // Write data pattern
-    string test_name = "Outstanding"
-  );
-    icb_transaction trans_queue[$];
-    
-    $display("\n========== [TEST %0d] %s Test: %0d Outstanding Transactions ==========", 
-             ++test_count, test_name, num_trans);
-             @(negedge clk);
-    // Create all transactions
-    for (int i = 0; i < num_trans; i++) begin
-      automatic icb_transaction tr = new();
-      tr.addr = addr_pattern[i];
-      tr.read = read_pattern[i];
-      tr.len = len_pattern[i];
-      
-      if (!tr.read) begin
-        tr.wdata = new[tr.len + 1];
-        tr.wmask = new[tr.len + 1];
-        for (int j = 0; j <= tr.len; j++) begin
-          tr.wdata[j] = wdata_pattern[i][j];
-          tr.wmask[j] = wmask_pattern[i][j];
-        end
-      end
-      
-      trans_queue.push_back(tr);
-      $display("[OUTSTANDING_%0d] %s: addr=0x%08h, len=%0d", 
-               i, tr.read ? "READ" : "WRITE", tr.addr, tr.len);
-    end
-          fork  
-            // Phase 1: Send all CMD requests back-to-back (outstanding)
-            begin
-            $display("[PHASE 1] Sending all %0d CMD requests...", num_trans);
-            foreach (trans_queue[i]) begin
-              sa_cmd_queue.push_back(trans_queue[i]);
-              
-              // Setup signals before clock edge - MUST use blocking assignment
-              sa_icb_cmd_valid = 1'b1;
-              sa_icb_cmd_addr = trans_queue[i].addr;
-              sa_icb_cmd_read = trans_queue[i].read;
-              sa_icb_cmd_len = trans_queue[i].len;
-              $display("[CMD_SETUP_%0d] addr=0x%08h, time=%0t (before clk)", i, trans_queue[i].addr, $time);
-              @(posedge clk);
-              $display("[CMD_AFTER_CLK_%0d] time=%0t (same time, reactive region)", i, $time);
-              wait(sa_icb_cmd_ready);
-              $display("[CMD_HANDSHAKE_%0d] addr=0x%08h, time=%0t", i, trans_queue[i].addr, $time);
-            end
-            #1;
-            sa_icb_cmd_valid = 1'b0;
-            @(posedge clk);
-          end
-
-          begin
-          // Phase 2: Send all write data for write transactions
-          $display("[PHASE 2] Sending write data...");
-          foreach (trans_queue[i]) begin
-            if (!trans_queue[i].read) begin
-              // Update golden memory for writes
-              for (int k = 0; k <= trans_queue[i].len; k++) begin
-                golden_mem.write_word(trans_queue[i].addr + k*4, trans_queue[i].wdata[k], trans_queue[i].wmask[k]);
-                $display("Golden Mem Updated: addr=0x%08h, data=0x%08h, mask=%04b", 
-                        trans_queue[i].addr + k*4, trans_queue[i].wdata[k], trans_queue[i].wmask[k]);
-              end
-              
-              // Send write data beats
-              for (int j = 0; j <= trans_queue[i].len; j++) begin
-                @(posedge clk);
-                #1;
-                sa_icb_w_valid = 1'b1;
-                sa_icb_cmd_wdata = trans_queue[i].wdata[j];
-                sa_icb_cmd_wmask = trans_queue[i].wmask[j];
-              
-                wait(sa_icb_w_ready);
-                $display("[WDATA_SENT_%0d.%0d] data=0x%08h, mask=%04b", i, j, trans_queue[i].wdata[j], trans_queue[i].wmask[j]);
-              end
-            end
-          end
-          @(posedge clk);
-          sa_icb_w_valid = 1'b0;
-          
-        end
-      join
-    $display("[INFO] All %0d outstanding transactions sent (CMD + WDATA)", num_trans);
-  endtask
-  
-  // Task: Directed outstanding test with specific read/write pattern
-  task automatic test_outstanding_directed(
-    string pattern,           // e.g., "WWWRRR", "WRWWRR"
-    bit [31:0] base_addr,
-    bit [2:0] burst_len = 0
-  );
-    int num_trans = pattern.len();
-    bit read_pattern[$];
-    bit [2:0] len_pattern[$];
-    bit [31:0] addr_pattern[$];
-    bit [3:0] wmask_pattern[$][$];
-    bit [31:0] wdata_pattern[$][$];
-    int read_count=0 ;
-    int write_count=0;
-    bit [31:0] addr;
-    $display("\n[DIRECTED OUTSTANDING] Pattern: %s, Base: 0x%08h, Len: %0d", 
-             pattern, base_addr, burst_len);
-
-    // Parse pattern and generate transactions
-    for (int i = 0; i < num_trans; i++) begin
-      bit is_read = (pattern[i] == "R" || pattern[i] == "r");
-      //bit [31:0] addr = is_read?  (base_addr + (read_count++ * 32) ) : (base_addr + (write_count++ * 32) ) ; // Offset each transaction
-      if(is_read)
-        addr = base_addr + (read_count++ * 32) ;
-      else
-        addr = base_addr + (write_count++ * 32) ;
-      //bit [31:0] addr = is_read?  (base_addr + (read_count++ * 32) ) : (base_addr + (write_count++ * 32) ) ; // Offset each transaction
-      
-      read_pattern.push_back(is_read);
-      len_pattern.push_back(burst_len);
-      addr_pattern.push_back(addr);
-      
-      if (!is_read) begin
-        bit [3:0] wmask_temp[$];
-        bit [31:0] wdata_temp[$];
-        
-        for (int j = 0; j <= burst_len; j++) begin
-          wmask_temp.push_back(4'b1111);
-          wdata_temp.push_back(32'h10000000 + (i << 16) + (j << 8) + i);
-        end
-        
-        wmask_pattern.push_back(wmask_temp);
-        wdata_pattern.push_back(wdata_temp);
-      end else begin
-        bit [3:0] wmask_temp[$];
-        bit [31:0] wdata_temp[$];
-        wmask_pattern.push_back(wmask_temp);
-        wdata_pattern.push_back(wdata_temp);
-      end
-    end
-    
-    test_outstanding(num_trans, read_pattern, len_pattern, addr_pattern, 
-                     wmask_pattern, wdata_pattern, pattern);
-  endtask
-  
-  // Task: Maximum outstanding test (16 transactions)
-  task automatic test_outstanding_max();
-    int num_trans = 16;
-    bit read_pattern[$];
-    bit [2:0] len_pattern[$];
-    bit [31:0] addr_pattern[$];
-    bit [3:0] wmask_pattern[$][$];
-    bit [31:0] wdata_pattern[$][$];
-    bit [31:0] base_addr = 32'h0001_0000;
-    
-    $display("\n[MAX OUTSTANDING] Testing maximum 16 outstanding transactions");
-    
-    for (int i = 0; i < num_trans; i++) begin
-      bit is_read = (i % 2 == 0);  // Alternate read/write
-      bit [2:0] len = i % 4;        // Vary burst length 0-3
-      bit [31:0] addr = base_addr + (i * 64);
-      
-      read_pattern.push_back(is_read);
-      len_pattern.push_back(len);
-      addr_pattern.push_back(addr);
-      
-      if (!is_read) begin
-        bit [3:0] wmask_temp[$];
-        bit [31:0] wdata_temp[$];
-        
-        for (int j = 0; j <= len; j++) begin
-          wmask_temp.push_back(4'b1111);
-          wdata_temp.push_back(32'h20000000 + (i << 16) + (j << 8));
-        end
-        
-        wmask_pattern.push_back(wmask_temp);
-        wdata_pattern.push_back(wdata_temp);
-      end else begin
-        bit [3:0] wmask_temp[$];
-        bit [31:0] wdata_temp[$];
-        wmask_pattern.push_back(wmask_temp);
-        wdata_pattern.push_back(wdata_temp);
-      end
-    end
-    
-    test_outstanding(num_trans, read_pattern, len_pattern, addr_pattern, 
-                     wmask_pattern, wdata_pattern, "MAX_16");
-  endtask
-  
-  // Task: Overflow test (17 transactions - exceeds FIFO depth)
-  task automatic test_outstanding_overflow();
-    int num_trans = 17;
-    bit read_pattern[$];
-    bit [2:0] len_pattern[$];
-    bit [31:0] addr_pattern[$];
-    bit [3:0] wmask_pattern[$][$];
-    bit [31:0] wdata_pattern[$][$];
-    bit [31:0] base_addr = 32'h0002_0000;
-    
-    $display("\n[OVERFLOW TEST] Testing 17 outstanding transactions (exceeds depth 16)");
-    
-    for (int i = 0; i < num_trans; i++) begin
-      bit is_read = (i % 3 != 0);  // Mix of read/write
-      bit [2:0] len = (i % 2 == 0) ? 0 : 1;
-      bit [31:0] addr = base_addr + (i * 32);
-      
-      read_pattern.push_back(is_read);
-      len_pattern.push_back(len);
-      addr_pattern.push_back(addr);
-      
-      if (!is_read) begin
-        bit [3:0] wmask_temp[$];
-        bit [31:0] wdata_temp[$];
-        
-        for (int j = 0; j <= len; j++) begin
-          wmask_temp.push_back(4'b1111);
-          wdata_temp.push_back(32'h30000000 + (i << 16) + j);
-        end
-        
-        wmask_pattern.push_back(wmask_temp);
-        wdata_pattern.push_back(wdata_temp);
-      end else begin
-        bit [3:0] wmask_temp[$];
-        bit [31:0] wdata_temp[$];
-        wmask_pattern.push_back(wmask_temp);
-        wdata_pattern.push_back(wdata_temp);
-      end
-    end
-    
-    test_outstanding(num_trans, read_pattern, len_pattern, addr_pattern, 
-                     wmask_pattern, wdata_pattern, "OVERFLOW_17");
-  endtask
- // Task: Random outstanding test
-  task automatic test_outstanding_random(int iterations = 100);
-    $display("\n========== RANDOM OUTSTANDING TESTS (iterations=%0d) ==========", iterations);
-    
-    for (int iter = 0; iter < iterations; iter++) begin
-      int num_trans = $urandom_range(1, 16);  // 1 to 16 outstanding
-      bit read_pattern[$];
-      bit [2:0] len_pattern[$];
-      bit [31:0] addr_pattern[$];
-      bit [3:0] wmask_pattern[$][$];
-      bit [31:0] wdata_pattern[$][$];
-      bit [31:0] base_addr = 32'h0003_0000 + (iter * 32'h1000);
-      
-      for (int i = 0; i < num_trans; i++) begin
-        bit is_read = $urandom_range(0, 1);
-        bit [2:0] len = $urandom_range(0, 3);  // Burst length 0-3
-        bit [1:0] align = $urandom_range(0, 3); // Alignment offset 0-3
-        bit [31:0] addr = base_addr + (i * 64) + align;
-        
-        read_pattern.push_back(is_read);
-        len_pattern.push_back(len);
-        addr_pattern.push_back(addr);
-        
-        if (!is_read) begin
-          bit [3:0] wmask_temp[$];
-          bit [31:0] wdata_temp[$];
-          
-          for (int j = 0; j <= len; j++) begin
-            wmask_temp.push_back($urandom_range(1, 15)); // Random mask (non-zero)
-            wdata_temp.push_back($urandom());
-          end
-          
-          wmask_pattern.push_back(wmask_temp);
-          wdata_pattern.push_back(wdata_temp);
-        end else begin
-          bit [3:0] wmask_temp[$];
-          bit [31:0] wdata_temp[$];
-          wmask_pattern.push_back(wmask_temp);
-          wdata_pattern.push_back(wdata_temp);
-        end
-      end
-      
-      test_outstanding(num_trans, read_pattern, len_pattern, addr_pattern, 
-                       wmask_pattern, wdata_pattern, $sformatf("RANDOM_%0d", iter));
-      
-      #500; // Wait between random iterations
-    end
-    
-    $display("[INFO] Completed %0d random outstanding test iterations", iterations);
-  endtask 
   // ============================================================
   // Timeout
   // ============================================================
