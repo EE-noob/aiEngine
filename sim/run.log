@@ -1,0 +1,2290 @@
+Command: vcs -full64 -sverilog +v2k -timescale=1ns/1ns +notimingcheck +nospecify \
++vcs+flush+all -o simv -l compile.log -f rtl_list.f -f sim_list.f +incdir+../ssy_tb/tb \
++delay_mode_path +dump_fsdb -debug_all -P /home/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/novas.tab \
+/home/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/pli.a -R +fsdb+autoflush \
+-l run.log
+                         Chronologic VCS (TM)
+        Version O-2018.09-1_Full64 -- Fri Oct 10 16:46:00 2025
+               Copyright (c) 1991-2018 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+
+Warning-[DEBUG_DEP] Option will be deprecated
+  The option '-debug_all' will be deprecated in a future release.  Please use 
+  '-debug_acc+all -debug_region+cell+encrypt' instead.
+
+Parsing design file '../rtl/icb_unalign_bridge.sv'
+Parsing design file '../tc/tb_unalign.sv'
+Parsing included file '../include/icb_transaction.sv'.
+Back to file '../tc/tb_unalign.sv'.
+Parsing included file '../include/memory_model.sv'.
+Back to file '../tc/tb_unalign.sv'.
+Parsing included file '../include/Finish_task.sv'.
+Back to file '../tc/tb_unalign.sv'.
+Top Level Modules:
+       tb_icb_unalign_bridge
+TimeScale is 1 ns / 1 ns
+Starting vcs inline pass...
+3 modules and 0 UDP read.
+recompiling module tb_icb_unalign_bridge
+	However, due to incremental compilation, only 1 module needs to be compiled. 
+make[1]: Entering directory '/home/ICer/ic_prjs/aiengine/icb_unalign_bridge/sim/csrc' \
+
+rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+ld -shared  -Bsymbolic  -o .//../simv.daidir//_csrc0.so objs/amcQw_d.o 
+rm -f _csrc0.so
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++  -o ../simv    -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ \
+-Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic  -Wl,-rpath=/home/synopsys/vcs-mx/O-2018.09-1/linux64/lib \
+-L/home/synopsys/vcs-mx/O-2018.09-1/linux64/lib     _6135_archive_1.so _prev_archive_1.so \
+_csrc0.so  SIM_l.o  _csrc0.so     rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o \
+rmar_llvm_0_0.o          -lzerosoft_rt_stubs -lvirsim -lerrorinf -lsnpsmalloc -lvfs \
+/home/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/pli.a    -lvcsnew \
+-lsimprofile -luclinative /home/synopsys/vcs-mx/O-2018.09-1/linux64/lib/vcs_tls.o \
+-Wl,-whole-archive -lvcsucli -Wl,-no-whole-archive        _vcs_pli_stub_.o   /home/synopsys/vcs-mx/O-2018.09-1/linux64/lib/vcs_save_restore_new.o \
+-ldl -lm  -lc -lpthread -ldl 
+../simv up to date
+make[1]: Leaving directory '/home/ICer/ic_prjs/aiengine/icb_unalign_bridge/sim/csrc' \
+
+Command: /home/ICer/ic_prjs/aiengine/icb_unalign_bridge/sim/./simv +v2k +notimingcheck +nospecify +vcs+flush+all -a compile.log +dump_fsdb +fsdb+autoflush -a run.log
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-1_Full64; Runtime version O-2018.09-1_Full64;  Oct 10 16:46 2025
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'icb_bridge.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : End of traversing.
+*Verdi* : Begin traversing the SVA assertions, layer (0).
+*Verdi* : End of traversing the SVA assertions.
+*Verdi* : Begin traversing the MDAs, layer (0).
+*Verdi* : Enable +mda and +packedmda dumping.
+*Verdi* : End of traversing the MDAs.
+*Verdi* ERROR: Cannot find class definition (tb_icb_unalign_bridge.memory_model)
+*Verdi* ERROR: Cannot find class definition (tb_icb_unalign_bridge)
+*Verdi* ERROR: Cannot find class definition (tb_icb_unalign_bridge.golden_mem)
+*Verdi* ERROR: Cannot find class definition (tb_icb_unalign_bridge.m_mem)
+ **********start simulation*******
+
+========== DIRECT TEST CASES ==========
+
+[TEST 1] Direct Case (B2B=0):
+  [145] WRITE Transaction:
+    addr=0x00001000, len=0 (beats=1)
+    wdata[0]=0xdeadbeef, wmask[0]=0111
+Golden Mem Updated: addr=0x00001000, data=0xdeadbeef, mask=0111
+[M_MEM] Write: addr=0x00001000, data=0xdeadbeef, mask=0111
+
+[TEST 2] Direct Case (B2B=0):
+  [385]  READ Transaction:
+    addr=0x00001000, len=0 (beats=1)
+[INFO] Read match at 0x00001000: data=0x00adbeef
+
+[TEST 3] Direct Case (B2B=0):
+  [595] WRITE Transaction:
+    addr=0x00002001, len=0 (beats=1)
+    wdata[0]=0xcafebabe, wmask[0]=1101
+Golden Mem Updated: addr=0x00002001, data=0xcafebabe, mask=1101
+[M_MEM] Write: addr=0x00002000, data=0xfebabe00, mask=1010
+[M_MEM] Write: addr=0x00002004, data=0x000000ca, mask=0001
+
+[TEST 4] Direct Case (B2B=0):
+  [825]  READ Transaction:
+    addr=0x00002001, len=0 (beats=1)
+[INFO] Read match at 0x00002001: data=0xcafe00be
+
+[TEST 5] Direct Case (B2B=0):
+  [1035] WRITE Transaction:
+    addr=0x00003000, len=3 (beats=4)
+    wdata[0]=0x11111111, wmask[0]=0111
+    wdata[1]=0x22222222, wmask[1]=1011
+    wdata[2]=0x33333333, wmask[2]=1101
+    wdata[3]=0x44444444, wmask[3]=1100
+[M_MEM] Write: addr=0x00003000, data=0x11111111, mask=0111
+[M_MEM] Write: addr=0x00003004, data=0x22222222, mask=1011
+[M_MEM] Write: addr=0x00003008, data=0x33333333, mask=1101
+Golden Mem Updated: addr=0x00003000, data=0x11111111, mask=0111
+Golden Mem Updated: addr=0x00003004, data=0x22222222, mask=1011
+Golden Mem Updated: addr=0x00003008, data=0x33333333, mask=1101
+Golden Mem Updated: addr=0x0000300c, data=0x44444444, mask=1100
+[M_MEM] Write: addr=0x0000300c, data=0x44444444, mask=1100
+
+========== MEMORY COMPARISON ==========
+
+==========  Case 5 ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[TEST 6] Direct Case (B2B=0):
+  [2025]  READ Transaction:
+    addr=0x00003000, len=3 (beats=4)
+[INFO] Read match at 0x00003000: data=0x00111111
+[INFO] Read match at 0x00003004: data=0x22002222
+[INFO] Read match at 0x00003008: data=0x33330033
+[INFO] Read match at 0x0000300c: data=0x44440000
+
+[TEST 7] Direct Case (B2B=0):
+  [2435] WRITE Transaction:
+    addr=0x00004002, len=2 (beats=3)
+    wdata[0]=0xaaaaaaaa, wmask[0]=1011
+    wdata[1]=0xbbbbbbbb, wmask[1]=1111
+    wdata[2]=0xcccccccc, wmask[2]=0001
+[M_MEM] Write: addr=0x00004000, data=0xaaaa0000, mask=1100
+[M_MEM] Write: addr=0x00004004, data=0xbbbbaaaa, mask=1110
+Golden Mem Updated: addr=0x00004002, data=0xaaaaaaaa, mask=1011
+Golden Mem Updated: addr=0x00004006, data=0xbbbbbbbb, mask=1111
+Golden Mem Updated: addr=0x0000400a, data=0xcccccccc, mask=0001
+[M_MEM] Write: addr=0x00004008, data=0xccccbbbb, mask=0111
+[M_MEM] Write: addr=0x0000400c, data=0x0000cccc, mask=0000
+
+[TEST 8] Direct Case (B2B=1):
+  [2905] WRITE Transaction:
+    addr=0x00003000, len=3 (beats=4)
+    wdata[0]=0x11111111, wmask[0]=0111
+    wdata[1]=0x22222222, wmask[1]=1011
+    wdata[2]=0x33333333, wmask[2]=1101
+    wdata[3]=0x44444444, wmask[3]=1100
+[M_MEM] Write: addr=0x00003000, data=0x11111111, mask=0111
+[M_MEM] Write: addr=0x00003004, data=0x22222222, mask=1011
+Golden Mem Updated: addr=0x00003000, data=0x11111111, mask=0111
+Golden Mem Updated: addr=0x00003004, data=0x22222222, mask=1011
+Golden Mem Updated: addr=0x00003008, data=0x33333333, mask=1101
+Golden Mem Updated: addr=0x0000300c, data=0x44444444, mask=1100
+[M_MEM] Write: addr=0x00003008, data=0x33333333, mask=1101
+[M_MEM] Write: addr=0x0000300c, data=0x44444444, mask=1100
+
+========== MEMORY COMPARISON ==========
+
+==========  Case 8 ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[TEST 9] Direct Case (B2B=1):
+  [3855]  READ Transaction:
+    addr=0x00003000, len=3 (beats=4)
+[INFO] Read match at 0x00003000: data=0x00111111
+[INFO] Read match at 0x00003004: data=0x22002222
+[INFO] Read match at 0x00003008: data=0x33330033
+[INFO] Read match at 0x0000300c: data=0x44440000
+
+[TEST 10] Direct Case (B2B=1):
+  [4265] WRITE Transaction:
+    addr=0x00004002, len=4 (beats=5)
+    wdata[0]=0xaaaaaaaa, wmask[0]=1111
+    wdata[1]=0xbbbbbbbb, wmask[1]=1000
+    wdata[2]=0xcccccccc, wmask[2]=1111
+    wdata[3]=0xdddddddd, wmask[3]=1001
+    wdata[4]=0xeeeeeeee, wmask[4]=1011
+[M_MEM] Write: addr=0x00004000, data=0xaaaa0000, mask=1100
+[M_MEM] Write: addr=0x00004004, data=0xbbbbaaaa, mask=0011
+[M_MEM] Write: addr=0x00004008, data=0xccccbbbb, mask=1110
+Golden Mem Updated: addr=0x00004002, data=0xaaaaaaaa, mask=1111
+Golden Mem Updated: addr=0x00004006, data=0xbbbbbbbb, mask=1000
+Golden Mem Updated: addr=0x0000400a, data=0xcccccccc, mask=1111
+Golden Mem Updated: addr=0x0000400e, data=0xdddddddd, mask=1001
+Golden Mem Updated: addr=0x00004012, data=0xeeeeeeee, mask=1011
+[M_MEM] Write: addr=0x0000400c, data=0xddddcccc, mask=0111
+[M_MEM] Write: addr=0x00004010, data=0xeeeedddd, mask=1110
+[M_MEM] Write: addr=0x00004014, data=0x0000eeee, mask=0010
+
+[TEST 11] Direct Case (B2B=1):
+  [4725]  READ Transaction:
+    addr=0x00004002, len=4 (beats=5)
+[INFO] Read match at 0x00004002: data=0xaaaaaaaa
+[INFO] Read match at 0x00004006: data=0xbbbbbbbb
+[INFO] Read match at 0x0000400a: data=0xcccccccc
+[INFO] Read match at 0x0000400e: data=0xdd0000dd
+[INFO] Read match at 0x00004012: data=0xee00eeee
+
+========== WRITE-THEN-READ TESTS ==========
+
+========== MEMORY COMPARISON ==========
+
+==========  Case 11 ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[TEST 12] Write-then-Read at 0x00005101 (B2B=0):
+Golden Mem Updated: addr=0x00005101, data=0x87654321, mask=0111
+[M_MEM] Write: addr=0x00005100, data=0x65432100, mask=1110
+[M_MEM] Write: addr=0x00005104, data=0x00000087, mask=0000
+[INFO] Read match at 0x00005101: data=0x00654321
+
+[TEST 13] Write-then-Read at 0x00005202 (B2B=0):
+Golden Mem Updated: addr=0x00005202, data=0xfedcba98, mask=0011
+[M_MEM] Write: addr=0x00005200, data=0xba980000, mask=1100
+[M_MEM] Write: addr=0x00005204, data=0x0000fedc, mask=0000
+[INFO] Read match at 0x00005202: data=0x0000ba98
+
+[TEST 14] Write-then-Read at 0x00005303 (B2B=0):
+Golden Mem Updated: addr=0x00005303, data=0x89abcdef, mask=0001
+[M_MEM] Write: addr=0x00005300, data=0xef000000, mask=1000
+[M_MEM] Write: addr=0x00005304, data=0x0089abcd, mask=0000
+[INFO] Read match at 0x00005303: data=0x000000ef
+
+========== B2B BURST TESTS ==========
+
+[TEST 15] B2B Burst WRWR at 0x00006001 (len=7, non-aligned):
+[M_MEM] Write: addr=0x00006000, data=0x00000000, mask=1110
+[M_MEM] Write: addr=0x00006004, data=0x00010110, mask=1111
+[M_MEM] Write: addr=0x00006008, data=0x00020210, mask=1111
+[M_MEM] Write: addr=0x0000600c, data=0x00030310, mask=1111
+[M_MEM] Write: addr=0x00006010, data=0x00040410, mask=1111
+[M_MEM] Write: addr=0x00006014, data=0x00050510, mask=1111
+Golden Mem Updated: addr=0x00006001, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00006005, data=0x10000101, mask=1111
+Golden Mem Updated: addr=0x00006009, data=0x10000202, mask=1111
+Golden Mem Updated: addr=0x0000600d, data=0x10000303, mask=1111
+Golden Mem Updated: addr=0x00006011, data=0x10000404, mask=1111
+Golden Mem Updated: addr=0x00006015, data=0x10000505, mask=1111
+Golden Mem Updated: addr=0x00006019, data=0x10000606, mask=1111
+Golden Mem Updated: addr=0x0000601d, data=0x10000707, mask=1111
+[M_MEM] Write: addr=0x00006018, data=0x00060610, mask=1111
+[M_MEM] Write: addr=0x0000601c, data=0x00070710, mask=1111
+[M_MEM] Write: addr=0x00006020, data=0x00000010, mask=0001
+[INFO] Read match at 0x00006001: data=0x10000000
+[INFO] Read match at 0x00006005: data=0x10000101
+[INFO] Read match at 0x00006009: data=0x10000202
+[INFO] Read match at 0x0000600d: data=0x10000303
+[INFO] Read match at 0x00006011: data=0x10000404
+[INFO] Read match at 0x00006015: data=0x10000505
+[INFO] Read match at 0x00006019: data=0x10000606
+[INFO] Read match at 0x0000601d: data=0x10000707
+[M_MEM] Write: addr=0x00006100, data=0x00000000, mask=1110
+[M_MEM] Write: addr=0x00006104, data=0x00101120, mask=1111
+[M_MEM] Write: addr=0x00006108, data=0x00202220, mask=1111
+[M_MEM] Write: addr=0x0000610c, data=0x00303320, mask=1111
+[M_MEM] Write: addr=0x00006110, data=0x00404420, mask=1111
+[M_MEM] Write: addr=0x00006114, data=0x00505520, mask=1111
+Golden Mem Updated: addr=0x00006101, data=0x20000000, mask=1111
+Golden Mem Updated: addr=0x00006105, data=0x20001011, mask=1111
+Golden Mem Updated: addr=0x00006109, data=0x20002022, mask=1111
+Golden Mem Updated: addr=0x0000610d, data=0x20003033, mask=1111
+Golden Mem Updated: addr=0x00006111, data=0x20004044, mask=1111
+Golden Mem Updated: addr=0x00006115, data=0x20005055, mask=1111
+Golden Mem Updated: addr=0x00006119, data=0x20006066, mask=1111
+Golden Mem Updated: addr=0x0000611d, data=0x20007077, mask=1111
+[M_MEM] Write: addr=0x00006118, data=0x00606620, mask=1111
+[M_MEM] Write: addr=0x0000611c, data=0x00707720, mask=1111
+[INFO] B2B Burst WRWR sequence completed
+[M_MEM] Write: addr=0x00006120, data=0x00000020, mask=0001
+[INFO] Read match at 0x00006101: data=0x20000000
+[INFO] Read match at 0x00006105: data=0x20001011
+[INFO] Read match at 0x00006109: data=0x20002022
+[INFO] Read match at 0x0000610d: data=0x20003033
+[INFO] Read match at 0x00006111: data=0x20004044
+[INFO] Read match at 0x00006115: data=0x20005055
+[INFO] Read match at 0x00006119: data=0x20006066
+[INFO] Read match at 0x0000611d: data=0x20007077
+
+========== MEMORY COMPARISON ==========
+
+==========  Case 15 ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[TEST 16] B2B Burst WRWR at 0x00006102 (len=7, non-aligned):
+[M_MEM] Write: addr=0x00006100, data=0x00000000, mask=1100
+[M_MEM] Write: addr=0x00006104, data=0x01011000, mask=1111
+[M_MEM] Write: addr=0x00006108, data=0x02021000, mask=1111
+[M_MEM] Write: addr=0x0000610c, data=0x03031000, mask=1111
+[M_MEM] Write: addr=0x00006110, data=0x04041000, mask=1111
+[M_MEM] Write: addr=0x00006114, data=0x05051000, mask=1111
+Golden Mem Updated: addr=0x00006102, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00006106, data=0x10000101, mask=1111
+Golden Mem Updated: addr=0x0000610a, data=0x10000202, mask=1111
+Golden Mem Updated: addr=0x0000610e, data=0x10000303, mask=1111
+Golden Mem Updated: addr=0x00006112, data=0x10000404, mask=1111
+Golden Mem Updated: addr=0x00006116, data=0x10000505, mask=1111
+Golden Mem Updated: addr=0x0000611a, data=0x10000606, mask=1111
+Golden Mem Updated: addr=0x0000611e, data=0x10000707, mask=1111
+[M_MEM] Write: addr=0x00006118, data=0x06061000, mask=1111
+[M_MEM] Write: addr=0x0000611c, data=0x07071000, mask=1111
+[M_MEM] Write: addr=0x00006120, data=0x00001000, mask=0011
+[INFO] Read match at 0x00006102: data=0x10000000
+[INFO] Read match at 0x00006106: data=0x10000101
+[INFO] Read match at 0x0000610a: data=0x10000202
+[INFO] Read match at 0x0000610e: data=0x10000303
+[INFO] Read match at 0x00006112: data=0x10000404
+[INFO] Read match at 0x00006116: data=0x10000505
+[INFO] Read match at 0x0000611a: data=0x10000606
+[INFO] Read match at 0x0000611e: data=0x10000707
+[M_MEM] Write: addr=0x00006200, data=0x00000000, mask=1100
+[M_MEM] Write: addr=0x00006204, data=0x10112000, mask=1111
+[M_MEM] Write: addr=0x00006208, data=0x20222000, mask=1111
+[M_MEM] Write: addr=0x0000620c, data=0x30332000, mask=1111
+[M_MEM] Write: addr=0x00006210, data=0x40442000, mask=1111
+[M_MEM] Write: addr=0x00006214, data=0x50552000, mask=1111
+Golden Mem Updated: addr=0x00006202, data=0x20000000, mask=1111
+Golden Mem Updated: addr=0x00006206, data=0x20001011, mask=1111
+Golden Mem Updated: addr=0x0000620a, data=0x20002022, mask=1111
+Golden Mem Updated: addr=0x0000620e, data=0x20003033, mask=1111
+Golden Mem Updated: addr=0x00006212, data=0x20004044, mask=1111
+Golden Mem Updated: addr=0x00006216, data=0x20005055, mask=1111
+Golden Mem Updated: addr=0x0000621a, data=0x20006066, mask=1111
+Golden Mem Updated: addr=0x0000621e, data=0x20007077, mask=1111
+[M_MEM] Write: addr=0x00006218, data=0x60662000, mask=1111
+[M_MEM] Write: addr=0x0000621c, data=0x70772000, mask=1111
+[INFO] B2B Burst WRWR sequence completed
+[M_MEM] Write: addr=0x00006220, data=0x00002000, mask=0011
+[INFO] Read match at 0x00006202: data=0x20000000
+[INFO] Read match at 0x00006206: data=0x20001011
+[INFO] Read match at 0x0000620a: data=0x20002022
+[INFO] Read match at 0x0000620e: data=0x20003033
+[INFO] Read match at 0x00006212: data=0x20004044
+[INFO] Read match at 0x00006216: data=0x20005055
+[INFO] Read match at 0x0000621a: data=0x20006066
+[INFO] Read match at 0x0000621e: data=0x20007077
+
+[TEST 17] B2B Burst WRWR at 0x00006203 (len=7, non-aligned):
+[M_MEM] Write: addr=0x00006200, data=0x00000000, mask=1000
+[M_MEM] Write: addr=0x00006204, data=0x01100000, mask=1111
+[M_MEM] Write: addr=0x00006208, data=0x02100001, mask=1111
+[M_MEM] Write: addr=0x0000620c, data=0x03100002, mask=1111
+[M_MEM] Write: addr=0x00006210, data=0x04100003, mask=1111
+[M_MEM] Write: addr=0x00006214, data=0x05100004, mask=1111
+Golden Mem Updated: addr=0x00006203, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00006207, data=0x10000101, mask=1111
+Golden Mem Updated: addr=0x0000620b, data=0x10000202, mask=1111
+Golden Mem Updated: addr=0x0000620f, data=0x10000303, mask=1111
+Golden Mem Updated: addr=0x00006213, data=0x10000404, mask=1111
+Golden Mem Updated: addr=0x00006217, data=0x10000505, mask=1111
+Golden Mem Updated: addr=0x0000621b, data=0x10000606, mask=1111
+Golden Mem Updated: addr=0x0000621f, data=0x10000707, mask=1111
+[M_MEM] Write: addr=0x00006218, data=0x06100005, mask=1111
+[M_MEM] Write: addr=0x0000621c, data=0x07100006, mask=1111
+[M_MEM] Write: addr=0x00006220, data=0x00100007, mask=0111
+[INFO] Read match at 0x00006203: data=0x10000000
+[INFO] Read match at 0x00006207: data=0x10000101
+[INFO] Read match at 0x0000620b: data=0x10000202
+[INFO] Read match at 0x0000620f: data=0x10000303
+[INFO] Read match at 0x00006213: data=0x10000404
+[INFO] Read match at 0x00006217: data=0x10000505
+[INFO] Read match at 0x0000621b: data=0x10000606
+[INFO] Read match at 0x0000621f: data=0x10000707
+[M_MEM] Write: addr=0x00006300, data=0x00000000, mask=1000
+[M_MEM] Write: addr=0x00006304, data=0x11200000, mask=1111
+[M_MEM] Write: addr=0x00006308, data=0x22200010, mask=1111
+[M_MEM] Write: addr=0x0000630c, data=0x33200020, mask=1111
+[M_MEM] Write: addr=0x00006310, data=0x44200030, mask=1111
+[M_MEM] Write: addr=0x00006314, data=0x55200040, mask=1111
+Golden Mem Updated: addr=0x00006303, data=0x20000000, mask=1111
+Golden Mem Updated: addr=0x00006307, data=0x20001011, mask=1111
+Golden Mem Updated: addr=0x0000630b, data=0x20002022, mask=1111
+Golden Mem Updated: addr=0x0000630f, data=0x20003033, mask=1111
+Golden Mem Updated: addr=0x00006313, data=0x20004044, mask=1111
+Golden Mem Updated: addr=0x00006317, data=0x20005055, mask=1111
+Golden Mem Updated: addr=0x0000631b, data=0x20006066, mask=1111
+Golden Mem Updated: addr=0x0000631f, data=0x20007077, mask=1111
+[M_MEM] Write: addr=0x00006318, data=0x66200050, mask=1111
+[M_MEM] Write: addr=0x0000631c, data=0x77200060, mask=1111
+[INFO] B2B Burst WRWR sequence completed
+[M_MEM] Write: addr=0x00006320, data=0x00200070, mask=0111
+[INFO] Read match at 0x00006303: data=0x20000000
+[INFO] Read match at 0x00006307: data=0x20001011
+[INFO] Read match at 0x0000630b: data=0x20002022
+[INFO] Read match at 0x0000630f: data=0x20003033
+[INFO] Read match at 0x00006313: data=0x20004044
+[INFO] Read match at 0x00006317: data=0x20005055
+[INFO] Read match at 0x0000631b: data=0x20006066
+[INFO] Read match at 0x0000631f: data=0x20007077
+
+[TEST 18] B2B Burst WRWR at 0x00007001 (len=7, non-aligned):
+[M_MEM] Write: addr=0x00007000, data=0x00000000, mask=1110
+[M_MEM] Write: addr=0x00007004, data=0x00010110, mask=1111
+[M_MEM] Write: addr=0x00007008, data=0x00020210, mask=1111
+[M_MEM] Write: addr=0x0000700c, data=0x00030310, mask=1111
+[M_MEM] Write: addr=0x00007010, data=0x00040410, mask=1111
+[M_MEM] Write: addr=0x00007014, data=0x00050510, mask=1111
+Golden Mem Updated: addr=0x00007001, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00007005, data=0x10000101, mask=1111
+Golden Mem Updated: addr=0x00007009, data=0x10000202, mask=1111
+Golden Mem Updated: addr=0x0000700d, data=0x10000303, mask=1111
+Golden Mem Updated: addr=0x00007011, data=0x10000404, mask=1111
+Golden Mem Updated: addr=0x00007015, data=0x10000505, mask=1111
+Golden Mem Updated: addr=0x00007019, data=0x10000606, mask=1111
+Golden Mem Updated: addr=0x0000701d, data=0x10000707, mask=1111
+[M_MEM] Write: addr=0x00007018, data=0x00060610, mask=1111
+[M_MEM] Write: addr=0x0000701c, data=0x00070710, mask=1111
+[M_MEM] Write: addr=0x00007020, data=0x00000010, mask=0001
+[INFO] Read match at 0x00007001: data=0x10000000
+[INFO] Read match at 0x00007005: data=0x10000101
+[INFO] Read match at 0x00007009: data=0x10000202
+[INFO] Read match at 0x0000700d: data=0x10000303
+[INFO] Read match at 0x00007011: data=0x10000404
+[INFO] Read match at 0x00007015: data=0x10000505
+[INFO] Read match at 0x00007019: data=0x10000606
+[INFO] Read match at 0x0000701d: data=0x10000707
+[M_MEM] Write: addr=0x00007100, data=0x00000000, mask=1110
+[M_MEM] Write: addr=0x00007104, data=0x00101120, mask=1111
+[M_MEM] Write: addr=0x00007108, data=0x00202220, mask=1111
+[M_MEM] Write: addr=0x0000710c, data=0x00303320, mask=1111
+[M_MEM] Write: addr=0x00007110, data=0x00404420, mask=1111
+[M_MEM] Write: addr=0x00007114, data=0x00505520, mask=1111
+Golden Mem Updated: addr=0x00007101, data=0x20000000, mask=1111
+Golden Mem Updated: addr=0x00007105, data=0x20001011, mask=1111
+Golden Mem Updated: addr=0x00007109, data=0x20002022, mask=1111
+Golden Mem Updated: addr=0x0000710d, data=0x20003033, mask=1111
+Golden Mem Updated: addr=0x00007111, data=0x20004044, mask=1111
+Golden Mem Updated: addr=0x00007115, data=0x20005055, mask=1111
+Golden Mem Updated: addr=0x00007119, data=0x20006066, mask=1111
+Golden Mem Updated: addr=0x0000711d, data=0x20007077, mask=1111
+[M_MEM] Write: addr=0x00007118, data=0x00606620, mask=1111
+[M_MEM] Write: addr=0x0000711c, data=0x00707720, mask=1111
+[INFO] B2B Burst WRWR sequence completed
+[M_MEM] Write: addr=0x00007120, data=0x00000020, mask=0001
+[INFO] Read match at 0x00007101: data=0x20000000
+[INFO] Read match at 0x00007105: data=0x20001011
+[INFO] Read match at 0x00007109: data=0x20002022
+[INFO] Read match at 0x0000710d: data=0x20003033
+[INFO] Read match at 0x00007111: data=0x20004044
+[INFO] Read match at 0x00007115: data=0x20005055
+[INFO] Read match at 0x00007119: data=0x20006066
+[INFO] Read match at 0x0000711d: data=0x20007077
+
+[TEST 19] Write-then-Read at 0x00005000 (B2B=0):
+Golden Mem Updated: addr=0x00005000, data=0x12345678, mask=1111
+[M_MEM] Write: addr=0x00005000, data=0x12345678, mask=1111
+[INFO] Read match at 0x00005000: data=0x12345678
+
+========== OUTSTANDING TESTS ==========
+
+[DIRECTED OUTSTANDING] Pattern: WWWRRR, Base: 0x00008000, Len Queue: {0} (Size: 1)
+
+========== [TEST 20] WWWRRR Test: 6 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x00008000, len=0
+[OUTSTANDING_1] WRITE: addr=0x00008020, len=0
+[OUTSTANDING_2] WRITE: addr=0x00008040, len=0
+[OUTSTANDING_3]  READ: addr=0x00008000, len=0
+[OUTSTANDING_4]  READ: addr=0x00008020, len=0
+[OUTSTANDING_5]  READ: addr=0x00008040, len=0
+[PHASE 1] Sending all 6 CMD requests...
+[CMD_SETUP_0] addr=0x00008000, time=13140 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x00008000, data=0x10000000, mask=1111
+[CMD_AFTER_CLK_0] time=13145 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x00008000, time=13145
+[CMD_SETUP_1] addr=0x00008020, time=13145 (before clk)
+[CMD_AFTER_CLK_1] time=13155 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x00008020, time=13155
+[CMD_SETUP_2] addr=0x00008040, time=13155 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00008020, data=0x10010001, mask=1111
+[CMD_AFTER_CLK_2] time=13165 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x00008040, time=13165
+[CMD_SETUP_3] addr=0x00008000, time=13165 (before clk)
+[M_MEM] Write: addr=0x00008000, data=0x10000000, mask=1111
+[CMD_AFTER_CLK_3] time=13175 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x00008000, time=13175
+[CMD_SETUP_4] addr=0x00008020, time=13175 (before clk)
+[WDATA_SENT_outstanding1.0] data=0x10010001, mask=1111
+Golden Mem Updated: addr=0x00008040, data=0x10020002, mask=1111
+[CMD_AFTER_CLK_4] time=13185 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x00008020, time=13185
+[CMD_SETUP_5] addr=0x00008040, time=13185 (before clk)
+[M_MEM] Write: addr=0x00008020, data=0x10010001, mask=1111
+[CMD_AFTER_CLK_5] time=13195 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x00008040, time=13195
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+[INFO] All 6 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x00008040, data=0x10020002, mask=1111
+[INFO] Read match at 0x00008000: data=0x10000000
+[INFO] Read match at 0x00008020: data=0x10010001
+[INFO] Read match at 0x00008040: data=0x10020002
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding 20 WWWRRR ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: WRWWRR, Base: 0x00008100, Len Queue: {1} (Size: 1)
+
+========== [TEST 21] WRWWRR Test: 6 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x00008100, len=1
+[OUTSTANDING_1]  READ: addr=0x00008100, len=1
+[OUTSTANDING_2] WRITE: addr=0x00008120, len=1
+[OUTSTANDING_3] WRITE: addr=0x00008140, len=1
+[OUTSTANDING_4]  READ: addr=0x00008120, len=1
+[OUTSTANDING_5]  READ: addr=0x00008140, len=1
+[PHASE 1] Sending all 6 CMD requests...
+[CMD_SETUP_0] addr=0x00008100, time=14710 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x00008100, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00008104, data=0x10000100, mask=1111
+[CMD_AFTER_CLK_0] time=14715 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x00008100, time=14715
+[CMD_SETUP_1] addr=0x00008100, time=14715 (before clk)
+[CMD_AFTER_CLK_1] time=14725 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x00008100, time=14725
+[CMD_SETUP_2] addr=0x00008120, time=14725 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+[CMD_AFTER_CLK_2] time=14735 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x00008120, time=14735
+[CMD_SETUP_3] addr=0x00008140, time=14735 (before clk)
+[M_MEM] Write: addr=0x00008100, data=0x10000000, mask=1111
+[WDATA_SENT_outstanding0.1] data=0x10000100, mask=1111
+Golden Mem Updated: addr=0x00008120, data=0x10020002, mask=1111
+Golden Mem Updated: addr=0x00008124, data=0x10020102, mask=1111
+[CMD_AFTER_CLK_3] time=14745 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x00008140, time=14745
+[CMD_SETUP_4] addr=0x00008120, time=14745 (before clk)
+[M_MEM] Write: addr=0x00008104, data=0x10000100, mask=1111
+[CMD_AFTER_CLK_4] time=14755 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x00008120, time=14755
+[CMD_SETUP_5] addr=0x00008140, time=14755 (before clk)
+[CMD_AFTER_CLK_5] time=14765 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x00008140, time=14765
+[INFO] Read match at 0x00008100: data=0x10000000
+[INFO] Read match at 0x00008104: data=0x10000100
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+[M_MEM] Write: addr=0x00008120, data=0x10020002, mask=1111
+[WDATA_SENT_outstanding2.1] data=0x10020102, mask=1111
+Golden Mem Updated: addr=0x00008140, data=0x10030003, mask=1111
+Golden Mem Updated: addr=0x00008144, data=0x10030103, mask=1111
+[M_MEM] Write: addr=0x00008124, data=0x10020102, mask=1111
+[WDATA_SENT_outstanding3.0] data=0x10030003, mask=1111
+[M_MEM] Write: addr=0x00008140, data=0x10030003, mask=1111
+[WDATA_SENT_outstanding3.1] data=0x10030103, mask=1111
+[INFO] All 6 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x00008144, data=0x10030103, mask=1111
+[INFO] Read match at 0x00008120: data=0x10020002
+[INFO] Read match at 0x00008124: data=0x10020102
+[INFO] Read match at 0x00008140: data=0x10030003
+[INFO] Read match at 0x00008144: data=0x10030103
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding 21 WRWWRR ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: WWWRWRWRW, Base: 0x00008200, Len Queue: {5} (Size: 1)
+
+========== [TEST 22] WWWRWRWRW Test: 9 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x00008200, len=5
+[OUTSTANDING_1] WRITE: addr=0x00008220, len=5
+[OUTSTANDING_2] WRITE: addr=0x00008240, len=5
+[OUTSTANDING_3]  READ: addr=0x00008200, len=5
+[OUTSTANDING_4] WRITE: addr=0x00008260, len=5
+[OUTSTANDING_5]  READ: addr=0x00008220, len=5
+[OUTSTANDING_6] WRITE: addr=0x00008280, len=5
+[OUTSTANDING_7]  READ: addr=0x00008240, len=5
+[OUTSTANDING_8] WRITE: addr=0x000082a0, len=5
+[PHASE 1] Sending all 9 CMD requests...
+[CMD_SETUP_0] addr=0x00008200, time=16340 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x00008200, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00008204, data=0x10000100, mask=1111
+Golden Mem Updated: addr=0x00008208, data=0x10000200, mask=1111
+Golden Mem Updated: addr=0x0000820c, data=0x10000300, mask=1111
+Golden Mem Updated: addr=0x00008210, data=0x10000400, mask=1111
+Golden Mem Updated: addr=0x00008214, data=0x10000500, mask=1111
+[CMD_AFTER_CLK_0] time=16345 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x00008200, time=16345
+[CMD_SETUP_1] addr=0x00008220, time=16345 (before clk)
+[CMD_AFTER_CLK_1] time=16355 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x00008220, time=16355
+[CMD_SETUP_2] addr=0x00008240, time=16355 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+[CMD_AFTER_CLK_2] time=16365 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x00008240, time=16365
+[CMD_SETUP_3] addr=0x00008200, time=16365 (before clk)
+[M_MEM] Write: addr=0x00008200, data=0x10000000, mask=1111
+[WDATA_SENT_outstanding0.1] data=0x10000100, mask=1111
+[CMD_AFTER_CLK_3] time=16375 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x00008200, time=16375
+[CMD_SETUP_4] addr=0x00008260, time=16375 (before clk)
+[M_MEM] Write: addr=0x00008204, data=0x10000100, mask=1111
+[WDATA_SENT_outstanding0.2] data=0x10000200, mask=1111
+[CMD_AFTER_CLK_4] time=16385 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x00008260, time=16385
+[CMD_SETUP_5] addr=0x00008220, time=16385 (before clk)
+[M_MEM] Write: addr=0x00008208, data=0x10000200, mask=1111
+[WDATA_SENT_outstanding0.3] data=0x10000300, mask=1111
+[CMD_AFTER_CLK_5] time=16395 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x00008220, time=16395
+[CMD_SETUP_6] addr=0x00008280, time=16395 (before clk)
+[M_MEM] Write: addr=0x0000820c, data=0x10000300, mask=1111
+[WDATA_SENT_outstanding0.4] data=0x10000400, mask=1111
+[CMD_AFTER_CLK_6] time=16405 (same time, reactive region)
+[CMD_HANDSHAKE_6] addr=0x00008280, time=16405
+[CMD_SETUP_7] addr=0x00008240, time=16405 (before clk)
+[M_MEM] Write: addr=0x00008210, data=0x10000400, mask=1111
+[WDATA_SENT_outstanding0.5] data=0x10000500, mask=1111
+Golden Mem Updated: addr=0x00008220, data=0x10010001, mask=1111
+Golden Mem Updated: addr=0x00008224, data=0x10010101, mask=1111
+Golden Mem Updated: addr=0x00008228, data=0x10010201, mask=1111
+Golden Mem Updated: addr=0x0000822c, data=0x10010301, mask=1111
+Golden Mem Updated: addr=0x00008230, data=0x10010401, mask=1111
+Golden Mem Updated: addr=0x00008234, data=0x10010501, mask=1111
+[CMD_AFTER_CLK_7] time=16415 (same time, reactive region)
+[CMD_HANDSHAKE_7] addr=0x00008240, time=16415
+[CMD_SETUP_8] addr=0x000082a0, time=16415 (before clk)
+[M_MEM] Write: addr=0x00008214, data=0x10000500, mask=1111
+[CMD_AFTER_CLK_8] time=16425 (same time, reactive region)
+[CMD_HANDSHAKE_8] addr=0x000082a0, time=16425
+[WDATA_SENT_outstanding1.0] data=0x10010001, mask=1111
+[M_MEM] Write: addr=0x00008220, data=0x10010001, mask=1111
+[WDATA_SENT_outstanding1.1] data=0x10010101, mask=1111
+[M_MEM] Write: addr=0x00008224, data=0x10010101, mask=1111
+[WDATA_SENT_outstanding1.2] data=0x10010201, mask=1111
+[M_MEM] Write: addr=0x00008228, data=0x10010201, mask=1111
+[WDATA_SENT_outstanding1.3] data=0x10010301, mask=1111
+[M_MEM] Write: addr=0x0000822c, data=0x10010301, mask=1111
+[WDATA_SENT_outstanding1.4] data=0x10010401, mask=1111
+[M_MEM] Write: addr=0x00008230, data=0x10010401, mask=1111
+[WDATA_SENT_outstanding1.5] data=0x10010501, mask=1111
+Golden Mem Updated: addr=0x00008240, data=0x10020002, mask=1111
+Golden Mem Updated: addr=0x00008244, data=0x10020102, mask=1111
+Golden Mem Updated: addr=0x00008248, data=0x10020202, mask=1111
+Golden Mem Updated: addr=0x0000824c, data=0x10020302, mask=1111
+Golden Mem Updated: addr=0x00008250, data=0x10020402, mask=1111
+Golden Mem Updated: addr=0x00008254, data=0x10020502, mask=1111
+[M_MEM] Write: addr=0x00008234, data=0x10010501, mask=1111
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+[M_MEM] Write: addr=0x00008240, data=0x10020002, mask=1111
+[WDATA_SENT_outstanding2.1] data=0x10020102, mask=1111
+[M_MEM] Write: addr=0x00008244, data=0x10020102, mask=1111
+[WDATA_SENT_outstanding2.2] data=0x10020202, mask=1111
+[M_MEM] Write: addr=0x00008248, data=0x10020202, mask=1111
+[WDATA_SENT_outstanding2.3] data=0x10020302, mask=1111
+[M_MEM] Write: addr=0x0000824c, data=0x10020302, mask=1111
+[WDATA_SENT_outstanding2.4] data=0x10020402, mask=1111
+[M_MEM] Write: addr=0x00008250, data=0x10020402, mask=1111
+[WDATA_SENT_outstanding2.5] data=0x10020502, mask=1111
+Golden Mem Updated: addr=0x00008260, data=0x10040004, mask=1111
+Golden Mem Updated: addr=0x00008264, data=0x10040104, mask=1111
+Golden Mem Updated: addr=0x00008268, data=0x10040204, mask=1111
+Golden Mem Updated: addr=0x0000826c, data=0x10040304, mask=1111
+Golden Mem Updated: addr=0x00008270, data=0x10040404, mask=1111
+Golden Mem Updated: addr=0x00008274, data=0x10040504, mask=1111
+[M_MEM] Write: addr=0x00008254, data=0x10020502, mask=1111
+[INFO] Read match at 0x00008200: data=0x10000000
+[INFO] Read match at 0x00008204: data=0x10000100
+[INFO] Read match at 0x00008208: data=0x10000200
+[INFO] Read match at 0x0000820c: data=0x10000300
+[INFO] Read match at 0x00008210: data=0x10000400
+[INFO] Read match at 0x00008214: data=0x10000500
+[WDATA_SENT_outstanding4.0] data=0x10040004, mask=1111
+[M_MEM] Write: addr=0x00008260, data=0x10040004, mask=1111
+[WDATA_SENT_outstanding4.1] data=0x10040104, mask=1111
+[M_MEM] Write: addr=0x00008264, data=0x10040104, mask=1111
+[WDATA_SENT_outstanding4.2] data=0x10040204, mask=1111
+[M_MEM] Write: addr=0x00008268, data=0x10040204, mask=1111
+[WDATA_SENT_outstanding4.3] data=0x10040304, mask=1111
+[M_MEM] Write: addr=0x0000826c, data=0x10040304, mask=1111
+[WDATA_SENT_outstanding4.4] data=0x10040404, mask=1111
+[M_MEM] Write: addr=0x00008270, data=0x10040404, mask=1111
+[WDATA_SENT_outstanding4.5] data=0x10040504, mask=1111
+Golden Mem Updated: addr=0x00008280, data=0x10060006, mask=1111
+Golden Mem Updated: addr=0x00008284, data=0x10060106, mask=1111
+Golden Mem Updated: addr=0x00008288, data=0x10060206, mask=1111
+Golden Mem Updated: addr=0x0000828c, data=0x10060306, mask=1111
+Golden Mem Updated: addr=0x00008290, data=0x10060406, mask=1111
+Golden Mem Updated: addr=0x00008294, data=0x10060506, mask=1111
+[M_MEM] Write: addr=0x00008274, data=0x10040504, mask=1111
+[INFO] Read match at 0x00008220: data=0x10010001
+[INFO] Read match at 0x00008224: data=0x10010101
+[INFO] Read match at 0x00008228: data=0x10010201
+[INFO] Read match at 0x0000822c: data=0x10010301
+[INFO] Read match at 0x00008230: data=0x10010401
+[INFO] Read match at 0x00008234: data=0x10010501
+[WDATA_SENT_outstanding6.0] data=0x10060006, mask=1111
+[M_MEM] Write: addr=0x00008280, data=0x10060006, mask=1111
+[WDATA_SENT_outstanding6.1] data=0x10060106, mask=1111
+[M_MEM] Write: addr=0x00008284, data=0x10060106, mask=1111
+[WDATA_SENT_outstanding6.2] data=0x10060206, mask=1111
+[M_MEM] Write: addr=0x00008288, data=0x10060206, mask=1111
+[WDATA_SENT_outstanding6.3] data=0x10060306, mask=1111
+[M_MEM] Write: addr=0x0000828c, data=0x10060306, mask=1111
+[WDATA_SENT_outstanding6.4] data=0x10060406, mask=1111
+[M_MEM] Write: addr=0x00008290, data=0x10060406, mask=1111
+[WDATA_SENT_outstanding6.5] data=0x10060506, mask=1111
+Golden Mem Updated: addr=0x000082a0, data=0x10080008, mask=1111
+Golden Mem Updated: addr=0x000082a4, data=0x10080108, mask=1111
+Golden Mem Updated: addr=0x000082a8, data=0x10080208, mask=1111
+Golden Mem Updated: addr=0x000082ac, data=0x10080308, mask=1111
+Golden Mem Updated: addr=0x000082b0, data=0x10080408, mask=1111
+Golden Mem Updated: addr=0x000082b4, data=0x10080508, mask=1111
+[M_MEM] Write: addr=0x00008294, data=0x10060506, mask=1111
+[INFO] Read match at 0x00008240: data=0x10020002
+[INFO] Read match at 0x00008244: data=0x10020102
+[INFO] Read match at 0x00008248: data=0x10020202
+[INFO] Read match at 0x0000824c: data=0x10020302
+[INFO] Read match at 0x00008250: data=0x10020402
+[INFO] Read match at 0x00008254: data=0x10020502
+[WDATA_SENT_outstanding8.0] data=0x10080008, mask=1111
+[M_MEM] Write: addr=0x000082a0, data=0x10080008, mask=1111
+[WDATA_SENT_outstanding8.1] data=0x10080108, mask=1111
+[M_MEM] Write: addr=0x000082a4, data=0x10080108, mask=1111
+[WDATA_SENT_outstanding8.2] data=0x10080208, mask=1111
+[M_MEM] Write: addr=0x000082a8, data=0x10080208, mask=1111
+[WDATA_SENT_outstanding8.3] data=0x10080308, mask=1111
+[M_MEM] Write: addr=0x000082ac, data=0x10080308, mask=1111
+[WDATA_SENT_outstanding8.4] data=0x10080408, mask=1111
+[M_MEM] Write: addr=0x000082b0, data=0x10080408, mask=1111
+[WDATA_SENT_outstanding8.5] data=0x10080508, mask=1111
+[INFO] All 9 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x000082b4, data=0x10080508, mask=1111
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding 22 WWWRWRWRW ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: WWWWRRRR, Base: 0x00008302, Len Queue: {2} (Size: 1)
+
+========== [TEST 23] WWWWRRRR Test: 8 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x00008302, len=2
+[OUTSTANDING_1] WRITE: addr=0x00008322, len=2
+[OUTSTANDING_2] WRITE: addr=0x00008342, len=2
+[OUTSTANDING_3] WRITE: addr=0x00008362, len=2
+[OUTSTANDING_4]  READ: addr=0x00008302, len=2
+[OUTSTANDING_5]  READ: addr=0x00008322, len=2
+[OUTSTANDING_6]  READ: addr=0x00008342, len=2
+[OUTSTANDING_7]  READ: addr=0x00008362, len=2
+[PHASE 1] Sending all 8 CMD requests...
+[CMD_SETUP_0] addr=0x00008302, time=18480 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x00008302, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00008306, data=0x10000100, mask=1111
+Golden Mem Updated: addr=0x0000830a, data=0x10000200, mask=1111
+[CMD_AFTER_CLK_0] time=18485 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x00008302, time=18485
+[CMD_SETUP_1] addr=0x00008322, time=18485 (before clk)
+[CMD_AFTER_CLK_1] time=18495 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x00008322, time=18495
+[CMD_SETUP_2] addr=0x00008342, time=18495 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+[CMD_AFTER_CLK_2] time=18505 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x00008342, time=18505
+[CMD_SETUP_3] addr=0x00008362, time=18505 (before clk)
+[M_MEM] Write: addr=0x00008300, data=0x00000000, mask=1100
+[WDATA_SENT_outstanding0.1] data=0x10000100, mask=1111
+[CMD_AFTER_CLK_3] time=18515 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x00008362, time=18515
+[CMD_SETUP_4] addr=0x00008302, time=18515 (before clk)
+[M_MEM] Write: addr=0x00008304, data=0x01001000, mask=1111
+[WDATA_SENT_outstanding0.2] data=0x10000200, mask=1111
+Golden Mem Updated: addr=0x00008322, data=0x10010001, mask=1111
+Golden Mem Updated: addr=0x00008326, data=0x10010101, mask=1111
+Golden Mem Updated: addr=0x0000832a, data=0x10010201, mask=1111
+[CMD_AFTER_CLK_4] time=18525 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x00008302, time=18525
+[CMD_SETUP_5] addr=0x00008322, time=18525 (before clk)
+[M_MEM] Write: addr=0x00008308, data=0x02001000, mask=1111
+[CMD_AFTER_CLK_5] time=18535 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x00008322, time=18535
+[CMD_SETUP_6] addr=0x00008342, time=18535 (before clk)
+[M_MEM] Write: addr=0x0000830c, data=0x00001000, mask=0011
+[CMD_AFTER_CLK_6] time=18545 (same time, reactive region)
+[CMD_HANDSHAKE_6] addr=0x00008342, time=18545
+[CMD_SETUP_7] addr=0x00008362, time=18545 (before clk)
+[WDATA_SENT_outstanding1.0] data=0x10010001, mask=1111
+[CMD_AFTER_CLK_7] time=18555 (same time, reactive region)
+[CMD_HANDSHAKE_7] addr=0x00008362, time=18555
+[M_MEM] Write: addr=0x00008320, data=0x00010000, mask=1100
+[WDATA_SENT_outstanding1.1] data=0x10010101, mask=1111
+[M_MEM] Write: addr=0x00008324, data=0x01011001, mask=1111
+[WDATA_SENT_outstanding1.2] data=0x10010201, mask=1111
+Golden Mem Updated: addr=0x00008342, data=0x10020002, mask=1111
+Golden Mem Updated: addr=0x00008346, data=0x10020102, mask=1111
+Golden Mem Updated: addr=0x0000834a, data=0x10020202, mask=1111
+[M_MEM] Write: addr=0x00008328, data=0x02011001, mask=1111
+[M_MEM] Write: addr=0x0000832c, data=0x00001001, mask=0011
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+[M_MEM] Write: addr=0x00008340, data=0x00020000, mask=1100
+[WDATA_SENT_outstanding2.1] data=0x10020102, mask=1111
+[M_MEM] Write: addr=0x00008344, data=0x01021002, mask=1111
+[WDATA_SENT_outstanding2.2] data=0x10020202, mask=1111
+Golden Mem Updated: addr=0x00008362, data=0x10030003, mask=1111
+Golden Mem Updated: addr=0x00008366, data=0x10030103, mask=1111
+Golden Mem Updated: addr=0x0000836a, data=0x10030203, mask=1111
+[M_MEM] Write: addr=0x00008348, data=0x02021002, mask=1111
+[M_MEM] Write: addr=0x0000834c, data=0x00001002, mask=0011
+[WDATA_SENT_outstanding3.0] data=0x10030003, mask=1111
+[M_MEM] Write: addr=0x00008360, data=0x00030000, mask=1100
+[WDATA_SENT_outstanding3.1] data=0x10030103, mask=1111
+[M_MEM] Write: addr=0x00008364, data=0x01031003, mask=1111
+[WDATA_SENT_outstanding3.2] data=0x10030203, mask=1111
+[INFO] All 8 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x00008368, data=0x02031003, mask=1111
+[M_MEM] Write: addr=0x0000836c, data=0x00001003, mask=0011
+[INFO] Read match at 0x00008302: data=0x10000000
+[INFO] Read match at 0x00008306: data=0x10000100
+[INFO] Read match at 0x0000830a: data=0x10000200
+[INFO] Read match at 0x00008322: data=0x10010001
+[INFO] Read match at 0x00008326: data=0x10010101
+[INFO] Read match at 0x0000832a: data=0x10010201
+[INFO] Read match at 0x00008342: data=0x10020002
+[INFO] Read match at 0x00008346: data=0x10020102
+[INFO] Read match at 0x0000834a: data=0x10020202
+[INFO] Read match at 0x00008362: data=0x10030003
+[INFO] Read match at 0x00008366: data=0x10030103
+[INFO] Read match at 0x0000836a: data=0x10030203
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding 23 WWWWRRRR ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: WWWWRRRRWWWWRRRR, Base: 0x00008403, Len Queue: {3} (Size: 1)
+
+========== [TEST 24] WWWWRRRRWWWWRRRR Test: 16 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x00008403, len=3
+[OUTSTANDING_1] WRITE: addr=0x00008423, len=3
+[OUTSTANDING_2] WRITE: addr=0x00008443, len=3
+[OUTSTANDING_3] WRITE: addr=0x00008463, len=3
+[OUTSTANDING_4]  READ: addr=0x00008403, len=3
+[OUTSTANDING_5]  READ: addr=0x00008423, len=3
+[OUTSTANDING_6]  READ: addr=0x00008443, len=3
+[OUTSTANDING_7]  READ: addr=0x00008463, len=3
+[OUTSTANDING_8] WRITE: addr=0x00008483, len=3
+[OUTSTANDING_9] WRITE: addr=0x000084a3, len=3
+[OUTSTANDING_10] WRITE: addr=0x000084c3, len=3
+[OUTSTANDING_11] WRITE: addr=0x000084e3, len=3
+[OUTSTANDING_12]  READ: addr=0x00008483, len=3
+[OUTSTANDING_13]  READ: addr=0x000084a3, len=3
+[OUTSTANDING_14]  READ: addr=0x000084c3, len=3
+[OUTSTANDING_15]  READ: addr=0x000084e3, len=3
+[PHASE 1] Sending all 16 CMD requests...
+[CMD_SETUP_0] addr=0x00008403, time=20180 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x00008403, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00008407, data=0x10000100, mask=1111
+Golden Mem Updated: addr=0x0000840b, data=0x10000200, mask=1111
+Golden Mem Updated: addr=0x0000840f, data=0x10000300, mask=1111
+[CMD_AFTER_CLK_0] time=20185 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x00008403, time=20185
+[CMD_SETUP_1] addr=0x00008423, time=20185 (before clk)
+[CMD_AFTER_CLK_1] time=20195 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x00008423, time=20195
+[CMD_SETUP_2] addr=0x00008443, time=20195 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+[CMD_AFTER_CLK_2] time=20205 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x00008443, time=20205
+[CMD_SETUP_3] addr=0x00008463, time=20205 (before clk)
+[M_MEM] Write: addr=0x00008400, data=0x00000000, mask=1000
+[WDATA_SENT_outstanding0.1] data=0x10000100, mask=1111
+[CMD_AFTER_CLK_3] time=20215 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x00008463, time=20215
+[CMD_SETUP_4] addr=0x00008403, time=20215 (before clk)
+[M_MEM] Write: addr=0x00008404, data=0x00100000, mask=1111
+[WDATA_SENT_outstanding0.2] data=0x10000200, mask=1111
+[CMD_AFTER_CLK_4] time=20225 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x00008403, time=20225
+[CMD_SETUP_5] addr=0x00008423, time=20225 (before clk)
+[M_MEM] Write: addr=0x00008408, data=0x00100001, mask=1111
+[WDATA_SENT_outstanding0.3] data=0x10000300, mask=1111
+Golden Mem Updated: addr=0x00008423, data=0x10010001, mask=1111
+Golden Mem Updated: addr=0x00008427, data=0x10010101, mask=1111
+Golden Mem Updated: addr=0x0000842b, data=0x10010201, mask=1111
+Golden Mem Updated: addr=0x0000842f, data=0x10010301, mask=1111
+[CMD_AFTER_CLK_5] time=20235 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x00008423, time=20235
+[CMD_SETUP_6] addr=0x00008443, time=20235 (before clk)
+[M_MEM] Write: addr=0x0000840c, data=0x00100002, mask=1111
+[CMD_AFTER_CLK_6] time=20245 (same time, reactive region)
+[CMD_HANDSHAKE_6] addr=0x00008443, time=20245
+[CMD_SETUP_7] addr=0x00008463, time=20245 (before clk)
+[M_MEM] Write: addr=0x00008410, data=0x00100003, mask=0111
+[CMD_AFTER_CLK_7] time=20255 (same time, reactive region)
+[CMD_HANDSHAKE_7] addr=0x00008463, time=20255
+[CMD_SETUP_8] addr=0x00008483, time=20255 (before clk)
+[WDATA_SENT_outstanding1.0] data=0x10010001, mask=1111
+[CMD_AFTER_CLK_8] time=20265 (same time, reactive region)
+[CMD_HANDSHAKE_8] addr=0x00008483, time=20265
+[CMD_SETUP_9] addr=0x000084a3, time=20265 (before clk)
+[M_MEM] Write: addr=0x00008420, data=0x01000000, mask=1000
+[WDATA_SENT_outstanding1.1] data=0x10010101, mask=1111
+[CMD_AFTER_CLK_9] time=20275 (same time, reactive region)
+[CMD_HANDSHAKE_9] addr=0x000084a3, time=20275
+[CMD_SETUP_10] addr=0x000084c3, time=20275 (before clk)
+[M_MEM] Write: addr=0x00008424, data=0x01100100, mask=1111
+[WDATA_SENT_outstanding1.2] data=0x10010201, mask=1111
+[CMD_AFTER_CLK_10] time=20285 (same time, reactive region)
+[CMD_HANDSHAKE_10] addr=0x000084c3, time=20285
+[CMD_SETUP_11] addr=0x000084e3, time=20285 (before clk)
+[M_MEM] Write: addr=0x00008428, data=0x01100101, mask=1111
+[WDATA_SENT_outstanding1.3] data=0x10010301, mask=1111
+Golden Mem Updated: addr=0x00008443, data=0x10020002, mask=1111
+Golden Mem Updated: addr=0x00008447, data=0x10020102, mask=1111
+Golden Mem Updated: addr=0x0000844b, data=0x10020202, mask=1111
+Golden Mem Updated: addr=0x0000844f, data=0x10020302, mask=1111
+[CMD_AFTER_CLK_11] time=20295 (same time, reactive region)
+[CMD_HANDSHAKE_11] addr=0x000084e3, time=20295
+[CMD_SETUP_12] addr=0x00008483, time=20295 (before clk)
+[M_MEM] Write: addr=0x0000842c, data=0x01100102, mask=1111
+[CMD_AFTER_CLK_12] time=20305 (same time, reactive region)
+[CMD_HANDSHAKE_12] addr=0x00008483, time=20305
+[CMD_SETUP_13] addr=0x000084a3, time=20305 (before clk)
+[M_MEM] Write: addr=0x00008430, data=0x00100103, mask=0111
+[CMD_AFTER_CLK_13] time=20315 (same time, reactive region)
+[CMD_HANDSHAKE_13] addr=0x000084a3, time=20315
+[CMD_SETUP_14] addr=0x000084c3, time=20315 (before clk)
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+[CMD_AFTER_CLK_14] time=20325 (same time, reactive region)
+[CMD_HANDSHAKE_14] addr=0x000084c3, time=20325
+[CMD_SETUP_15] addr=0x000084e3, time=20325 (before clk)
+[M_MEM] Write: addr=0x00008440, data=0x02000000, mask=1000
+[WDATA_SENT_outstanding2.1] data=0x10020102, mask=1111
+[CMD_AFTER_CLK_15] time=20335 (same time, reactive region)
+[CMD_HANDSHAKE_15] addr=0x000084e3, time=20335
+[M_MEM] Write: addr=0x00008444, data=0x02100200, mask=1111
+[WDATA_SENT_outstanding2.2] data=0x10020202, mask=1111
+[M_MEM] Write: addr=0x00008448, data=0x02100201, mask=1111
+[WDATA_SENT_outstanding2.3] data=0x10020302, mask=1111
+Golden Mem Updated: addr=0x00008463, data=0x10030003, mask=1111
+Golden Mem Updated: addr=0x00008467, data=0x10030103, mask=1111
+Golden Mem Updated: addr=0x0000846b, data=0x10030203, mask=1111
+Golden Mem Updated: addr=0x0000846f, data=0x10030303, mask=1111
+[M_MEM] Write: addr=0x0000844c, data=0x02100202, mask=1111
+[M_MEM] Write: addr=0x00008450, data=0x00100203, mask=0111
+[WDATA_SENT_outstanding3.0] data=0x10030003, mask=1111
+[M_MEM] Write: addr=0x00008460, data=0x03000000, mask=1000
+[WDATA_SENT_outstanding3.1] data=0x10030103, mask=1111
+[M_MEM] Write: addr=0x00008464, data=0x03100300, mask=1111
+[WDATA_SENT_outstanding3.2] data=0x10030203, mask=1111
+[M_MEM] Write: addr=0x00008468, data=0x03100301, mask=1111
+[WDATA_SENT_outstanding3.3] data=0x10030303, mask=1111
+Golden Mem Updated: addr=0x00008483, data=0x10080008, mask=1111
+Golden Mem Updated: addr=0x00008487, data=0x10080108, mask=1111
+Golden Mem Updated: addr=0x0000848b, data=0x10080208, mask=1111
+Golden Mem Updated: addr=0x0000848f, data=0x10080308, mask=1111
+[M_MEM] Write: addr=0x0000846c, data=0x03100302, mask=1111
+[M_MEM] Write: addr=0x00008470, data=0x00100303, mask=0111
+[INFO] Read match at 0x00008403: data=0x10000000
+[INFO] Read match at 0x00008407: data=0x10000100
+[INFO] Read match at 0x0000840b: data=0x10000200
+[INFO] Read match at 0x0000840f: data=0x10000300
+[INFO] Read match at 0x00008423: data=0x10010001
+[INFO] Read match at 0x00008427: data=0x10010101
+[INFO] Read match at 0x0000842b: data=0x10010201
+[INFO] Read match at 0x0000842f: data=0x10010301
+[INFO] Read match at 0x00008443: data=0x10020002
+[INFO] Read match at 0x00008447: data=0x10020102
+[INFO] Read match at 0x0000844b: data=0x10020202
+[INFO] Read match at 0x0000844f: data=0x10020302
+[INFO] Read match at 0x00008463: data=0x10030003
+[INFO] Read match at 0x00008467: data=0x10030103
+[INFO] Read match at 0x0000846b: data=0x10030203
+[INFO] Read match at 0x0000846f: data=0x10030303
+[WDATA_SENT_outstanding8.0] data=0x10080008, mask=1111
+[M_MEM] Write: addr=0x00008480, data=0x08000000, mask=1000
+[WDATA_SENT_outstanding8.1] data=0x10080108, mask=1111
+[M_MEM] Write: addr=0x00008484, data=0x08100800, mask=1111
+[WDATA_SENT_outstanding8.2] data=0x10080208, mask=1111
+[M_MEM] Write: addr=0x00008488, data=0x08100801, mask=1111
+[WDATA_SENT_outstanding8.3] data=0x10080308, mask=1111
+Golden Mem Updated: addr=0x000084a3, data=0x10090009, mask=1111
+Golden Mem Updated: addr=0x000084a7, data=0x10090109, mask=1111
+Golden Mem Updated: addr=0x000084ab, data=0x10090209, mask=1111
+Golden Mem Updated: addr=0x000084af, data=0x10090309, mask=1111
+[M_MEM] Write: addr=0x0000848c, data=0x08100802, mask=1111
+[M_MEM] Write: addr=0x00008490, data=0x00100803, mask=0111
+[WDATA_SENT_outstanding9.0] data=0x10090009, mask=1111
+[M_MEM] Write: addr=0x000084a0, data=0x09000000, mask=1000
+[WDATA_SENT_outstanding9.1] data=0x10090109, mask=1111
+[M_MEM] Write: addr=0x000084a4, data=0x09100900, mask=1111
+[WDATA_SENT_outstanding9.2] data=0x10090209, mask=1111
+[M_MEM] Write: addr=0x000084a8, data=0x09100901, mask=1111
+[WDATA_SENT_outstanding9.3] data=0x10090309, mask=1111
+Golden Mem Updated: addr=0x000084c3, data=0x100a000a, mask=1111
+Golden Mem Updated: addr=0x000084c7, data=0x100a010a, mask=1111
+Golden Mem Updated: addr=0x000084cb, data=0x100a020a, mask=1111
+Golden Mem Updated: addr=0x000084cf, data=0x100a030a, mask=1111
+[M_MEM] Write: addr=0x000084ac, data=0x09100902, mask=1111
+[M_MEM] Write: addr=0x000084b0, data=0x00100903, mask=0111
+[WDATA_SENT_outstanding10.0] data=0x100a000a, mask=1111
+[M_MEM] Write: addr=0x000084c0, data=0x0a000000, mask=1000
+[WDATA_SENT_outstanding10.1] data=0x100a010a, mask=1111
+[M_MEM] Write: addr=0x000084c4, data=0x0a100a00, mask=1111
+[WDATA_SENT_outstanding10.2] data=0x100a020a, mask=1111
+[M_MEM] Write: addr=0x000084c8, data=0x0a100a01, mask=1111
+[WDATA_SENT_outstanding10.3] data=0x100a030a, mask=1111
+Golden Mem Updated: addr=0x000084e3, data=0x100b000b, mask=1111
+Golden Mem Updated: addr=0x000084e7, data=0x100b010b, mask=1111
+Golden Mem Updated: addr=0x000084eb, data=0x100b020b, mask=1111
+Golden Mem Updated: addr=0x000084ef, data=0x100b030b, mask=1111
+[M_MEM] Write: addr=0x000084cc, data=0x0a100a02, mask=1111
+[M_MEM] Write: addr=0x000084d0, data=0x00100a03, mask=0111
+[WDATA_SENT_outstanding11.0] data=0x100b000b, mask=1111
+[M_MEM] Write: addr=0x000084e0, data=0x0b000000, mask=1000
+[WDATA_SENT_outstanding11.1] data=0x100b010b, mask=1111
+[M_MEM] Write: addr=0x000084e4, data=0x0b100b00, mask=1111
+[WDATA_SENT_outstanding11.2] data=0x100b020b, mask=1111
+[M_MEM] Write: addr=0x000084e8, data=0x0b100b01, mask=1111
+[WDATA_SENT_outstanding11.3] data=0x100b030b, mask=1111
+[INFO] All 16 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x000084ec, data=0x0b100b02, mask=1111
+[M_MEM] Write: addr=0x000084f0, data=0x00100b03, mask=0111
+[INFO] Read match at 0x00008483: data=0x10080008
+[INFO] Read match at 0x00008487: data=0x10080108
+[INFO] Read match at 0x0000848b: data=0x10080208
+[INFO] Read match at 0x0000848f: data=0x10080308
+[INFO] Read match at 0x000084a3: data=0x10090009
+[INFO] Read match at 0x000084a7: data=0x10090109
+[INFO] Read match at 0x000084ab: data=0x10090209
+[INFO] Read match at 0x000084af: data=0x10090309
+[INFO] Read match at 0x000084c3: data=0x100a000a
+[INFO] Read match at 0x000084c7: data=0x100a010a
+[INFO] Read match at 0x000084cb: data=0x100a020a
+[INFO] Read match at 0x000084cf: data=0x100a030a
+[INFO] Read match at 0x000084e3: data=0x100b000b
+[INFO] Read match at 0x000084e7: data=0x100b010b
+[INFO] Read match at 0x000084eb: data=0x100b020b
+[INFO] Read match at 0x000084ef: data=0x100b030b
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding Maximum outstanding WWWWRRRRWWWWRRRR ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: WWWWRRRRWWWWRRRRWRWR, Base: 0x00008500, Len Queue: {3} (Size: 1)
+
+========== [TEST 25] WWWWRRRRWWWWRRRRWRWR Test: 20 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x00008500, len=3
+[OUTSTANDING_1] WRITE: addr=0x00008520, len=3
+[OUTSTANDING_2] WRITE: addr=0x00008540, len=3
+[OUTSTANDING_3] WRITE: addr=0x00008560, len=3
+[OUTSTANDING_4]  READ: addr=0x00008500, len=3
+[OUTSTANDING_5]  READ: addr=0x00008520, len=3
+[OUTSTANDING_6]  READ: addr=0x00008540, len=3
+[OUTSTANDING_7]  READ: addr=0x00008560, len=3
+[OUTSTANDING_8] WRITE: addr=0x00008580, len=3
+[OUTSTANDING_9] WRITE: addr=0x000085a0, len=3
+[OUTSTANDING_10] WRITE: addr=0x000085c0, len=3
+[OUTSTANDING_11] WRITE: addr=0x000085e0, len=3
+[OUTSTANDING_12]  READ: addr=0x00008580, len=3
+[OUTSTANDING_13]  READ: addr=0x000085a0, len=3
+[OUTSTANDING_14]  READ: addr=0x000085c0, len=3
+[OUTSTANDING_15]  READ: addr=0x000085e0, len=3
+[OUTSTANDING_16] WRITE: addr=0x00008600, len=3
+[OUTSTANDING_17]  READ: addr=0x00008600, len=3
+[OUTSTANDING_18] WRITE: addr=0x00008620, len=3
+[OUTSTANDING_19]  READ: addr=0x00008620, len=3
+[PHASE 1] Sending all 20 CMD requests...
+[CMD_SETUP_0] addr=0x00008500, time=22400 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x00008500, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00008504, data=0x10000100, mask=1111
+Golden Mem Updated: addr=0x00008508, data=0x10000200, mask=1111
+Golden Mem Updated: addr=0x0000850c, data=0x10000300, mask=1111
+[CMD_AFTER_CLK_0] time=22405 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x00008500, time=22405
+[CMD_SETUP_1] addr=0x00008520, time=22405 (before clk)
+[CMD_AFTER_CLK_1] time=22415 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x00008520, time=22415
+[CMD_SETUP_2] addr=0x00008540, time=22415 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+[CMD_AFTER_CLK_2] time=22425 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x00008540, time=22425
+[CMD_SETUP_3] addr=0x00008560, time=22425 (before clk)
+[M_MEM] Write: addr=0x00008500, data=0x10000000, mask=1111
+[WDATA_SENT_outstanding0.1] data=0x10000100, mask=1111
+[CMD_AFTER_CLK_3] time=22435 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x00008560, time=22435
+[CMD_SETUP_4] addr=0x00008500, time=22435 (before clk)
+[M_MEM] Write: addr=0x00008504, data=0x10000100, mask=1111
+[WDATA_SENT_outstanding0.2] data=0x10000200, mask=1111
+[CMD_AFTER_CLK_4] time=22445 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x00008500, time=22445
+[CMD_SETUP_5] addr=0x00008520, time=22445 (before clk)
+[M_MEM] Write: addr=0x00008508, data=0x10000200, mask=1111
+[WDATA_SENT_outstanding0.3] data=0x10000300, mask=1111
+Golden Mem Updated: addr=0x00008520, data=0x10010001, mask=1111
+Golden Mem Updated: addr=0x00008524, data=0x10010101, mask=1111
+Golden Mem Updated: addr=0x00008528, data=0x10010201, mask=1111
+Golden Mem Updated: addr=0x0000852c, data=0x10010301, mask=1111
+[CMD_AFTER_CLK_5] time=22455 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x00008520, time=22455
+[CMD_SETUP_6] addr=0x00008540, time=22455 (before clk)
+[M_MEM] Write: addr=0x0000850c, data=0x10000300, mask=1111
+[CMD_AFTER_CLK_6] time=22465 (same time, reactive region)
+[CMD_HANDSHAKE_6] addr=0x00008540, time=22465
+[CMD_SETUP_7] addr=0x00008560, time=22465 (before clk)
+[WDATA_SENT_outstanding1.0] data=0x10010001, mask=1111
+[CMD_AFTER_CLK_7] time=22475 (same time, reactive region)
+[CMD_HANDSHAKE_7] addr=0x00008560, time=22475
+[CMD_SETUP_8] addr=0x00008580, time=22475 (before clk)
+[M_MEM] Write: addr=0x00008520, data=0x10010001, mask=1111
+[WDATA_SENT_outstanding1.1] data=0x10010101, mask=1111
+[CMD_AFTER_CLK_8] time=22485 (same time, reactive region)
+[CMD_HANDSHAKE_8] addr=0x00008580, time=22485
+[CMD_SETUP_9] addr=0x000085a0, time=22485 (before clk)
+[M_MEM] Write: addr=0x00008524, data=0x10010101, mask=1111
+[WDATA_SENT_outstanding1.2] data=0x10010201, mask=1111
+[CMD_AFTER_CLK_9] time=22495 (same time, reactive region)
+[CMD_HANDSHAKE_9] addr=0x000085a0, time=22495
+[CMD_SETUP_10] addr=0x000085c0, time=22495 (before clk)
+[M_MEM] Write: addr=0x00008528, data=0x10010201, mask=1111
+[WDATA_SENT_outstanding1.3] data=0x10010301, mask=1111
+Golden Mem Updated: addr=0x00008540, data=0x10020002, mask=1111
+Golden Mem Updated: addr=0x00008544, data=0x10020102, mask=1111
+Golden Mem Updated: addr=0x00008548, data=0x10020202, mask=1111
+Golden Mem Updated: addr=0x0000854c, data=0x10020302, mask=1111
+[CMD_AFTER_CLK_10] time=22505 (same time, reactive region)
+[CMD_HANDSHAKE_10] addr=0x000085c0, time=22505
+[CMD_SETUP_11] addr=0x000085e0, time=22505 (before clk)
+[M_MEM] Write: addr=0x0000852c, data=0x10010301, mask=1111
+[CMD_AFTER_CLK_11] time=22515 (same time, reactive region)
+[CMD_HANDSHAKE_11] addr=0x000085e0, time=22515
+[CMD_SETUP_12] addr=0x00008580, time=22515 (before clk)
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+[CMD_AFTER_CLK_12] time=22525 (same time, reactive region)
+[CMD_HANDSHAKE_12] addr=0x00008580, time=22525
+[CMD_SETUP_13] addr=0x000085a0, time=22525 (before clk)
+[M_MEM] Write: addr=0x00008540, data=0x10020002, mask=1111
+[WDATA_SENT_outstanding2.1] data=0x10020102, mask=1111
+[CMD_AFTER_CLK_13] time=22535 (same time, reactive region)
+[CMD_HANDSHAKE_13] addr=0x000085a0, time=22535
+[CMD_SETUP_14] addr=0x000085c0, time=22535 (before clk)
+[M_MEM] Write: addr=0x00008544, data=0x10020102, mask=1111
+[WDATA_SENT_outstanding2.2] data=0x10020202, mask=1111
+[CMD_AFTER_CLK_14] time=22545 (same time, reactive region)
+[CMD_HANDSHAKE_14] addr=0x000085c0, time=22545
+[CMD_SETUP_15] addr=0x000085e0, time=22545 (before clk)
+[M_MEM] Write: addr=0x00008548, data=0x10020202, mask=1111
+[WDATA_SENT_outstanding2.3] data=0x10020302, mask=1111
+Golden Mem Updated: addr=0x00008560, data=0x10030003, mask=1111
+Golden Mem Updated: addr=0x00008564, data=0x10030103, mask=1111
+Golden Mem Updated: addr=0x00008568, data=0x10030203, mask=1111
+Golden Mem Updated: addr=0x0000856c, data=0x10030303, mask=1111
+[CMD_AFTER_CLK_15] time=22555 (same time, reactive region)
+[CMD_HANDSHAKE_15] addr=0x000085e0, time=22555
+[CMD_SETUP_16] addr=0x00008600, time=22555 (before clk)
+[M_MEM] Write: addr=0x0000854c, data=0x10020302, mask=1111
+[CMD_AFTER_CLK_16] time=22565 (same time, reactive region)
+[CMD_HANDSHAKE_16] addr=0x00008600, time=22565
+[CMD_SETUP_17] addr=0x00008600, time=22565 (before clk)
+[WDATA_SENT_outstanding3.0] data=0x10030003, mask=1111
+[CMD_AFTER_CLK_17] time=22575 (same time, reactive region)
+[CMD_HANDSHAKE_17] addr=0x00008600, time=22575
+[CMD_SETUP_18] addr=0x00008620, time=22575 (before clk)
+[M_MEM] Write: addr=0x00008560, data=0x10030003, mask=1111
+[WDATA_SENT_outstanding3.1] data=0x10030103, mask=1111
+[CMD_AFTER_CLK_18] time=22585 (same time, reactive region)
+[CMD_HANDSHAKE_18] addr=0x00008620, time=22585
+[CMD_SETUP_19] addr=0x00008620, time=22585 (before clk)
+[M_MEM] Write: addr=0x00008564, data=0x10030103, mask=1111
+[WDATA_SENT_outstanding3.2] data=0x10030203, mask=1111
+[CMD_AFTER_CLK_19] time=22595 (same time, reactive region)
+[CMD_HANDSHAKE_19] addr=0x00008620, time=22595
+[M_MEM] Write: addr=0x00008568, data=0x10030203, mask=1111
+[WDATA_SENT_outstanding3.3] data=0x10030303, mask=1111
+Golden Mem Updated: addr=0x00008580, data=0x10080008, mask=1111
+Golden Mem Updated: addr=0x00008584, data=0x10080108, mask=1111
+Golden Mem Updated: addr=0x00008588, data=0x10080208, mask=1111
+Golden Mem Updated: addr=0x0000858c, data=0x10080308, mask=1111
+[M_MEM] Write: addr=0x0000856c, data=0x10030303, mask=1111
+[INFO] Read match at 0x00008500: data=0x10000000
+[INFO] Read match at 0x00008504: data=0x10000100
+[INFO] Read match at 0x00008508: data=0x10000200
+[INFO] Read match at 0x0000850c: data=0x10000300
+[INFO] Read match at 0x00008520: data=0x10010001
+[INFO] Read match at 0x00008524: data=0x10010101
+[INFO] Read match at 0x00008528: data=0x10010201
+[INFO] Read match at 0x0000852c: data=0x10010301
+[INFO] Read match at 0x00008540: data=0x10020002
+[INFO] Read match at 0x00008544: data=0x10020102
+[INFO] Read match at 0x00008548: data=0x10020202
+[INFO] Read match at 0x0000854c: data=0x10020302
+[INFO] Read match at 0x00008560: data=0x10030003
+[INFO] Read match at 0x00008564: data=0x10030103
+[INFO] Read match at 0x00008568: data=0x10030203
+[INFO] Read match at 0x0000856c: data=0x10030303
+[WDATA_SENT_outstanding8.0] data=0x10080008, mask=1111
+[M_MEM] Write: addr=0x00008580, data=0x10080008, mask=1111
+[WDATA_SENT_outstanding8.1] data=0x10080108, mask=1111
+[M_MEM] Write: addr=0x00008584, data=0x10080108, mask=1111
+[WDATA_SENT_outstanding8.2] data=0x10080208, mask=1111
+[M_MEM] Write: addr=0x00008588, data=0x10080208, mask=1111
+[WDATA_SENT_outstanding8.3] data=0x10080308, mask=1111
+Golden Mem Updated: addr=0x000085a0, data=0x10090009, mask=1111
+Golden Mem Updated: addr=0x000085a4, data=0x10090109, mask=1111
+Golden Mem Updated: addr=0x000085a8, data=0x10090209, mask=1111
+Golden Mem Updated: addr=0x000085ac, data=0x10090309, mask=1111
+[M_MEM] Write: addr=0x0000858c, data=0x10080308, mask=1111
+[WDATA_SENT_outstanding9.0] data=0x10090009, mask=1111
+[M_MEM] Write: addr=0x000085a0, data=0x10090009, mask=1111
+[WDATA_SENT_outstanding9.1] data=0x10090109, mask=1111
+[M_MEM] Write: addr=0x000085a4, data=0x10090109, mask=1111
+[WDATA_SENT_outstanding9.2] data=0x10090209, mask=1111
+[M_MEM] Write: addr=0x000085a8, data=0x10090209, mask=1111
+[WDATA_SENT_outstanding9.3] data=0x10090309, mask=1111
+Golden Mem Updated: addr=0x000085c0, data=0x100a000a, mask=1111
+Golden Mem Updated: addr=0x000085c4, data=0x100a010a, mask=1111
+Golden Mem Updated: addr=0x000085c8, data=0x100a020a, mask=1111
+Golden Mem Updated: addr=0x000085cc, data=0x100a030a, mask=1111
+[M_MEM] Write: addr=0x000085ac, data=0x10090309, mask=1111
+[WDATA_SENT_outstanding10.0] data=0x100a000a, mask=1111
+[M_MEM] Write: addr=0x000085c0, data=0x100a000a, mask=1111
+[WDATA_SENT_outstanding10.1] data=0x100a010a, mask=1111
+[M_MEM] Write: addr=0x000085c4, data=0x100a010a, mask=1111
+[WDATA_SENT_outstanding10.2] data=0x100a020a, mask=1111
+[M_MEM] Write: addr=0x000085c8, data=0x100a020a, mask=1111
+[WDATA_SENT_outstanding10.3] data=0x100a030a, mask=1111
+Golden Mem Updated: addr=0x000085e0, data=0x100b000b, mask=1111
+Golden Mem Updated: addr=0x000085e4, data=0x100b010b, mask=1111
+Golden Mem Updated: addr=0x000085e8, data=0x100b020b, mask=1111
+Golden Mem Updated: addr=0x000085ec, data=0x100b030b, mask=1111
+[M_MEM] Write: addr=0x000085cc, data=0x100a030a, mask=1111
+[WDATA_SENT_outstanding11.0] data=0x100b000b, mask=1111
+[M_MEM] Write: addr=0x000085e0, data=0x100b000b, mask=1111
+[WDATA_SENT_outstanding11.1] data=0x100b010b, mask=1111
+[M_MEM] Write: addr=0x000085e4, data=0x100b010b, mask=1111
+[WDATA_SENT_outstanding11.2] data=0x100b020b, mask=1111
+[M_MEM] Write: addr=0x000085e8, data=0x100b020b, mask=1111
+[WDATA_SENT_outstanding11.3] data=0x100b030b, mask=1111
+Golden Mem Updated: addr=0x00008600, data=0x10100010, mask=1111
+Golden Mem Updated: addr=0x00008604, data=0x10100110, mask=1111
+Golden Mem Updated: addr=0x00008608, data=0x10100210, mask=1111
+Golden Mem Updated: addr=0x0000860c, data=0x10100310, mask=1111
+[M_MEM] Write: addr=0x000085ec, data=0x100b030b, mask=1111
+[INFO] Read match at 0x00008580: data=0x10080008
+[INFO] Read match at 0x00008584: data=0x10080108
+[INFO] Read match at 0x00008588: data=0x10080208
+[INFO] Read match at 0x0000858c: data=0x10080308
+[INFO] Read match at 0x000085a0: data=0x10090009
+[INFO] Read match at 0x000085a4: data=0x10090109
+[INFO] Read match at 0x000085a8: data=0x10090209
+[INFO] Read match at 0x000085ac: data=0x10090309
+[INFO] Read match at 0x000085c0: data=0x100a000a
+[INFO] Read match at 0x000085c4: data=0x100a010a
+[INFO] Read match at 0x000085c8: data=0x100a020a
+[INFO] Read match at 0x000085cc: data=0x100a030a
+[INFO] Read match at 0x000085e0: data=0x100b000b
+[INFO] Read match at 0x000085e4: data=0x100b010b
+[INFO] Read match at 0x000085e8: data=0x100b020b
+[INFO] Read match at 0x000085ec: data=0x100b030b
+[WDATA_SENT_outstanding16.0] data=0x10100010, mask=1111
+[M_MEM] Write: addr=0x00008600, data=0x10100010, mask=1111
+[WDATA_SENT_outstanding16.1] data=0x10100110, mask=1111
+[M_MEM] Write: addr=0x00008604, data=0x10100110, mask=1111
+[WDATA_SENT_outstanding16.2] data=0x10100210, mask=1111
+[M_MEM] Write: addr=0x00008608, data=0x10100210, mask=1111
+[WDATA_SENT_outstanding16.3] data=0x10100310, mask=1111
+Golden Mem Updated: addr=0x00008620, data=0x10120012, mask=1111
+Golden Mem Updated: addr=0x00008624, data=0x10120112, mask=1111
+Golden Mem Updated: addr=0x00008628, data=0x10120212, mask=1111
+Golden Mem Updated: addr=0x0000862c, data=0x10120312, mask=1111
+[M_MEM] Write: addr=0x0000860c, data=0x10100310, mask=1111
+[INFO] Read match at 0x00008600: data=0x10100010
+[INFO] Read match at 0x00008604: data=0x10100110
+[INFO] Read match at 0x00008608: data=0x10100210
+[INFO] Read match at 0x0000860c: data=0x10100310
+[WDATA_SENT_outstanding18.0] data=0x10120012, mask=1111
+[M_MEM] Write: addr=0x00008620, data=0x10120012, mask=1111
+[WDATA_SENT_outstanding18.1] data=0x10120112, mask=1111
+[M_MEM] Write: addr=0x00008624, data=0x10120112, mask=1111
+[WDATA_SENT_outstanding18.2] data=0x10120212, mask=1111
+[M_MEM] Write: addr=0x00008628, data=0x10120212, mask=1111
+[WDATA_SENT_outstanding18.3] data=0x10120312, mask=1111
+[INFO] All 20 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x0000862c, data=0x10120312, mask=1111
+[INFO] Read match at 0x00008620: data=0x10120012
+[INFO] Read match at 0x00008624: data=0x10120112
+[INFO] Read match at 0x00008628: data=0x10120212
+[INFO] Read match at 0x0000862c: data=0x10120312
+
+[DIRECTED OUTSTANDING] Pattern: WWWWRRRR, Base: 0x00008601, Len Queue: {0} (Size: 1)
+
+========== [TEST 26] WWWWRRRR Test: 8 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x00008601, len=0
+[OUTSTANDING_1] WRITE: addr=0x00008621, len=0
+[OUTSTANDING_2] WRITE: addr=0x00008641, len=0
+[OUTSTANDING_3] WRITE: addr=0x00008661, len=0
+[OUTSTANDING_4]  READ: addr=0x00008601, len=0
+[OUTSTANDING_5]  READ: addr=0x00008621, len=0
+[OUTSTANDING_6]  READ: addr=0x00008641, len=0
+[OUTSTANDING_7]  READ: addr=0x00008661, len=0
+[PHASE 1] Sending all 8 CMD requests...
+[CMD_SETUP_0] addr=0x00008601, time=24360 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x00008601, data=0x10000000, mask=1111
+[CMD_AFTER_CLK_0] time=24365 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x00008601, time=24365
+[CMD_SETUP_1] addr=0x00008621, time=24365 (before clk)
+[CMD_AFTER_CLK_1] time=24375 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x00008621, time=24375
+[CMD_SETUP_2] addr=0x00008641, time=24375 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00008621, data=0x10010001, mask=1111
+[CMD_AFTER_CLK_2] time=24385 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x00008641, time=24385
+[CMD_SETUP_3] addr=0x00008661, time=24385 (before clk)
+[M_MEM] Write: addr=0x00008600, data=0x00000000, mask=1110
+[CMD_AFTER_CLK_3] time=24395 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x00008661, time=24395
+[CMD_SETUP_4] addr=0x00008601, time=24395 (before clk)
+[M_MEM] Write: addr=0x00008604, data=0x00000010, mask=0001
+[CMD_AFTER_CLK_4] time=24405 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x00008601, time=24405
+[CMD_SETUP_5] addr=0x00008621, time=24405 (before clk)
+[WDATA_SENT_outstanding1.0] data=0x10010001, mask=1111
+Golden Mem Updated: addr=0x00008641, data=0x10020002, mask=1111
+[CMD_AFTER_CLK_5] time=24415 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x00008621, time=24415
+[CMD_SETUP_6] addr=0x00008641, time=24415 (before clk)
+[M_MEM] Write: addr=0x00008620, data=0x01000100, mask=1110
+[CMD_AFTER_CLK_6] time=24425 (same time, reactive region)
+[CMD_HANDSHAKE_6] addr=0x00008641, time=24425
+[CMD_SETUP_7] addr=0x00008661, time=24425 (before clk)
+[M_MEM] Write: addr=0x00008624, data=0x00000010, mask=0001
+[CMD_AFTER_CLK_7] time=24435 (same time, reactive region)
+[CMD_HANDSHAKE_7] addr=0x00008661, time=24435
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+Golden Mem Updated: addr=0x00008661, data=0x10030003, mask=1111
+[M_MEM] Write: addr=0x00008640, data=0x02000200, mask=1110
+[M_MEM] Write: addr=0x00008644, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding3.0] data=0x10030003, mask=1111
+[INFO] All 8 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x00008660, data=0x03000300, mask=1110
+[M_MEM] Write: addr=0x00008664, data=0x00000010, mask=0001
+[INFO] Read match at 0x00008601: data=0x10000000
+[INFO] Read match at 0x00008621: data=0x10010001
+[INFO] Read match at 0x00008641: data=0x10020002
+[INFO] Read match at 0x00008661: data=0x10030003
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding 26  ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: WWWRRR, Base: 0x11118000, Len Queue: {0, 1, 2, 0, 1, 2} (Size: 6)
+
+========== [TEST 27] WWWRRR Test: 6 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x11118000, len=0
+[OUTSTANDING_1] WRITE: addr=0x11118020, len=1
+[OUTSTANDING_2] WRITE: addr=0x11118040, len=2
+[OUTSTANDING_3]  READ: addr=0x11118000, len=0
+[OUTSTANDING_4]  READ: addr=0x11118020, len=1
+[OUTSTANDING_5]  READ: addr=0x11118040, len=2
+[PHASE 1] Sending all 6 CMD requests...
+[CMD_SETUP_0] addr=0x11118000, time=26980 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x11118000, data=0x10000000, mask=1111
+[CMD_AFTER_CLK_0] time=26985 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x11118000, time=26985
+[CMD_SETUP_1] addr=0x11118020, time=26985 (before clk)
+[CMD_AFTER_CLK_1] time=26995 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x11118020, time=26995
+[CMD_SETUP_2] addr=0x11118040, time=26995 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x11118020, data=0x10010001, mask=1111
+Golden Mem Updated: addr=0x11118024, data=0x10010101, mask=1111
+[CMD_AFTER_CLK_2] time=27005 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x11118040, time=27005
+[CMD_SETUP_3] addr=0x11118000, time=27005 (before clk)
+[M_MEM] Write: addr=0x11118000, data=0x10000000, mask=1111
+[CMD_AFTER_CLK_3] time=27015 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x11118000, time=27015
+[CMD_SETUP_4] addr=0x11118020, time=27015 (before clk)
+[WDATA_SENT_outstanding1.0] data=0x10010001, mask=1111
+[CMD_AFTER_CLK_4] time=27025 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x11118020, time=27025
+[CMD_SETUP_5] addr=0x11118040, time=27025 (before clk)
+[M_MEM] Write: addr=0x11118020, data=0x10010001, mask=1111
+[WDATA_SENT_outstanding1.1] data=0x10010101, mask=1111
+Golden Mem Updated: addr=0x11118040, data=0x10020002, mask=1111
+Golden Mem Updated: addr=0x11118044, data=0x10020102, mask=1111
+Golden Mem Updated: addr=0x11118048, data=0x10020202, mask=1111
+[CMD_AFTER_CLK_5] time=27035 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x11118040, time=27035
+[M_MEM] Write: addr=0x11118024, data=0x10010101, mask=1111
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+[M_MEM] Write: addr=0x11118040, data=0x10020002, mask=1111
+[WDATA_SENT_outstanding2.1] data=0x10020102, mask=1111
+[M_MEM] Write: addr=0x11118044, data=0x10020102, mask=1111
+[WDATA_SENT_outstanding2.2] data=0x10020202, mask=1111
+[INFO] All 6 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x11118048, data=0x10020202, mask=1111
+[INFO] Read match at 0x11118000: data=0x10000000
+[INFO] Read match at 0x11118020: data=0x10010001
+[INFO] Read match at 0x11118024: data=0x10010101
+[INFO] Read match at 0x11118040: data=0x10020002
+[INFO] Read match at 0x11118044: data=0x10020102
+[INFO] Read match at 0x11118048: data=0x10020202
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding 27 WWWRRR ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: WRWWRR, Base: 0x11118100, Len Queue: {5, 4, 3, 2, 1, 0} (Size: 6)
+
+========== [TEST 28] WRWWRR Test: 6 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x11118100, len=5
+[OUTSTANDING_1]  READ: addr=0x11118100, len=4
+[OUTSTANDING_2] WRITE: addr=0x11118120, len=3
+[OUTSTANDING_3] WRITE: addr=0x11118140, len=2
+[OUTSTANDING_4]  READ: addr=0x11118120, len=1
+[OUTSTANDING_5]  READ: addr=0x11118140, len=0
+[PHASE 1] Sending all 6 CMD requests...
+[CMD_SETUP_0] addr=0x11118100, time=28580 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x11118100, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x11118104, data=0x10000100, mask=1111
+Golden Mem Updated: addr=0x11118108, data=0x10000200, mask=1111
+Golden Mem Updated: addr=0x1111810c, data=0x10000300, mask=1111
+Golden Mem Updated: addr=0x11118110, data=0x10000400, mask=1111
+Golden Mem Updated: addr=0x11118114, data=0x10000500, mask=1111
+[CMD_AFTER_CLK_0] time=28585 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x11118100, time=28585
+[CMD_SETUP_1] addr=0x11118100, time=28585 (before clk)
+[CMD_AFTER_CLK_1] time=28595 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x11118100, time=28595
+[CMD_SETUP_2] addr=0x11118120, time=28595 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+[CMD_AFTER_CLK_2] time=28605 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x11118120, time=28605
+[CMD_SETUP_3] addr=0x11118140, time=28605 (before clk)
+[M_MEM] Write: addr=0x11118100, data=0x10000000, mask=1111
+[WDATA_SENT_outstanding0.1] data=0x10000100, mask=1111
+[CMD_AFTER_CLK_3] time=28615 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x11118140, time=28615
+[CMD_SETUP_4] addr=0x11118120, time=28615 (before clk)
+[M_MEM] Write: addr=0x11118104, data=0x10000100, mask=1111
+[WDATA_SENT_outstanding0.2] data=0x10000200, mask=1111
+[CMD_AFTER_CLK_4] time=28625 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x11118120, time=28625
+[CMD_SETUP_5] addr=0x11118140, time=28625 (before clk)
+[M_MEM] Write: addr=0x11118108, data=0x10000200, mask=1111
+[WDATA_SENT_outstanding0.3] data=0x10000300, mask=1111
+[CMD_AFTER_CLK_5] time=28635 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x11118140, time=28635
+[M_MEM] Write: addr=0x1111810c, data=0x10000300, mask=1111
+[WDATA_SENT_outstanding0.4] data=0x10000400, mask=1111
+[M_MEM] Write: addr=0x11118110, data=0x10000400, mask=1111
+[WDATA_SENT_outstanding0.5] data=0x10000500, mask=1111
+Golden Mem Updated: addr=0x11118120, data=0x10020002, mask=1111
+Golden Mem Updated: addr=0x11118124, data=0x10020102, mask=1111
+Golden Mem Updated: addr=0x11118128, data=0x10020202, mask=1111
+Golden Mem Updated: addr=0x1111812c, data=0x10020302, mask=1111
+[M_MEM] Write: addr=0x11118114, data=0x10000500, mask=1111
+[INFO] Read match at 0x11118100: data=0x10000000
+[INFO] Read match at 0x11118104: data=0x10000100
+[INFO] Read match at 0x11118108: data=0x10000200
+[INFO] Read match at 0x1111810c: data=0x10000300
+[INFO] Read match at 0x11118110: data=0x10000400
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+[M_MEM] Write: addr=0x11118120, data=0x10020002, mask=1111
+[WDATA_SENT_outstanding2.1] data=0x10020102, mask=1111
+[M_MEM] Write: addr=0x11118124, data=0x10020102, mask=1111
+[WDATA_SENT_outstanding2.2] data=0x10020202, mask=1111
+[M_MEM] Write: addr=0x11118128, data=0x10020202, mask=1111
+[WDATA_SENT_outstanding2.3] data=0x10020302, mask=1111
+Golden Mem Updated: addr=0x11118140, data=0x10030003, mask=1111
+Golden Mem Updated: addr=0x11118144, data=0x10030103, mask=1111
+Golden Mem Updated: addr=0x11118148, data=0x10030203, mask=1111
+[M_MEM] Write: addr=0x1111812c, data=0x10020302, mask=1111
+[WDATA_SENT_outstanding3.0] data=0x10030003, mask=1111
+[M_MEM] Write: addr=0x11118140, data=0x10030003, mask=1111
+[WDATA_SENT_outstanding3.1] data=0x10030103, mask=1111
+[M_MEM] Write: addr=0x11118144, data=0x10030103, mask=1111
+[WDATA_SENT_outstanding3.2] data=0x10030203, mask=1111
+[INFO] All 6 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x11118148, data=0x10030203, mask=1111
+[INFO] Read match at 0x11118120: data=0x10020002
+[INFO] Read match at 0x11118124: data=0x10020102
+[INFO] Read match at 0x11118140: data=0x10030003
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding 28 WRWWRR ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: WWWRWRWRW, Base: 0x11118200, Len Queue: {1, 5, 1, 0, 1, 0, 1, 3, 1} (Size: 9)
+
+========== [TEST 29] WWWRWRWRW Test: 9 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x11118200, len=1
+[OUTSTANDING_1] WRITE: addr=0x11118220, len=5
+[OUTSTANDING_2] WRITE: addr=0x11118240, len=1
+[OUTSTANDING_3]  READ: addr=0x11118200, len=0
+[OUTSTANDING_4] WRITE: addr=0x11118260, len=1
+[OUTSTANDING_5]  READ: addr=0x11118220, len=0
+[OUTSTANDING_6] WRITE: addr=0x11118280, len=1
+[OUTSTANDING_7]  READ: addr=0x11118240, len=3
+[OUTSTANDING_8] WRITE: addr=0x111182a0, len=1
+[PHASE 1] Sending all 9 CMD requests...
+[CMD_SETUP_0] addr=0x11118200, time=30310 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x11118200, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x11118204, data=0x10000100, mask=1111
+[CMD_AFTER_CLK_0] time=30315 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x11118200, time=30315
+[CMD_SETUP_1] addr=0x11118220, time=30315 (before clk)
+[CMD_AFTER_CLK_1] time=30325 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x11118220, time=30325
+[CMD_SETUP_2] addr=0x11118240, time=30325 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+[CMD_AFTER_CLK_2] time=30335 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x11118240, time=30335
+[CMD_SETUP_3] addr=0x11118200, time=30335 (before clk)
+[M_MEM] Write: addr=0x11118200, data=0x10000000, mask=1111
+[WDATA_SENT_outstanding0.1] data=0x10000100, mask=1111
+Golden Mem Updated: addr=0x11118220, data=0x10010001, mask=1111
+Golden Mem Updated: addr=0x11118224, data=0x10010101, mask=1111
+Golden Mem Updated: addr=0x11118228, data=0x10010201, mask=1111
+Golden Mem Updated: addr=0x1111822c, data=0x10010301, mask=1111
+Golden Mem Updated: addr=0x11118230, data=0x10010401, mask=1111
+Golden Mem Updated: addr=0x11118234, data=0x10010501, mask=1111
+[CMD_AFTER_CLK_3] time=30345 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x11118200, time=30345
+[CMD_SETUP_4] addr=0x11118260, time=30345 (before clk)
+[M_MEM] Write: addr=0x11118204, data=0x10000100, mask=1111
+[CMD_AFTER_CLK_4] time=30355 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x11118260, time=30355
+[CMD_SETUP_5] addr=0x11118220, time=30355 (before clk)
+[WDATA_SENT_outstanding1.0] data=0x10010001, mask=1111
+[CMD_AFTER_CLK_5] time=30365 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x11118220, time=30365
+[CMD_SETUP_6] addr=0x11118280, time=30365 (before clk)
+[M_MEM] Write: addr=0x11118220, data=0x10010001, mask=1111
+[WDATA_SENT_outstanding1.1] data=0x10010101, mask=1111
+[CMD_AFTER_CLK_6] time=30375 (same time, reactive region)
+[CMD_HANDSHAKE_6] addr=0x11118280, time=30375
+[CMD_SETUP_7] addr=0x11118240, time=30375 (before clk)
+[M_MEM] Write: addr=0x11118224, data=0x10010101, mask=1111
+[WDATA_SENT_outstanding1.2] data=0x10010201, mask=1111
+[CMD_AFTER_CLK_7] time=30385 (same time, reactive region)
+[CMD_HANDSHAKE_7] addr=0x11118240, time=30385
+[CMD_SETUP_8] addr=0x111182a0, time=30385 (before clk)
+[M_MEM] Write: addr=0x11118228, data=0x10010201, mask=1111
+[WDATA_SENT_outstanding1.3] data=0x10010301, mask=1111
+[CMD_AFTER_CLK_8] time=30395 (same time, reactive region)
+[CMD_HANDSHAKE_8] addr=0x111182a0, time=30395
+[M_MEM] Write: addr=0x1111822c, data=0x10010301, mask=1111
+[WDATA_SENT_outstanding1.4] data=0x10010401, mask=1111
+[M_MEM] Write: addr=0x11118230, data=0x10010401, mask=1111
+[WDATA_SENT_outstanding1.5] data=0x10010501, mask=1111
+Golden Mem Updated: addr=0x11118240, data=0x10020002, mask=1111
+Golden Mem Updated: addr=0x11118244, data=0x10020102, mask=1111
+[M_MEM] Write: addr=0x11118234, data=0x10010501, mask=1111
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+[M_MEM] Write: addr=0x11118240, data=0x10020002, mask=1111
+[WDATA_SENT_outstanding2.1] data=0x10020102, mask=1111
+Golden Mem Updated: addr=0x11118260, data=0x10040004, mask=1111
+Golden Mem Updated: addr=0x11118264, data=0x10040104, mask=1111
+[M_MEM] Write: addr=0x11118244, data=0x10020102, mask=1111
+[INFO] Read match at 0x11118200: data=0x10000000
+[WDATA_SENT_outstanding4.0] data=0x10040004, mask=1111
+[M_MEM] Write: addr=0x11118260, data=0x10040004, mask=1111
+[WDATA_SENT_outstanding4.1] data=0x10040104, mask=1111
+Golden Mem Updated: addr=0x11118280, data=0x10060006, mask=1111
+Golden Mem Updated: addr=0x11118284, data=0x10060106, mask=1111
+[M_MEM] Write: addr=0x11118264, data=0x10040104, mask=1111
+[INFO] Read match at 0x11118220: data=0x10010001
+[WDATA_SENT_outstanding6.0] data=0x10060006, mask=1111
+[M_MEM] Write: addr=0x11118280, data=0x10060006, mask=1111
+[WDATA_SENT_outstanding6.1] data=0x10060106, mask=1111
+Golden Mem Updated: addr=0x111182a0, data=0x10080008, mask=1111
+Golden Mem Updated: addr=0x111182a4, data=0x10080108, mask=1111
+[M_MEM] Write: addr=0x11118284, data=0x10060106, mask=1111
+[INFO] Read match at 0x11118240: data=0x10020002
+[INFO] Read match at 0x11118244: data=0x10020102
+[INFO] Read match at 0x11118248: data=0x00000000
+[INFO] Read match at 0x1111824c: data=0x00000000
+[WDATA_SENT_outstanding8.0] data=0x10080008, mask=1111
+[M_MEM] Write: addr=0x111182a0, data=0x10080008, mask=1111
+[WDATA_SENT_outstanding8.1] data=0x10080108, mask=1111
+[INFO] All 9 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x111182a4, data=0x10080108, mask=1111
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding 29 WWWRWRWRW ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: WWRWRWRW, Base: 0x11118200, Len Queue: {1, 5, 1, 0, 1, 0, 1, 3, 1} (Size: 9)
+
+========== [TEST 30] WWRWRWRW Test: 8 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x11118200, len=1
+[OUTSTANDING_1] WRITE: addr=0x11118220, len=5
+[OUTSTANDING_2]  READ: addr=0x11118200, len=1
+[OUTSTANDING_3] WRITE: addr=0x11118240, len=0
+[OUTSTANDING_4]  READ: addr=0x11118220, len=1
+[OUTSTANDING_5] WRITE: addr=0x11118260, len=0
+[OUTSTANDING_6]  READ: addr=0x11118240, len=1
+[OUTSTANDING_7] WRITE: addr=0x11118280, len=3
+[PHASE 1] Sending all 8 CMD requests...
+[CMD_SETUP_0] addr=0x11118200, time=41130 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x11118200, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x11118204, data=0x10000100, mask=1111
+[CMD_AFTER_CLK_0] time=41135 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x11118200, time=41135
+[CMD_SETUP_1] addr=0x11118220, time=41135 (before clk)
+[CMD_AFTER_CLK_1] time=41145 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x11118220, time=41145
+[CMD_SETUP_2] addr=0x11118200, time=41145 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+[CMD_AFTER_CLK_2] time=41155 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x11118200, time=41155
+[CMD_SETUP_3] addr=0x11118240, time=41155 (before clk)
+[M_MEM] Write: addr=0x11118200, data=0x10000000, mask=1111
+[WDATA_SENT_outstanding0.1] data=0x10000100, mask=1111
+Golden Mem Updated: addr=0x11118220, data=0x10010001, mask=1111
+Golden Mem Updated: addr=0x11118224, data=0x10010101, mask=1111
+Golden Mem Updated: addr=0x11118228, data=0x10010201, mask=1111
+Golden Mem Updated: addr=0x1111822c, data=0x10010301, mask=1111
+Golden Mem Updated: addr=0x11118230, data=0x10010401, mask=1111
+Golden Mem Updated: addr=0x11118234, data=0x10010501, mask=1111
+[CMD_AFTER_CLK_3] time=41165 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x11118240, time=41165
+[CMD_SETUP_4] addr=0x11118220, time=41165 (before clk)
+[M_MEM] Write: addr=0x11118204, data=0x10000100, mask=1111
+[CMD_AFTER_CLK_4] time=41175 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x11118220, time=41175
+[CMD_SETUP_5] addr=0x11118260, time=41175 (before clk)
+[WDATA_SENT_outstanding1.0] data=0x10010001, mask=1111
+[CMD_AFTER_CLK_5] time=41185 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x11118260, time=41185
+[CMD_SETUP_6] addr=0x11118240, time=41185 (before clk)
+[M_MEM] Write: addr=0x11118220, data=0x10010001, mask=1111
+[WDATA_SENT_outstanding1.1] data=0x10010101, mask=1111
+[CMD_AFTER_CLK_6] time=41195 (same time, reactive region)
+[CMD_HANDSHAKE_6] addr=0x11118240, time=41195
+[CMD_SETUP_7] addr=0x11118280, time=41195 (before clk)
+[M_MEM] Write: addr=0x11118224, data=0x10010101, mask=1111
+[WDATA_SENT_outstanding1.2] data=0x10010201, mask=1111
+[CMD_AFTER_CLK_7] time=41205 (same time, reactive region)
+[CMD_HANDSHAKE_7] addr=0x11118280, time=41205
+[M_MEM] Write: addr=0x11118228, data=0x10010201, mask=1111
+[WDATA_SENT_outstanding1.3] data=0x10010301, mask=1111
+[M_MEM] Write: addr=0x1111822c, data=0x10010301, mask=1111
+[WDATA_SENT_outstanding1.4] data=0x10010401, mask=1111
+[M_MEM] Write: addr=0x11118230, data=0x10010401, mask=1111
+[WDATA_SENT_outstanding1.5] data=0x10010501, mask=1111
+Golden Mem Updated: addr=0x11118240, data=0x10030003, mask=1111
+[M_MEM] Write: addr=0x11118234, data=0x10010501, mask=1111
+[INFO] Read match at 0x11118200: data=0x10000000
+[INFO] Read match at 0x11118204: data=0x10000100
+[WDATA_SENT_outstanding3.0] data=0x10030003, mask=1111
+Golden Mem Updated: addr=0x11118260, data=0x10050005, mask=1111
+[M_MEM] Write: addr=0x11118240, data=0x10030003, mask=1111
+[INFO] Read match at 0x11118220: data=0x10010001
+[INFO] Read match at 0x11118224: data=0x10010101
+[WDATA_SENT_outstanding5.0] data=0x10050005, mask=1111
+Golden Mem Updated: addr=0x11118280, data=0x10070007, mask=1111
+Golden Mem Updated: addr=0x11118284, data=0x10070107, mask=1111
+Golden Mem Updated: addr=0x11118288, data=0x10070207, mask=1111
+Golden Mem Updated: addr=0x1111828c, data=0x10070307, mask=1111
+[M_MEM] Write: addr=0x11118260, data=0x10050005, mask=1111
+[INFO] Read match at 0x11118240: data=0x10030003
+[INFO] Read match at 0x11118244: data=0x10020102
+[WDATA_SENT_outstanding7.0] data=0x10070007, mask=1111
+[M_MEM] Write: addr=0x11118280, data=0x10070007, mask=1111
+[WDATA_SENT_outstanding7.1] data=0x10070107, mask=1111
+[M_MEM] Write: addr=0x11118284, data=0x10070107, mask=1111
+[WDATA_SENT_outstanding7.2] data=0x10070207, mask=1111
+[M_MEM] Write: addr=0x11118288, data=0x10070207, mask=1111
+[WDATA_SENT_outstanding7.3] data=0x10070307, mask=1111
+[INFO] All 8 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x1111828c, data=0x10070307, mask=1111
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding 30 WWWRWRWRW ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: wwwwwwww, Base: 0x11208200, Len Queue: {4, 3, 1, 0, 1, 0, 1, 3, 1} (Size: 9)
+
+========== [TEST 31] wwwwwwww Test: 8 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x11208200, len=4
+[OUTSTANDING_1] WRITE: addr=0x11208220, len=3
+[OUTSTANDING_2] WRITE: addr=0x11208240, len=1
+[OUTSTANDING_3] WRITE: addr=0x11208260, len=0
+[OUTSTANDING_4] WRITE: addr=0x11208280, len=1
+[OUTSTANDING_5] WRITE: addr=0x112082a0, len=0
+[OUTSTANDING_6] WRITE: addr=0x112082c0, len=1
+[OUTSTANDING_7] WRITE: addr=0x112082e0, len=3
+[PHASE 1] Sending all 8 CMD requests...
+[CMD_SETUP_0] addr=0x11208200, time=42920 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x11208200, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x11208204, data=0x10000100, mask=1111
+Golden Mem Updated: addr=0x11208208, data=0x10000200, mask=1111
+Golden Mem Updated: addr=0x1120820c, data=0x10000300, mask=1111
+Golden Mem Updated: addr=0x11208210, data=0x10000400, mask=1111
+[CMD_AFTER_CLK_0] time=42925 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x11208200, time=42925
+[CMD_SETUP_1] addr=0x11208220, time=42925 (before clk)
+[CMD_AFTER_CLK_1] time=42935 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x11208220, time=42935
+[CMD_SETUP_2] addr=0x11208240, time=42935 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+[CMD_AFTER_CLK_2] time=42945 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x11208240, time=42945
+[CMD_SETUP_3] addr=0x11208260, time=42945 (before clk)
+[M_MEM] Write: addr=0x11208200, data=0x10000000, mask=1111
+[WDATA_SENT_outstanding0.1] data=0x10000100, mask=1111
+[CMD_AFTER_CLK_3] time=42955 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x11208260, time=42955
+[CMD_SETUP_4] addr=0x11208280, time=42955 (before clk)
+[M_MEM] Write: addr=0x11208204, data=0x10000100, mask=1111
+[WDATA_SENT_outstanding0.2] data=0x10000200, mask=1111
+[CMD_AFTER_CLK_4] time=42965 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x11208280, time=42965
+[CMD_SETUP_5] addr=0x112082a0, time=42965 (before clk)
+[M_MEM] Write: addr=0x11208208, data=0x10000200, mask=1111
+[WDATA_SENT_outstanding0.3] data=0x10000300, mask=1111
+[CMD_AFTER_CLK_5] time=42975 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x112082a0, time=42975
+[CMD_SETUP_6] addr=0x112082c0, time=42975 (before clk)
+[M_MEM] Write: addr=0x1120820c, data=0x10000300, mask=1111
+[WDATA_SENT_outstanding0.4] data=0x10000400, mask=1111
+Golden Mem Updated: addr=0x11208220, data=0x10010001, mask=1111
+Golden Mem Updated: addr=0x11208224, data=0x10010101, mask=1111
+Golden Mem Updated: addr=0x11208228, data=0x10010201, mask=1111
+Golden Mem Updated: addr=0x1120822c, data=0x10010301, mask=1111
+[CMD_AFTER_CLK_6] time=42985 (same time, reactive region)
+[CMD_HANDSHAKE_6] addr=0x112082c0, time=42985
+[CMD_SETUP_7] addr=0x112082e0, time=42985 (before clk)
+[M_MEM] Write: addr=0x11208210, data=0x10000400, mask=1111
+[CMD_AFTER_CLK_7] time=42995 (same time, reactive region)
+[CMD_HANDSHAKE_7] addr=0x112082e0, time=42995
+[WDATA_SENT_outstanding1.0] data=0x10010001, mask=1111
+[M_MEM] Write: addr=0x11208220, data=0x10010001, mask=1111
+[WDATA_SENT_outstanding1.1] data=0x10010101, mask=1111
+[M_MEM] Write: addr=0x11208224, data=0x10010101, mask=1111
+[WDATA_SENT_outstanding1.2] data=0x10010201, mask=1111
+[M_MEM] Write: addr=0x11208228, data=0x10010201, mask=1111
+[WDATA_SENT_outstanding1.3] data=0x10010301, mask=1111
+Golden Mem Updated: addr=0x11208240, data=0x10020002, mask=1111
+Golden Mem Updated: addr=0x11208244, data=0x10020102, mask=1111
+[M_MEM] Write: addr=0x1120822c, data=0x10010301, mask=1111
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+[M_MEM] Write: addr=0x11208240, data=0x10020002, mask=1111
+[WDATA_SENT_outstanding2.1] data=0x10020102, mask=1111
+Golden Mem Updated: addr=0x11208260, data=0x10030003, mask=1111
+[M_MEM] Write: addr=0x11208244, data=0x10020102, mask=1111
+[WDATA_SENT_outstanding3.0] data=0x10030003, mask=1111
+Golden Mem Updated: addr=0x11208280, data=0x10040004, mask=1111
+Golden Mem Updated: addr=0x11208284, data=0x10040104, mask=1111
+[M_MEM] Write: addr=0x11208260, data=0x10030003, mask=1111
+[WDATA_SENT_outstanding4.0] data=0x10040004, mask=1111
+[M_MEM] Write: addr=0x11208280, data=0x10040004, mask=1111
+[WDATA_SENT_outstanding4.1] data=0x10040104, mask=1111
+Golden Mem Updated: addr=0x112082a0, data=0x10050005, mask=1111
+[M_MEM] Write: addr=0x11208284, data=0x10040104, mask=1111
+[WDATA_SENT_outstanding5.0] data=0x10050005, mask=1111
+Golden Mem Updated: addr=0x112082c0, data=0x10060006, mask=1111
+Golden Mem Updated: addr=0x112082c4, data=0x10060106, mask=1111
+[M_MEM] Write: addr=0x112082a0, data=0x10050005, mask=1111
+[WDATA_SENT_outstanding6.0] data=0x10060006, mask=1111
+[M_MEM] Write: addr=0x112082c0, data=0x10060006, mask=1111
+[WDATA_SENT_outstanding6.1] data=0x10060106, mask=1111
+Golden Mem Updated: addr=0x112082e0, data=0x10070007, mask=1111
+Golden Mem Updated: addr=0x112082e4, data=0x10070107, mask=1111
+Golden Mem Updated: addr=0x112082e8, data=0x10070207, mask=1111
+Golden Mem Updated: addr=0x112082ec, data=0x10070307, mask=1111
+[M_MEM] Write: addr=0x112082c4, data=0x10060106, mask=1111
+[WDATA_SENT_outstanding7.0] data=0x10070007, mask=1111
+[M_MEM] Write: addr=0x112082e0, data=0x10070007, mask=1111
+[WDATA_SENT_outstanding7.1] data=0x10070107, mask=1111
+[M_MEM] Write: addr=0x112082e4, data=0x10070107, mask=1111
+[WDATA_SENT_outstanding7.2] data=0x10070207, mask=1111
+[M_MEM] Write: addr=0x112082e8, data=0x10070207, mask=1111
+[WDATA_SENT_outstanding7.3] data=0x10070307, mask=1111
+[INFO] All 8 outstanding transactions sent (CMD + WDATA)
+[M_MEM] Write: addr=0x112082ec, data=0x10070307, mask=1111
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding 31 WWWRWRWRW ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: RRRRrrrr, Base: 0x11208200, Len Queue: {4, 3, 1, 0, 1, 0, 1, 3, 1} (Size: 9)
+
+========== [TEST 32] RRRRrrrr Test: 8 Outstanding Transactions ==========
+[OUTSTANDING_0]  READ: addr=0x11208200, len=4
+[OUTSTANDING_1]  READ: addr=0x11208220, len=3
+[OUTSTANDING_2]  READ: addr=0x11208240, len=1
+[OUTSTANDING_3]  READ: addr=0x11208260, len=0
+[OUTSTANDING_4]  READ: addr=0x11208280, len=1
+[OUTSTANDING_5]  READ: addr=0x112082a0, len=0
+[OUTSTANDING_6]  READ: addr=0x112082c0, len=1
+[OUTSTANDING_7]  READ: addr=0x112082e0, len=3
+[PHASE 1] Sending all 8 CMD requests...
+[CMD_SETUP_0] addr=0x11208200, time=44720 (before clk)
+[PHASE 2] Sending write data...
+[CMD_AFTER_CLK_0] time=44725 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x11208200, time=44725
+[CMD_SETUP_1] addr=0x11208220, time=44725 (before clk)
+[CMD_AFTER_CLK_1] time=44735 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x11208220, time=44735
+[CMD_SETUP_2] addr=0x11208240, time=44735 (before clk)
+[CMD_AFTER_CLK_2] time=44745 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x11208240, time=44745
+[CMD_SETUP_3] addr=0x11208260, time=44745 (before clk)
+[INFO] Read match at 0x11208200: data=0x10000000
+[CMD_AFTER_CLK_3] time=44755 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x11208260, time=44755
+[CMD_SETUP_4] addr=0x11208280, time=44755 (before clk)
+[INFO] Read match at 0x11208204: data=0x10000100
+[CMD_AFTER_CLK_4] time=44765 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x11208280, time=44765
+[CMD_SETUP_5] addr=0x112082a0, time=44765 (before clk)
+[INFO] Read match at 0x11208208: data=0x10000200
+[CMD_AFTER_CLK_5] time=44775 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x112082a0, time=44775
+[CMD_SETUP_6] addr=0x112082c0, time=44775 (before clk)
+[INFO] Read match at 0x1120820c: data=0x10000300
+[CMD_AFTER_CLK_6] time=44785 (same time, reactive region)
+[CMD_HANDSHAKE_6] addr=0x112082c0, time=44785
+[CMD_SETUP_7] addr=0x112082e0, time=44785 (before clk)
+[INFO] Read match at 0x11208210: data=0x10000400
+[CMD_AFTER_CLK_7] time=44795 (same time, reactive region)
+[CMD_HANDSHAKE_7] addr=0x112082e0, time=44795
+[INFO] All 8 outstanding transactions sent (CMD + WDATA)
+[INFO] Read match at 0x11208220: data=0x10010001
+[INFO] Read match at 0x11208224: data=0x10010101
+[INFO] Read match at 0x11208228: data=0x10010201
+[INFO] Read match at 0x1120822c: data=0x10010301
+[INFO] Read match at 0x11208240: data=0x10020002
+[INFO] Read match at 0x11208244: data=0x10020102
+[INFO] Read match at 0x11208260: data=0x10030003
+[INFO] Read match at 0x11208280: data=0x10040004
+[INFO] Read match at 0x11208284: data=0x10040104
+[INFO] Read match at 0x112082a0: data=0x10050005
+[INFO] Read match at 0x112082c0: data=0x10060006
+[INFO] Read match at 0x112082c4: data=0x10060106
+[INFO] Read match at 0x112082e0: data=0x10070007
+[INFO] Read match at 0x112082e4: data=0x10070107
+[INFO] Read match at 0x112082e8: data=0x10070207
+[INFO] Read match at 0x112082ec: data=0x10070307
+
+========== MEMORY COMPARISON ==========
+
+========== Outstanding 32 WWWRWRWRW ==========
+
+Comparing memories...
+[PASS] All memory contents match!
+
+[DIRECTED OUTSTANDING] Pattern: WWWWwwwwWWWWwwwwWWWWwwwwWWWW, Base: 0x00000001, Len Queue: {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 0, 1, 1, 3, 0, 1, 1, 3, 2, 3, 4, 5} (Size: 28)
+
+========== [TEST 33] WWWWwwwwWWWWwwwwWWWWwwwwWWWW Test: 28 Outstanding Transactions ==========
+[OUTSTANDING_0] WRITE: addr=0x00000001, len=3
+[OUTSTANDING_1] WRITE: addr=0x00000021, len=3
+[OUTSTANDING_2] WRITE: addr=0x00000041, len=3
+[OUTSTANDING_3] WRITE: addr=0x00000061, len=3
+[OUTSTANDING_4] WRITE: addr=0x00000081, len=3
+[OUTSTANDING_5] WRITE: addr=0x000000a1, len=3
+[OUTSTANDING_6] WRITE: addr=0x000000c1, len=3
+[OUTSTANDING_7] WRITE: addr=0x000000e1, len=3
+[OUTSTANDING_8] WRITE: addr=0x00000101, len=3
+[OUTSTANDING_9] WRITE: addr=0x00000121, len=3
+[OUTSTANDING_10] WRITE: addr=0x00000141, len=3
+[OUTSTANDING_11] WRITE: addr=0x00000161, len=3
+[OUTSTANDING_12] WRITE: addr=0x00000181, len=3
+[OUTSTANDING_13] WRITE: addr=0x000001a1, len=3
+[OUTSTANDING_14] WRITE: addr=0x000001c1, len=3
+[OUTSTANDING_15] WRITE: addr=0x000001e1, len=1
+[OUTSTANDING_16] WRITE: addr=0x00000201, len=0
+[OUTSTANDING_17] WRITE: addr=0x00000221, len=1
+[OUTSTANDING_18] WRITE: addr=0x00000241, len=1
+[OUTSTANDING_19] WRITE: addr=0x00000261, len=3
+[OUTSTANDING_20] WRITE: addr=0x00000281, len=0
+[OUTSTANDING_21] WRITE: addr=0x000002a1, len=1
+[OUTSTANDING_22] WRITE: addr=0x000002c1, len=1
+[OUTSTANDING_23] WRITE: addr=0x000002e1, len=3
+[OUTSTANDING_24] WRITE: addr=0x00000301, len=2
+[OUTSTANDING_25] WRITE: addr=0x00000321, len=3
+[OUTSTANDING_26] WRITE: addr=0x00000341, len=4
+[OUTSTANDING_27] WRITE: addr=0x00000361, len=5
+[PHASE 1] Sending all 28 CMD requests...
+[CMD_SETUP_0] addr=0x00000001, time=46310 (before clk)
+[PHASE 2] Sending write data...
+Golden Mem Updated: addr=0x00000001, data=0x10000000, mask=1111
+Golden Mem Updated: addr=0x00000005, data=0x10000100, mask=1111
+Golden Mem Updated: addr=0x00000009, data=0x10000200, mask=1111
+Golden Mem Updated: addr=0x0000000d, data=0x10000300, mask=1111
+[CMD_AFTER_CLK_0] time=46315 (same time, reactive region)
+[CMD_HANDSHAKE_0] addr=0x00000001, time=46315
+[CMD_SETUP_1] addr=0x00000021, time=46315 (before clk)
+[CMD_AFTER_CLK_1] time=46325 (same time, reactive region)
+[CMD_HANDSHAKE_1] addr=0x00000021, time=46325
+[CMD_SETUP_2] addr=0x00000041, time=46325 (before clk)
+[WDATA_SENT_outstanding0.0] data=0x10000000, mask=1111
+[CMD_AFTER_CLK_2] time=46335 (same time, reactive region)
+[CMD_HANDSHAKE_2] addr=0x00000041, time=46335
+[CMD_SETUP_3] addr=0x00000061, time=46335 (before clk)
+[M_MEM] Write: addr=0x00000000, data=0x00000000, mask=1110
+[WDATA_SENT_outstanding0.1] data=0x10000100, mask=1111
+[CMD_AFTER_CLK_3] time=46345 (same time, reactive region)
+[CMD_HANDSHAKE_3] addr=0x00000061, time=46345
+[CMD_SETUP_4] addr=0x00000081, time=46345 (before clk)
+[M_MEM] Write: addr=0x00000004, data=0x00010010, mask=1111
+[WDATA_SENT_outstanding0.2] data=0x10000200, mask=1111
+[CMD_AFTER_CLK_4] time=46355 (same time, reactive region)
+[CMD_HANDSHAKE_4] addr=0x00000081, time=46355
+[CMD_SETUP_5] addr=0x000000a1, time=46355 (before clk)
+[M_MEM] Write: addr=0x00000008, data=0x00020010, mask=1111
+[WDATA_SENT_outstanding0.3] data=0x10000300, mask=1111
+Golden Mem Updated: addr=0x00000021, data=0x10010001, mask=1111
+Golden Mem Updated: addr=0x00000025, data=0x10010101, mask=1111
+Golden Mem Updated: addr=0x00000029, data=0x10010201, mask=1111
+Golden Mem Updated: addr=0x0000002d, data=0x10010301, mask=1111
+[CMD_AFTER_CLK_5] time=46365 (same time, reactive region)
+[CMD_HANDSHAKE_5] addr=0x000000a1, time=46365
+[CMD_SETUP_6] addr=0x000000c1, time=46365 (before clk)
+[M_MEM] Write: addr=0x0000000c, data=0x00030010, mask=1111
+[CMD_AFTER_CLK_6] time=46375 (same time, reactive region)
+[CMD_HANDSHAKE_6] addr=0x000000c1, time=46375
+[CMD_SETUP_7] addr=0x000000e1, time=46375 (before clk)
+[M_MEM] Write: addr=0x00000010, data=0x00000010, mask=0001
+[CMD_AFTER_CLK_7] time=46385 (same time, reactive region)
+[CMD_HANDSHAKE_7] addr=0x000000e1, time=46385
+[CMD_SETUP_8] addr=0x00000101, time=46385 (before clk)
+[WDATA_SENT_outstanding1.0] data=0x10010001, mask=1111
+[CMD_AFTER_CLK_8] time=46395 (same time, reactive region)
+[CMD_HANDSHAKE_8] addr=0x00000101, time=46395
+[CMD_SETUP_9] addr=0x00000121, time=46395 (before clk)
+[M_MEM] Write: addr=0x00000020, data=0x01000100, mask=1110
+[WDATA_SENT_outstanding1.1] data=0x10010101, mask=1111
+[CMD_AFTER_CLK_9] time=46405 (same time, reactive region)
+[CMD_HANDSHAKE_9] addr=0x00000121, time=46405
+[CMD_SETUP_10] addr=0x00000141, time=46405 (before clk)
+[M_MEM] Write: addr=0x00000024, data=0x01010110, mask=1111
+[WDATA_SENT_outstanding1.2] data=0x10010201, mask=1111
+[CMD_AFTER_CLK_10] time=46415 (same time, reactive region)
+[CMD_HANDSHAKE_10] addr=0x00000141, time=46415
+[CMD_SETUP_11] addr=0x00000161, time=46415 (before clk)
+[M_MEM] Write: addr=0x00000028, data=0x01020110, mask=1111
+[WDATA_SENT_outstanding1.3] data=0x10010301, mask=1111
+Golden Mem Updated: addr=0x00000041, data=0x10020002, mask=1111
+Golden Mem Updated: addr=0x00000045, data=0x10020102, mask=1111
+Golden Mem Updated: addr=0x00000049, data=0x10020202, mask=1111
+Golden Mem Updated: addr=0x0000004d, data=0x10020302, mask=1111
+[CMD_AFTER_CLK_11] time=46425 (same time, reactive region)
+[CMD_HANDSHAKE_11] addr=0x00000161, time=46425
+[CMD_SETUP_12] addr=0x00000181, time=46425 (before clk)
+[M_MEM] Write: addr=0x0000002c, data=0x01030110, mask=1111
+[CMD_AFTER_CLK_12] time=46435 (same time, reactive region)
+[CMD_HANDSHAKE_12] addr=0x00000181, time=46435
+[CMD_SETUP_13] addr=0x000001a1, time=46435 (before clk)
+[M_MEM] Write: addr=0x00000030, data=0x00000010, mask=0001
+[CMD_AFTER_CLK_13] time=46445 (same time, reactive region)
+[CMD_HANDSHAKE_13] addr=0x000001a1, time=46445
+[CMD_SETUP_14] addr=0x000001c1, time=46445 (before clk)
+[WDATA_SENT_outstanding2.0] data=0x10020002, mask=1111
+[CMD_AFTER_CLK_14] time=46455 (same time, reactive region)
+[CMD_HANDSHAKE_14] addr=0x000001c1, time=46455
+[CMD_SETUP_15] addr=0x000001e1, time=46455 (before clk)
+[M_MEM] Write: addr=0x00000040, data=0x02000200, mask=1110
+[WDATA_SENT_outstanding2.1] data=0x10020102, mask=1111
+[CMD_AFTER_CLK_15] time=46465 (same time, reactive region)
+[CMD_HANDSHAKE_15] addr=0x000001e1, time=46465
+[CMD_SETUP_16] addr=0x00000201, time=46465 (before clk)
+[M_MEM] Write: addr=0x00000044, data=0x02010210, mask=1111
+[WDATA_SENT_outstanding2.2] data=0x10020202, mask=1111
+[CMD_AFTER_CLK_16] time=46475 (same time, reactive region)
+[CMD_HANDSHAKE_16] addr=0x00000201, time=46475
+[CMD_SETUP_17] addr=0x00000221, time=46475 (before clk)
+[M_MEM] Write: addr=0x00000048, data=0x02020210, mask=1111
+[WDATA_SENT_outstanding2.3] data=0x10020302, mask=1111
+Golden Mem Updated: addr=0x00000061, data=0x10030003, mask=1111
+Golden Mem Updated: addr=0x00000065, data=0x10030103, mask=1111
+Golden Mem Updated: addr=0x00000069, data=0x10030203, mask=1111
+Golden Mem Updated: addr=0x0000006d, data=0x10030303, mask=1111
+[CMD_AFTER_CLK_17] time=46485 (same time, reactive region)
+[CMD_HANDSHAKE_17] addr=0x00000221, time=46485
+[CMD_SETUP_18] addr=0x00000241, time=46485 (before clk)
+[M_MEM] Write: addr=0x0000004c, data=0x02030210, mask=1111
+[CMD_AFTER_CLK_18] time=46495 (same time, reactive region)
+[CMD_HANDSHAKE_18] addr=0x00000241, time=46495
+[CMD_SETUP_19] addr=0x00000261, time=46495 (before clk)
+[M_MEM] Write: addr=0x00000050, data=0x00000010, mask=0001
+[CMD_AFTER_CLK_19] time=46505 (same time, reactive region)
+[CMD_HANDSHAKE_19] addr=0x00000261, time=46505
+[CMD_SETUP_20] addr=0x00000281, time=46505 (before clk)
+[WDATA_SENT_outstanding3.0] data=0x10030003, mask=1111
+[CMD_AFTER_CLK_20] time=46515 (same time, reactive region)
+[CMD_HANDSHAKE_20] addr=0x00000281, time=46515
+[CMD_SETUP_21] addr=0x000002a1, time=46515 (before clk)
+[M_MEM] Write: addr=0x00000060, data=0x03000300, mask=1110
+[WDATA_SENT_outstanding3.1] data=0x10030103, mask=1111
+[CMD_AFTER_CLK_21] time=46525 (same time, reactive region)
+[M_MEM] Write: addr=0x00000064, data=0x03010310, mask=1111
+[WDATA_SENT_outstanding3.2] data=0x10030203, mask=1111
+[M_MEM] Write: addr=0x00000068, data=0x03020310, mask=1111
+[WDATA_SENT_outstanding3.3] data=0x10030303, mask=1111
+Golden Mem Updated: addr=0x00000081, data=0x10040004, mask=1111
+Golden Mem Updated: addr=0x00000085, data=0x10040104, mask=1111
+Golden Mem Updated: addr=0x00000089, data=0x10040204, mask=1111
+Golden Mem Updated: addr=0x0000008d, data=0x10040304, mask=1111
+[M_MEM] Write: addr=0x0000006c, data=0x03030310, mask=1111
+[M_MEM] Write: addr=0x00000070, data=0x00000010, mask=0001
+[CMD_HANDSHAKE_21] addr=0x000002a1, time=46565
+[CMD_SETUP_22] addr=0x000002c1, time=46565 (before clk)
+[WDATA_SENT_outstanding4.0] data=0x10040004, mask=1111
+[CMD_AFTER_CLK_22] time=46575 (same time, reactive region)
+[CMD_HANDSHAKE_22] addr=0x000002c1, time=46575
+[CMD_SETUP_23] addr=0x000002e1, time=46575 (before clk)
+[M_MEM] Write: addr=0x00000080, data=0x04000400, mask=1110
+[WDATA_SENT_outstanding4.1] data=0x10040104, mask=1111
+[CMD_AFTER_CLK_23] time=46585 (same time, reactive region)
+[M_MEM] Write: addr=0x00000084, data=0x04010410, mask=1111
+[WDATA_SENT_outstanding4.2] data=0x10040204, mask=1111
+[M_MEM] Write: addr=0x00000088, data=0x04020410, mask=1111
+[WDATA_SENT_outstanding4.3] data=0x10040304, mask=1111
+Golden Mem Updated: addr=0x000000a1, data=0x10050005, mask=1111
+Golden Mem Updated: addr=0x000000a5, data=0x10050105, mask=1111
+Golden Mem Updated: addr=0x000000a9, data=0x10050205, mask=1111
+Golden Mem Updated: addr=0x000000ad, data=0x10050305, mask=1111
+[M_MEM] Write: addr=0x0000008c, data=0x04030410, mask=1111
+[M_MEM] Write: addr=0x00000090, data=0x00000010, mask=0001
+[CMD_HANDSHAKE_23] addr=0x000002e1, time=46625
+[CMD_SETUP_24] addr=0x00000301, time=46625 (before clk)
+[WDATA_SENT_outstanding5.0] data=0x10050005, mask=1111
+[CMD_AFTER_CLK_24] time=46635 (same time, reactive region)
+[CMD_HANDSHAKE_24] addr=0x00000301, time=46635
+[CMD_SETUP_25] addr=0x00000321, time=46635 (before clk)
+[M_MEM] Write: addr=0x000000a0, data=0x05000500, mask=1110
+[WDATA_SENT_outstanding5.1] data=0x10050105, mask=1111
+[CMD_AFTER_CLK_25] time=46645 (same time, reactive region)
+[M_MEM] Write: addr=0x000000a4, data=0x05010510, mask=1111
+[WDATA_SENT_outstanding5.2] data=0x10050205, mask=1111
+[M_MEM] Write: addr=0x000000a8, data=0x05020510, mask=1111
+[WDATA_SENT_outstanding5.3] data=0x10050305, mask=1111
+Golden Mem Updated: addr=0x000000c1, data=0x10060006, mask=1111
+Golden Mem Updated: addr=0x000000c5, data=0x10060106, mask=1111
+Golden Mem Updated: addr=0x000000c9, data=0x10060206, mask=1111
+Golden Mem Updated: addr=0x000000cd, data=0x10060306, mask=1111
+[M_MEM] Write: addr=0x000000ac, data=0x05030510, mask=1111
+[M_MEM] Write: addr=0x000000b0, data=0x00000010, mask=0001
+[CMD_HANDSHAKE_25] addr=0x00000321, time=46685
+[CMD_SETUP_26] addr=0x00000341, time=46685 (before clk)
+[WDATA_SENT_outstanding6.0] data=0x10060006, mask=1111
+[CMD_AFTER_CLK_26] time=46695 (same time, reactive region)
+[CMD_HANDSHAKE_26] addr=0x00000341, time=46695
+[CMD_SETUP_27] addr=0x00000361, time=46695 (before clk)
+[M_MEM] Write: addr=0x000000c0, data=0x06000600, mask=1110
+[WDATA_SENT_outstanding6.1] data=0x10060106, mask=1111
+[CMD_AFTER_CLK_27] time=46705 (same time, reactive region)
+[M_MEM] Write: addr=0x000000c4, data=0x06010610, mask=1111
+[WDATA_SENT_outstanding6.2] data=0x10060206, mask=1111
+[M_MEM] Write: addr=0x000000c8, data=0x06020610, mask=1111
+[WDATA_SENT_outstanding6.3] data=0x10060306, mask=1111
+Golden Mem Updated: addr=0x000000e1, data=0x10070007, mask=1111
+Golden Mem Updated: addr=0x000000e5, data=0x10070107, mask=1111
+Golden Mem Updated: addr=0x000000e9, data=0x10070207, mask=1111
+Golden Mem Updated: addr=0x000000ed, data=0x10070307, mask=1111
+[M_MEM] Write: addr=0x000000cc, data=0x06030610, mask=1111
+[M_MEM] Write: addr=0x000000d0, data=0x00000010, mask=0001
+[CMD_HANDSHAKE_27] addr=0x00000361, time=46745
+[WDATA_SENT_outstanding7.0] data=0x10070007, mask=1111
+[M_MEM] Write: addr=0x000000e0, data=0x07000700, mask=1110
+[WDATA_SENT_outstanding7.1] data=0x10070107, mask=1111
+[M_MEM] Write: addr=0x000000e4, data=0x07010710, mask=1111
+[WDATA_SENT_outstanding7.2] data=0x10070207, mask=1111
+[M_MEM] Write: addr=0x000000e8, data=0x07020710, mask=1111
+[WDATA_SENT_outstanding7.3] data=0x10070307, mask=1111
+Golden Mem Updated: addr=0x00000101, data=0x10080008, mask=1111
+Golden Mem Updated: addr=0x00000105, data=0x10080108, mask=1111
+Golden Mem Updated: addr=0x00000109, data=0x10080208, mask=1111
+Golden Mem Updated: addr=0x0000010d, data=0x10080308, mask=1111
+[M_MEM] Write: addr=0x000000ec, data=0x07030710, mask=1111
+[M_MEM] Write: addr=0x000000f0, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding8.0] data=0x10080008, mask=1111
+[M_MEM] Write: addr=0x00000100, data=0x08000800, mask=1110
+[WDATA_SENT_outstanding8.1] data=0x10080108, mask=1111
+[M_MEM] Write: addr=0x00000104, data=0x08010810, mask=1111
+[WDATA_SENT_outstanding8.2] data=0x10080208, mask=1111
+[M_MEM] Write: addr=0x00000108, data=0x08020810, mask=1111
+[WDATA_SENT_outstanding8.3] data=0x10080308, mask=1111
+Golden Mem Updated: addr=0x00000121, data=0x10090009, mask=1111
+Golden Mem Updated: addr=0x00000125, data=0x10090109, mask=1111
+Golden Mem Updated: addr=0x00000129, data=0x10090209, mask=1111
+Golden Mem Updated: addr=0x0000012d, data=0x10090309, mask=1111
+[M_MEM] Write: addr=0x0000010c, data=0x08030810, mask=1111
+[M_MEM] Write: addr=0x00000110, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding9.0] data=0x10090009, mask=1111
+[M_MEM] Write: addr=0x00000120, data=0x09000900, mask=1110
+[WDATA_SENT_outstanding9.1] data=0x10090109, mask=1111
+[M_MEM] Write: addr=0x00000124, data=0x09010910, mask=1111
+[WDATA_SENT_outstanding9.2] data=0x10090209, mask=1111
+[M_MEM] Write: addr=0x00000128, data=0x09020910, mask=1111
+[WDATA_SENT_outstanding9.3] data=0x10090309, mask=1111
+Golden Mem Updated: addr=0x00000141, data=0x100a000a, mask=1111
+Golden Mem Updated: addr=0x00000145, data=0x100a010a, mask=1111
+Golden Mem Updated: addr=0x00000149, data=0x100a020a, mask=1111
+Golden Mem Updated: addr=0x0000014d, data=0x100a030a, mask=1111
+[M_MEM] Write: addr=0x0000012c, data=0x09030910, mask=1111
+[M_MEM] Write: addr=0x00000130, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding10.0] data=0x100a000a, mask=1111
+[M_MEM] Write: addr=0x00000140, data=0x0a000a00, mask=1110
+[WDATA_SENT_outstanding10.1] data=0x100a010a, mask=1111
+[M_MEM] Write: addr=0x00000144, data=0x0a010a10, mask=1111
+[WDATA_SENT_outstanding10.2] data=0x100a020a, mask=1111
+[M_MEM] Write: addr=0x00000148, data=0x0a020a10, mask=1111
+[WDATA_SENT_outstanding10.3] data=0x100a030a, mask=1111
+Golden Mem Updated: addr=0x00000161, data=0x100b000b, mask=1111
+Golden Mem Updated: addr=0x00000165, data=0x100b010b, mask=1111
+Golden Mem Updated: addr=0x00000169, data=0x100b020b, mask=1111
+Golden Mem Updated: addr=0x0000016d, data=0x100b030b, mask=1111
+[M_MEM] Write: addr=0x0000014c, data=0x0a030a10, mask=1111
+[M_MEM] Write: addr=0x00000150, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding11.0] data=0x100b000b, mask=1111
+[M_MEM] Write: addr=0x00000160, data=0x0b000b00, mask=1110
+[WDATA_SENT_outstanding11.1] data=0x100b010b, mask=1111
+[M_MEM] Write: addr=0x00000164, data=0x0b010b10, mask=1111
+[WDATA_SENT_outstanding11.2] data=0x100b020b, mask=1111
+[M_MEM] Write: addr=0x00000168, data=0x0b020b10, mask=1111
+[WDATA_SENT_outstanding11.3] data=0x100b030b, mask=1111
+Golden Mem Updated: addr=0x00000181, data=0x100c000c, mask=1111
+Golden Mem Updated: addr=0x00000185, data=0x100c010c, mask=1111
+Golden Mem Updated: addr=0x00000189, data=0x100c020c, mask=1111
+Golden Mem Updated: addr=0x0000018d, data=0x100c030c, mask=1111
+[M_MEM] Write: addr=0x0000016c, data=0x0b030b10, mask=1111
+[M_MEM] Write: addr=0x00000170, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding12.0] data=0x100c000c, mask=1111
+[M_MEM] Write: addr=0x00000180, data=0x0c000c00, mask=1110
+[WDATA_SENT_outstanding12.1] data=0x100c010c, mask=1111
+[M_MEM] Write: addr=0x00000184, data=0x0c010c10, mask=1111
+[WDATA_SENT_outstanding12.2] data=0x100c020c, mask=1111
+[M_MEM] Write: addr=0x00000188, data=0x0c020c10, mask=1111
+[WDATA_SENT_outstanding12.3] data=0x100c030c, mask=1111
+Golden Mem Updated: addr=0x000001a1, data=0x100d000d, mask=1111
+Golden Mem Updated: addr=0x000001a5, data=0x100d010d, mask=1111
+Golden Mem Updated: addr=0x000001a9, data=0x100d020d, mask=1111
+Golden Mem Updated: addr=0x000001ad, data=0x100d030d, mask=1111
+[M_MEM] Write: addr=0x0000018c, data=0x0c030c10, mask=1111
+[M_MEM] Write: addr=0x00000190, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding13.0] data=0x100d000d, mask=1111
+[M_MEM] Write: addr=0x000001a0, data=0x0d000d00, mask=1110
+[WDATA_SENT_outstanding13.1] data=0x100d010d, mask=1111
+[M_MEM] Write: addr=0x000001a4, data=0x0d010d10, mask=1111
+[WDATA_SENT_outstanding13.2] data=0x100d020d, mask=1111
+[M_MEM] Write: addr=0x000001a8, data=0x0d020d10, mask=1111
+[WDATA_SENT_outstanding13.3] data=0x100d030d, mask=1111
+Golden Mem Updated: addr=0x000001c1, data=0x100e000e, mask=1111
+Golden Mem Updated: addr=0x000001c5, data=0x100e010e, mask=1111
+Golden Mem Updated: addr=0x000001c9, data=0x100e020e, mask=1111
+Golden Mem Updated: addr=0x000001cd, data=0x100e030e, mask=1111
+[M_MEM] Write: addr=0x000001ac, data=0x0d030d10, mask=1111
+[M_MEM] Write: addr=0x000001b0, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding14.0] data=0x100e000e, mask=1111
+[M_MEM] Write: addr=0x000001c0, data=0x0e000e00, mask=1110
+[WDATA_SENT_outstanding14.1] data=0x100e010e, mask=1111
+[M_MEM] Write: addr=0x000001c4, data=0x0e010e10, mask=1111
+[WDATA_SENT_outstanding14.2] data=0x100e020e, mask=1111
+[M_MEM] Write: addr=0x000001c8, data=0x0e020e10, mask=1111
+[WDATA_SENT_outstanding14.3] data=0x100e030e, mask=1111
+Golden Mem Updated: addr=0x000001e1, data=0x100f000f, mask=1111
+Golden Mem Updated: addr=0x000001e5, data=0x100f010f, mask=1111
+[M_MEM] Write: addr=0x000001cc, data=0x0e030e10, mask=1111
+[M_MEM] Write: addr=0x000001d0, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding15.0] data=0x100f000f, mask=1111
+[M_MEM] Write: addr=0x000001e0, data=0x0f000f00, mask=1110
+[WDATA_SENT_outstanding15.1] data=0x100f010f, mask=1111
+Golden Mem Updated: addr=0x00000201, data=0x10100010, mask=1111
+[M_MEM] Write: addr=0x000001e4, data=0x0f010f10, mask=1111
+[M_MEM] Write: addr=0x000001e8, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding16.0] data=0x10100010, mask=1111
+Golden Mem Updated: addr=0x00000221, data=0x10110011, mask=1111
+Golden Mem Updated: addr=0x00000225, data=0x10110111, mask=1111
+[M_MEM] Write: addr=0x00000200, data=0x10001000, mask=1110
+[M_MEM] Write: addr=0x00000204, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding17.0] data=0x10110011, mask=1111
+[M_MEM] Write: addr=0x00000220, data=0x11001100, mask=1110
+[WDATA_SENT_outstanding17.1] data=0x10110111, mask=1111
+Golden Mem Updated: addr=0x00000241, data=0x10120012, mask=1111
+Golden Mem Updated: addr=0x00000245, data=0x10120112, mask=1111
+[M_MEM] Write: addr=0x00000224, data=0x11011110, mask=1111
+[M_MEM] Write: addr=0x00000228, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding18.0] data=0x10120012, mask=1111
+[M_MEM] Write: addr=0x00000240, data=0x12001200, mask=1110
+[WDATA_SENT_outstanding18.1] data=0x10120112, mask=1111
+Golden Mem Updated: addr=0x00000261, data=0x10130013, mask=1111
+Golden Mem Updated: addr=0x00000265, data=0x10130113, mask=1111
+Golden Mem Updated: addr=0x00000269, data=0x10130213, mask=1111
+Golden Mem Updated: addr=0x0000026d, data=0x10130313, mask=1111
+[M_MEM] Write: addr=0x00000244, data=0x12011210, mask=1111
+[M_MEM] Write: addr=0x00000248, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding19.0] data=0x10130013, mask=1111
+[M_MEM] Write: addr=0x00000280, data=0x13001300, mask=1110
+[M_MEM] Write: addr=0x00000284, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding19.1] data=0x10130113, mask=1111
+[M_MEM] Write: addr=0x000002c0, data=0x13011300, mask=1110
+[WDATA_SENT_outstanding19.2] data=0x10130213, mask=1111
+[M_MEM] Write: addr=0x000002c4, data=0x13021310, mask=1111
+[M_MEM] Write: addr=0x000002c8, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding19.3] data=0x10130313, mask=1111
+Golden Mem Updated: addr=0x00000281, data=0x10140014, mask=1111
+[M_MEM] Write: addr=0x00000300, data=0x13031300, mask=1110
+[WDATA_SENT_outstanding20.0] data=0x10140014, mask=1111
+Golden Mem Updated: addr=0x000002a1, data=0x10150015, mask=1111
+Golden Mem Updated: addr=0x000002a5, data=0x10150115, mask=1111
+[M_MEM] Write: addr=0x00000304, data=0x14001410, mask=1111
+[WDATA_SENT_outstanding21.0] data=0x10150015, mask=1111
+[M_MEM] Write: addr=0x00000308, data=0x15001510, mask=1111
+[M_MEM] Write: addr=0x0000030c, data=0x00000010, mask=0001
+[WDATA_SENT_outstanding21.1] data=0x10150115, mask=1111
+Golden Mem Updated: addr=0x000002c1, data=0x10160016, mask=1111
+Golden Mem Updated: addr=0x000002c5, data=0x10160116, mask=1111
+[M_MEM] Write: addr=0x00000340, data=0x15011500, mask=1110
+[WDATA_SENT_outstanding22.0] data=0x10160016, mask=1111
+[M_MEM] Write: addr=0x00000344, data=0x16001610, mask=1111
+[WDATA_SENT_outstanding22.1] data=0x10160116, mask=1111
+Golden Mem Updated: addr=0x000002e1, data=0x10170017, mask=1111
+Golden Mem Updated: addr=0x000002e5, data=0x10170117, mask=1111
+Golden Mem Updated: addr=0x000002e9, data=0x10170217, mask=1111
+Golden Mem Updated: addr=0x000002ed, data=0x10170317, mask=1111
+[M_MEM] Write: addr=0x00000348, data=0x16011610, mask=1111
+[WDATA_SENT_outstanding23.0] data=0x10170017, mask=1111
+[M_MEM] Write: addr=0x0000034c, data=0x17001710, mask=1111
+[WDATA_SENT_outstanding23.1] data=0x10170117, mask=1111
+[M_MEM] Write: addr=0x00000350, data=0x17011710, mask=1111
+[M_MEM] Write: addr=0x00000354, data=0x00000010, mask=0001
+[TIMEOUT] Test timed out!
+
+////////////////////////////////////////////////////////////////////////////
+1000000: Simulation ended, ERROR count: 1, case:          33
+////////////////////////////////////////////////////////////////////////////
+
+[1;31m███████╗ █████╗ ██╗██╗     [0m
+[1;31m██╔════╝██╔══██╗██║██║     [0m
+[1;31m█████╗  ███████║██║██║     [0m
+[1;31m██╔══╝  ██╔══██║██║██║     [0m
+[1;31m██║     ██║  ██║██║███████╗[0m
+[1;31m╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝[0m
+$finish called from file "../include/Finish_task.sv", line 37.
+$finish at simulation time              1000000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1000000 ns
+CPU Time:      0.250 seconds;       Data structure size:   0.0Mb
+Fri Oct 10 16:46:01 2025
+CPU time: .263 seconds to compile + .178 seconds to elab + .166 seconds to link + .275 seconds in simulation
