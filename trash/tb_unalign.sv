@@ -151,8 +151,9 @@ module tb_icb_unalign_bridge;
     sa_icb_cmd_read <= tr.read;
     sa_icb_cmd_len <= tr.len;
 
-    
+    $display("wait155");
     wait(sa_icb_cmd_ready);
+    $display("wait155 done");
     @(posedge clk);
     sa_icb_cmd_valid <= 1'b0;
     
@@ -164,7 +165,9 @@ module tb_icb_unalign_bridge;
         sa_icb_w_valid <= 1'b1;
         sa_icb_cmd_wdata <= tr.wdata[i];
         sa_icb_cmd_wmask <= tr.read ? 4'b0000 : tr.wmask[i];  // Use first beat's wmask for cmd channel
+        $display("wait168");
         wait(sa_icb_w_ready);
+        $display("wait168 done");
         if(!is_b2b ) begin
           @(posedge clk);
           sa_icb_w_valid <= 1'b0;
@@ -200,7 +203,9 @@ module tb_icb_unalign_bridge;
             tr.rdata = new[tr.len + 1];
                 //  $display("if2");
             for (int i = 0; i <= tr.len; i++) begin
+              $display("wait207");
               wait(sa_icb_rsp_valid);
+              $display("wait207 done");
               tr.rdata[i] = sa_icb_rsp_rdata;
               tr.err = sa_icb_rsp_err;
                  //   $display("if3");
@@ -302,7 +307,9 @@ module tb_icb_unalign_bridge;
           @(posedge clk);
           m_icb_rsp_valid <= 1'b1;
           m_icb_rsp_err <= 1'b0;
+          $display("wait310");
           wait(m_icb_rsp_ready);
+          $display("wait310 done");
           @(posedge clk);
           m_icb_rsp_valid <= 1'b0;
         end

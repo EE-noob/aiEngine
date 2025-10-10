@@ -16,7 +16,7 @@ module tb_icb_unalign_bridge;
   // Parameters
   localparam WIDTH = 32;
   localparam ADDR_W = 32;
-  localparam OUTS_DEPTH = 16;
+  localparam OUTS_DEPTH = 4;//16;
   localparam ICB_LEN_W = 3;
   localparam DW = WIDTH/8;
   
@@ -146,10 +146,11 @@ module tb_icb_unalign_bridge;
     
     // Drive command channel
     @(posedge clk);
-    sa_icb_cmd_valid <= 1'b1;
-    sa_icb_cmd_addr <= tr.addr;
-    sa_icb_cmd_read <= tr.read;
-    sa_icb_cmd_len <= tr.len;
+    
+    sa_icb_cmd_valid <= #1 1'b1;
+    sa_icb_cmd_addr <= #1 tr.addr;
+    sa_icb_cmd_read <=#1  tr.read;
+    sa_icb_cmd_len <= #1 tr.len;
 
     
     wait(sa_icb_cmd_ready);
@@ -161,6 +162,7 @@ module tb_icb_unalign_bridge;
       foreach(tr.wdata[i]) begin
         //@(posedge clk iff(sa_icb_w_ready));
         @(posedge clk );
+       // #1
         sa_icb_w_valid <= 1'b1;
         sa_icb_cmd_wdata <= tr.wdata[i];
         sa_icb_cmd_wmask <= tr.read ? 4'b0000 : tr.wmask[i];  // Use first beat's wmask for cmd channel
@@ -682,6 +684,8 @@ module tb_icb_unalign_bridge;
     compare_mem("Outstanding 21 WRWWRR");
     //case 22
     test_outstanding_directed("WWWRWRWRW", 32'h0000_8200, '{5});  // All transactions with len=5
+    //test_outstanding_directed("WWWwWWWwW", 32'h0000_8200, '{0});  // All transactions with len=5
+    //test_outstanding_directed("WWWwWWWrr", 32'h0000_8200, '{0});  // All transactions with len=5
     #1000;
     compare_mem("Outstanding 22 WWWRWRWRW");
     //case 23
@@ -741,20 +745,19 @@ module tb_icb_unalign_bridge;
     test_outstanding_directed("RRRRrrrr", 32'h1120_8200, '{4,3,1,0,1,0,1,3,1});  // All transactions with len=5
     #1000;
     compare_mem("Outstanding 32 WWWRWRWRW");
-    
+      // // Overflow test
       //case 33
     //test_outstanding_directed("WWWWwwwwWWWWwwwwWWWWwwww", 32'h2220_0000, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3,0,1,1,3});  // All transactions with len=5
-    test_outstanding_directed("WWWWwwwwWWWWwwwwWWWWwwwwWWWW", 32'h0000_0001, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3, 0,1,1,3 ,2,3,4,5});  // All transactions with len=5
-    #1000;
+    //test_outstanding_directed("WWWWwwwwWWWWwwwwWWWWwwwwWWWW", 32'h0000_0001, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3, 0,1,1,3 ,2,3,4,5});  // All transactions with len=5
+    test_outstanding_directed("WWWWwwwwWWWWwwwwWWWWwwwwW", 32'h0000_0001, '{0});  // All transactions with len=5
+    #10000;
     compare_mem("Outstanding 33 WWWRWRWRW");
       //case 34
-    test_outstanding_directed("RRRRrrrrRRRRrrrrRRRRrrrr", 32'h0000_0001, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3,0,1,1,3});  // All transactions with len=5
+    test_outstanding_directed("RRRRrrrrRRRRrrrrRRRRrrrr", 32'h0010_0001, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3,0,1,1,3});  // All transactions with len=5
     #1000;
     compare_mem("Outstanding 34 WWWRWRWRW");
-    // // Overflow test
-    // test_outstanding_overflow();
-    // #2000;
-    // compare_mem("Outstanding OVERFLOW_17");
+  
+
     
 
   
@@ -846,16 +849,17 @@ module tb_icb_unalign_bridge;
             $display("[PHASE 1] Sending all %0d CMD requests...", num_trans);
             foreach (trans_queue[i]) begin
               sa_cmd_queue.push_back(trans_queue[i]);
-              
+
               // Setup signals before clock edge - MUST use blocking assignment
+             #1;
               sa_icb_cmd_valid = 1'b1;
               sa_icb_cmd_addr = trans_queue[i].addr;
               sa_icb_cmd_read = trans_queue[i].read;
               sa_icb_cmd_len = trans_queue[i].len;
               $display("[CMD_SETUP_%0d] addr=0x%08h, time=%0t (before clk)", i, trans_queue[i].addr, $time);
-              @(posedge clk);
               $display("[CMD_AFTER_CLK_%0d] time=%0t (same time, reactive region)", i, $time);
               wait(sa_icb_cmd_ready);
+              @(posedge clk);
               $display("[CMD_HANDSHAKE_%0d] addr=0x%08h, time=%0t", i, trans_queue[i].addr, $time);
             end
             #1;
