@@ -899,7 +899,7 @@ module tb_icb_unalign_bridge;
           $display("[PHASE 2] Sending write data...");
           foreach (trans_queue[i]) begin
             if (!trans_queue[i].read) begin
-              // Update golden memory for writes
+              // Update golden memory for writes//TODO:应该写一个字节更新一个，应当调用drive_sa_cmd这个task，整个环境的可维护性才比较清晰，（Single Responsibility Principle, SRP）
               for (int k = 0; k <= trans_queue[i].len; k++) begin
                 golden_mem.write_word(trans_queue[i].addr + k*4, trans_queue[i].wdata[k], trans_queue[i].wmask[k]);
                 $display("Golden Mem Updated: addr=0x%08h, data=0x%08h, mask=%04b", 
