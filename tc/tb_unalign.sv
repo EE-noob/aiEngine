@@ -989,7 +989,7 @@ module tb_icb_unalign_bridge;
     $display("\n========== RANDOM OUTSTANDING TESTS (iterations=%0d) ==========", iterations);
     
     for (int iter = 0; iter < iterations; iter++) begin
-      int num_trans = $urandom_range(1, 16);  // 1 to 16 outstanding
+      int num_trans ;//= $urandom_range(1, 16);  // 1 to 16 outstanding
       bit read_pattern[$];
       bit [2:0] len_pattern[$];
       bit [31:0] addr_pattern[$];
@@ -997,9 +997,20 @@ module tb_icb_unalign_bridge;
       bit [31:0] wdata_pattern[$][$];
       bit [31:0] base_addr = 32'h0003_0000 + (iter * 32'h1000);
       
+      int num_trans_rand = $urandom_range(0, 99);  // 生成 0-99 的随机数用于百分比判断
       int write_count = 0;
       int read_count = 0;
-      
+
+      if (num_trans_rand < 80) begin
+        // 80% 概率: num_trans = 0-3
+        num_trans = $urandom_range(0, 3);
+      end else if (num_trans_rand < 95) begin
+        // 15% 概率: num_trans = 4-7 (代表 4-19 范围，但受限于 3-bit 最大值 7)
+        num_trans= $urandom_range(20, 30);
+      end else begin
+        // 5% 概率: num_trans = 7 (代表 20-30 范围，但受限于 3-bit 最大值 7)
+        num_trans =$urandom_range(4, 19);
+      end
       // Generate transactions ensuring W count >= R count at any point
       for (int i = 0; i < num_trans; i++) begin
         bit is_read;
