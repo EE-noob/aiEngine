@@ -3,10 +3,11 @@
 // Transaction Class Definition
 // ============================================================
 class icb_transaction;//>>>
+parameter ICB_LEN_W = 4;
 // Fields
 rand bit [31:0] addr;
 rand bit        read;        // 1=read, 0=write
-rand bit [2:0]  len;         // actual beats = len + 1
+rand bit [ICB_LEN_W-1:0]  len;         // actual beats = len + 1
 rand bit [31:0] wdata[];     // write data array
 rand bit [3:0]  wmask[];     // write mask array, one per beat
 
@@ -15,9 +16,9 @@ bit [31:0] rdata[];           // read data array
 bit        err;               // error flag
 
 // Constraints
-constraint c_len_range { 
-  len inside {[0:7]}; 
-}
+// constraint c_len_range { 
+//   len inside {[0:2**ICB_LEN_W-1]}; 
+// }
 
 constraint c_wdata_size {
   if (read) { 

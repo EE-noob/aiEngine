@@ -576,13 +576,7 @@ module tb_icb_unalign_bridge;
                         j++;
                       end
 
-                //$display("[WDATA_SENT_%0d.%0d] time=%0t,data=0x%08h, mask=%04b", i, j,$time, trans_queue[i].wdata[j], trans_queue[i].wmask[j]);
-                //wait(sa_icb_w_ready);
-
-                //$display("[wait rdy finish%0d.%0d] time=%0t,data=0x%08h, mask=%04b", i, j,$time, trans_queue[i].wdata[j], trans_queue[i].wmask[j]);
-                //$display("[rdy =%d ] ", sa_icb_w_ready);
-                //if(test_count==21 &&i==2 &&j==1)
-                  //Finish(err_count,test_count);
+  
               end
             end
           end

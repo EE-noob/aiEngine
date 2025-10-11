@@ -1,6 +1,7 @@
 // ============================================================
 // ICB Unalign Bridge Testbench with Self-Checking Platform
 // ============================================================
+//`include "../include/para_define.sv"
 `include "../include/icb_transaction.sv"
 `include "../include/memory_model.sv"
 `include "../include/Finish_task.sv"
@@ -12,12 +13,12 @@
 // Main Testbench Module
 // ============================================================
 module tb_icb_unalign_bridge;
-  
+  //记得修改transaction的parameter，尚未用宏的方式链接 
   // Parameters
   localparam WIDTH = 32;
   localparam ADDR_W = 32;
   localparam OUTS_DEPTH = 16;//4;//16;
-  localparam ICB_LEN_W = 3;
+  localparam ICB_LEN_W = 4;//3;
   localparam DW = WIDTH/8;
   
   // Clock and Reset
@@ -330,7 +331,7 @@ module tb_icb_unalign_bridge;
   task test_direct_case(
     bit [31:0] addr,
     bit read,
-    bit [2:0] len,
+    bit  [ICB_LEN_W-1:0] len,
     bit [3:0] wmask[],
     bit [31:0] data[],
     bit is_b2b = 0
@@ -732,7 +733,7 @@ module tb_icb_unalign_bridge;
     compare_mem("Outstanding 29 WWWRWRWRW");
 
     //case 30
-    test_outstanding_directed("WWRWRWRW", 32'h1111_8203, '{1,5,1,0,1,0,1,3,1});  // All transactions with len=5
+    test_outstanding_directed("WWRWRWRW", 32'h1111_8203, '{1,5,10,0,13,15,1,3,1});  // All transactions with len=5
     #1000;
     compare_mem("Outstanding 30 WWWRWRWRW");
 
@@ -742,7 +743,7 @@ module tb_icb_unalign_bridge;
     compare_mem("Outstanding 31 WWWRWRWRW");
 
       //case 32
-    test_outstanding_directed("RRRRrrrr", 32'h1120_8200, '{4,3,1,0,1,0,1,3,1});  // All transactions with len=5
+    test_outstanding_directed("RRRRrrrr", 32'h1120_8200, '{4,13,1,0,11,0,12,3,1});  // All transactions with len=5
     #1000;
     compare_mem("Outstanding 32 WWWRWRWRW");
       // // Overflow test
@@ -756,6 +757,28 @@ module tb_icb_unalign_bridge;
     test_outstanding_directed("RRRRrrrrRRRRrrrrRRRRrrrr", 32'h0010_0001, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3,0,1,1,3});  // All transactions with len=5
     #1000;
     compare_mem("Outstanding 34 WWWRWRWRW");
+    
+    //case 35
+    test_outstanding_directed("WWWWWWWWWWRRRRRRRRRRWW", 32'h0020_0000, '{15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15  ,10,9});
+    #2000;
+    compare_mem("Outstanding 35 len=15");
+    
+    //case 36
+    test_outstanding_directed("WWWWWWWWWWRRRRRRRRRRWW", 32'h0030_0001, '{13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13 ,10,9});
+    #2000;
+    compare_mem("Outstanding 36 len=13");
+    
+    //case 37
+    test_outstanding_directed("WWWWWWWWWWRRRRRRRRRRWW", 32'h0040_0002, '{12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12 ,10,9});
+    #2000;
+    compare_mem("Outstanding 37 len=12");
+    
+    //case 38
+    test_outstanding_directed("WWWWWWWWWWRRRRRRRRRRWW", 32'h0050_0003, '{7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7  ,10,9});
+    #2000;
+    compare_mem("Outstanding 38 len=7");
+
+
   
 //同一条outstandingcase中应该w要先与r，要么就是只有r，因为tb里面是outstanding一来就先更新了golden mem了，这里还没有改成使用sa的mon来更新。
     
@@ -816,7 +839,7 @@ module tb_icb_unalign_bridge;
   task automatic test_outstanding(
     int num_trans,                    // Number of outstanding transactions
     bit read_pattern[$],              // Read/Write pattern (1=read, 0=write)
-    bit [2:0] len_pattern[$],        // Burst length pattern
+    bit [ICB_LEN_W-1:0] len_pattern[$],        // Burst length pattern
     bit [31:0] addr_pattern[$],      // Address pattern
     bit [3:0] wmask_pattern[$][$],   // Write mask pattern
     bit [31:0] wdata_pattern[$][$],  // Write data pattern
@@ -909,18 +932,18 @@ module tb_icb_unalign_bridge;
   task automatic test_outstanding_directed(
     string pattern,           // e.g., "WWWRRR", "WRWWRR"
     bit [31:0] base_addr,
-    bit [2:0] burst_len_queue[$] = '{0}  // Queue of burst lengths for each transaction
+    bit [ICB_LEN_W-1:0] burst_len_queue[$] = '{0}  // Queue of burst lengths for each transaction
   );
     int num_trans = pattern.len();
     bit read_pattern[$];
-    bit [2:0] len_pattern[$];
+    bit [ICB_LEN_W-1:0] len_pattern[$];
     bit [31:0] addr_pattern[$];
     bit [3:0] wmask_pattern[$][$];
     bit [31:0] wdata_pattern[$][$];
     int read_count=0 ;
     int write_count=0;
     bit [31:0] addr;
-    bit [2:0] current_len;
+    bit  [ICB_LEN_W-1:0] current_len;
     
     // If burst_len_queue has only one element, use it for all transactions
     bit single_len_mode = (burst_len_queue.size() == 1);
@@ -991,7 +1014,7 @@ module tb_icb_unalign_bridge;
     for (int iter = 0; iter < iterations; iter++) begin
       int num_trans ;//= $urandom_range(1, 16);  // 1 to 16 outstanding
       bit read_pattern[$];
-      bit [2:0] len_pattern[$];
+      bit [ICB_LEN_W-1:0] len_pattern[$];
       bit [31:0] addr_pattern[$];
       bit [3:0] wmask_pattern[$][$];
       bit [31:0] wdata_pattern[$][$];
@@ -1001,20 +1024,20 @@ module tb_icb_unalign_bridge;
       int write_count = 0;
       int read_count = 0;
 
-      if (num_trans_rand < 80) begin
+      if (num_trans_rand < 50) begin
         // 80% 概率: num_trans = 0-3
         num_trans = $urandom_range(0, 3);
-      end else if (num_trans_rand < 95) begin
+      end else if (num_trans_rand < 70) begin
         // 15% 概率: num_trans = 4-7 (代表 4-19 范围，但受限于 3-bit 最大值 7)
-        num_trans= $urandom_range(20, 30);
+          num_trans =$urandom_range(4, 19);
       end else begin
         // 5% 概率: num_trans = 7 (代表 20-30 范围，但受限于 3-bit 最大值 7)
-        num_trans =$urandom_range(4, 19);
+          num_trans= $urandom_range(20, 30);
       end
       // Generate transactions ensuring W count >= R count at any point
       for (int i = 0; i < num_trans; i++) begin
         bit is_read;
-        bit [2:0] len = $urandom_range(0, 3);  // Burst length 0-3
+        bit [ICB_LEN_W-1:0] len = $urandom_range(0, 2**ICB_LEN_W-1);  // Burst length 0-3
         bit [1:0] align = $urandom_range(0, 3); // Alignment offset 0-3
         bit [31:0] addr = base_addr + (i * 64) + align;
         
