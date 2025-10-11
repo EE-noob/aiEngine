@@ -11,6 +11,7 @@
 
 
 ## How2run:
-    cd veri/sim;
-    make run CASE=numer;//number=[1,10]，运行仿真
-    make wave CASE=numer;//number=[1,10]，打开verdi查看波形
+    cd sim;
+    make fl;//生成flist
+    make run;//编译、仿真
+    make vd;//查看波形

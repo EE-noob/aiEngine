@@ -757,21 +757,21 @@ module tb_icb_unalign_bridge;
     #1000;
     compare_mem("Outstanding 34 WWWRWRWRW");
   
-//同一条outstandingcase中应该w要先与r，要么就是只有r，因为tb里面是outstanding一来就先更新了golden mem了，这里还没有改成使用sa的mon来更新。
+
     
 
   
     
 
-    // ========== Random Test Cases ==========
-    $display("\n========== RANDOM TEST CASES ==========");
-    repeat(100) begin
-      test_random_case();
-      #300;
-    end
-  compare_mem("none-Outstanding RANDOM");
+    // // ========== Random Test Cases ==========
+    // $display("\n========== RANDOM TEST CASES ==========");
+    // repeat(100) begin
+    //   test_random_case();
+    //   #300;
+    // end
+  // compare_mem("Outstanding RANDOM");
     // Random outstanding tests
-    test_outstanding_random(200);
+    test_outstanding_random(20);
     #5000;
     compare_mem("Outstanding RANDOM");
 
@@ -794,8 +794,7 @@ module tb_icb_unalign_bridge;
   mem_mismatches = golden_mem.compare(m_mem);
   
   if (mem_mismatches > 0) begin
-    //err_count += mem_mismatches;
-    err_count +=1;
+    err_count += mem_mismatches;
   $display("[ERROR] case: %d Found %0d memory mismatches! now err_count=%d", test_count, mem_mismatches,err_count);
     $display("\nGolden Memory Contents:");
     golden_mem.display_contents();
@@ -997,32 +996,11 @@ module tb_icb_unalign_bridge;
       bit [31:0] wdata_pattern[$][$];
       bit [31:0] base_addr = 32'h0003_0000 + (iter * 32'h1000);
       
-      int write_count = 0;
-      int read_count = 0;
-      
-      // Generate transactions ensuring W count >= R count at any point
       for (int i = 0; i < num_trans; i++) begin
-        bit is_read;
+        bit is_read = $urandom_range(0, 1);
         bit [2:0] len = $urandom_range(0, 3);  // Burst length 0-3
         bit [1:0] align = $urandom_range(0, 3); // Alignment offset 0-3
         bit [31:0] addr = base_addr + (i * 64) + align;
-        
-        // Decide read/write: ensure write_count >= read_count at all times
-        if (write_count <= read_count) begin
-          // Must write to keep write_count >= read_count
-          is_read = 0;
-        end else begin
-          // Can choose randomly, but prefer write
-          // 70% write, 30% read when we have buffer
-          int rand_val = $urandom_range(0, 99);
-          is_read = (rand_val < 30) ? 1 : 0;
-        end
-        
-        if (is_read) begin
-          read_count++;
-        end else begin
-          write_count++;
-        end
         
         read_pattern.push_back(is_read);
         len_pattern.push_back(len);
@@ -1047,15 +1025,11 @@ module tb_icb_unalign_bridge;
         end
       end
       
-      // Display statistics
-      $display("[RANDOM_%0d] Generated %0d transactions: %0d writes, %0d reads (W >= R guaranteed)", 
-               iter, num_trans, write_count, read_count);
-      
       test_outstanding(num_trans, read_pattern, len_pattern, addr_pattern, 
                        wmask_pattern, wdata_pattern, $sformatf("RANDOM_%0d", iter));
       
       #1000; // Wait between random iterations
-      compare_mem($sformatf("testcount_%0d  RANDOM_%0d",test_count, iter));
+      compare_mem("outstanding random ");
     end
     
     $display("[INFO] Completed %0d random outstanding test iterations", iterations);

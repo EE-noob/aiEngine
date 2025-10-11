@@ -757,24 +757,39 @@ module tb_icb_unalign_bridge;
     #1000;
     compare_mem("Outstanding 34 WWWRWRWRW");
   
-//同一条outstandingcase中应该w要先与r，要么就是只有r，因为tb里面是outstanding一来就先更新了golden mem了，这里还没有改成使用sa的mon来更新。
+      //case 35
+    test_outstanding_directed("RRRRWWWWrrrr", 32'h0010_0001, '{2,2,1,5,3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3,0,1,1,3});  // All transactions with len=5
+    #1000;
+    compare_mem("Outstanding 34 WWWRWRWRW");
     
 
   
     
 
-    // ========== Random Test Cases ==========
-    $display("\n========== RANDOM TEST CASES ==========");
-    repeat(100) begin
-      test_random_case();
-      #300;
-    end
-  compare_mem("none-Outstanding RANDOM");
-    // Random outstanding tests
-    test_outstanding_random(200);
-    #5000;
-    compare_mem("Outstanding RANDOM");
+    // ========== Random Outstanding Test Cases ==========
+    $display("\n========== RANDOM OUTSTANDING TEST CASES ==========");
+    
+    // // Test with small number of transactions
+    // test_outstanding_random(1);
+    // #1000;
+    
+    // // // Test with medium number of transactions
+    // // test_outstanding_random(10);
+    // // #1000;
+    
+    // // // Test with larger number of transactions (stress test)
+    // // test_outstanding_random(20);
+    // // #1000;
+    
+    // // Multiple random tests
+    // repeat(3) begin
+    //   automatic int num_trans = $urandom_range(5, 15);
+    //   $display("\n[INFO] Running random test with %0d transactions", num_trans);
+    //   test_outstanding_random(num_trans);
+    //   #1000;
+    // end
 
+    $display("\n========== ALL TESTS COMPLETED ==========");
     // compare_mem("All Cases DONE");
     // // Final report
     // #100;
@@ -794,8 +809,7 @@ module tb_icb_unalign_bridge;
   mem_mismatches = golden_mem.compare(m_mem);
   
   if (mem_mismatches > 0) begin
-    //err_count += mem_mismatches;
-    err_count +=1;
+    err_count += mem_mismatches;
   $display("[ERROR] case: %d Found %0d memory mismatches! now err_count=%d", test_count, mem_mismatches,err_count);
     $display("\nGolden Memory Contents:");
     golden_mem.display_contents();
@@ -984,82 +998,133 @@ module tb_icb_unalign_bridge;
     test_outstanding(num_trans, read_pattern, len_pattern, addr_pattern, 
                      wmask_pattern, wdata_pattern, pattern);
   endtask
+  
   // Task: Random outstanding test
-  task automatic test_outstanding_random(int iterations = 100);
-    $display("\n========== RANDOM OUTSTANDING TESTS (iterations=%0d) ==========", iterations);
+  task automatic test_outstanding_random(
+    int num_trans = 10  // Number of random outstanding transactions
+  );
+    bit read_pattern[$];
+    bit [2:0] len_pattern[$];
+    bit [31:0] addr_pattern[$];
+    bit [3:0] wmask_pattern[$][$];
+    bit [31:0] wdata_pattern[$][$];
+    bit [31:0] base_addr;
+    string pattern_str = "";
+    string len_str = "{";
+    string addr_str = "";
+    int rand_val;
+    bit [2:0] rand_len;
+    bit [31:0] rand_addr;
+    bit is_read;
     
-    for (int iter = 0; iter < iterations; iter++) begin
-      int num_trans = $urandom_range(1, 16);  // 1 to 16 outstanding
-      bit read_pattern[$];
-      bit [2:0] len_pattern[$];
-      bit [31:0] addr_pattern[$];
-      bit [3:0] wmask_pattern[$][$];
-      bit [31:0] wdata_pattern[$][$];
-      bit [31:0] base_addr = 32'h0003_0000 + (iter * 32'h1000);
+    // Randomize base address (allow non-aligned)
+    base_addr = {$urandom_range(0, 32'hFFFF), $urandom_range(0, 32'hFFFF)};
+    
+    $display("\n========== [RANDOM OUTSTANDING TEST %0d] ==========", test_count + 1);
+    $display("[RANDOM OUTSTANDING] Generating %0d random transactions", num_trans);
+    $display("[RANDOM OUTSTANDING] Base Address: 0x%08h (offset=%0d)", base_addr, base_addr[1:0]);
+    
+    // Generate random transactions
+    for (int i = 0; i < num_trans; i++) begin
+      // Randomize read/write (50% each)
+      is_read = $urandom_range(0, 1);
+      read_pattern.push_back(is_read);
+      pattern_str = {pattern_str, is_read ? "R" : "W"};
       
-      int write_count = 0;
-      int read_count = 0;
+      // Randomize length with weighted distribution
+      // 80% chance for len 0-3, 5% for 4-7, 15% for max (7)
+      rand_val = $urandom_range(0, 99);  // 0-99
+      if (rand_val < 80) begin
+        // 80% chance: len = 0-3
+        rand_len = $urandom_range(0, 3);
+      end else if (rand_val < 85) begin
+        // 5% chance: len = 4-7
+        rand_len = $urandom_range(4, 7);
+      end else begin
+        // 15% chance: max len = 7
+        rand_len = 7;
+      end
+      len_pattern.push_back(rand_len);
       
-      // Generate transactions ensuring W count >= R count at any point
-      for (int i = 0; i < num_trans; i++) begin
-        bit is_read;
-        bit [2:0] len = $urandom_range(0, 3);  // Burst length 0-3
-        bit [1:0] align = $urandom_range(0, 3); // Alignment offset 0-3
-        bit [31:0] addr = base_addr + (i * 64) + align;
-        
-        // Decide read/write: ensure write_count >= read_count at all times
-        if (write_count <= read_count) begin
-          // Must write to keep write_count >= read_count
-          is_read = 0;
-        end else begin
-          // Can choose randomly, but prefer write
-          // 70% write, 30% read when we have buffer
-          int rand_val = $urandom_range(0, 99);
-          is_read = (rand_val < 30) ? 1 : 0;
-        end
-        
-        if (is_read) begin
-          read_count++;
-        end else begin
-          write_count++;
-        end
-        
-        read_pattern.push_back(is_read);
-        len_pattern.push_back(len);
-        addr_pattern.push_back(addr);
-        
-        if (!is_read) begin
-          bit [3:0] wmask_temp[$];
-          bit [31:0] wdata_temp[$];
-          
-          for (int j = 0; j <= len; j++) begin
-            wmask_temp.push_back($urandom_range(1, 15)); // Random mask (non-zero)
-            wdata_temp.push_back($urandom());
-          end
-          
-          wmask_pattern.push_back(wmask_temp);
-          wdata_pattern.push_back(wdata_temp);
-        end else begin
-          bit [3:0] wmask_temp[$];
-          bit [31:0] wdata_temp[$];
-          wmask_pattern.push_back(wmask_temp);
-          wdata_pattern.push_back(wdata_temp);
-        end
+      // Build length string
+      if (i == 0) begin
+        len_str = {len_str, $sformatf("%0d", rand_len)};
+      end else begin
+        len_str = {len_str, $sformatf(", %0d", rand_len)};
       end
       
-      // Display statistics
-      $display("[RANDOM_%0d] Generated %0d transactions: %0d writes, %0d reads (W >= R guaranteed)", 
-               iter, num_trans, write_count, read_count);
+      // Randomize address (may be non-aligned)
+      // Use different address for each transaction
+      rand_addr = base_addr + (i * $urandom_range(16, 64)) + $urandom_range(0, 3);
+      addr_pattern.push_back(rand_addr);
       
-      test_outstanding(num_trans, read_pattern, len_pattern, addr_pattern, 
-                       wmask_pattern, wdata_pattern, $sformatf("RANDOM_%0d", iter));
+      $display("[RAND_TRANS_%0d] %s: addr=0x%08h (offset=%0d), len=%0d (beats=%0d)", 
+               i, is_read ? "READ " : "WRITE", rand_addr, rand_addr[1:0], 
+               rand_len, rand_len + 1);
       
-      #1000; // Wait between random iterations
-      compare_mem($sformatf("testcount_%0d  RANDOM_%0d",test_count, iter));
+      // Generate write data and masks if it's a write transaction
+      if (!is_read) begin
+        bit [3:0] wmask_temp[$];
+        bit [31:0] wdata_temp[$];
+        
+        for (int j = 0; j <= rand_len; j++) begin
+          // Randomize write mask (prefer full mask but allow partial)
+          automatic bit [3:0] rand_wmask;
+          automatic int mask_val = $urandom_range(0, 99);
+                    // Randomize write data
+          automatic bit [31:0] rand_wdata = $urandom();
+          wdata_temp.push_back(rand_wdata);
+
+          if (mask_val < 70) begin
+            rand_wmask = 4'b1111;  // 70% chance of full mask
+          end else begin
+            rand_wmask = $urandom_range(1, 15);  // 30% chance of partial mask (not 0)
+          end
+          wmask_temp.push_back(rand_wmask);
+          
+
+          
+          if (j == 0 || j == rand_len) begin
+            // Print first and last beat
+            $display("    [BEAT_%0d] wdata=0x%08h, wmask=%04b", j, rand_wdata, rand_wmask);
+          end else if (j == 1 && rand_len > 1) begin
+            $display("    [BEAT_1~%0d] ... (omitted)", rand_len - 1);
+          end
+        end
+        
+        wmask_pattern.push_back(wmask_temp);
+        wdata_pattern.push_back(wdata_temp);
+      end else begin
+        bit [3:0] wmask_temp[$];
+        bit [31:0] wdata_temp[$];
+        wmask_pattern.push_back(wmask_temp);
+        wdata_pattern.push_back(wdata_temp);
+      end
     end
     
-    $display("[INFO] Completed %0d random outstanding test iterations", iterations);
+    len_str = {len_str, "}"};
+    
+    $display("\n[RANDOM OUTSTANDING] Summary:");
+    $display("  Pattern: %s", pattern_str);
+    $display("  Lengths: %s", len_str);
+    $display("  Num Transactions: %0d", num_trans);
+    $display("  Base Address: 0x%08h", base_addr);
+    
+    // Call test_outstanding
+    test_outstanding(num_trans, read_pattern, len_pattern, addr_pattern, 
+                     wmask_pattern, wdata_pattern, "RANDOM");
+                     
+    $display("\n[RANDOM OUTSTANDING] Test completed, verifying memory...");
+    
+    // Wait for all transactions to complete
+    #500;
+    
+    // Compare memory immediately after this random test
+    compare_mem($sformatf("Random Outstanding Test %0d - %0d trans (Pattern: %s)", 
+                          test_count, num_trans, pattern_str));
   endtask
+
+
   // ============================================================
   // Timeout
   // ============================================================
