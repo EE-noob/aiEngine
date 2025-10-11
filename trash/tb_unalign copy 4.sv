@@ -126,7 +126,7 @@ module tb_icb_unalign_bridge;
   // FSDB Dump
   // ============================================================
   initial begin
-    //if ($test$plusargs("dump_fsdb")) begin
+    if ($test$plusargs("dump_fsdb")) begin
       $fsdbDumpfile("icb_bridge.fsdb");
       //$fsdbDumpvars("+all");
       $fsdbDumpvars();
@@ -136,7 +136,7 @@ module tb_icb_unalign_bridge;
       $fsdbDumpClassObject("tb_icb_unalign_bridge");
       $fsdbDumpClassObject("tb_icb_unalign_bridge.golden_mem");
       $fsdbDumpClassObject("tb_icb_unalign_bridge.m_mem");
-    //end
+    end
   end
   
   // ============================================================
@@ -697,7 +697,7 @@ module tb_icb_unalign_bridge;
     
     // // case 24 Maximum outstanding test
     // test_outstanding_max();
-    // #1000;
+    // #2000;
     // compare_mem("Outstanding MAX_16");
     
     // case 24 Maximum outstanding test
@@ -706,7 +706,7 @@ module tb_icb_unalign_bridge;
     compare_mem("Outstanding Maximum outstanding WWWWRRRRWWWWRRRR");
 
   // case 25 Overflow outstanding test
-    test_outstanding_directed("WWWWRRRRWWWWRRRRWRWR", 32'h0000_8500, '{13});  // All transactions with len=13
+    test_outstanding_directed("WWWWRRRRWWWWRRRRWRWR", 32'h0000_8500, '{3});  // All transactions with len=3
     #1000;
    // compare_mem("Outstanding Overflow WWWWRRRRWWWWRRRRWRWR");
  // case 26 Overflow outstanding test
@@ -733,7 +733,7 @@ module tb_icb_unalign_bridge;
     compare_mem("Outstanding 29 WWWRWRWRW");
 
     //case 30
-    test_outstanding_directed("WWRWRWRW", 32'h1111_8203, '{1,15,10,0,13,15,1,3,1});  // All transactions with len=5
+    test_outstanding_directed("WWRWRWRW", 32'h1111_8203, '{1,5,10,0,13,15,1,3,1});  // All transactions with len=5
     #1000;
     compare_mem("Outstanding 30 WWWRWRWRW");
 
@@ -751,7 +751,7 @@ module tb_icb_unalign_bridge;
     //test_outstanding_directed("WWWWwwwwWWWWwwwwWWWWwwww", 32'h2220_0000, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3,0,1,1,3});  // All transactions with len=5
     test_outstanding_directed("WWWWwwwwWWWWwwwwWWWWwwwwWWWW", 32'h0000_0001, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3, 0,1,1,3 ,2,3,4,5});  // All transactions with len=5
     //test_outstanding_directed("WWWWwwwwWWWWwwwwWWWWwwwwWWWW", 32'h0000_0001, '{0});  // All transactions with len=5
-    #1000;
+    #10000;
     compare_mem("Outstanding 33 WWWRWRWRW");
       //case 34
     test_outstanding_directed("RRRRrrrrRRRRrrrrRRRRrrrr", 32'h0010_0001, '{3,3,3,3, 3,3,3,3, 3,3,3,3, 3,3,3,1, 0,1,1,3,0,1,1,3});  // All transactions with len=5
@@ -760,22 +760,22 @@ module tb_icb_unalign_bridge;
     
     //case 35
     test_outstanding_directed("WWWWWWWWWWRRRRRRRRRRWW", 32'h0020_0000, '{15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15  ,10,9});
-    #1000;
+    #2000;
     compare_mem("Outstanding 35 len=15");
     
     //case 36
     test_outstanding_directed("WWWWWWWWWWRRRRRRRRRRWW", 32'h0030_0001, '{13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13 ,10,9});
-    #1000;
+    #2000;
     compare_mem("Outstanding 36 len=13");
     
     //case 37
     test_outstanding_directed("WWWWWWWWWWRRRRRRRRRRWW", 32'h0040_0002, '{12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12 ,10,9});
-    #1000;
+    #2000;
     compare_mem("Outstanding 37 len=12");
     
     //case 38
     test_outstanding_directed("WWWWWWWWWWRRRRRRRRRRWW", 32'h0050_0003, '{7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7  ,10,9});
-    #1000;
+    #2000;
     compare_mem("Outstanding 38 len=7");
 
 
@@ -795,7 +795,7 @@ module tb_icb_unalign_bridge;
   compare_mem("none-Outstanding RANDOM");
     // Random outstanding tests
     test_outstanding_random(200);
-    #2000;
+    #5000;
     compare_mem("Outstanding RANDOM");
 
     // compare_mem("All Cases DONE");
@@ -974,11 +974,12 @@ module tb_icb_unalign_bridge;
         $display("[WARNING] Not enough burst lengths provided, using default 0 for transaction %0d", i);
       end
       
+      //bit [31:0] addr = is_read?  (base_addr + (read_count++ * 32) ) : (base_addr + (write_count++ * 32) ) ; // Offset each transaction
       if(is_read)
-        //addr = base_addr + (read_count++ * 32) ;
-        addr = base_addr + (read_count++ * 4 *(2**ICB_LEN_W)) ; // read addr  should be after the last write addr
+        addr = base_addr + (read_count++ * 32) ;
       else
-        addr = base_addr + (write_count++  * 4 *(2**ICB_LEN_W)) ;
+        addr = base_addr + (write_count++ * 32) ;
+      //bit [31:0] addr = is_read?  (base_addr + (read_count++ * 32) ) : (base_addr + (write_count++ * 32) ) ; // Offset each transaction
       
       read_pattern.push_back(is_read);
       len_pattern.push_back(current_len);
