@@ -126,7 +126,7 @@ module tb_icb_unalign_bridge;
   // FSDB Dump
   // ============================================================
   initial begin
-    //if ($test$plusargs("dump_fsdb")) begin
+    if ($test$plusargs("dump_fsdb")) begin
       $fsdbDumpfile("icb_bridge.fsdb");
       //$fsdbDumpvars("+all");
       $fsdbDumpvars();
@@ -136,7 +136,7 @@ module tb_icb_unalign_bridge;
       $fsdbDumpClassObject("tb_icb_unalign_bridge");
       $fsdbDumpClassObject("tb_icb_unalign_bridge.golden_mem");
       $fsdbDumpClassObject("tb_icb_unalign_bridge.m_mem");
-    //end
+    end
   end
   
   // ============================================================

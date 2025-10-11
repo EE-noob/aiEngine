@@ -13,8 +13,12 @@ CASE=0
 my_incdir=../ssy_tb/tb
 export dut_top=top_with_bridge # axi_crossbar_top## #tb_withbrige.axi_crossbar_top_inst
 cov_dir=./cov_withbrige
-
-plusargs=+dump_fsdb
+plus=1
+ifeq ($(plus),1)
+	plusargs=+dump_fsdb
+else
+	plusargs=
+endif
 #+dump_vcd
 
 #cdc
@@ -34,7 +38,7 @@ NOR_VCS = vcs -full64 -sverilog +v2k -timescale=1ns/1ns            \
 		-f $(sim_list).f \
 		+incdir+$(my_incdir) \
 		+delay_mode_path \
-		+dump_fsdb
+		$(plusargs)
 POST_VCS = vcs -full64 -sverilog +v2k -timescale=1ns/1ns            \
       -debug_all                               \
       +vcs+flush+all                                   \
