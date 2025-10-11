@@ -1017,12 +1017,19 @@ module tb_icb_unalign_bridge;
       bit [31:0] addr_pattern[$];
       bit [3:0] wmask_pattern[$][$];
       bit [31:0] wdata_pattern[$][$];
-      bit [31:0] base_addr = 32'h0003_0000 + (iter * 32'h1000);
+      //bit [31:0] base_addr = 32'h0003_0000 + (iter * 32'h1000);
+      bit [1:0] align = $urandom_range(0, 3); // Alignment offset 0-3
+      bit [31:0] base_addr = 32'h0003_0000 + (iter * 32'h1000)+align;
       
       int num_trans_rand = $urandom_range(0, 99);  // 生成 0-99 的随机数用于百分比判断
       int write_count = 0;
       int read_count = 0;
-
+      if(iter&1)
+      begin
+        golden_mem.clear();
+        m_mem.clear();
+      end
+      
       if (num_trans_rand < 50) begin
         // 80% 概率: num_trans = 0-3
         num_trans = $urandom_range(0, 3);
@@ -1037,8 +1044,8 @@ module tb_icb_unalign_bridge;
       for (int i = 0; i < num_trans; i++) begin
         bit is_read;
         bit [ICB_LEN_W-1:0] len = $urandom_range(0, 2**ICB_LEN_W-1);  // Burst length 0-3
-        bit [1:0] align = $urandom_range(0, 3); // Alignment offset 0-3
-        bit [31:0] addr = base_addr + (i * 64) + align;
+        bit [31:0] addr;
+
         
         // Decide read/write: ensure write_count >= read_count at all times
         if (write_count <= read_count) begin
@@ -1051,6 +1058,11 @@ module tb_icb_unalign_bridge;
           is_read = (rand_val < 30) ? 1 : 0;
         end
         
+        if(is_read)
+        //addr = base_addr + (read_count++ * 32) ;
+        addr = base_addr + (read_count++ * 4 *(2**ICB_LEN_W)) ; // read addr  should be after the last write addr//TODO:如果不这样，好像环境有错漏
+        else
+        addr = base_addr + (write_count++  * 4 *(2**ICB_LEN_W)) ;
         if (is_read) begin
           read_count++;
         end else begin
