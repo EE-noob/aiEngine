@@ -210,7 +210,7 @@ module tb_ia_loader;
         int n;
         int m;
         bit use_16bits;
-        logic signed [15:0] ia_matrix[];
+        logic signed [15:0] ia_matrix[][];  // 改为二维动态数组
         int base_addr;
         int row_stride;
     } test_config_t;
@@ -238,7 +238,7 @@ module tb_ia_loader;
         input int n,
         input bit use_16bits,
         input bit random_data,
-        output logic signed [15:0] ia_matrix[]
+        ref logic signed [15:0] ia_matrix[][]  // 使用ref传递二维数组
     );
         ia_matrix = new[k];
         for (int i = 0; i < k; i++) begin
@@ -261,7 +261,7 @@ module tb_ia_loader;
     // 任务：将IA矩阵加载到内存
     // =========================================================================
     task automatic load_ia_to_memory(
-        input logic signed [15:0] ia_matrix[][],
+        ref logic signed [15:0] ia_matrix[][],  // 使用ref传递二维数组
         input int k,
         input int n,
         input int base_addr,
@@ -304,7 +304,7 @@ module tb_ia_loader;
         int test_error_count_before;
         
         total_test_count++;
-        test_error_count_before = error_count;
+        test_error_count_before = total_error_count;  // 修复：使用total_error_count
         
         // 计算行步长（字节对齐到4字节边界）
         if (use_16bits) begin
@@ -385,11 +385,11 @@ module tb_ia_loader;
         // 输出测试结果
         $display("\n[%0t] ========== Test Completed ==========", $time);
         $display("[%0t] Total tiles checked: %0d", $time, tile_count);
-        if (error_count == test_error_count_before) begin
+        if (error_count == 0) begin
             $display("[%0t] TEST PASSED - No errors detected", $time);
         end else begin
-            $display("[%0t] TEST FAILED - %0d errors detected", $time, error_count - test_error_count_before);
-            total_error_count += (error_count - test_error_count_before);
+            $display("[%0t] TEST FAILED - %0d errors detected", $time, error_count);
+            total_error_count += error_count;
         end
         $display("=======================================\n");
         
@@ -404,9 +404,9 @@ module tb_ia_loader;
         int current_row_in_tile;
         int total_tiles;
         bit is_first_tile, is_last_tile;
-                int dut_tile_row ;
-                int dut_tile_col ;
-                int dut_loop_cnt ;
+        int dut_tile_row;
+        int dut_tile_col;
+        int dut_loop_cnt;
         
         row_tile_num = (current_test.n + SIZE - 1) / SIZE;
         col_tile_num = (current_test.k + SIZE - 1) / SIZE;
@@ -549,7 +549,7 @@ module tb_ia_loader;
         
         exp_str = "  Expected: [";
         act_str = "  Actual:   [";
-        
+
         for (int i = 0; i < SIZE; i++) begin
             if (!only_errors || (expected_row[i] !== actual_row[i])) begin
                 exp_str = {exp_str, $sformatf("%04h", expected_row[i])};
