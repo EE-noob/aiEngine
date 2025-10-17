@@ -3,7 +3,7 @@
 `timescale 1ns/1ps
 
 // ICB 类型定义（打包）
-`include "define.svh"
+`include "../include/define.svh"
 
 // 为了解决端口方向性问题，将命令/响应拆分为方向化的打包结构
 // Master -> Slave: 命令有效载荷（master 驱动）

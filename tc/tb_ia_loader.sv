@@ -404,6 +404,9 @@ module tb_ia_loader;
         int current_row_in_tile;
         int total_tiles;
         bit is_first_tile, is_last_tile;
+                int dut_tile_row ;
+                int dut_tile_col ;
+                int dut_loop_cnt ;
         
         row_tile_num = (current_test.n + SIZE - 1) / SIZE;
         col_tile_num = (current_test.k + SIZE - 1) / SIZE;
@@ -425,9 +428,9 @@ module tb_ia_loader;
                     actual_row[i] = ia_if.ia_out[i];
                 end
                 
-                int dut_tile_row = u_ia_loader.tile_row_idx;
-                int dut_tile_col = u_ia_loader.tile_col_idx;
-                int dut_loop_cnt = u_ia_loader.loop_row_cnt;
+                dut_tile_row = u_ia_loader.tile_row_idx;
+                dut_tile_col = u_ia_loader.tile_col_idx;
+                dut_loop_cnt = u_ia_loader.loop_row_cnt;
                 
                 is_first_tile = (monitor_tile_col == 0);
                 is_last_tile = (monitor_tile_col == row_tile_num - 1) && (monitor_loop_cnt == loop_row_num - 1);

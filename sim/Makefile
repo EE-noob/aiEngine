@@ -93,8 +93,10 @@ postfl:
 
 fl:
 	rm -rf rtl_list.f;  rm -rf sim_list.f;  find ../rtl -maxdepth 1 -type f -name "*v" > rtl_list.f;find ../tc -maxdepth 1 -type f -name "*v" > sim_list.f;
-pfl:
-	rm -rf rtl_list.f;  rm -rf sim_list.f;  echo "../rtl/calcP.sv" > rtl_list.f;echo "../tc/calcP_full_tb.sv" > sim_list.f;
+iafl:
+	rm -rf rtl_list.f;  rm -rf sim_list.f;   find ../rtl -maxdepth 1 -type f -name "*v" > rtl_list.f;find ../tb -maxdepth 1 -type f -name "*v" > sim_list.f;echo "../tc/tb_ia_loader.sv" >> sim_list.f;
+icbfl:
+	rm -rf rtl_list.f;  rm -rf sim_list.f;  echo "../rtl/icb_unalign_bridge.sv" > rtl_list.f;echo "../tc/tb_unalign.sv" > sim_list.f;
 calfl:
 	rm -rf rtl_list.f;  rm -rf sim_list.f;  echo "../rtl_combine_scramble/cal_top.sv" > rtl_list.f; echo "../rtl_combine_scramble/serial_divider.v" >> rtl_list.f; echo "../rtl_combine_scramble/cal.sv" >> rtl_list.f;echo "../tc/tb_cal_top.sv" > sim_list.f;
 srfl:
@@ -105,9 +107,7 @@ vfl:
 	rm -rf rtl_list.f;  rm -rf sim_list.f;  find ../rtl  -maxdepth 1 -type f -name "*v" > rtl_list.f;echo > sim_list.f;
 icsfl:
 	rm -rf rtl_list.f;  rm -rf sim_list.f;  find ../rtl  ../rtl_combine_scramble -maxdepth 1 -type f -name "*v" > rtl_list.f;echo > sim_list.f;
-icbfl:
-	rm -rf rtl_list.f;  rm -rf sim_list.f;  find ../rtl  -maxdepth 1 -type f -name "*v" > rtl_list.f;echo ../tc/gpt_tb.sv> sim_list.f;
-combfl:
+mbfl:
 	rm -rf rtl_list.f;  rm -rf sim_list.f;  find ../rtl_combine_scramble  -maxdepth 1 -type f -name "*v" > rtl_list.f;echo > sim_list.f;
 cfl:
 	rm -rf rtl_list.f;  rm -rf sim_list.f;  find ../rtl ./bca -maxdepth 1 -type f -name "*v" > rtl_list.f;sed -i '/..\/rtl\/top_with_bridge.sv/d'  rtl_list.f;find ../ssy_tb/tb -maxdepth 1 -type f -name "*v" > sim_list.f;echo ../ssy_tb/tc/tb_top_nlp.sv >> sim_list.f;
