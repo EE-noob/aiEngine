@@ -46,6 +46,20 @@ class memory_model #(parameter ADDR_W=32, DATA_W=32);//>>>
     return data;
   endfunction
   
+  // Write halfword (16-bit)
+  function void write_halfword(bit [ADDR_W-1:0] addr, bit [15:0] data);
+    write_byte(addr, data[7:0]);
+    write_byte(addr + 1, data[15:8]);
+  endfunction
+  
+  // Read halfword (16-bit)
+  function bit [15:0] read_halfword(bit [ADDR_W-1:0] addr);
+    bit [15:0] data;
+    data[7:0] = read_byte(addr);
+    data[15:8] = read_byte(addr + 1);
+    return data;
+  endfunction
+  
   // Compare with another memory
   function int compare(memory_model #(ADDR_W, DATA_W) other);
     int mismatches = 0;
