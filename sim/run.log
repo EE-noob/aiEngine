@@ -4,7 +4,7 @@ Command: vcs -full64 -sverilog +v2k -timescale=1ns/1ns +notimingcheck +nospecify
 /home/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/pli.a -R +fsdb+autoflush \
 -l run.log
                          Chronologic VCS (TM)
-        Version O-2018.09-1_Full64 -- Fri Oct 17 14:00:31 2025
+        Version O-2018.09-1_Full64 -- Fri Oct 17 14:48:23 2025
                Copyright (c) 1991-2018 by Synopsys Inc.
                          ALL RIGHTS RESERVED
 
@@ -38,14 +38,304 @@ Parsing included file '../include/memory_model.sv'.
 Back to file '../tc/tb_ia_loader.sv'.
 Parsing included file '../include/Finish_task.sv'.
 Back to file '../tc/tb_ia_loader.sv'.
+Top Level Modules:
+       tb_ia_loader
 
-Error-[SE] Syntax error
-  Following verilog source has syntax error :
-  "../tc/tb_ia_loader.sv", 428: token is 'int'
-                  int dut_tile_row = u_ia_loader.tile_row_idx;
-                     ^
-  SystemVerilog  keyword 'int' is not expected to be used in this context.
+Warning-[UII-L] Interface not instantiated
+../tb/icb_if.sv, 9
+  Interface 'icb_if' defined in logic library 'work' is never instantiated in 
+  design. It will be ignored.
 
-1 warning
-1 error
-CPU time: .190 seconds to compile
+TimeScale is 1 ns / 1 ps
+
+Warning-[TFIPC] Too few instance port connections
+../tc/tb_ia_loader.sv, 124
+tb_ia_loader, "icb_unalign_bridge #(.WIDTH(BUS_WIDTH), .ADDR_W(ADDR_WIDTH), .OUTS_DEPTH(16), .ICB_LEN_W(4)) u_icb_unalign( .clk (clk),  .rst_n (rst_n),  .sa_icb_cmd_valid (sa_icb_cmd_m.valid),  .sa_icb_cmd_ready (sa_icb_cmd_s.ready),  .sa_icb_cmd_read (sa_icb_cmd_m.read),  .sa_icb_cmd_addr (sa_icb_cmd_m.addr),  .sa_icb_cmd_len (sa_icb_cmd_m.len),  .sa_icb_rsp_valid (sa_icb_rsp_s.rsp_valid),  .sa_icb_rsp_ready (sa_icb_rsp_m.rsp_ready),  .sa_icb_rsp_rdata (sa_icb_rsp_s.rsp_rdata),  .sa_icb_rsp_err (sa_icb_rsp_s.rsp_err),  .m_icb_cmd_valid (m_icb_cmd_valid),  .m_icb_cmd_ready (m_icb_cmd_ready),  .m_icb_cmd_read (m_icb_cmd_read),  .m_icb_cmd_addr (m_icb_cmd_addr),  .m_icb_cmd_wdata (m_icb_cmd_wdata),  .m_icb_cmd_wmask (m_icb_cmd_wmask),  .m_icb_rsp_valid (m_icb_rsp_valid) ... "
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Warning-[PCWM-W] Port connection width mismatch
+../tc/tb_ia_loader.sv, 124
+"icb_unalign_bridge #(BUS_WIDTH, ADDR_WIDTH, 16, 4, , , ) u_icb_unalign( .clk (clk),  .rst_n (rst_n),  .sa_icb_cmd_valid (sa_icb_cmd_m.valid),  .sa_icb_cmd_ready (sa_icb_cmd_s.ready),  .sa_icb_cmd_read (sa_icb_cmd_m.read),  .sa_icb_cmd_addr (sa_icb_cmd_m.addr),  .sa_icb_cmd_len (sa_icb_cmd_m.len),  .sa_icb_rsp_valid (sa_icb_rsp_s.rsp_valid),  .sa_icb_rsp_ready (sa_icb_rsp_m.rsp_ready),  .sa_icb_rsp_rdata (sa_icb_rsp_s.rsp_rdata),  .sa_icb_rsp_err (sa_icb_rsp_s.rsp_err),  .m_icb_cmd_valid (m_icb_cmd_valid),  .m_icb_cmd_ready (m_icb_cmd_ready),  .m_icb_cmd_read (m_icb_cmd_read),  .m_icb_cmd_addr (m_icb_cmd_addr),  .m_icb_cmd_wdata (m_icb_cmd_wdata),  .m_icb_cmd_wmask (m_icb_cmd_wmask),  .m_icb_rsp_valid (m_icb_rsp_valid),  .m_icb_rsp_ready (m_icb_rsp_ready ... "
+  The following 3-bit expression is connected to 4-bit port "sa_icb_cmd_len" 
+  of module "icb_unalign_bridge", instance "u_icb_unalign".
+  Expression: sa_icb_cmd_m.len
+  	use +lint=PCWM for more details
+
+
+Warning-[SIOB] Select index out of bounds
+../rtl/ia_loader.sv, 535
+"icb_rsp_s.rsp_rdata[47:32]"
+  The select index is out of declared bounds : [31:0].
+  In module instance : u_ia_loader 
+  In module : ia_loader.
+
+
+Warning-[SIOB] Select index out of bounds
+../rtl/ia_loader.sv, 537
+"icb_rsp_s.rsp_rdata[63:48]"
+  The select index is out of declared bounds : [31:0].
+  In module instance : u_ia_loader 
+  In module : ia_loader.
+
+
+Warning-[SIOB] Select index out of bounds
+../rtl/ia_loader.sv, 562
+"icb_rsp_s.rsp_rdata[39]"
+  The select index is out of declared bounds : [31:0].
+  In module instance : u_ia_loader 
+  In module : ia_loader.
+
+
+Warning-[SIOB] Select index out of bounds
+../rtl/ia_loader.sv, 562
+"icb_rsp_s.rsp_rdata[39:32]"
+  The select index is out of declared bounds : [31:0].
+  In module instance : u_ia_loader 
+  In module : ia_loader.
+
+
+Warning-[SIOB] Select index out of bounds
+../rtl/ia_loader.sv, 564
+"icb_rsp_s.rsp_rdata[47]"
+  The select index is out of declared bounds : [31:0].
+  In module instance : u_ia_loader 
+  In module : ia_loader.
+
+
+Warning-[SIOB] Select index out of bounds
+../rtl/ia_loader.sv, 564
+"icb_rsp_s.rsp_rdata[47:40]"
+  The select index is out of declared bounds : [31:0].
+  In module instance : u_ia_loader 
+  In module : ia_loader.
+
+
+Warning-[SIOB] Select index out of bounds
+../rtl/ia_loader.sv, 566
+"icb_rsp_s.rsp_rdata[55]"
+  The select index is out of declared bounds : [31:0].
+  In module instance : u_ia_loader 
+  In module : ia_loader.
+
+
+Warning-[SIOB] Select index out of bounds
+../rtl/ia_loader.sv, 566
+"icb_rsp_s.rsp_rdata[55:48]"
+  The select index is out of declared bounds : [31:0].
+  In module instance : u_ia_loader 
+  In module : ia_loader.
+
+
+Warning-[SIOB] Select index out of bounds
+../rtl/ia_loader.sv, 568
+"icb_rsp_s.rsp_rdata[63]"
+  The select index is out of declared bounds : [31:0].
+  In module instance : u_ia_loader 
+  In module : ia_loader.
+
+
+Warning-[SIOB] Select index out of bounds
+../rtl/ia_loader.sv, 568
+"icb_rsp_s.rsp_rdata[63:56]"
+  The select index is out of declared bounds : [31:0].
+  In module instance : u_ia_loader 
+  In module : ia_loader.
+
+Starting vcs inline pass...
+4 modules and 0 UDP read.
+recompiling package vcs_paramclassrepository
+recompiling module ia_loader
+Both modules done.
+	However, due to incremental compilation, only 2 modules need to be compiled. 
+make[1]: Entering directory '/home/ICer/ic_prjs/aiengine/icb_unalign_bridge/sim/csrc' \
+
+rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+ld -shared  -Bsymbolic  -o .//../simv.daidir//_csrc0.so objs/amcQw_d.o 
+rm -f _csrc0.so
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++  -o ../simv    -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ \
+-Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic  -Wl,-rpath=/home/synopsys/vcs-mx/O-2018.09-1/linux64/lib \
+-L/home/synopsys/vcs-mx/O-2018.09-1/linux64/lib     _23903_archive_1.so _prev_archive_1.so \
+_csrc0.so  SIM_l.o  _csrc0.so     rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o \
+rmar_llvm_0_0.o          -lzerosoft_rt_stubs -lvirsim -lerrorinf -lsnpsmalloc -lvfs \
+/home/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/pli.a    -lvcsnew \
+-lsimprofile -luclinative /home/synopsys/vcs-mx/O-2018.09-1/linux64/lib/vcs_tls.o \
+-Wl,-whole-archive -lvcsucli -Wl,-no-whole-archive        _vcs_pli_stub_.o   /home/synopsys/vcs-mx/O-2018.09-1/linux64/lib/vcs_save_restore_new.o \
+-ldl -lm  -lc -lpthread -ldl 
+../simv up to date
+make[1]: Leaving directory '/home/ICer/ic_prjs/aiengine/icb_unalign_bridge/sim/csrc' \
+
+Command: /home/ICer/ic_prjs/aiengine/icb_unalign_bridge/sim/./simv +v2k +notimingcheck +nospecify +vcs+flush+all -a compile.log +dump_fsdb +fsdb+autoflush -a run.log
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-1_Full64; Runtime version O-2018.09-1_Full64;  Oct 17 14:48 2025
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb_ia_loader.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : End of traversing.
+*Verdi* : Begin traversing the SVA assertions, layer (0).
+*Verdi* : End of traversing the SVA assertions.
+*Verdi* : Begin traversing the MDAs, layer (0).
+*Verdi* : Enable +mda and +packedmda dumping.
+*Verdi* : End of traversing the MDAs.
+
+
+╔════════════════════════════════════════════════════════╗
+║          Test Case 1: 16-bit, 69x66, Regular          ║
+╚════════════════════════════════════════════════════════╝
+[195000] Loading IA matrix to memory: k=69, n=66, base=0x1000, stride=132, 16bit=1
+[195000] Memory loading completed
+
+[195000] ========== Starting Test ==========
+[195000] Configuration: k=69, n=66, m=64, 16bit=1, random=0, verbose=2
+[M_MEM] Read: addr=0x00001000, data=0x00010000
+[265000] Monitor: row_tile_num=5, col_tile_num=5, loop_row_num=4, total=100
+[M_MEM] Read: addr=0x00001004, data=0x00030002
+[M_MEM] Read: addr=0x00001008, data=0x00050004
+[M_MEM] Read: addr=0x0000100c, data=0x00070006
+[M_MEM] Read: addr=0x00001010, data=0x00090008
+[M_MEM] Read: addr=0x00001014, data=0x000b000a
+[M_MEM] Read: addr=0x00001018, data=0x000d000c
+[M_MEM] Read: addr=0x0000101c, data=0x000f000e
+[M_MEM] Read: addr=0x00001000, data=0x00010000
+[M_MEM] Read: addr=0x00001004, data=0x00030002
+[M_MEM] Read: addr=0x00001008, data=0x00050004
+[M_MEM] Read: addr=0x0000100c, data=0x00070006
+[M_MEM] Read: addr=0x00001010, data=0x00090008
+[M_MEM] Read: addr=0x00001014, data=0x000b000a
+[M_MEM] Read: addr=0x00001018, data=0x000d000c
+[M_MEM] Read: addr=0x0000101c, data=0x000f000e
+[M_MEM] Read: addr=0x00001084, data=0x01010100
+[M_MEM] Read: addr=0x00001088, data=0x01030102
+[M_MEM] Read: addr=0x0000108c, data=0x01050104
+[M_MEM] Read: addr=0x00001090, data=0x01070106
+[M_MEM] Read: addr=0x00001094, data=0x01090108
+[M_MEM] Read: addr=0x00001098, data=0x010b010a
+[M_MEM] Read: addr=0x0000109c, data=0x010d010c
+[M_MEM] Read: addr=0x000010a0, data=0x010f010e
+[M_MEM] Read: addr=0x00001108, data=0x02010200
+[M_MEM] Read: addr=0x0000110c, data=0x02030202
+[M_MEM] Read: addr=0x00001110, data=0x02050204
+[M_MEM] Read: addr=0x00001114, data=0x02070206
+[M_MEM] Read: addr=0x00001118, data=0x02090208
+[M_MEM] Read: addr=0x0000111c, data=0x020b020a
+[M_MEM] Read: addr=0x00001120, data=0x020d020c
+[M_MEM] Read: addr=0x00001124, data=0x020f020e
+[M_MEM] Read: addr=0x0000118c, data=0x03010300
+[M_MEM] Read: addr=0x00001190, data=0x03030302
+[M_MEM] Read: addr=0x00001194, data=0x03050304
+[M_MEM] Read: addr=0x00001198, data=0x03070306
+[M_MEM] Read: addr=0x0000119c, data=0x03090308
+[M_MEM] Read: addr=0x000011a0, data=0x030b030a
+[M_MEM] Read: addr=0x000011a4, data=0x030d030c
+[M_MEM] Read: addr=0x000011a8, data=0x030f030e
+[M_MEM] Read: addr=0x00001210, data=0x04010400
+[M_MEM] Read: addr=0x00001214, data=0x04030402
+[M_MEM] Read: addr=0x00001218, data=0x04050404
+[M_MEM] Read: addr=0x0000121c, data=0x04070406
+[M_MEM] Read: addr=0x00001220, data=0x04090408
+[M_MEM] Read: addr=0x00001224, data=0x040b040a
+[M_MEM] Read: addr=0x00001228, data=0x040d040c
+[M_MEM] Read: addr=0x0000122c, data=0x040f040e
+[M_MEM] Read: addr=0x00001294, data=0x05010500
+[M_MEM] Read: addr=0x00001298, data=0x05030502
+[M_MEM] Read: addr=0x0000129c, data=0x05050504
+[M_MEM] Read: addr=0x000012a0, data=0x05070506
+[M_MEM] Read: addr=0x000012a4, data=0x05090508
+[M_MEM] Read: addr=0x000012a8, data=0x050b050a
+[M_MEM] Read: addr=0x000012ac, data=0x050d050c
+[M_MEM] Read: addr=0x000012b0, data=0x050f050e
+[M_MEM] Read: addr=0x00001318, data=0x06010600
+[M_MEM] Read: addr=0x0000131c, data=0x06030602
+[M_MEM] Read: addr=0x00001320, data=0x06050604
+[M_MEM] Read: addr=0x00001324, data=0x06070606
+[M_MEM] Read: addr=0x00001328, data=0x06090608
+[M_MEM] Read: addr=0x0000132c, data=0x060b060a
+[M_MEM] Read: addr=0x00001330, data=0x060d060c
+[M_MEM] Read: addr=0x00001334, data=0x060f060e
+[M_MEM] Read: addr=0x0000139c, data=0x07010700
+[M_MEM] Read: addr=0x000013a0, data=0x07030702
+[M_MEM] Read: addr=0x000013a4, data=0x07050704
+[M_MEM] Read: addr=0x000013a8, data=0x07070706
+[M_MEM] Read: addr=0x000013ac, data=0x07090708
+[M_MEM] Read: addr=0x000013b0, data=0x070b070a
+[M_MEM] Read: addr=0x000013b4, data=0x070d070c
+[M_MEM] Read: addr=0x000013b8, data=0x070f070e
+[M_MEM] Read: addr=0x00001420, data=0x08010800
+[M_MEM] Read: addr=0x00001424, data=0x08030802
+[M_MEM] Read: addr=0x00001428, data=0x08050804
+[M_MEM] Read: addr=0x0000142c, data=0x08070806
+[M_MEM] Read: addr=0x00001430, data=0x08090808
+[M_MEM] Read: addr=0x00001434, data=0x080b080a
+[M_MEM] Read: addr=0x00001438, data=0x080d080c
+[M_MEM] Read: addr=0x0000143c, data=0x080f080e
+[M_MEM] Read: addr=0x000014a4, data=0x09010900
+[M_MEM] Read: addr=0x000014a8, data=0x09030902
+[M_MEM] Read: addr=0x000014ac, data=0x09050904
+[M_MEM] Read: addr=0x000014b0, data=0x09070906
+[M_MEM] Read: addr=0x000014b4, data=0x09090908
+[M_MEM] Read: addr=0x000014b8, data=0x090b090a
+[M_MEM] Read: addr=0x000014bc, data=0x090d090c
+[M_MEM] Read: addr=0x000014c0, data=0x090f090e
+[M_MEM] Read: addr=0x00001528, data=0x0a010a00
+[M_MEM] Read: addr=0x0000152c, data=0x0a030a02
+[M_MEM] Read: addr=0x00001530, data=0x0a050a04
+[M_MEM] Read: addr=0x00001534, data=0x0a070a06
+[M_MEM] Read: addr=0x00001538, data=0x0a090a08
+[M_MEM] Read: addr=0x0000153c, data=0x0a0b0a0a
+[M_MEM] Read: addr=0x00001540, data=0x0a0d0a0c
+[M_MEM] Read: addr=0x00001544, data=0x0a0f0a0e
+[M_MEM] Read: addr=0x000015ac, data=0x0b010b00
+[M_MEM] Read: addr=0x000015b0, data=0x0b030b02
+[M_MEM] Read: addr=0x000015b4, data=0x0b050b04
+[M_MEM] Read: addr=0x000015b8, data=0x0b070b06
+[M_MEM] Read: addr=0x000015bc, data=0x0b090b08
+[M_MEM] Read: addr=0x000015c0, data=0x0b0b0b0a
+[M_MEM] Read: addr=0x000015c4, data=0x0b0d0b0c
+[M_MEM] Read: addr=0x000015c8, data=0x0b0f0b0e
+[M_MEM] Read: addr=0x00001630, data=0x0c010c00
+[M_MEM] Read: addr=0x00001634, data=0x0c030c02
+[M_MEM] Read: addr=0x00001638, data=0x0c050c04
+[M_MEM] Read: addr=0x0000163c, data=0x0c070c06
+[M_MEM] Read: addr=0x00001640, data=0x0c090c08
+[M_MEM] Read: addr=0x00001644, data=0x0c0b0c0a
+[M_MEM] Read: addr=0x00001648, data=0x0c0d0c0c
+[M_MEM] Read: addr=0x0000164c, data=0x0c0f0c0e
+[M_MEM] Read: addr=0x000016b4, data=0x0d010d00
+[M_MEM] Read: addr=0x000016b8, data=0x0d030d02
+[M_MEM] Read: addr=0x000016bc, data=0x0d050d04
+[M_MEM] Read: addr=0x000016c0, data=0x0d070d06
+[M_MEM] Read: addr=0x000016c4, data=0x0d090d08
+[M_MEM] Read: addr=0x000016c8, data=0x0d0b0d0a
+[M_MEM] Read: addr=0x000016cc, data=0x0d0d0d0c
+[M_MEM] Read: addr=0x000016d0, data=0x0d0f0d0e
+[M_MEM] Read: addr=0x00001738, data=0x0e010e00
+[M_MEM] Read: addr=0x0000173c, data=0x0e030e02
+[M_MEM] Read: addr=0x00001740, data=0x0e050e04
+[M_MEM] Read: addr=0x00001744, data=0x0e070e06
+[M_MEM] Read: addr=0x00001748, data=0x0e090e08
+[M_MEM] Read: addr=0x0000174c, data=0x0e0b0e0a
+[M_MEM] Read: addr=0x00001750, data=0x0e0d0e0c
+[M_MEM] Read: addr=0x00001754, data=0x0e0f0e0e
+[M_MEM] Read: addr=0x000017bc, data=0x0f010f00
+[M_MEM] Read: addr=0x000017c0, data=0x0f030f02
+[M_MEM] Read: addr=0x000017c4, data=0x0f050f04
+[M_MEM] Read: addr=0x000017c8, data=0x0f070f06
+[M_MEM] Read: addr=0x000017cc, data=0x0f090f08
+[M_MEM] Read: addr=0x000017d0, data=0x0f0b0f0a
+[M_MEM] Read: addr=0x000017d4, data=0x0f0d0f0c
+[M_MEM] Read: addr=0x000017d8, data=0x0f0f0f0e
+Interrupt at time 5059135000
+
+q
+            V C S   S i m u l a t i o n   R e p o r t 
+Time: 5059135000 ps
+CPU Time:      1.870 seconds;       Data structure size:   0.1Mb
+Fri Oct 17 14:48:26 2025
+CPU time: .381 seconds to compile + .252 seconds to elab + .234 seconds to link + 1.897 seconds in simulation

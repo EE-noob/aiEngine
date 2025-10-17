@@ -53,11 +53,17 @@
          .rst_n(rst_n)
      );
  
-     // ICB信号定义 - 使用struct类型
-     icb_ext_cmd_m_t sa_icb_cmd_m;
-     icb_ext_cmd_s_t sa_icb_cmd_s;
-     icb_ext_rsp_s_t sa_icb_rsp_s;
-     icb_ext_rsp_m_t sa_icb_rsp_m;
+     // ICB信号定义（不使用interface，直接连线）
+     // SA端（ia_loader master端）
+     logic                   sa_icb_cmd_valid;
+     logic                   sa_icb_cmd_ready;
+     logic [ADDR_WIDTH-1:0]  sa_icb_cmd_addr;
+     logic                   sa_icb_cmd_read;
+     logic [3:0]             sa_icb_cmd_len;
+     logic                   sa_icb_rsp_valid;
+     logic                   sa_icb_rsp_ready;
+     logic [BUS_WIDTH-1:0]   sa_icb_rsp_rdata;
+     logic                   sa_icb_rsp_err;
  
      // M端（连接memory）
      logic                   m_icb_cmd_valid;
@@ -98,11 +104,11 @@
          .lhs_base(ia_if.lhs_base),
          .use_16bits(ia_if.use_16bits),
          
-         // ICB接口 - 使用struct
-         .icb_cmd_m(sa_icb_cmd_m),
-         .icb_cmd_s(sa_icb_cmd_s),
-         .icb_rsp_s(sa_icb_rsp_s),
-         .icb_rsp_m(sa_icb_rsp_m),
+         // ICB接口
+         .icb_cmd_m({sa_icb_cmd_valid, sa_icb_cmd_read, sa_icb_cmd_addr, sa_icb_cmd_len, 32'h0, 4'h0}),
+         .icb_cmd_s({sa_icb_cmd_ready}),
+         .icb_rsp_s({sa_icb_rsp_valid, sa_icb_rsp_rdata, sa_icb_rsp_err}),
+         .icb_rsp_m({sa_icb_rsp_ready}),
          
          // 输出接口
          .ia_sending_done(ia_if.ia_sending_done),
@@ -126,19 +132,19 @@
          .rst_n(rst_n),
          
          // ICB slave接口（连接ia_loader）- SA端口
-         .sa_icb_cmd_valid(sa_icb_cmd_m.valid),
-         .sa_icb_cmd_ready(sa_icb_cmd_s.ready),
-         .sa_icb_cmd_read(sa_icb_cmd_m.read),
-         .sa_icb_cmd_addr(sa_icb_cmd_m.addr),
-         .sa_icb_cmd_len(sa_icb_cmd_m.len),
-        //  .sa_icb_cmd_wdata(sa_icb_cmd_m.w_data),
-        //  .sa_icb_cmd_wmask(sa_icb_cmd_m.wmask),
-        //  .sa_icb_w_valid(1'b0),            // 读操作，写有效为0
-        //  .sa_icb_w_ready(),                // 未使用
-         .sa_icb_rsp_valid(sa_icb_rsp_s.rsp_valid),
-         .sa_icb_rsp_ready(sa_icb_rsp_m.rsp_ready),
-         .sa_icb_rsp_rdata(sa_icb_rsp_s.rsp_rdata),
-         .sa_icb_rsp_err(sa_icb_rsp_s.rsp_err),
+         .sa_icb_cmd_valid(sa_icb_cmd_valid),
+         .sa_icb_cmd_ready(sa_icb_cmd_ready),
+         .sa_icb_cmd_read(sa_icb_cmd_read),
+         .sa_icb_cmd_addr(sa_icb_cmd_addr),
+         .sa_icb_cmd_len(sa_icb_cmd_len),
+         .sa_icb_cmd_wdata(32'h0),         // 读操作，写数据为0
+         .sa_icb_cmd_wmask(4'h0),          // 读操作，写掩码为0
+         .sa_icb_w_valid(1'b0),            // 读操作，写有效为0
+         .sa_icb_w_ready(),                // 未使用
+         .sa_icb_rsp_valid(sa_icb_rsp_valid),
+         .sa_icb_rsp_ready(sa_icb_rsp_ready),
+         .sa_icb_rsp_rdata(sa_icb_rsp_rdata),
+         .sa_icb_rsp_err(sa_icb_rsp_err),
          
          // ICB master接口（连接memory）- M端口
          .m_icb_cmd_valid(m_icb_cmd_valid),
@@ -682,6 +688,5 @@
      end
  
  endmodule
- 
  
  
