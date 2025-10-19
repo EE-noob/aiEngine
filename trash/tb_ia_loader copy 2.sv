@@ -21,7 +21,6 @@ module tb_ia_loader;
     parameter int REG_WIDTH = 32;
     parameter int BUS_WIDTH = 32;
     parameter int ADDR_WIDTH = 32;
-    parameter int MAX_MATRIX_SIZE = 128;  // 最大矩阵尺寸
 
 
     // ICB信号定义（展开信号）
@@ -249,14 +248,12 @@ module tb_ia_loader;
         int n;
         int m;
         bit use_16bits;
+        logic signed [15:0] ia_matrix[][];  // 改为二维动态数组
         int base_addr;
         int row_stride;
     } test_config_t;
 
     test_config_t current_test;
-    
-    // 定宽IA矩阵数组（用于波形观察）
-    logic signed [15:0] ia_matrix_fixed [MAX_MATRIX_SIZE-1:0][MAX_MATRIX_SIZE-1:0];
 
     // =========================================================================
     // 监控变量
@@ -278,25 +275,20 @@ module tb_ia_loader;
         input int k,
         input int n,
         input bit use_16bits,
-        input bit random_data
+        input bit random_data,
+        ref logic signed [15:0] ia_matrix[][]  // 使用ref传递二维数组
     );
-        // 清空数组
-        for (int i = 0; i < MAX_MATRIX_SIZE; i++) begin
-            for (int j = 0; j < MAX_MATRIX_SIZE; j++) begin
-                ia_matrix_fixed[i][j] = '0;
-            end
-        end
-        
-        // 生成有效数据
+        ia_matrix = new[k];
         for (int i = 0; i < k; i++) begin
+            ia_matrix[i] = new[n];
             for (int j = 0; j < n; j++) begin
                 if (random_data) begin
-                    ia_matrix_fixed[i][j] = $random & 16'hFFFF;
+                    ia_matrix[i][j] = $random & 16'hFFFF;
                 end else begin
                     if (use_16bits) begin
-                        ia_matrix_fixed[i][j] = {i[7:0], j[7:0]};
+                        ia_matrix[i][j] = {i[7:0], j[7:0]};
                     end else begin
-                        ia_matrix_fixed[i][j] = (i * n + j) & 16'h00FF;
+                        ia_matrix[i][j] = (i * n + j) & 16'h00FF;
                     end
                 end
             end
@@ -307,6 +299,7 @@ module tb_ia_loader;
     // 任务：将IA矩阵加载到内存
     // =========================================================================
     task automatic load_ia_to_memory(
+        ref logic signed [15:0] ia_matrix[][],  // 使用ref传递二维数组
         input int k,
         input int n,
         input int base_addr,
@@ -321,11 +314,11 @@ module tb_ia_loader;
             addr = base_addr + i * row_stride;
             for (int j = 0; j < n; j++) begin
                 if (use_16bits) begin
-                    golden_mem.write_halfword(addr + j*2, ia_matrix_fixed[i][j]);
-                    m_mem.write_halfword(addr + j*2, ia_matrix_fixed[i][j]);
+                    golden_mem.write_halfword(addr + j*2, ia_matrix[i][j]);
+                    m_mem.write_halfword(addr + j*2, ia_matrix[i][j]);
                 end else begin
-                    golden_mem.write_byte(addr + j, ia_matrix_fixed[i][j][7:0]);
-                    m_mem.write_byte(addr + j, ia_matrix_fixed[i][j][7:0]);
+                    golden_mem.write_byte(addr + j, ia_matrix[i][j][7:0]);
+                    m_mem.write_byte(addr + j, ia_matrix[i][j][7:0]);
                 end
             end
         end
@@ -343,18 +336,19 @@ module tb_ia_loader;
         input bit random_data,
         input int verbose_level
     );
+        logic signed [15:0] ia_matrix[][];
         int base_addr = 32'h0000_1000;
         int row_stride;
         int test_error_count_before;
         
         total_test_count++;
-        test_error_count_before = total_error_count;
+        test_error_count_before = total_error_count;  // 修复：使用total_error_count
         
         // 计算行步长（字节对齐到4字节边界）
         if (use_16bits) begin
-            row_stride = ((n * 2 + 3) / 4) * 4;
+            row_stride = ((n * 2 + 3) / 4) * 4;  // 向上对齐到4字节
         end else begin
-            row_stride = ((n + 3) / 4) * 4;
+            row_stride = ((n + 3) / 4) * 4;      // 向上对齐到4字节
         end
         
         current_test.k = k;
@@ -365,8 +359,9 @@ module tb_ia_loader;
         current_test.row_stride = row_stride;
         
         // 生成并加载IA矩阵
-        generate_ia_matrix(k, n, use_16bits, random_data);
-        load_ia_to_memory(k, n, base_addr, row_stride, use_16bits);
+        generate_ia_matrix(k, n, use_16bits, random_data, ia_matrix);
+        current_test.ia_matrix = ia_matrix;
+        load_ia_to_memory(ia_matrix, k, n, base_addr, row_stride, use_16bits);
         
         // 初始化监控变量
         monitor_tile_row = 0;
@@ -536,9 +531,9 @@ module tb_ia_loader;
         
         for (int i = 0; i < SIZE; i++) begin
             if (i < valid_cols && actual_col_start + i < current_test.n) begin
-                expected_row[i] = ia_matrix_fixed[actual_row_idx][actual_col_start + i];
+                expected_row[i] = current_test.ia_matrix[actual_row_idx][actual_col_start + i];
             end else if (valid_cols > 0) begin
-                expected_row[i] = ia_matrix_fixed[actual_row_idx][actual_col_start + valid_cols - 1];
+                expected_row[i] = current_test.ia_matrix[actual_row_idx][actual_col_start + valid_cols - 1];
             end else begin
                 expected_row[i] = 0;
             end
@@ -569,17 +564,16 @@ module tb_ia_loader;
         
         result_str = row_match ? "PASS" : "FAIL";
         
-        if (verbose_level == 3) begin
+        if (verbose_level == 0) begin
             if (!row_match) begin
                 $display("[%0t] [%s] Tile[%0d][%0d] Loop[%0d] Row=%0d (DUT: [%0d][%0d] Loop[%0d])",
                         $time, result_str, monitor_tile_row, monitor_tile_col, monitor_loop_cnt, row_in_tile,
                         dut_tile_row, dut_tile_col, dut_loop_cnt);
-             display_row_comparison(!row_match);
             end
-        end else if (verbose_level == 2) begin
+        end else if (verbose_level >= 1) begin
             $display("[%0t] [%s] Tile[%0d][%0d] Loop[%0d] Row=%0d",
                     $time, result_str, monitor_tile_row, monitor_tile_col, monitor_loop_cnt, row_in_tile);
-            if (verbose_level >= 1 || !row_match) begin
+            if (verbose_level >= 2 || !row_match) begin
                 display_row_comparison(!row_match);
             end
         end
@@ -631,74 +625,74 @@ module tb_ia_loader;
         $display("╔════════════════════════════════════════════════════════╗");
         $display("║          Test Case 1: 16-bit, 69x66, Regular          ║");
         $display("╚════════════════════════════════════════════════════════╝");
-        run_test(.k(69), .n(66), .m(64), .use_16bits(1), .random_data(0), .verbose_level(3));
+        run_test(.k(69), .n(66), .m(64), .use_16bits(1), .random_data(0), .verbose_level(2));
         
-        // // =====================================================================
-        // // 测试用例2: 8位数据，65x68矩阵
-        // // =====================================================================
-        // $display("\n");
-        // $display("╔════════════════════════════════════════════════════════╗");
-        // $display("║           Test Case 2: 8-bit, 65x68, Regular          ║");
-        // $display("╚════════════════════════════════════════════════════════╝");
-        // run_test(.k(65), .n(68), .m(48), .use_16bits(0), .random_data(0), .verbose_level(3));
+        // =====================================================================
+        // 测试用例2: 8位数据，65x68矩阵
+        // =====================================================================
+        $display("\n");
+        $display("╔════════════════════════════════════════════════════════╗");
+        $display("║           Test Case 2: 8-bit, 65x68, Regular          ║");
+        $display("╚════════════════════════════════════════════════════════╝");
+        run_test(.k(65), .n(68), .m(48), .use_16bits(0), .random_data(0), .verbose_level(2));
         
-        // // =====================================================================
-        // // 测试用例3: 16位数据，精确tile大小
-        // // =====================================================================
-        // $display("\n");
-        // $display("╔════════════════════════════════════════════════════════╗");
-        // $display("║       Test Case 3: 16-bit, 16x16, Exact Tile          ║");
-        // $display("╚════════════════════════════════════════════════════════╝");
-        // run_test(.k(16), .n(16), .m(16), .use_16bits(1), .random_data(0), .verbose_level(3));
+        // =====================================================================
+        // 测试用例3: 16位数据，精确tile大小
+        // =====================================================================
+        $display("\n");
+        $display("╔════════════════════════════════════════════════════════╗");
+        $display("║       Test Case 3: 16-bit, 16x16, Exact Tile          ║");
+        $display("╚════════════════════════════════════════════════════════╝");
+        run_test(.k(16), .n(16), .m(16), .use_16bits(1), .random_data(0), .verbose_level(3));
         
-        // // =====================================================================
-        // // 测试用例4: 8位数据，多次循环
-        // // =====================================================================
-        // $display("\n");
-        // $display("╔════════════════════════════════════════════════════════╗");
-        // $display("║      Test Case 4: 8-bit, 32x32, Multiple Loops        ║");
-        // $display("╚════════════════════════════════════════════════════════╝");
-        // run_test(.k(32), .n(32), .m(80), .use_16bits(0), .random_data(0), .verbose_level(1));
+        // =====================================================================
+        // 测试用例4: 8位数据，多次循环
+        // =====================================================================
+        $display("\n");
+        $display("╔════════════════════════════════════════════════════════╗");
+        $display("║      Test Case 4: 8-bit, 32x32, Multiple Loops        ║");
+        $display("╚════════════════════════════════════════════════════════╝");
+        run_test(.k(32), .n(32), .m(80), .use_16bits(0), .random_data(0), .verbose_level(1));
         
-        // // =====================================================================
-        // // 测试用例5: 边界条件 - 小矩阵
-        // // =====================================================================
-        // $display("\n");
-        // $display("╔════════════════════════════════════════════════════════╗");
-        // $display("║         Test Case 5: 16-bit, 8x8, Small Matrix        ║");
-        // $display("╚════════════════════════════════════════════════════════╝");
-        // run_test(.k(8), .n(8), .m(8), .use_16bits(1), .random_data(0), .verbose_level(3));
+        // =====================================================================
+        // 测试用例5: 边界条件 - 小矩阵
+        // =====================================================================
+        $display("\n");
+        $display("╔════════════════════════════════════════════════════════╗");
+        $display("║         Test Case 5: 16-bit, 8x8, Small Matrix        ║");
+        $display("╚════════════════════════════════════════════════════════╝");
+        run_test(.k(8), .n(8), .m(8), .use_16bits(1), .random_data(0), .verbose_level(3));
         
-        // // =====================================================================
-        // // 随机测试用例（100次）
-        // // =====================================================================
-        // $display("\n");
-        // $display("╔════════════════════════════════════════════════════════╗");
-        // $display("║              Random Test Cases (100x)                  ║");
-        // $display("╚════════════════════════════════════════════════════════╝");
+        // =====================================================================
+        // 随机测试用例（100次）
+        // =====================================================================
+        $display("\n");
+        $display("╔════════════════════════════════════════════════════════╗");
+        $display("║              Random Test Cases (100x)                  ║");
+        $display("╚════════════════════════════════════════════════════════╝");
         
-        // for (int i = 0; i < 100; i++) begin
-        //     int rand_k, rand_n, rand_m;
-        //     bit rand_use_16bits;
+        for (int i = 0; i < 100; i++) begin
+            int rand_k, rand_n, rand_m;
+            bit rand_use_16bits;
             
-        //     // 随机生成参数
-        //     rand_k = $urandom_range(1, 128);
-        //     rand_n = $urandom_range(1, 128);
-        //     rand_m = $urandom_range(1, 128);
-        //     rand_use_16bits = $urandom_range(0, 1);
+            // 随机生成参数
+            rand_k = $urandom_range(1, 128);
+            rand_n = $urandom_range(1, 128);
+            rand_m = $urandom_range(1, 128);
+            rand_use_16bits = $urandom_range(0, 1);
             
-        //     $display("\n[Random Test %0d/100] k=%0d, n=%0d, m=%0d, 16bit=%0b",
-        //             i+1, rand_k, rand_n, rand_m, rand_use_16bits);
+            $display("\n[Random Test %0d/100] k=%0d, n=%0d, m=%0d, 16bit=%0b",
+                    i+1, rand_k, rand_n, rand_m, rand_use_16bits);
             
-        //     run_test(.k(rand_k), .n(rand_n), .m(rand_m), 
-        //             .use_16bits(rand_use_16bits), .random_data(1), .verbose_level(0));
-        // end
+            run_test(.k(rand_k), .n(rand_n), .m(rand_m), 
+                    .use_16bits(rand_use_16bits), .random_data(1), .verbose_level(0));
+        end
         
-        // // 测试完成 - 调用Finish任务
-        // $display("\n");
-        // $display("╔════════════════════════════════════════════════════════╗");
-        // $display("║              ALL TESTS COMPLETED                       ║");
-        // $display("╚════════════════════════════════════════════════════════╝");
+        // 测试完成 - 调用Finish任务
+        $display("\n");
+        $display("╔════════════════════════════════════════════════════════╗");
+        $display("║              ALL TESTS COMPLETED                       ║");
+        $display("╚════════════════════════════════════════════════════════╝");
         
         repeat(100) @(posedge clk);
         

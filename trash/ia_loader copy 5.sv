@@ -198,6 +198,7 @@
      // =========================================================================
      reg [REG_WIDTH-1:0] send_row_idx;
      reg ia_data_valid_reg;
+     reg ia_sending_done_reg;
  
      // =========================================================================
      // ICB响应接收控制
@@ -219,13 +220,12 @@
      // =========================================================================
      // 辅助信号
      // =========================================================================
-    
-     wire is_last_col_tile = (tile_col_idx == row_tile_num - 1);
-     wire is_last_row_tile = (tile_row_idx == col_tile_num - 1);
-     wire is_last_loop = (loop_row_cnt == loop_row_num - 1);
-     wire is_first_tile = (tile_col_idx == 0);
-     wire cmd_hs = icb_cmd_valid && icb_cmd_ready;
-     wire rsp_hs = icb_rsp_valid && icb_rsp_ready;
+     logic is_last_col_tile = (tile_col_idx == row_tile_num - 1);
+     logic is_last_row_tile = (tile_row_idx == col_tile_num - 1);
+     logic is_last_loop = (loop_row_cnt == loop_row_num - 1);
+     logic is_first_tile = (tile_col_idx == 0);
+     logic cmd_hs = icb_cmd_valid && icb_cmd_ready;
+     logic rsp_hs = icb_rsp_valid && icb_rsp_ready;
  
      localparam int BYTE_PER_BEAT = BUS_WIDTH / 8;
  
@@ -255,11 +255,13 @@
                 end
 
                 SEND: begin
+                    if (ia_sending_done_reg) begin
                         if (is_last_row_tile && is_last_col_tile && is_last_loop)
                             state <= IDLE;
                         else if (load_ia_granted)
                             // 等待授权后才进入下一个LOAD
                             state <= LOAD;
+                    end
                 end
 
                 default: state <= IDLE;
@@ -348,7 +350,7 @@
                  end
  
                  SEND: begin
-                     if (ia_sending_done) begin
+                     if (ia_sending_done_reg) begin
                          if (is_last_loop && is_last_col_tile) begin
                              // 移到下一行tile
                              tile_row_idx <= tile_row_idx + 1;
@@ -377,7 +379,7 @@
              current_tile_addr <= '0;
          end else if (state == INIT) begin
              current_tile_addr <= cfg_lhs_base;
-         end else if (state == SEND && ia_sending_done) begin
+         end else if (state == SEND && ia_sending_done_reg) begin
              // tile发送完成后更新到下一个tile的起始地址
              if (is_last_col_tile && is_last_loop) begin
                  // 当前行的所有tile循环都完成了，移到下一行tile的第一个
@@ -402,7 +404,7 @@
              rows_to_read <= '0;
              valid_rows <= '0;
              valid_cols <= '0;
-         end else if (state == INIT || (state == SEND && ia_sending_done)) begin
+         end else if (state == INIT || (state == SEND && ia_sending_done_reg)) begin
              valid_rows <= is_last_row_tile ? (SIZE - col_tile_rem) : SIZE;
              valid_cols <= is_last_col_tile ? (SIZE - row_tile_rem) : SIZE;
              rows_to_read <= is_last_row_tile ? (SIZE - col_tile_rem) : SIZE;
@@ -472,16 +474,12 @@ assign icb_cmd_len=read_burst_length-1;
     
     // 列索引计算
     logic [$clog2(SIZE)-1:0] base_col_idx;  // 当前beat对应的起始列索引
-    logic [$clog2(SIZE)-1:0] col_idx;
-    assign col_idx = cfg_use_16bits ? 
-                   (rsp_beat_cnt << $clog2(ELEMENTS_PER_BEAT_S16)):
-                    (rsp_beat_cnt << $clog2(ELEMENTS_PER_BEAT_S8));
     
     // 响应通道辅助信号（根据响应通道自己的tile索引计算）
-    wire rsp_is_last_col_tile = (rsp_tile_col_idx == row_tile_num - 1);  // 是否最后一列tile
-    wire rsp_is_last_row_tile = (rsp_tile_row_idx == col_tile_num - 1);  // 是否最后一行tile
-    wire [REG_WIDTH-1:0] rsp_current_rows = rsp_is_last_row_tile ? rsp_rows_last_tile : rsp_rows_per_tile;      // 当前tile的行数
-    wire [REG_WIDTH-1:0] rsp_current_beats = rsp_is_last_col_tile ? rsp_beats_per_row_last : rsp_beats_per_row_normal;  // 当前行的beat数
+    logic rsp_is_last_col_tile = (rsp_tile_col_idx == row_tile_num - 1);  // 是否最后一列tile
+    logic rsp_is_last_row_tile = (rsp_tile_row_idx == col_tile_num - 1);  // 是否最后一行tile
+    logic [REG_WIDTH-1:0] rsp_current_rows = rsp_is_last_row_tile ? rsp_rows_last_tile : rsp_rows_per_tile;      // 当前tile的行数
+    logic [REG_WIDTH-1:0] rsp_current_beats = rsp_is_last_col_tile ? rsp_beats_per_row_last : rsp_beats_per_row_normal;  // 当前行的beat数
     
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
@@ -520,6 +518,12 @@ assign icb_cmd_len=read_burst_length-1;
                         // 数据解析与存储（修复：先计算列索引，然后再存储）
                         // =====================================================
                         // 计算当前beat对应的列索引
+                        logic [$clog2(SIZE)-1:0] col_idx;
+                        if (cfg_use_16bits) begin
+                            col_idx = rsp_beat_cnt << $clog2(ELEMENTS_PER_BEAT_S16);
+                        end else begin
+                            col_idx = rsp_beat_cnt << $clog2(ELEMENTS_PER_BEAT_S8);
+                        end
                         
                         // 数据解析与存储
                         if (cfg_use_16bits) begin
@@ -653,28 +657,26 @@ assign icb_cmd_len=read_burst_length-1;
      always_ff @(posedge clk or negedge rst_n) begin
          if (!rst_n) begin
              send_row_idx <= '0;
-             ia_sending_done <= '0;
+             ia_sending_done_reg <= '0;
          end else begin
              case (state)
                  SEND: begin
-                     //if (send_ia_trigger || (send_row_idx > 0 && send_row_idx < valid_rows)) begin
-                     //    if (send_row_idx == valid_rows - 1) begin
-                     if (send_ia_trigger || (send_row_idx > 0 && send_row_idx <= valid_rows)) begin
-                         if (send_row_idx == valid_rows ) begin
-                             ia_sending_done <= 1'b1;
+                     if (send_ia_trigger || (send_row_idx > 0 && send_row_idx < valid_rows)) begin
+                         if (send_row_idx == valid_rows - 1) begin
+                             ia_sending_done_reg <= 1'b1;
                              send_row_idx <= '0;
                          end else begin
                              send_row_idx <= send_row_idx + 1;
-                             ia_sending_done <= 1'b0;
+                             ia_sending_done_reg <= 1'b0;
                          end
                      end else begin
-                         ia_sending_done <= 1'b0;
+                         ia_sending_done_reg <= 1'b0;
                      end
                  end
  
                  default: begin
                      send_row_idx <= '0;
-                     ia_sending_done <= '0;
+                     ia_sending_done_reg <= '0;
                  end
              endcase
          end
@@ -692,7 +694,7 @@ assign icb_cmd_len=read_burst_length-1;
                  load_ia_req <= 1'b1;
              end 
              // SEND状态发送完成后，如果不是最后一个tile，需要申请下一个tile
-             else if (state == SEND && ia_sending_done && 
+             else if (state == SEND && ia_sending_done_reg && 
                  !(is_last_row_tile && is_last_col_tile && is_last_loop) && !load_ia_req) begin
                  load_ia_req <= 1'b1;
              end 
@@ -706,25 +708,24 @@ assign icb_cmd_len=read_burst_length-1;
      // ia_out输出赋值 
      // =========================================================================
      always_ff @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
-           ia_row_valid <= 1'b0;
-        end else begin
-            if (state == SEND && send_ia_trigger) begin
-                ia_row_valid <= 1'b1;
-            end 
-           //else if (state == SEND && send_row_idx== valid_rows - 1) begin
-           else if (state == SEND && send_row_idx== valid_rows ) begin
-               ia_row_valid <= 1'b0;
-           end
-        end
-    end
+         if (!rst_n) begin
+            ia_row_valid <= 1'b0;
+         end else begin
+             if (state == SEND && send_ia_trigger) begin
+                 ia_row_valid <= 1'b1;
+             end 
+            else if (state == SEND && send_row_idx== valid_rows - 1) begin
+                ia_row_valid <= 1'b0;
+            end
+         end
+     end
+  
      // =========================================================================
      // 输出赋值
      // =========================================================================
      assign ia_data_valid = ia_data_valid_reg;
-     //assign ia_sending_done = ia_sending_done;
+     assign ia_sending_done = ia_sending_done_reg;
      //assign ia_row_valid = (state == SEND) && (send_row_idx > 0 || send_ia_trigger);
-     //assign ia_row_valid = (state == SEND) && (send_row_idx > 0);// || send_ia_trigger);
      assign ia_is_init_data = is_first_tile && (state == SEND);
      assign ia_calc_done = (is_last_col_tile && is_last_loop) && (state == SEND);
  
