@@ -125,10 +125,10 @@ debug_comp:
 	export FSDB_ENABLE_CLASS;
 	export FSDB_ENABLE_EXPAND_CLASS=1;
 	export VERDI_ENHANCE_DYNAMIC_OBJECT;
-	vcs -full64 -sverilog +v2k -timescale=1ns/1ps -debug_access+class+dmptf+all -kdb -lca -ntb_opts uvm-1.2 +define+UVM_VERDI_COMPWAVE-full64 -f $(rtl_list).f 	-f $(sim_list).f +incdir+$(my_incdir) +dump_fsdb 
+	vcs -full64 -sverilog +v2k -timescale=1ns/1ps -debug_access+class+dmptf+all  -debug_access+dmptf -kdb -lca -ntb_opts uvm-1.2 +define+UVM_VERDI_COMPWAVE-full64 -f $(rtl_list).f 	-f $(sim_list).f +incdir+$(my_incdir) +dump_fsdb 
 
 debug_sim:
-	./simv -l run.log +fsdb+variant_size_array +UVM_VERDI_TRACE=" HIER+COMPWAVE" +fsdbfile+wave$(CASE).fsdb
+	./simv -l run.log +fsdb+variant_size_array+functions +UVM_VERDI_TRACE=" HIER+COMPWAVE" +fsdbfile+wave$(CASE).fsdb
 
 
 #debug_vcs:

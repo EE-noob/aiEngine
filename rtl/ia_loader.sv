@@ -86,7 +86,7 @@
 
  `include "../include/define.svh"
  `include "../include/icb_types.svh"
- 
+//TODO: 零点偏移没有验证 
  // 输入激活加载控制器，双缓冲区交替向脉动阵列加载输入数据
  module ia_loader #(
      parameter int unsigned DATA_WIDTH = 16,   // 单个输入数据宽度
@@ -197,7 +197,7 @@
      // 发送控制
      // =========================================================================
      reg [REG_WIDTH-1:0] send_row_idx;
-     reg ia_data_valid_reg;
+     //reg ia_data_valid;
  
      // =========================================================================
      // ICB响应接收控制
@@ -220,8 +220,17 @@
      // 辅助信号
      // =========================================================================
     
-     wire is_last_col_tile = (tile_col_idx == row_tile_num - 1);
-     wire is_last_row_tile = (tile_row_idx == col_tile_num - 1);
+    //  wire is_last_col_tile = (tile_col_idx == row_tile_num - 1);
+    //  wire is_last_row_tile = (tile_row_idx == col_tile_num - 1);
+    // wire is_last_col_tile = (tile_col_idx == col_tile_num - 1);
+    // wire is_last_row_tile = (tile_row_idx == row_tile_num - 1);
+      // 正确的判断逻辑：!!!!!!
+     // tile_col_idx 是列方向索引，应该与 row_tile_num 比较（一行有多少个tile）
+     // tile_row_idx 是行方向索引，应该与 col_tile_num 比较（一列有多少个tile）
+    wire is_last_col_tile = (tile_col_idx == row_tile_num - 1);
+    wire is_last_row_tile = (tile_row_idx == col_tile_num - 1);
+
+
      wire is_last_loop = (loop_row_cnt == loop_row_num - 1);
      wire is_first_tile = (tile_col_idx == 0);
      wire cmd_hs = icb_cmd_valid && icb_cmd_ready;
@@ -232,6 +241,14 @@
     // =========================================================================
     // 单段式状态机 - 现态更新与次态逻辑合并
     // =========================================================================
+     logic  is_last_row_tile_dff;
+     always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            is_last_row_tile_dff<=0;
+        end else begin
+            is_last_row_tile_dff<=is_last_row_tile;
+        end
+     end
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             state <= IDLE;
@@ -250,12 +267,14 @@
 
                 LOAD: begin
                     // 当所有响应接收完毕时转到SEND
-                    if (ia_data_valid_reg)
+                    if (ia_data_valid)
                         state <= SEND;
                 end
 
                 SEND: begin
-                        if (is_last_row_tile && is_last_col_tile && is_last_loop)
+                        //if (is_last_row_tile && is_last_col_tile && is_last_loop)
+                        //if (is_last_row_tile && (tile_col_idx == col_tile_num ) && is_last_loop)
+                        if ( !is_last_row_tile && is_last_row_tile_dff)// is_last_loop的下降沿
                             state <= IDLE;
                         else if (load_ia_granted)
                             // 等待授权后才进入下一个LOAD
@@ -397,17 +416,48 @@
      // =========================================================================
      // 有效行列数计算
      // =========================================================================
+             logic [REG_WIDTH-1:0] next_tile_col_idx;
      always_ff @(posedge clk or negedge rst_n) begin
          if (!rst_n) begin
              rows_to_read <= '0;
              valid_rows <= '0;
              valid_cols <= '0;
-         end else if (state == INIT || (state == SEND && ia_sending_done)) begin
-             valid_rows <= is_last_row_tile ? (SIZE - col_tile_rem) : SIZE;
-             valid_cols <= is_last_col_tile ? (SIZE - row_tile_rem) : SIZE;
-             rows_to_read <= is_last_row_tile ? (SIZE - col_tile_rem) : SIZE;
+         end else if (state == INIT) begin
+             // INIT状态就计算好第一个tile的有效行列
+             valid_rows <= (col_tile_num == 1) ? (SIZE - col_tile_rem) : SIZE;
+             valid_cols <= (row_tile_num == 1) ? (SIZE - row_tile_rem) : SIZE;
+             rows_to_read <= (col_tile_num == 1) ? (SIZE - col_tile_rem) : SIZE;
+         end else if (state == SEND && ia_sending_done) begin
+             // SEND完成后，为下一个tile计算有效行列
+             // 判断下一个tile的行索引
+             logic [REG_WIDTH-1:0] next_tile_row_idx;
+             if (is_last_loop && is_last_col_tile)
+                 next_tile_row_idx = tile_row_idx + 1;
+             else
+                 next_tile_row_idx = tile_row_idx;
+             
+             // 根据下一个tile的行索引判断是否是最后一行tile
+             if (next_tile_row_idx == col_tile_num - 1) begin
+                 valid_rows <= SIZE - col_tile_rem;
+                 rows_to_read <= SIZE - col_tile_rem;
+             end else begin
+                 valid_rows <= SIZE;
+                 rows_to_read <= SIZE;
+             end
+             
+             // 列方向类似
+             if (is_last_col_tile)
+                 next_tile_col_idx = 0;
+             else
+                 next_tile_col_idx = tile_col_idx + 1;
+             
+             if (next_tile_col_idx == row_tile_num - 1)
+                 valid_cols <= SIZE - row_tile_rem;
+             else
+                 valid_cols <= SIZE;
          end
      end
+
 assign icb_cmd_len=read_burst_length-1; 
      // =========================================================================
      // ICB读请求发送
@@ -428,6 +478,7 @@ assign icb_cmd_len=read_burst_length-1;
                         if (!icb_cmd_valid || cmd_hs) begin
                             icb_cmd_valid <= 1'b1;
                             icb_cmd_read <= 1'b1;
+                            current_read_row <= current_read_row + 1;
                             
                             // 计算当前行的地址//TODO:改成加法
                             icb_cmd_addr <= current_tile_addr +(current_read_row ) * cfg_lhs_row_stride_b;
@@ -438,11 +489,6 @@ assign icb_cmd_len=read_burst_length-1;
                             end else begin
                                 read_burst_length <= ((SIZE << (cfg_use_16bits ? 1 : 0)) + BYTE_PER_BEAT - 1) >> $clog2(BYTE_PER_BEAT);
                             end
-                            
-
-                            // 请求握手成功，移到下一行
-                            //if (cmd_hs)
-                                current_read_row <= current_read_row + 1;
                         end
                     end else begin
                         // 当前tile所有行已发送完读请求
@@ -626,23 +672,23 @@ assign icb_cmd_len=read_burst_length-1;
     // =========================================================================
      always_ff @(posedge clk or negedge rst_n) begin
          if (!rst_n) begin
-             ia_data_valid_reg <= '0;
+             ia_data_valid <= '0;
          end else begin
              case (state)
                  LOAD: begin
                     // 当前tile的最后一个beat接收完成时拉高
                      if (rsp_hs && rsp_beat_cnt == rsp_current_beats - 1 && rsp_row_cnt == rsp_current_rows - 1)
-                        ia_data_valid_reg <= 1'b1;
+                        ia_data_valid <= 1'b1;
                  end
  
                  SEND: begin
                     // 开始发送时拉低
                      if (send_ia_trigger || send_row_idx > 0)
-                         ia_data_valid_reg <= 1'b0;
+                         ia_data_valid <= 1'b0;
                  end
  
                  default:
-                     ia_data_valid_reg <= '0;
+                     ia_data_valid <= '0;
              endcase
          end
      end
@@ -721,7 +767,7 @@ assign icb_cmd_len=read_burst_length-1;
      // =========================================================================
      // 输出赋值
      // =========================================================================
-     assign ia_data_valid = ia_data_valid_reg;
+     //assign ia_data_valid = ia_data_valid;
      //assign ia_sending_done = ia_sending_done;
      //assign ia_row_valid = (state == SEND) && (send_row_idx > 0 || send_ia_trigger);
      //assign ia_row_valid = (state == SEND) && (send_row_idx > 0);// || send_ia_trigger);
